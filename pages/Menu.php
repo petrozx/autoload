@@ -2,7 +2,7 @@
 class Menu 
 {
     public function list(){
-        $_SESSION['message'] = '
+        $GLOBALS['content'] = '
         <ul>
             <li>Плов</li>
             <li>Борщ</li>
@@ -12,6 +12,15 @@ class Menu
         ';
     }
     public function index(){
-        $_SESSION['message'] = 'индексный метод';
+        $GLOBALS['css'] = '/css/style.css';
+        $GLOBALS['content'] = Menu::content();
+    }
+
+    static function content() {
+        return '
+        <div class="fluger">
+            <h1>Привет это новый способ</h1>
+        </div>
+        ';
     }
 }

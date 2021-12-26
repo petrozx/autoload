@@ -9,8 +9,8 @@ class Car
     }
 
     public function mycar($name) {
-        $_SESSION['message'] = '<div id="root"></div>';
-        $_SESSION['script'] = '/js/script.jsx';
+        $GLOBALS['content'] = '<div id="root"></div>';
+        $GLOBALS['script'] = '/js/script.jsx';
 
     }
 
