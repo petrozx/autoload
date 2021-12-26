@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   }
 create('div', '#root', 'Ваша марка:')
 
-  function create(elem, node, text) {
+  function create(elem, node, text="") {
     const el = document.createElement(elem)
     el.innerText = text
     insertAfter(body, el, $(node))
