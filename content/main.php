@@ -12,7 +12,7 @@
     <body>
         <div class="wrapper">
             <h1>Hi you are on my site</h1>
-            <?=$GLOBALS['content']?></br>
+            <?=$GLOBALS['content']?>
             <ul>
                 <li><a href="/car/mycar/">выберите машину</a></li>
                 <li><a href="/showhello/sayhello/">Скажите привет</a></li>
