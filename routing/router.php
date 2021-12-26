@@ -8,7 +8,7 @@ Class Router
         [$class,$method, $name] = $this->parseURL($url);
         $method = $method?:'index';
         $file = './pages/'. $class.'.php';
-
+        var_dump(file_exists('./pages/Car.php'));
         if ($url=='/') {
             $_SESSION['message'] = 'Главная страница';
         } else {
@@ -26,7 +26,6 @@ Class Router
     {
         $result = trim(str_replace('/', " ", $url));
         $result = explode(" ", $result);
-        var_dump($result);
         return $result;
     }
 
