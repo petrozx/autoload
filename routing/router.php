@@ -10,10 +10,10 @@ Class Router
         $method = $method?:'index';
         $file = './pages/'. $class.'.php';
         if ($url=='/') {
-            $_SESSION['message'] = 'Главная страница';
+            $GLOBALS['content'] = 'Главная страница';
         } else {
             if (!file_exists($file) || !is_callable([$class, $method])){
-                $_SESSION['message'] = 'Запрашиваемой страницы не существует';
+                $GLOBALS['content'] = 'Запрашиваемой страницы не существует';
             } else {
                 $instance = new $class($name);
                 call_user_func([$instance, $method], $name);
