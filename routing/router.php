@@ -6,11 +6,12 @@ Class Router
     public function __construct($url)
     {
         [$class,$method, $name] = $this->parseURL($url);
+        $method = $method?:'index';
         $file = 'pages/'. $class.'.php';
         if ($url=='/') {
             $_SESSION['message'] = 'Главная страница';
         } else {
-            if (!file_exists($file)){
+            if (!file_exists($file) || !is_callable([$class, $method])){
                 $_SESSION['message'] = 'Запрашиваемой страницы не существует';
             } else {
                 $instance = new $class($name);
