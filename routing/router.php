@@ -6,9 +6,9 @@ Class Router
     public function __construct($url)
     {
         [$class,$method, $name] = $this->parseURL($url);
+        $class = ucfirst($class);
         $method = $method?:'index';
-        $file = './pages/'. $class.'.php';
-        var_dump(file_exists('./pages/car.php'));
+        $file = '/pages/'. $class.'.php';
         if ($url=='/') {
             $_SESSION['message'] = 'Главная страница';
         } else {
