@@ -7,7 +7,7 @@ Class Router
     {
         [$class,$method, $name] = $this->parseURL($url);
         $method = $method?:'index';
-        $file = __DIR__.'/pages/'. $class.'.php';
+        $file = 'http://petroz.myjino.ru/pages/'. $class.'.php';
         var_dump(file_exists($file));
         if ($url=='/') {
             $_SESSION['message'] = 'Главная страница';
