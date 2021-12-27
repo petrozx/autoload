@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     const btnSend = document.getElementById('send');
     const form = document.getElementById('register');
+    get()
     btnSend.addEventListener('click', (e) => {
         e.preventDefault()
         send(form)
@@ -17,7 +18,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
             body: formData,
         })
         const response = await request.json()
+        return response
+    }
+
+    async function get() {
+        const request = await fetch('/actions/login.php')
+        const response = await request.json()
         console.log(response);
+        return response
     }
 
 })
