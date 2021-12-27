@@ -1,7 +1,7 @@
+Deny from all
 RewriteEngine On
 Options +FollowSymlinks
 RewriteBase /
-Deny from all
 DirectoryIndex index.php
 
 RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|jsx|tif|tiff|docx|xlsx|ico|php)$|test\.php$
