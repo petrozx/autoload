@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     console.log(usersArr);
     btnSend.addEventListener('click', async(e) => {
         e.preventDefault()
-        const isExist = usersArr.forEach(el=>{
+        const isExist = usersArr.find(el=>{
             if(el.indexOf(inputEmail.value)+1){
                 return true
             }
