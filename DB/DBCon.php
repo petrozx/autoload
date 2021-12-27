@@ -11,7 +11,7 @@ class DBCon
     }
 
     public function save($name, $password, $email) {
-        $result = $GLOBALS['mysqli']->query("INSERT INTO 'users'('name', 'password', 'email') VALUES ($name,$password,$email)");
+        $result = $GLOBALS['mysqli']->query("INSERT INTO users(name, password, email) VALUES ($name,$password,$email)");
         $GLOBALS['mysqli']->close();
     }
 }
