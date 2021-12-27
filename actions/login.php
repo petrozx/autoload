@@ -1,4 +1,5 @@
 <?
+header('Access-Control-Allow-Origin: *');
 require_once('../DB/DBCon.php');
 
 $post = $_POST;
