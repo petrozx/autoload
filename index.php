@@ -1,5 +1,5 @@
 <?
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: http://petroz.myjino.ru/');
 header('Access-Control-Allow-Methods: GET, POST');
 header("Access-Control-Allow-Headers: X-Requested-With");
 require_once('launch.php');
@@ -12,4 +12,3 @@ new Router(
 
 require('content/main.php');
 ?>
-
