@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             headers: {
                 contentType: "application/json",
                 authorization: "petroz:198719pv"
-            }
+            },
             mode: 'no-cors',
             body: formData,
         })
