@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', async()=>{
     const btnSend = document.getElementById('send');
     const form = document.getElementById('register');
-    const usersArr = get()
+    const usersArr = await get()
     console.log(usersArr);
     btnSend.addEventListener('click', (e) => {
         e.preventDefault()
