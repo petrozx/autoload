@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const isExist = usersArr.find((el,key)=>{
         console.log(el, key);
     })
-    btnSend.addEventListener('click', (e) => {
+    btnSend.addEventListener('click', async(e) => {
         e.preventDefault()
         const newUser = await send(form)
 
