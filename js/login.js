@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', async()=>{
                 return
             }
         })
-        !isExist?send(form):console.log('такой пользователь существует');
+        $resp = !isExist?await send(form):false;
+        $resp??location.reload('http://petroz.myjino.ru/')
 
     })
 
