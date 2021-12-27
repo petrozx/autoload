@@ -11,9 +11,8 @@ document.addEventListener('DOMContentLoaded', async()=>{
                 return
             }
         })
-        $resp = !isExist?await send(form):false;
-        console.log($resp);
-        $resp?window.location.href = 'http://petroz.myjino.ru/index.php':console.log("пользователь с тако1 почтой существует");
+        const resp = !isExist?await send(form):false;
+        resp?window.location.href = 'http://petroz.myjino.ru/':console.log("пользователь с тако1 почтой существует");
 
     })
 
