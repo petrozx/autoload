@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         const request = await fetch('http://autoload/actions/login.php', {
             method: "POST",
             body: formData,
+            mode: 'cors'
         })
         const response = await request.json()
         console.log(response);
