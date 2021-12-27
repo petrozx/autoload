@@ -1,4 +1,3 @@
-    <?header('Access-Control-Allow-Origin: *');?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -19,6 +18,7 @@
                     <li><a href="/showhello/sayhello/">Скажите привет</a></li>
                     <li><a href="/menu/list/">Наше меню</a></li>
                     <li><a href="/">Главная</a></li>
+                    <li><a href="/login/register">Регитрация</a></li>
                 </ul>
             </nav>
             <h1>Hi you are on my site</h1>
