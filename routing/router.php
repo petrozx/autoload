@@ -8,7 +8,7 @@ Class Router
         [$class,$method, $name] = $this->parseURL($url);
         $class = ucfirst($class);
         $method = $method?:'index';
-        $file = './pages/'. $class.'.php';
+        $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class.'.php';
         if ($url=='/') {
             $GLOBALS['content'] = 'Главная страница';
         } else {
