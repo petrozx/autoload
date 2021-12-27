@@ -9,6 +9,7 @@ Class Router
         $class = ucfirst($class);
         $method = $method?:'index';
         $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class.'.php';
+        var_dump($file);
         if ($url=='/') {
             $GLOBALS['content'] = 'Главная страница';
         } else {
