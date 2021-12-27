@@ -17,7 +17,7 @@ class DBCon
         $nameUser = $name;
         $passwordUser = $password;
         $emailUser = $email;
-        $stmt->bind_param("is", $nameUser, $passwordUser, $emailUser);
+        $stmt->bind_param("sssd", $nameUser, $passwordUser, $emailUser);
         var_dump($stmt);
         // $stmt->execute();
         $GLOBALS['mysqli']->close();
