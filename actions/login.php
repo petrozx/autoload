@@ -1,4 +1,9 @@
 <?
+
+if(!defined('MyConst')) {
+    die('Direct access not permitted');
+ }
+
 require_once('../DB/DBCon.php');
 $get = $_GET;
 $post = $_POST;
