@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     const btnSend = document.getElementById('send');
     const form = document.getElementById('register');
-    get()
+    const usersArr = await get()
+    console.log(usersArr);
     btnSend.addEventListener('click', (e) => {
         e.preventDefault()
         send(form)
@@ -24,7 +25,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     async function get() {
         const request = await fetch('/actions/login.php')
         const response = await request.json()
-        console.log(response);
         return response
     }
 
