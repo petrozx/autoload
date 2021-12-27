@@ -19,7 +19,7 @@ class DBCon
         $emailUser = $email;
         $stmt->bind_param("sss", $nameUser, $passwordUser, $emailUser);
         var_dump($stmt);
-        // $stmt->execute();
+        $stmt->execute();
         $GLOBALS['mysqli']->close();
     }
 }
