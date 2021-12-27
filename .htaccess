@@ -4,8 +4,10 @@ RewriteBase /
 
 DirectoryIndex index.php
 
-RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|jsx|tif|tiff|docx|xlsx|ico)$|test\.php$
+RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|jsx|tif|tiff|docx|xlsx|ico|php)$|test\.php$
+
 RewriteRule ^(.*)$ $1 [L,QSA]
 
-RewriteRule ^(.*)$ index.php [L]
+#RewriteRule ^(.*)$ index.php [L]
 
+RewriteRule ^(.*)$ index.php?params=$1 [L,QSA]
