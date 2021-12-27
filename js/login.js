@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             }
         })
         $resp = !isExist?await send(form):false;
-        $resp?location.reload('http://petroz.myjino.ru/index.php'):console.log("пользователь с тако1 почтой существует");
+        $resp?window.location.href('http://petroz.myjino.ru/index.php'):console.log("пользователь с тако1 почтой существует");
 
     })
 
