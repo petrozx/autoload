@@ -1,17 +1,17 @@
 <?
 class DBCon
 {
-    public function __construct($name, $password, $email) {
+    public function __construct() {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $conn = new mysqli('mysql.petroz.myjino.ru', 'petroz', '198719pv', 'petroz');
-        if ($conn->connect_errno) {
-            throw new RuntimeException('ошибка соединения с БД: ' . $conn->connect_error);
+        $GLOBALS['mysqli'] = new mysqli('mysql.petroz.myjino.ru', 'petroz', '198719pv', 'petroz');
+        if ($GLOBALS['mysqli']->connect_errno) {
+            throw new RuntimeException('ошибка соединения с БД: ' . $GLOBALS['mysqli']->connect_error);
         }
-        $conn->set_charset('utf8mb4');
-        $result = $conn->query("INSERT INTO `users`(`name`, `password`, `email`) VALUES ($name,$password,$email)");
-        $conn->close();
+        $GLOBALS['mysqli']->set_charset('utf8mb4');
     }
 
-    public function save() {
+    public function save($name, $password, $email) {
+        $result = $GLOBALS['mysqli']->query("INSERT INTO 'users'('name', 'password', 'email') VALUES ($name,$password,$email)");
+        $GLOBALS['mysqli']->close();
     }
 }
