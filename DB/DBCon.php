@@ -20,7 +20,11 @@ class DBCon
 
     public function getUsers() {
         $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM users");
-        $stmt->execute();
+        $result = $stmt->execute();
+        while ($row = $result->fetch_row()) {
+            $arr[] = $row;
+        }
+        return $arr;
     }
 
     public function close() {
