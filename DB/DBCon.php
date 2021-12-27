@@ -13,8 +13,8 @@ class DBCon
     public function save($name, $password, $email) {
         $stmt = $GLOBALS['mysqli']->prepare("INSERT INTO users(nameUser, passwordUser, emailUser) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $name, $password, $email);
-        $req = $stmt->execute();
-        $id = $req->insert_id();
+        $stmt->execute();
+        $id = $GLOBALS['mysqli']->mysqli_insert_id();
         return $id;
     }
 
