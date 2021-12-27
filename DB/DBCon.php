@@ -14,8 +14,8 @@ class DBCon
         $stmt = $GLOBALS['mysqli']->prepare("INSERT INTO users(nameUser, passwordUser, emailUser) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $name, $password, $email);
         $stmt->execute();
-        $id = $GLOBALS['mysqli']->mysqli_insert_id();
-        return $id;
+        $result = $stmt->get_result();
+        return $result;
     }
 
     public function getUsers() {
