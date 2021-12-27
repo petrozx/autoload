@@ -8,11 +8,10 @@ document.addEventListener('DOMContentLoaded', async()=>{
         e.preventDefault()
         const isExist = usersArr.find(el=>{
             if(el.indexOf(inputEmail.value)+1){
-                return true
+                return
             }
         })
-        console.log(isExist);
-        isExist?send(form):console.log('такой пользователь существует');
+        !isExist?send(form):console.log('такой пользователь существует');
 
     })
 
