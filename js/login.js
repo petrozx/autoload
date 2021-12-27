@@ -10,9 +10,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             if (el[key] == inputEmail.value){
                 return false
             }
-            return true
         })
-        console.log(inputEmail.value);
         isExist?send(form):console.log('такой пользователь существует');
 
     })
