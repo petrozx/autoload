@@ -11,15 +11,19 @@ class DBCon
     }
 
     public function save($name, $password, $email) {
-        $request = "'".$name."'".","."'".$password."'".","."'".$email."'";
         $stmt = $GLOBALS['mysqli']->prepare("INSERT INTO users(nameUser, passwordUser, emailUser) VALUES (?, ?, ?)");
-        // $result = $GLOBALS['mysqli']->query("INSERT INTO users (nameUser, passwordUser, emailUser) VALUES ($request)");
-        $nameUser = $name;
-        $passwordUser = $password;
-        $emailUser = $email;
-        $stmt->bind_param("sss", $nameUser, $passwordUser, $emailUser);
-        var_dump($stmt);
+        $stmt->bind_param("sss", $name, $password, $email);
         $stmt->execute();
+        $id = $GLOBALS['mysqli']->last_insert_id();
+        return $id;
+    }
+
+    public function getUsers() {
+        $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM users");
+        $stmt->execute();
+    }
+
+    public function close() {
         $GLOBALS['mysqli']->close();
     }
 }
