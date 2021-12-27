@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
                 return true
             }
         })
-        console.log(isExist);
+        console.log(inputEmail.value);
         isExist?send(form):console.log('такой пользователь существует');
 
     })
