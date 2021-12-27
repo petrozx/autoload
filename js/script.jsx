@@ -10,19 +10,19 @@ document.addEventListener('DOMContentLoaded',()=>{
     option.textContent = e;
     select.append(option)
   })
-  let nameA=''
-  const div = document.createElement('div')
+
+
   document.querySelector('select').onchange=(e)=>{
-    nameA=e.target.value
-    div.textContent=nameA
+    $('.name-car')?.remove()
+    const nameA=e.target.value
+    create('h1', 'name-car','.new-class', nameA)
   }
-  insertAfter(body,div, root)
-
-  function insertAfter(parent, node, referenceNode) {
-    parent.insertBefore(node, referenceNode.nextSibling);
-}
 
 
+  
+  create('div', 'new-class','#root', 'Ваша марка:')
+  
+  
   function $(node) {
     const items = document.querySelectorAll(node)
     if (items.length > 1){
@@ -31,11 +31,15 @@ document.addEventListener('DOMContentLoaded',()=>{
       return items[0]
     }
   }
-create('div', '#root', 'Ваша марка:')
+  
+  function insertAfter(parent, node, referenceNode) {
+    parent.insertBefore(node, referenceNode.nextSibling);
+}
 
-  function create(elem, node, text="") {
-    const el = document.createElement(elem)
+  function create(tag, classname, node, text="") {
+    const el = document.createElement(tag)
     el.innerText = text
+    classname&&(el.className = classname)
     insertAfter(body, el, $(node))
   }
 
