@@ -4,12 +4,11 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const inputEmail = document.querySelector('[name=email]')
     const usersArr = await get()
     console.log(usersArr);
-    const is_exist = usersArr.find((el,key)=>{
+    const isExist = usersArr.find((el,key)=>{
         console.log(el, key);
     })
     btnSend.addEventListener('click', (e) => {
         e.preventDefault()
-        if (inputEmail.value)
         const newUser = await send(form)
 
     })
