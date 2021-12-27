@@ -18,7 +18,8 @@ class DBCon
         $passwordUser = $password;
         $emailUser = $email;
         $stmt->bind_param("is", $nameUser, $passwordUser, $emailUser);
-        $stmt->execute();
+        var_dump($stmt);
+        // $stmt->execute();
         $GLOBALS['mysqli']->close();
     }
 }
