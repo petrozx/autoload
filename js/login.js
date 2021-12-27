@@ -6,11 +6,8 @@ document.addEventListener('DOMContentLoaded', async()=>{
     console.log(usersArr);
     btnSend.addEventListener('click', async(e) => {
         e.preventDefault()
-        const isExist = usersArr.find((el,key)=>{
-            if (el[key] == inputEmail.value){
-                return false
-            }
-        })
+        const isExist = usersArr.find(inputEmail.value)
+        console.log(isExist);
         isExist?send(form):console.log('такой пользователь существует');
 
     })
