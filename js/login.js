@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     async function send(data) {
         const formData = new FormData(data)
-        const request = await fetch('http://autoload/actions/login.php', {
+        const request = await fetch('/actions/login.php', {
             method: "POST",
             headers: {
                 contentType: "application/x-www-form-urlencoded"
