@@ -15,6 +15,7 @@ class DBCon
         $stmt->bind_param("sss", $name, $password, $email);
         $stmt->execute();
         $result = $GLOBALS['mysqli']->lastInsertId();
+        $GLOBALS['mysqli']->close();
         return $result;
     }
 
@@ -24,6 +25,6 @@ class DBCon
     }
 
     public function close() {
-        $GLOBALS['mysqli']->close();
+        
     }
 }
