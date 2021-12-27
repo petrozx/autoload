@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             }
         })
         $resp = !isExist?await send(form):false;
-        $resp??location.reload('http://petroz.myjino.ru/')
+        $resp&&location.reload('http://petroz.myjino.ru/')
 
     })
 
