@@ -1,7 +1,4 @@
 <?
-if(!defined('MyConst')) {
-    die('Direct access not permitted');
- }
 class DBCon
 {
     public function __construct() {
