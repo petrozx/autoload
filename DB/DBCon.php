@@ -21,7 +21,7 @@ class DBCon
     public function getUsers() {
         $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM users");
         $result = $stmt->execute();
-        while ($row = $result->fetch_row()) {
+        while ($row = $GLOBALS['mysqli']->fetch_row()) {
             $arr[] = $row;
         }
         return $arr;
