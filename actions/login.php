@@ -1,18 +1,13 @@
 <?
-
-if(!defined('MyConst')) {
-    die('Direct access not permitted');
- }
-
+header('Access-Control-Allow-Origin: http://petroz.myjino.ru/');
 require_once('../DB/DBCon.php');
-$get = $_GET;
 $post = $_POST;
-if (!empty($post)){
+if ($post['method'] == 'reg'){
     $db = new DBCon();
     $id = $db->save($post['name'], $post['password'], $post['email']);
     echo json_encode(['id' => $id]);
     $db->close();
-} else {
+} elseif ($post['method'] == 'allUser') {
     $db = new DBCon();
     $users = $db->getUsers();
     echo json_encode($users);

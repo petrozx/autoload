@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     async function send(data) {
         const formData = new FormData(data)
+        formData.append('method', 'reg')
         const request = await fetch('/actions/login.php', {
             method: "POST",
             headers: {
@@ -31,7 +32,16 @@ document.addEventListener('DOMContentLoaded', async()=>{
     }
 
     async function get() {
-        const request = await fetch('/actions/login.php')
+        const formData = new FormData()
+        formData.append('method', 'allUser')
+        const request = await fetch('/actions/login.php', {
+            method: "POST",
+            headers: {
+                contentType: "application/x-www-form-urlencoded"
+            },
+            mode: 'no-cors',
+            body: formData,
+        })
         const response = await request.json()
         return response
     }
