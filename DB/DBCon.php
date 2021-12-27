@@ -10,8 +10,8 @@ class DBCon
         $GLOBALS['mysqli']->set_charset('utf8mb4');
     }
 
-    public function save($name, $password, $email) {
-        $result = $GLOBALS['mysqli']->query("INSERT INTO users (nameUser, passwordUser, emailUser) VALUES ($name,$password,$email)");
+    public function save() {
+        $result = $GLOBALS['mysqli']->query("INSERT INTO users (nameUser, passwordUser, emailUser) VALUES ('petr', 'petr', 'petroz.inbox.ru')");
         $GLOBALS['mysqli']->close();
     }
 }
