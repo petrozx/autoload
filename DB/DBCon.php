@@ -12,7 +12,10 @@ class DBCon
 
     public function save($name, $password, $email) {
         $request = "'".$name."'".","."'".$password."'".","."'".$email."'";
-        $result = $GLOBALS['mysqli']->query("INSERT INTO users (nameUser, passwordUser, emailUser) VALUES ($request)");
+        $stmt = $GLOBALS['mysqli']->prepare("INSERT INTO users (nameUser, passwordUser, emailUser) VALUES (?, ?, ?)");
+        // $result = $GLOBALS['mysqli']->query("INSERT INTO users (nameUser, passwordUser, emailUser) VALUES ($request)");
+        $stmt->bind_param("is", $name, $password, $email);
+        $stmt->execute();
         $GLOBALS['mysqli']->close();
     }
 }
