@@ -7,6 +7,7 @@ Class Router
     {
         [$class,$method, $name] = $this->parseURL($url);
         $class = ucfirst($class)?:'Index';
+        echo $class;
         $method = $method?:'index';
         $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class.'.php';
         if (!file_exists($file) || !is_callable([$class, $method])){
