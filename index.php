@@ -7,7 +7,7 @@ try {
         $_SERVER['REQUEST_URI']
     );
 } catch (Exception $e) {
-    $GLOBALS['content'] = $e->getMessage(), "\n";
+    $GLOBALS['content'] = $e->getMessage();
 }
 require('content/main.php');
 ?>
