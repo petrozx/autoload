@@ -10,6 +10,6 @@ if ($post['method'] == 'reg'){
 } elseif ($post['method'] == 'allUser') {
     $db = new DBCon();
     $users = $db->getUsers();
-    echo json_encode($users);
+    echo json_encode($users, true);
     $db->close();
 }
