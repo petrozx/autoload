@@ -10,4 +10,4 @@ RewriteRule ^(.*)$ $1 [L,QSA]
 
 #RewriteRule ^(.*)$ index.php [L]
 
-#RewriteRule ^(.*)$ index.php?params=$1 [L,QSA]
+RewriteRule ^(.*)$ index.php?params=$1 [L,QSA]
