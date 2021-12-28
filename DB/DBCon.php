@@ -25,7 +25,12 @@ class DBCon
         while ($row = $query->fetch_row()) {
             $arr[] = $row;
         }
-        return $arr;
+        foreach($arr as $usr) {
+            $take = $this->insertBind($usr['num']);
+            $res = $this->decode($usr['hash'], $take);
+            $arrUsers[] = $res;
+        }
+        return $arrUsers;
     }
 
     public function close() {
@@ -35,6 +40,14 @@ class DBCon
     private function saveBind($num) {
         $stmt = $GLOBALS['mysqli']->prepare("INSERT INTO bindings(bind) VALUES (?)");
         $stmt->bind_param("i", $num);
+        $stmt->execute();
+        $result = $GLOBALS['mysqli']->insert_id;
+        return $result;
+    }
+
+    private function insertBind($id) {
+        $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM bindings WHERE id=(?)");
+        $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $GLOBALS['mysqli']->insert_id;
         return $result;
@@ -51,5 +64,18 @@ class DBCon
         }
         $arrResult = base64_encode($arrResult);
         return ['hash' => $arrResult, 'num' => $num];
+    }
+
+    private function decode($hash, $num) :array {
+    $string = base64_decode($hash);
+    $string = explode('x', $string);
+    unset($string[0]);
+
+    foreach($string as $el) {
+        $ch = $el-$num;
+        $stringi[] = chr($ch);
+    }
+    $stringi = explode(':', implode($stringi));
+    return $stringi;
     }
 }
