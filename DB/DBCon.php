@@ -32,7 +32,6 @@ class DBCon
         foreach($arr as $usr) {
             $take = $this->selecttBind($usr['num']);
             $res = $this->decode($usr['hash'], $take['bind']);
-            die(var_dump($res));
             $arrUsers[] = $res;
         }
         return $arrUsers;
