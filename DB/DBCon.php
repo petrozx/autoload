@@ -50,7 +50,7 @@ class DBCon
     }
 
     private function selecttBind($id) {
-        $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM bindings WHERE id=(?)");
+        $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM bindings WHERE id = (?)");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->num_rows();
