@@ -9,11 +9,16 @@ Class Router
         $class = ucfirst($class)?:'Index';
         $method = $method?:'index';
         $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class.'.php';
-        if (!file_exists($file) || !is_callable([$class, $method])) {
-            $GLOBALS['content'] = 'Запрашиваемой страницы не существует';
-        } else {
+        if ($url === '/'){
             $instance = new $class($name);
             call_user_func([$instance, $method], $name);
+        } else {
+            if (!file_exists($file) || !is_callable([$class, $method])) {
+                $GLOBALS['content'] = 'Запрашиваемой страницы не существует';
+            } else {
+                $instance = new $class($name);
+                call_user_func([$instance, $method], $name);
+            }
         }
     }
 
