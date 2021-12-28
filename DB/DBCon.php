@@ -29,7 +29,7 @@ class DBCon
             );
         }
         foreach($arr as $usr) {
-            $take = $this->insertBind($usr['num']);
+            $take = $this->selecttBind($usr['num']);
             die(var_dump($take));
             $res = $this->decode($usr['hash'], $take);
             $arrUsers[] = $res;
@@ -49,12 +49,12 @@ class DBCon
         return $result;
     }
 
-    private function insertBind($id) {
+    private function selecttBind($id) {
         $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM bindings WHERE id=(?)");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->num_rows();
-        return $result['bind'];
+        return $result;
     }
 
     private function encode($name, $pass, $email) {
