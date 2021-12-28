@@ -1,5 +1,6 @@
 <?
-header('Access-Control-Allow-Origin: http://petroz.myjino.ru/');
+header('Access-Control-Allow-Origin: http://petroz.myjino.ru');
+header('Access-Control-Allow-Methods: POST');
 require_once('../DB/DBCon.php');
 $post = $_POST;
 $db = new DBCon();
