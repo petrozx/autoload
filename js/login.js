@@ -2,18 +2,11 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const btnSend = document.getElementById('send');
     const form = document.getElementById('register');
     const inputEmail = document.querySelector('[name=email]')
-    const usersArr = await get()
-    console.log(usersArr);
+
+
     btnSend.addEventListener('click', async(e) => {
         e.preventDefault()
-        const isExist = usersArr?.find(el=>{
-            if(el.indexOf(inputEmail.value)+1){
-                return
-            }
-        })
-        const resp = !isExist?await send(form):false;
-        resp?window.location.href = 'http://petroz.myjino.ru/':console.log("пользователь с тако1 почтой существует");
-
+        console.log(send(form));
     })
 
     async function send(data) {
