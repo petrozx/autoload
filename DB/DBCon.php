@@ -89,7 +89,7 @@ class DBCon
     }
 
     $stringi = explode(':', implode($stringi));
-    $user[] = array(
+    $user = array(
         'name'  => $stringi[0],
         'pass'  => $stringi[1],
         'email' => $stringi[2]
