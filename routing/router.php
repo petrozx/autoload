@@ -11,10 +11,7 @@ Class Router
         $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class.'.php';
         try {
             $instance = new $class($name);
-            $res = call_user_func([$instance, $method], $name);
-            if($res){
-                die();
-            }
+            call_user_func([$instance, $method], $name);
         } catch (Exception $e) {
             throw new Exception('Запрашиваемый ресурс отсутствует');
         }
