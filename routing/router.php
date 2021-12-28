@@ -6,20 +6,15 @@ Class Router
     public function __construct($url)
     {
         [$class,$method, $name] = $this->parseURL($url);
-        $class = ucfirst($class);
+        $class = $class?:ucfirst($class);
         $method = $method?:'index';
         $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class.'.php';
-        if ($url=='/') {
-            $GLOBALS['content'] = 'Главная страница';
+        if (!file_exists($file) || !is_callable([$class, $method])){
+            $GLOBALS['content'] = 'Запрашиваемой страницы не существует';
         } else {
-            if (!file_exists($file) || !is_callable([$class, $method])){
-                $GLOBALS['content'] = 'Запрашиваемой страницы не существует';
-            } else {
-                $instance = new $class($name);
-                call_user_func([$instance, $method], $name);
-            }
+            $instance = new $class($name);
+            call_user_func([$instance, $method], $name);
         }
-
     }
 
     private function parseURL($url)
