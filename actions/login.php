@@ -4,12 +4,11 @@ require_once('../DB/DBCon.php');
 $post = $_POST;
 $db = new DBCon();
 $users = $db->getUsers();
-die(print_r($users, true));
 foreach ($users as $user) {
     if ($user['email'] === $post['email'] && $user['pass'] === $post['password']) {
-        return json_encode(['error' => 0, 'success' => 1]);
+        echo json_encode(['error' => 0, 'success' => 1]);
     } else {
-        return json_encode(['error' => 1, 'success' => 0]);
+        echo json_encode(['error' => 1, 'success' => 0]);
     }
 }
 
