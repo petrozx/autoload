@@ -7,7 +7,7 @@ try {
         $_SERVER['REQUEST_URI']
     );
 } catch (Exception $e) {
-    echo 'Поймано исключение: ',  $e->getMessage(), "\n";
+    $GLOBALS['content'] = $e->getMessage(), "\n";
 }
 require('content/main.php');
 ?>
