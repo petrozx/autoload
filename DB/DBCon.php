@@ -49,8 +49,8 @@ class DBCon
         $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM bindings WHERE id=(?)");
         $stmt->bind_param("i", $id);
         $stmt->execute();
-        $result = $GLOBALS['mysqli']->insert_id;
-        return $result;
+        $result = $GLOBALS['mysqli']->fetch_row();
+        return $result['bind'];
     }
 
     private function encode($name, $pass, $email) {
