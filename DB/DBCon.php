@@ -25,9 +25,9 @@ class DBCon
         while ($row = $query->fetch_row()) {
             $arr[] = $row;
         }
-        die(var_dump($arr));
         foreach($arr as $usr) {
             $take = $this->insertBind($usr['num']);
+            die(var_dump($take));
             $res = $this->decode($usr['hash'], $take);
             $arrUsers[] = $res;
         }
