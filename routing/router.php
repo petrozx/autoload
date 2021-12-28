@@ -5,8 +5,8 @@ Class Router
 
     public function __construct($url)
     {
-        [$class,$method, $name] = $this->parseURL($url);
-        $class = ucfirst($class)?:'index';
+        [$class, $method, $name] = $this->parseURL($url);
+        $class = ucfirst($class)?:'Index';
         $method = $method?:'index';
         $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class.'.php';
         var_dump(is_callable([$class, $method]));
