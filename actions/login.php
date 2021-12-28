@@ -8,8 +8,8 @@ foreach ($users as $user) {
     if ($user['email'] === $post['email'] && $user['pass'] === $post['password']) {
         die(json_encode(['error' => 0, 'success' => 1]));
     } 
-    die(json_encode(['error' => 1, 'success' => 0]));
 }
+die(json_encode(['error' => 1, 'success' => 0]));
 
 
 
