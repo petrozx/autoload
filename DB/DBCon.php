@@ -54,7 +54,7 @@ class DBCon
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $stmt->store_result();
-        $result = $stmt->num_rows();
+        $result = $stmt->fetch();
         return $result;
     }
 
