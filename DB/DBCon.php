@@ -49,7 +49,7 @@ class DBCon
         $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM bindings WHERE id=(?)");
         $stmt->bind_param("i", $id);
         $stmt->execute();
-        $result = $GLOBALS['mysqli']->fetch_row();
+        $result = $stmt->rows();
         return $result['bind'];
     }
 
