@@ -1,6 +1,5 @@
 <?php
 
-namespace Index\index;
 class Index
 {
     public function index() {
