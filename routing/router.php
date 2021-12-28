@@ -13,6 +13,8 @@ Class Router
             $instance = new $class($name);
             call_user_func([$instance, $method], $name);
         } catch (Exception $e) {
+            http_response_code(404);
+            die();
             $GLOBALS['content'] = 'Запрашиваемый ресурс отсутствует';
         }
         
