@@ -17,6 +17,7 @@ class DBCon
         $stmt->bind_param("si", $hash['hash'], $bind);
         $stmt->execute();
         $result = $GLOBALS['mysqli']->insert_id;
+        $stmt->close();
         return $result;
     }
 
@@ -46,15 +47,22 @@ class DBCon
         $stmt->bind_param("i", $num);
         $stmt->execute();
         $result = $GLOBALS['mysqli']->insert_id;
+        $stmt->close();
         return $result;
     }
 
     private function selecttBind($id) {
         $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM bindings WHERE id = (?)");
         $stmt->bind_param("i", $id);
+        $stmt->bind_result($idB, $bind);
         $stmt->execute();
-        $stmt->store_result();
-        $result = $stmt->fetch();
+        while ($stmt->fetch()){
+            $result = array(
+                'id'   => $idB,
+                'bind' => $bind
+            );
+        }
+        $stmt->close();
         return $result;
     }
 
