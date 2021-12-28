@@ -53,7 +53,7 @@ class DBCon
         return $result;
     }
 
-    private function encode($name, $pass, $email) :array {
+    private function encode($name, $pass, $email) {
         $num = substr(random_int(0,PHP_INT_MAX),0,5);
         $str = $name.':'.$pass.':'.$email;
         $arrFromStr = str_split($str);
@@ -66,7 +66,7 @@ class DBCon
         return ['hash' => $arrResult, 'num' => $num];
     }
 
-    private function decode($hash, $num) :array {
+    private function decode($hash, $num) {
     $string = base64_decode($hash);
     $string = explode('x', $string);
     unset($string[0]);
