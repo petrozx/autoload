@@ -10,10 +10,11 @@ class DBCon
         $GLOBALS['mysqli']->set_charset('utf8mb4');
     }
 
-    public function save($name, $password, $email) {
+    public function saveUser($name, $password, $email) {
         $hash = $this->encode($name, $password, $email);
-        $stmt = $GLOBALS['mysqli']->prepare("INSERT INTO users(user) VALUES (?)");
-        $stmt->bind_param("s", $hash);
+        $bind = $this->saveBind($hash['num']);
+        $stmt = $GLOBALS['mysqli']->prepare("INSERT INTO users(user, num) VALUES (?, ?)");
+        $stmt->bind_param("si", $hash['hash'], $bind);
         $stmt->execute();
         $result = $GLOBALS['mysqli']->insert_id;
         return $result;
@@ -29,6 +30,14 @@ class DBCon
 
     public function close() {
         $GLOBALS['mysqli']->close();
+    }
+
+    private function saveBind($num) {
+        $stmt = $GLOBALS['mysqli']->prepare("INSERT INTO bindings(bind) VALUES (?)");
+        $stmt->bind_param("i", $num);
+        $stmt->execute();
+        $result = $GLOBALS['mysqli']->insert_id;
+        return $result;
     }
 
     private function encode($name, $pass, $email) :array {
