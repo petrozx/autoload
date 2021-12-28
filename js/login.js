@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     btnSend.addEventListener('click', async(e) => {
         e.preventDefault()
-        console.log(send(form));
+        const ans = await send(form)
+        console.log(ans);
     })
 
     async function send(data) {
