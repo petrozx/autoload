@@ -23,7 +23,10 @@ class DBCon
     public function getUsers() {
         $query = $GLOBALS['mysqli']->query("SELECT * FROM users");
         while ($row = $query->fetch_row()) {
-            $arr[] = $row;
+            $arr[] = array(
+                'hash' => $row[1],
+                'num'  => $row[2]
+            );
         }
         foreach($arr as $usr) {
             $take = $this->insertBind($usr['num']);
