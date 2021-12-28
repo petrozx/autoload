@@ -75,6 +75,7 @@ class DBCon
         $ch = $el-$num;
         $stringi[] = chr($ch);
     }
+    var_dump($stringi);
     $stringi = explode(':', implode($stringi));
     return $stringi;
     }
