@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const form = document.getElementById('register');
     const inputEmail = document.querySelector('[name=email]')
     const usersArr = await get()
-
+    console.log(usersArr);
     btnSend.addEventListener('click', async(e) => {
         e.preventDefault()
         const isExist = usersArr?.find(el=>{
