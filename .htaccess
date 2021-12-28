@@ -8,6 +8,6 @@ RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|jsx|tif|tiff|do
 
 #RewriteRule ^(.*)$ $1 [L,QSA]
 
-RewriteRule ^(.*)$ index.php [L]
+#RewriteRule ^(.*)$ index.php [L]
 
-#RewriteRule ^(.*)$ index.php?params=$1 [L,QSA]
+RewriteRule ^(.*)$ index.php?params=$1 [L,QSA]
