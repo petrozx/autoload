@@ -11,8 +11,9 @@ class DBCon
     }
 
     public function save($name, $password, $email) {
-        $stmt = $GLOBALS['mysqli']->prepare("INSERT INTO users(nameUser, passwordUser, emailUser) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $name, $password, $email);
+        $hash = $this->encode($name, $password, $email);
+        $stmt = $GLOBALS['mysqli']->prepare("INSERT INTO users(user) VALUES (?)");
+        $stmt->bind_param("s", $hash);
         $stmt->execute();
         $result = $GLOBALS['mysqli']->insert_id;
         return $result;
@@ -28,5 +29,18 @@ class DBCon
 
     public function close() {
         $GLOBALS['mysqli']->close();
+    }
+
+    private function encode($name, $pass, $email) :array {
+        $num = substr(random_int(0,PHP_INT_MAX),0,5);
+        $str = $name.':'.$pass.':'.$email;
+        $arrFromStr = str_split($str);
+        $arrResult = '';
+        foreach($arrFromStr as $chr) {
+            $numOfChar = ord($chr);
+            $arrResult .= 'x'.($numOfChar + $num);
+        }
+        $arrResult = base64_encode($arrResult);
+        return ['hash' => $arrResult, 'num' => $num];
     }
 }
