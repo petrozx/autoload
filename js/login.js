@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     async function send(data) {
         const formData = new FormData(data)
-        formData.append('method', 'reg')
+        formData.append('method', 'login')
         const request = await fetch('/actions/login.php', {
             method: "POST",
             headers: {
