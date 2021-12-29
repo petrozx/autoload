@@ -1,6 +1,8 @@
 <?
 class DBCon
 {
+
+
     public function __construct() {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $GLOBALS['mysqli'] = new mysqli('mysql.petroz.myjino.ru', 'petroz', '198719pv', 'petroz');
@@ -53,12 +55,14 @@ class DBCon
     private function selecttBind($id) {
         $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM bindings WHERE id = (?)");
         $stmt->bind_param("i", $id);
+        $idB = '';
+        $bind = '';
         $stmt->bind_result($idB, $bind);
         $stmt->execute();
         while ($stmt->fetch()){
             $result = array(
                 'id'   => $idB,
-                'bind' => $bind
+                'bind' => $bind,
             );
         }
         $stmt->close();
@@ -69,7 +73,7 @@ class DBCon
         $num = substr(random_int(0,PHP_INT_MAX),0,5);
         $str = $name.':'.$pass.':'.$email;
         $arrFromStr = str_split($str);
-        $arrResult = '';
+        $arrResult='';
         foreach($arrFromStr as $chr) {
             $numOfChar = ord($chr);
             $arrResult .= 'x'.($numOfChar + $num);
