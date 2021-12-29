@@ -10,7 +10,7 @@ Class Router
         $method = $method?:'index';
         if ($action === 'api') {
             call_user_func($class, $body);
-            echo 'hi';
+            var_dump('hi');
         } else {
             try {
                 $instance = new $class($body);
