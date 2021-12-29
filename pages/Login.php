@@ -10,8 +10,8 @@ class Login
                 <input type="password" name="password"><br>
             <label for="email">Введите почту:</label>
                 <input type="email" name="email"><br>
-            <button id="register" type="submit">Зарегитрироваться</button>
-            <button id="login" type="submit">Войти</button>
+            <button id="register">Зарегитрироваться</button>
+            <button id="login">Войти</button>
         </form>
         ';
         $GLOBALS['script'] = '/js/login.js';
