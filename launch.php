@@ -1,10 +1,10 @@
 <?
 
     spl_autoload_register(function ($class) {
-        $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class.'.php';
-        $script = $_SERVER['DOCUMENT_ROOT'].'/js/'. $class.'.js';
+        $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class . '.php';
+        $script = $_SERVER['DOCUMENT_ROOT'].'/js/'. lcfirst($class) . '.js';
 
-        if (file_exists($file)) {
+        if (file_exists($script)) {
             $GLOBALS['script'] = $script;
         }
 
