@@ -24,7 +24,7 @@ Class Router
 
     private function parseURL($url)
     {
-        $result = trim(str_replace('/', " ", $url));
+        $result = str_replace('/', " ", $url);
         $result = explode(" ", $result);
         var_dump($result);
         return $result;
