@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     async function register(data) {
         const formData = new FormData(data)
         formData.append('method', 'register')
-        const request = await fetch('/actions/login.php', {
+        const request = await fetch('api/login/register', {
             method: "POST",
             headers: {
                 contentType: "application/x-www-form-urlencoded"

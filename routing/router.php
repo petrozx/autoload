@@ -5,14 +5,16 @@ Class Router
 
     public function __construct($url)
     {
-        [$class, $method, $name] = $this->parseURL($url);
+        [$action, $class, $method, $body] = $this->parseURL($url);
         $class = ucfirst($class)?:'Index';
         $method = $method?:'index';
-        $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class.'.php';
+        if ($action === 'api') {
+            call_user_func($class, $body);
+        }
         try {
-            $instance = new $class($name);
+            $instance = new $class($body);
             if (method_exists($instance, $method)) {
-                call_user_func([$instance, $method], $name);
+                call_user_func([$instance, $method], $body);
             }
         } catch (Exception $e) {
             throw new Exception('Запрашиваемый ресурс отсутствует');
@@ -21,7 +23,7 @@ Class Router
 
     private function parseURL($url)
     {
-        $result = trim(str_replace('/', " ", $url));
+        $result = str_replace('/', " ", $url);
         $result = explode(" ", $result);
         return $result;
     }
