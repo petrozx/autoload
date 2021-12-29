@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const btnRegister = document.getElementById('reg');
     const btnLogin = document.getElementById('login');
     const form = document.getElementById('register');
-    const inputEmail = document.querySelector('[name=email]')
 
 
     btnRegister.addEventListener('click', async(e) => {
