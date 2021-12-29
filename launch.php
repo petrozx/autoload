@@ -12,7 +12,7 @@
             throw new Exception('Error');
         }
         if (file_exists($actions)) {
-        require($pages);
+            require($actions);
         }
-        require($actions);
+        require($pages);
     });
