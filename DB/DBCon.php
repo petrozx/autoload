@@ -30,6 +30,18 @@ class DBCon
         }
         return $arr;
     }
+
+    public function findUser($email) {
+        $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM users WHERE email = (?)");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        $stmt->close();
+        return $result;
+    }
+
+
+
     public function close() {
         $GLOBALS['mysqli']->close();
     }

@@ -1,16 +1,21 @@
 document.addEventListener('DOMContentLoaded', async()=>{
     const btnSend = document.getElementById('send');
+    const btnLogin = document.getElementById('login');
     const form = document.getElementById('register');
     const inputEmail = document.querySelector('[name=email]')
 
 
     btnSend.addEventListener('click', async(e) => {
         e.preventDefault()
-        const ans = await send(form)
-        console.log(ans);
+        const response = await login(form)
     })
 
-    async function send(data) {
+    btnLogin.addEventListener('click', async(e) => {
+        e.preventDefault()
+        const response = await register(form)
+    })
+
+    async function login(data) {
         const formData = new FormData(data)
         formData.append('method', 'login')
         const request = await fetch('/actions/login.php', {
@@ -25,9 +30,9 @@ document.addEventListener('DOMContentLoaded', async()=>{
         return response
     }
 
-    async function get() {
-        const formData = new FormData()
-        formData.append('method', 'allUser')
+    async function register(data) {
+        const formData = new FormData(data)
+        formData.append('method', 'register')
         const request = await fetch('/actions/login.php', {
             method: "POST",
             headers: {
@@ -36,8 +41,9 @@ document.addEventListener('DOMContentLoaded', async()=>{
             mode: 'no-cors',
             body: formData,
         })
-        const response = await request.json()
+        const response = await request.text()
         return response
     }
+
 
 })
