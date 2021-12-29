@@ -9,6 +9,7 @@ Class Router
         $class = ucfirst($class)?:'Index';
         $method = $method?:'index';
         if ($action === 'api') {
+            var_dump($action);
             call_user_func($class, $body);
         } else {
             try {
