@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', async()=>{
     const btnLogout = document.getElementById('logout');
-
-    if(response.success){
+    btnLogout.addEventListener('click', async(e)=>{
         const response = await login()
-        if (response.success) {
-            window.location.reload()
+        if(response.success){
+                window.location.reload()
         }
-    }
+    })
 
     async function login() {
         const formData = new FormData(data)
