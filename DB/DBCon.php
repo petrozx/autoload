@@ -21,11 +21,11 @@ class DBCon
         $query = $GLOBALS['mysqli']->query("SELECT * FROM users");
         while ($row = $query->fetch_row()) {
             $arr[] = array(
-                'email'    => $row[0],
-                'id'       => $row[1],
-                'name'     => $row[2],
-                'password' => $row[3],
-                'email'    => $row[4]
+                'email'    => $row[3],
+                'id'       => $row[0],
+                'name'     => $row[1],
+                'password' => $row[2],
+                'role'     => $row[4]
                 );
         }
         return $arr;
