@@ -20,7 +20,7 @@ if ($post['method'] === 'login')
     }
     die(json_encode(['error' => 1, 'success' => 0]));
 }
-elseif ($post['method'] === 'register')
+else if ($post['method'] === 'register')
 {
     $db = new DBCon();
     $isHas = $db->findUser($post['email']);
