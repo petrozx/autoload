@@ -11,11 +11,14 @@ Class Router
         $file = $_SERVER['DOCUMENT_ROOT'].'/pages/'. $class.'.php';
         try {
             $instance = new $class($name);
-            call_user_func([$instance, $method], $name);
+            if (method_exists($instance, $method)) {
+                call_user_func([$instance, $method], $name);
+            } else {
+                throw new Exception('Запрашиваемый ресурс отсутствует');
+            }
         } catch (Exception $e) {
             throw new Exception('Запрашиваемый ресурс отсутствует');
         }
-        
     }
 
     private function parseURL($url)

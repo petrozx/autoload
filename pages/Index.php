@@ -2,7 +2,7 @@
 
 class Index
 {
-    public function index() {
+    public function __construct() {
         $GLOBALS['content'] = 'Вы нахоитесь на главной странице';
     }
 
