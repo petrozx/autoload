@@ -1,5 +1,4 @@
 <?
-session_start();
 require_once('../DB/DBCon.php');
 $post = $_POST;
 if ($post['method'] === 'login')

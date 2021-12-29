@@ -1,16 +1,16 @@
 <?
-
     spl_autoload_register(function ($class) {
-        $file = $_SERVER['DOCUMENT_ROOT'] . '/pages/'. $class . '.php';
+        $pages = $_SERVER['DOCUMENT_ROOT'] . '/pages/'. $class . '.php';
+        $actions = $_SERVER['DOCUMENT_ROOT'] . '/actions/'. $class . '.php';
         $script = $_SERVER['DOCUMENT_ROOT'] . '/js/'. lcfirst($class) . '.js';
 
         if (file_exists($script)) {
             $GLOBALS['script'] = '/js/' . lcfirst($class) . '.js';
         }
 
-        if (!file_exists($file)) {
+        if (!file_exists($pages)) {
             throw new Exception('Error');
         }
-
-        require($file);
+        require($pages);
+        require($actions);
     });
