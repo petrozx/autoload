@@ -11,5 +11,5 @@ try {
 } catch (Exception $e) {
     $GLOBALS['content'] = $e->getMessage();
 }
-require('content/main.php');
+require('/content/main.php');
 ?>
