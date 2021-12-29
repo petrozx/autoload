@@ -7,7 +7,7 @@ if ($post['method'] === 'login')
     $db = new DBCon();
     $users = $db->getUsers();
     $db->close();
-    if (is_array($users)){ 
+    if (is_array($users)){
         foreach ($users as $user) {
             if ($post['email'] === $user['email']){
                 $verify = password_verify($post['password'],$user['password']);
