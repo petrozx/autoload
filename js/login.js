@@ -7,11 +7,17 @@ document.addEventListener('DOMContentLoaded', async()=>{
     btnRegister.addEventListener('click', async(e) => {
         e.preventDefault()
         const response = await register(form)
+        if(response.success){
+            window.location.reload()
+        }
     })
 
     btnLogin.addEventListener('click', async(e) => {
         e.preventDefault()
         const response = await login(form)
+        if(response.success){
+            window.location.reload()
+        }
     })
 
     async function login(data) {
@@ -25,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             mode: 'no-cors',
             body: formData,
         })
-        const response = await request.text()
+        const response = await request.json()
         return response
     }
 
@@ -40,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             mode: 'no-cors',
             body: formData,
         })
-        const response = await request.text()
+        const response = await request.json()
         return response
     }
 

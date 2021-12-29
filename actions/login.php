@@ -7,11 +7,11 @@ if ($post['method'] === 'login')
     $db = new DBCon();
     $users = $db->getUsers();
     $db->close();
-    if (is_array($users)){
+    if (is_array($users)){ 
         foreach ($users as $user) {
             if ($post['email'] === $user['email']){
                 $verify = password_verify($post['password'],$user['password']);
-                $_SESSION['auth'] = true;
+                $_SESSION['auth'] = 'true';
                 die(json_encode(['error' => 0, 'success' => 1]));
             }
         }
@@ -30,4 +30,7 @@ else if ($post['method'] === 'register')
         $db->close();
         die(json_encode(['error' => 1, 'success' => 0]));
     }
+} else if ($post['method'] === 'logout') {
+    unset($_SESSION['auth']);
+    die(json_encode(['error' => 0, 'success' =>1]));
 }

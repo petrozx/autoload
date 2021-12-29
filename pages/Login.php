@@ -18,7 +18,7 @@ class Login
             ';
             $GLOBALS['script'] = '/js/login.js';
         } else {
-            $GLOBALS['content'] = '<button type="button" id="exit" >Выйти</button>';
+            $GLOBALS['content'] = '<button type="button" id="logout" >Выйти</button>';
         }
     }
 }
