@@ -27,6 +27,7 @@ Class Router
     {
         $result = trim(str_replace('/', " ", $url));
         $result = explode(" ", $result);
+        var_dump($result);
         return $result;
     }
 
