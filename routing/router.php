@@ -10,14 +10,15 @@ Class Router
         $method = $method?:'index';
         if ($action === 'api') {
             call_user_func($class, $body);
-        }
-        try {
-            $instance = new $class($body);
-            if (method_exists($instance, $method)) {
-                call_user_func([$instance, $method], $body);
+        } else {
+            try {
+                $instance = new $class($body);
+                if (method_exists($instance, $method)) {
+                    call_user_func([$instance, $method], $body);
+                }
+            } catch (Exception $e) {
+                throw new Exception('Запрашиваемый ресурс отсутствует');
             }
-        } catch (Exception $e) {
-            throw new Exception('Запрашиваемый ресурс отсутствует');
         }
     }
 
