@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     })
 
     async function login() {
-        const formData = new FormData(data)
+        const formData = new FormData()
         formData.append('method', 'logout')
         const request = await fetch('/actions/login.php', {
             method: "POST",
