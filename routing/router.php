@@ -8,9 +8,8 @@ Class Router
         [$action, $class, $method, $body] = $this->parseURL($url);
         $class = ucfirst($class)?:'Index';
         $method = $method?:'index';
-        die(print_r($action,true));
         if ($action === 'api') {
-            
+            die(print_r($action,true));
             call_user_func($class, $body);
         } else {
             try {
