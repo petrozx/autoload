@@ -12,5 +12,5 @@ try {
     $GLOBALS['content'] = $e->getMessage();
 }
 require('content/main.php');
-echo $_SESSION['auth'];
+var_dump($_SESSION['auth']);
 ?>

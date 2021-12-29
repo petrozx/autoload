@@ -1,8 +1,6 @@
 <?
 require_once('../DB/DBCon.php');
 $post = $_POST;
-echo '<pre>'.print_r($post,true).'</pre>';
-
 if ($post['method'] === 'login')
 {
     $db = new DBCon();
