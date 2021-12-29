@@ -10,7 +10,7 @@ if ($post['method'] === 'login')
         foreach ($users as $user) {
             if ($post['email'] === $user['email']){
                 $verify = password_verify($post['password'],$user['password']);
-                $_SESSION['auth'] = true;
+                $_SESSION['auth'] = "true";
                 die(json_encode(['error' => 0, 'success' => 1]));
             }
         }
