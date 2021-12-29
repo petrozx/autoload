@@ -11,7 +11,7 @@ if ($post['method'] === 'login')
     if (is_array($users)){
         foreach ($users as $user) {
             if ($post['email'] === $user['email']){
-                echo 'hi';
+                echo $user['email'];
                 $verify = password_verify($post['password'],$user['password']);
                 $_SESSION['auth'] = true;
                 die(json_encode(['error' => 0, 'success' => 1]));
