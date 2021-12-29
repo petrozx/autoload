@@ -10,8 +10,8 @@ if ($post['method'] === 'login')
     $db->close();
     if (is_array($users)){
         foreach ($users as $user) {
-            echo 'hi';
             if ($post['email'] === $user['email']){
+                echo 'hi';
                 $verify = password_verify($post['password'],$user['password']);
                 $_SESSION['auth'] = true;
                 die(json_encode(['error' => 0, 'success' => 1]));
