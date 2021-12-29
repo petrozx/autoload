@@ -10,9 +10,9 @@ class Login
                 <input type="password" name="password"><br>
             <label for="email">Введите почту:</label>
                 <input type="email" name="email"><br>
-            <button id="register">Зарегитрироваться</button>
-            <button id="login">Войти</button>
         </form>
+        <button id="register">Зарегитрироваться</button>
+        <button id="login">Войти</button>
         ';
         $GLOBALS['script'] = '/js/login.js';
     }
