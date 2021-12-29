@@ -6,6 +6,7 @@ Class Router
     public function __construct($url)
     {
         [$action, $class, $method, $body] = $this->parseURL($url);
+        echo $action, $class, $method, $body;
         $class = ucfirst($class)?:'Index';
         $method = $method?:'index';
         if ($action == 'api') {
