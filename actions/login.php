@@ -8,11 +8,13 @@ if ($post['method'] === 'login')
     $db = new DBCon();
     $users = $db->getUsers();
     $db->close();
-    foreach ($users as $user) {
-        if ($post['email'] === $user['email']){
-            $verify = password_verify($post['password'],$user['password']);
-            $_SESSION['auth'] = true;
-            die(json_encode(['error' => 0, 'success' => 1]));
+    if (is_array($users)){
+        foreach ($users as $user) {
+            if ($post['email'] === $user['email']){
+                $verify = password_verify($post['password'],$user['password']);
+                $_SESSION['auth'] = true;
+                die(json_encode(['error' => 0, 'success' => 1]));
+            }
         }
     }
     die(json_encode(['error' => 1, 'success' => 0]));
