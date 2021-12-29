@@ -1,4 +1,5 @@
 <?
+
 class Login
 {
     public function register() {

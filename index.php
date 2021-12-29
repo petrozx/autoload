@@ -1,5 +1,6 @@
 <?
 session_start();
+echo $_SESSION['auth'];
 require_once('launch.php');
 require_once('routing/router.php');
 require_once('DB/DBCon.php');
