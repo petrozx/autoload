@@ -2,7 +2,14 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const btnRegister = document.getElementById('reg');
     const btnLogin = document.getElementById('login');
     const form = document.getElementById('register');
+    const btnLogout = document.getElementById('logout');
 
+    btnLogout.addEventListener('click', async(e)=>{
+        const response = await login()
+        if(response.success){
+                window.location.reload()
+        }
+    })
 
     btnRegister.addEventListener('click', async(e) => {
         e.preventDefault()
@@ -19,6 +26,21 @@ document.addEventListener('DOMContentLoaded', async()=>{
             window.location.reload()
         }
     })
+
+    async function login() {
+        const formData = new FormData()
+        formData.append('method', 'logout')
+        const request = await fetch('/actions/login.php', {
+            method: "POST",
+            headers: {
+                contentType: "application/x-www-form-urlencoded"
+            },
+            mode: 'no-cors',
+            body: formData,
+        })
+        const response = await request.json()
+        return response
+    }
 
     async function login(data) {
         const formData = new FormData(data)

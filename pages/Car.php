@@ -10,8 +10,6 @@ class Car
 
     public function mycar($name) {
         $GLOBALS['content'] = '<div id="root"></div>';
-        $GLOBALS['script'] = '/js/script.js';
-
     }
 
 }

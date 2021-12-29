@@ -16,10 +16,8 @@ class Login
             <button id="reg">Зарегитрироваться</button>
             <button id="login">Войти</button>
             ';
-            $GLOBALS['script'] = '/js/login.js';
         } else {
             $GLOBALS['content'] = '<button type="button" id="logout" >Выйти</button>';
-            $GLOBALS['script'] = '/js/logout.js';
         }
     }
 }

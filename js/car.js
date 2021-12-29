@@ -11,18 +11,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     select.append(option)
   })
 
-
   document.querySelector('select').onchange=(e)=>{
     $('.name-car')?.remove()
     const nameA=e.target.value
     create('h1', 'name-car','.new-class', nameA)
   }
 
-
-  
   create('div', 'new-class','#root', 'Ваша марка:')
-  
-  
+
   function $(node) {
     const items = document.querySelectorAll(node)
     if (items.length > 1){
@@ -31,7 +27,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       return items[0]
     }
   }
-  
+
   function insertAfter(parent, node, referenceNode) {
     parent.insertBefore(node, referenceNode.nextSibling);
 }
