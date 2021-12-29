@@ -5,7 +5,7 @@
         $script = $_SERVER['DOCUMENT_ROOT'] . '/js/'. lcfirst($class) . '.js';
 
         if (file_exists($script)) {
-            $GLOBALS['script'] = lcfirst($class);
+            $GLOBALS['script'] = $script;
         }
 
         if (!file_exists($file)) {
