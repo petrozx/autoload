@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', async()=>{
-    const btnSend = document.getElementById('send');
+    const btnRegister = document.getElementById('register');
     const btnLogin = document.getElementById('login');
     const form = document.getElementById('register');
     const inputEmail = document.querySelector('[name=email]')
 
 
-    btnSend.addEventListener('click', async(e) => {
+    btnRegister.addEventListener('click', async(e) => {
         e.preventDefault()
-        const response = await login(form)
+        const response = await register(form)
     })
 
     btnLogin.addEventListener('click', async(e) => {
         e.preventDefault()
-        const response = await register(form)
+        const response = await login(form)
     })
 
     async function login(data) {

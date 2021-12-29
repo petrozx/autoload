@@ -10,7 +10,7 @@ class Login
                 <input type="password" name="password"><br>
             <label for="email">Введите почту:</label>
                 <input type="email" name="email"><br>
-            <button id="send" type="submit">Зарегитрироваться</button>
+            <button id="register" type="submit">Зарегитрироваться</button>
             <button id="login" type="submit">Войти</button>
         </form>
         ';
