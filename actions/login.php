@@ -10,7 +10,7 @@ if ($post['method'] === 'login')
     $db->close();
     if (is_array($users)){
         foreach ($users as $user) {
-            echo $user['email'];
+            var_dump($user);
             if ($post['email'] === $user['email']){
                 $verify = password_verify($post['password'],$user['password']);
                 $_SESSION['auth'] = true;
