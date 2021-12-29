@@ -12,7 +12,7 @@ Class Router
         var_dump($action == 'api');
         if ($action == 'api') {
             var_dump($action);
-            call_user_func($class, $body);
+            call_user_func(lcfirst($class), $body);
         } else {
             try {
                 $instance = new $class($body);
@@ -27,9 +27,9 @@ Class Router
 
     private function parseURL($url)
     {
-        $result = trim(str_replace('/', " ", $url));
-        $result = explode(" ", $result);
-        return $result;
+        $string = trim(str_replace('/', " ", $url));
+        $arr = explode(" ", $string);
+        return $arr;
     }
 
 }
