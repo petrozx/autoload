@@ -1,4 +1,6 @@
 <?
+echo '<pre>'.print_r($_SERVER).'</pre>';
+echo '<pre>'.print_r($_REQUEST).'</pre>';
 function login(){
     if ($_POST['method'] === 'login')
     {
