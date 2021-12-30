@@ -11,6 +11,5 @@
             throw new Exception('Error');
         }
 
-       
         require($pages);
     });
