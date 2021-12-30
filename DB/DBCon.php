@@ -41,15 +41,22 @@ class DBCon
     }
 
     public function getAll($table) {
-        $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM (?)");
-        $stmt->bind_param("s", $table);
-        $stmt->execute();
-        while ($row = $stmt->fetch()) {
+        $query = $GLOBALS['mysqli']->query("SELECT * FROM $table");
+        while ($row = $query->fetch_row()) {
             $arr[] = $row;
-        }
-        $stmt->close();
         return $arr;
+        }
     }
+    // public function getAll($table) {
+    //     $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM (?)");
+    //     $stmt->bind_param("s", $table);
+    //     $stmt->execute();
+    //     while ($row = $stmt->fetch()) {
+    //         $arr[] = $row;
+    //     }
+    //     $stmt->close();
+    //     return $arr;
+    // }
 
     public function close() {
         $GLOBALS['mysqli']->close();
