@@ -19,8 +19,8 @@ function login(){
                 }
             }
         }
-        die( json_encode(['error' => 1, 'success' => 0]) );
     }
+    die( json_encode(['error' => 1, 'success' => 0]) );
 }
 
 function register(){
@@ -32,17 +32,16 @@ function register(){
             $newUser = $db->saveUser($_POST['name'], $_POST['password'], $_POST['email']);
             $db->close();
             die( json_encode(['error' => 0, 'success' => 1]) );
-        } else {
-            $db->close();
-            die( json_encode(['error' => 1, 'success' => 0]) );
         }
     }
+    die( json_encode(['error' => 1, 'success' => 0]) );
 }
 
 function logout(){
     if ($_POST['method'] === 'logout')
     {
-    unset($_SESSION['auth']);
-    die( json_encode(['error' => 0, 'success' =>1]) );
+        unset($_SESSION['auth']);
+        die( json_encode(['error' => 0, 'success' =>1]) );
     }
+    die( json_encode(['error' => 1, 'success' => 0]) );
 }
