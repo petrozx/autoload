@@ -3,7 +3,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DBCon.php');
 $post = $_POST;
 
 function login($post){
-    var_dump('hi');
     if ($post['method'] === 'login')
     {
         $db = new DBCon();
