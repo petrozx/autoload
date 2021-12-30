@@ -1,5 +1,5 @@
 <?
-
+if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 function login(){
     if ($_POST['method'] === 'login')
     {
