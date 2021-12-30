@@ -23,7 +23,7 @@ class DB
     }
 
     public function saveRows($arr) {
-        $stmt = self::$connect->prepare("INSERT INTO ".self::$table."VALUES (?)");
+        $stmt = self::$connect->prepare("INSERT INTO ".self::$table." VALUES (?)");
         $stmt->bind_param("sss", ...$arr);
         $stmt->execute();
         $result = self::$connect->insert_id;
