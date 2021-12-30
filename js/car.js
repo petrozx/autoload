@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
   const root = $('#root')
-  const body = $('.wrapper')
+  const body = $('body')
 
   const select = document.createElement('select')
   const marks = ['mazda', 'nissan', 'toyota', 'isuzu']
