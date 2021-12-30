@@ -12,13 +12,13 @@ function login(){
                     $verify = password_verify($_POST['password'],$user['password']);
                     if ($verify) {
                         $_SESSION['auth'] = 'true';
-                        return json_encode(['error' => 0, 'success' => 1]);
+                        die( json_encode(['error' => 0, 'success' => 1]) );
                     }
                 }
             }
         }
     }
-    return json_encode(['error' => 1, 'success' => 0]);
+    die( json_encode(['error' => 1, 'success' => 0]) );
 }
 
 function register(){
@@ -29,17 +29,17 @@ function register(){
         if ($isHas == 0) {
             $newUser = $db->saveUser($_POST['name'], $_POST['password'], $_POST['email']);
             $db->close();
-            return json_encode(['error' => 0, 'success' => 1]);
+            die( json_encode(['error' => 0, 'success' => 1]) );
         }
     }
-    return json_encode(['error' => 1, 'success' => 0]);
+    die( json_encode(['error' => 1, 'success' => 0]) );
 }
 
 function logout(){
     if ($_POST['method'] === 'logout')
     {
         unset($_SESSION['auth']);
-        return json_encode(['error' => 0, 'success' =>1]);
+        die( json_encode(['error' => 0, 'success' =>1]) );
     }
-    return json_encode(['error' => 1, 'success' => 0]);
+    die( json_encode(['error' => 1, 'success' => 0]) );
 }
