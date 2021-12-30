@@ -27,7 +27,8 @@ class DB
         while ($row = $query->fetch_assoc()) {
             $names[] = $row['Field'];
         }
-        return $names?:array();
+        $names = $names?:[];
+        return $names;
     }
 
     public function saveRows($arr) {
