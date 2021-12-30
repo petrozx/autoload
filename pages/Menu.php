@@ -12,9 +12,9 @@ class Menu
         ';
     }
     public function index(){
-        $bd = new DB('users');
-        // $result = $bd->getRows();
-        var_dump($bd);
+        $bd = new DB();
+        $result = $bd->getRows();
+        var_dump($result);
         $GLOBALS['content'] = Menu::content();
     }
 
