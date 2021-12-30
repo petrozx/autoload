@@ -1,6 +1,5 @@
 <?
-echo '<pre>'.print_r($_SERVER).'</pre>';
-echo '<pre>'.print_r($_REQUEST).'</pre>';
+if (!in_array($_POST['from'],ACCESS))die('access denied');
 function login(){
     if ($_POST['method'] === 'login')
     {

@@ -1,5 +1,6 @@
 <?
 session_start();
+define('ACCESS', ['petroz.myjino.ru']);
 require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DBCon.php');
 require_once('launch.php');
 // require_once('load_func.php');
