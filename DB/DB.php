@@ -11,11 +11,11 @@ class DB
         }
         $connect->set_charset('utf8mb4');
         self::$connect = $connect;
-        self::$connect = $table;
+        self::$table = $table;
     }
 
     public function getRows() {
-        $query = self::$connect->query("SELECT * FROM ".self::$connect."");
+        $query = self::$connect->query("SELECT * FROM ".self::$table);
         while ($row = $query->fetch_row()) {
             $arr[] = $row;
         return $arr;
