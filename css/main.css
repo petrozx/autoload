@@ -46,6 +46,7 @@ ul.navbar {
 .user-info {
     display: flex;
     justify-content: flex-end;
+    padding-right: 10px;
 }
 .user-info>a {
     color:darkslategrey;
