@@ -26,8 +26,8 @@ class DB
         $query = self::$connect->query("SHOW COLUMNS FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
             $names[] = $row['Field'];
-        return $names;
         }
+        return $names;
     }
 
 
