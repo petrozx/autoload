@@ -18,7 +18,7 @@ class DB
 
 
     public function getRows() {
-        $query = $this->query("SELECT * FROM ".$this->$table."");
+        $query = $this->$connect->query("SELECT * FROM ".$this->$table."");
         while ($row = $query->fetch_row()) {
             $arr[] = $row;
         return $arr;
