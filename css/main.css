@@ -44,7 +44,7 @@ ul.navbar {
     color: #a94747;
 }
 .user-info {
-    padding: 10px;
+    padding-right: 10px;
 }
 .user-info>a {
     float: right;
