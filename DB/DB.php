@@ -22,6 +22,16 @@ class DB
         }
     }
 
+    public function getColumns() {
+        $query = self::$connect->query("SHOW COLUMNS FROM table ".self::$table);
+        while ($row = $query->fetch_row()) {
+            $arr[] = $row;
+        return $arr;
+        }
+    }
+
+
+
     public function saveRows($arr) {
         $stmt = self::$connect->prepare("INSERT INTO ".self::$table." SET `name`=?, `password`=?, `email`=?");
         $stmt->bind_param("sss", ...$arr);
