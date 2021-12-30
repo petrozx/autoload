@@ -22,7 +22,7 @@ class DB
         }
     }
 
-    public function saveRows(...$args) {
+    public function saveRows($args) {
         $stmt = self::$connect->prepare("INSERT INTO ".self::$table."VALUES (?)");
         $stmt->bind_param("sss", $args);
         $stmt->execute();
