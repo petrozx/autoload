@@ -25,7 +25,7 @@ class DB
     static function getColumns() {
         $query = self::$connect->query("SHOW COLUMNS FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
-            $names[] = $row['Field'];
+            $names[] = $row;
         }
         return $names;
     }
