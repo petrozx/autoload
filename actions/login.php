@@ -11,7 +11,7 @@ function login(){
                 if ($_POST['email'] === $user['email']){
                     $verify = password_verify($_POST['password'],$user['password']);
                     if ($verify) {
-                        $_SESSION['auth'] = 'true';
+                        $_SESSION['name'] = $user['name'];
                         die( json_encode(['error' => 0, 'success' => 1]) );
                     }
                 }

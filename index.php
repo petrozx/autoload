@@ -1,6 +1,6 @@
 <?
 session_start();
-
+empty($_SESSION['name'])?:$_SESSION['name'] = 'Гость';
 require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DBCon.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/launch.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/routing/router.php');
