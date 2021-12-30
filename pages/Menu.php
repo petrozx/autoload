@@ -13,7 +13,7 @@ class Menu
     }
     public function index(){
         $bd = new DB('users');
-        $result = $bd->getRows();
+        $result = $bd->findRows('id=0');
         var_dump($result);
         $GLOBALS['content'] = Menu::content();
     }

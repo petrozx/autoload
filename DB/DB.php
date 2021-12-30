@@ -22,4 +22,13 @@ class DB
         }
     }
 
+    public function findRows($search) {
+        $stmt = $GLOBALS['mysqli']->prepare("SELECT * FROM (?) WHERE (?)");
+        $stmt->bind_param("ss", self::$table, $search);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        $stmt->close();
+        return $result;
+    }
+
 }
