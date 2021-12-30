@@ -24,7 +24,7 @@ class DB
 
     public function saveRows(...$args) {
         $stmt = self::$connect->prepare("INSERT INTO ".self::$table."VALUES (?)");
-        $stmt->bind_param("sss", '...$args');
+        $stmt->bind_param("sss", $args);
         $stmt->execute();
         $result = self::$connect->insert_id;
         $stmt->close();
