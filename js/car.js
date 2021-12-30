@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     create('h1', 'name-car','.new-class', nameA)
   }
 
-  create('div', 'new-class','#root', 'Ваша марка:')
+  create('div', 'new-class','.car', 'Ваша марка:')
 
   function $(node) {
     const items = document.querySelectorAll(node)
