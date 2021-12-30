@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     async function logout() {
         const formData = new FormData()
         formData.append('method', 'logout')
+        formData.append('from', 'petroz.myjino.ru')
         const request = await fetch('/api/login/logout/', {
             method: "POST",
             headers: {
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     async function login(data) {
         const formData = new FormData(data)
         formData.append('method', 'login')
+        formData.append('from', 'petroz.myjino.ru')
         const request = await fetch('/api/login/login/', {
             method: "POST",
             headers: {
@@ -60,6 +62,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     async function register(data) {
         const formData = new FormData(data)
         formData.append('method', 'register')
+        formData.append('from', 'petroz.myjino.ru')
         const request = await fetch('/api/login/register/', {
             method: "POST",
             headers: {
