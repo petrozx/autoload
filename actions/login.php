@@ -1,5 +1,5 @@
 <?
-require_once('../DB/DBCon.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DBCon.php');
 $post = $_POST;
 
 function login($post){
