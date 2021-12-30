@@ -13,12 +13,12 @@ class DB
     }
 
 
-    // public function getRows() {
-    //     $query = $this->query("SELECT * FROM users");
-    //     while ($row = $query->fetch_row()) {
-    //         $arr[] = $row;
-    //     return $arr;
-    //     }
-    // }
+    public function getRows() {
+        $query = $connect->query("SELECT * FROM users");
+        while ($row = $query->fetch_row()) {
+            $arr[] = $row;
+        return $arr;
+        }
+    }
 
 }
