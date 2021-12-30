@@ -1,7 +1,4 @@
 <?
-require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DBCon.php');
-
-
 function login(){
     if ($_POST['method'] === 'login')
     {
