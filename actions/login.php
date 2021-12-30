@@ -3,7 +3,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DBCon.php');
 $post = $_POST;
 
 function login($post){
-    if ($post['method'] === 'login')
+    // if ($post['method'] === 'login')
     {
         $db = new DBCon();
         $users = $db->getUsers();
@@ -18,7 +18,7 @@ function login($post){
             }
         }
         die(json_encode(['error' => 1, 'success' => 0]));
-    }
+    // }
 }
 
 function register($post){
