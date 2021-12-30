@@ -41,5 +41,5 @@ function logout(){
         unset($_SESSION['auth']);
         return json_encode(success);
     }
-    return json_encode(nosuccess);
+    return nosuccess;
 }
