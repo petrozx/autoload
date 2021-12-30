@@ -11,7 +11,9 @@ Class Router
         try {
             if ($action == 'api') {
                 $this->getFileWithFunc($class);
-                call_user_func($method);
+                if (function_exists($method)){
+                    call_user_func($method);
+                }
             } else {
                 $class = ucfirst($class);
                 $instance = new $class($body);
