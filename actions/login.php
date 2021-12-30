@@ -12,8 +12,10 @@ function login(){
             foreach ($users as $user) {
                 if ($_POST['email'] === $user['email']){
                     $verify = password_verify($_POST['password'],$user['password']);
-                    $_SESSION['auth'] = 'true';
-                    echo json_encode(['error' => 0, 'success' => 1]);
+                    if ($verify) {
+                        $_SESSION['auth'] = 'true';
+                        echo json_encode(['error' => 0, 'success' => 1]);
+                    }
                 }
             }
         }
