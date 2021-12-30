@@ -14,7 +14,8 @@ Class Router
             try {
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
-                    call_user_func([$instance, $method], $body);
+                    $res = call_user_func([$instance, $method], $body);
+                    var_dump($res);
                 }
             } catch (Exception $e) {
                 throw new Exception('Запрашиваемый ресурс отсутствует');
