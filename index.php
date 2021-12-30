@@ -14,3 +14,4 @@ try {
 }
 require('content/main.php');
 ?>
+<script>const from = <?=ACCESS ?></script>
