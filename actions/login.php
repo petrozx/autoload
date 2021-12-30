@@ -1,5 +1,5 @@
 <?
-var_dump($_SERVER['REQUEST_URI']);
+
 function login(){
     if ($_POST['method'] === 'login')
     {
