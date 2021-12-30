@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', async()=>{
         const response = await login(form)
         if(response.success){
             window.location.reload()
+        } else {
+            form.reset()
+            $('h1').innerText = 'Данные введуны не верно'
         }
     })
 
