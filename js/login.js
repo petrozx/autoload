@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const btnLogout = document.getElementById('logout');
 
     btnLogout?.addEventListener('click', async(e)=>{
-        const response = await login()
+        const response = await logout()
         if(response.success){
                 window.location.reload()
         }
@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', async()=>{
         }
     })
 
-    async function login() {
+    async function logout() {
         const formData = new FormData()
         formData.append('method', 'logout')
-        const request = await fetch('/actions/login.php', {
+        const request = await fetch('/api/login/logout', {
             method: "POST",
             headers: {
                 contentType: "application/x-www-form-urlencoded"
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     async function login(data) {
         const formData = new FormData(data)
         formData.append('method', 'login')
-        const request = await fetch('/actions/login.php', {
+        const request = await fetch('/api/login/login', {
             method: "POST",
             headers: {
                 contentType: "application/x-www-form-urlencoded"
