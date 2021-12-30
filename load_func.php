@@ -1,10 +1,8 @@
 <?
 $dir = $_SERVER['DOCUMENT_ROOT'] . "/actions/";
-        $catalog = opendir($dir);
-        while ($filename = readdir($catalog )) // перебираем наш каталог
-        {
-            $filename = $dir."".$filename;
-            var_dump($filename);
-            include_once($filename); // один раз подрубаем, чтоб не повторяться
-        }
-        closedir($catalog);
+$files = scandir($dir);
+foreach($files as $file){
+    if(($file !== '.') AND ($file !== '..')){
+    include_once($dir .''. $file);
+    }
+}
