@@ -25,7 +25,9 @@ class DB
     static function getColumns() {
         $query = self::$connect->query("SHOW COLUMNS FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
-            $names[] = $row;
+            $names[] = array(
+                $row["Field"] => $row["Type"],
+            );
         }
         return $names;
     }
@@ -34,6 +36,7 @@ class DB
 
     public function saveRows($arr) {
         $names = $this->getColumns();
+        die(var_dump($names));
         $deleteID = array_search('id',$names);
         unset($names[$deleteID]);
         $prepareNames = array_map(function($e){ return $e."=?"; }, $names);
