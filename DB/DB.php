@@ -23,7 +23,7 @@ class DB
     }
 
     public function getColumns() {
-        $query = self::$connect->query("SHOW COLUMNS FROM table ".self::$table);
+        $query = self::$connect->query("SHOW COLUMNS FROM ".self::$table);
         while ($row = $query->fetch_row()) {
             $arr[] = $row;
         return $arr;
