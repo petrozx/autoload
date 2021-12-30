@@ -22,7 +22,7 @@
                 </ul>
             </nav>
             <h1>Hi you are on my site</h1>
-            <div>
+            <div id="root">
                 <?=$GLOBALS['content']?>
             </div>
             <div class="footer">
