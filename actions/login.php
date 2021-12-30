@@ -38,7 +38,7 @@ function register(){
 function logout(){
     if ($_POST['method'] === 'logout')
     {
-        unset($_SESSION['auth']);
+        unset($_SESSION['name']);
         die( json_encode(['error' => 0, 'success' =>1]) );
     }
     die( json_encode(['error' => 1, 'success' => 0]) );
