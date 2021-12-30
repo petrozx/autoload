@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const form = document.getElementById('register');
     const btnLogout = document.getElementById('logout');
 
-    btnLogout&&btnLogout.addEventListener('click', async(e)=>{
+    btnLogout?.addEventListener('click', async(e)=>{
         const response = await logout()
         if(response.success){
             window.location.reload()
         }
     })
 
-    btnRegister.addEventListener('click', async(e) => {
+    btnRegister?.addEventListener('click', async(e) => {
         e.preventDefault()
         const response = await register(form)
         if(response.success){
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         }
     })
 
-    btnLogin.addEventListener('click', async(e) => {
+    btnLogin?.addEventListener('click', async(e) => {
         e.preventDefault()
         const response = await login(form)
         if(response.success){
