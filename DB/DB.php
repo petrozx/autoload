@@ -34,10 +34,12 @@ class DB
 
     public function saveRows($arr) {
         $names = $this->getColumns();
+        $deleteID = array_search('id',$names);
+        unset($names[$deleteID]);
         $prepareNames = array_map(function($e){ return $e."=?"; }, $names);
         $queryNames = implode(",", $prepareNames);
         $stmt = self::$connect->prepare("INSERT INTO ".self::$table." SET ".$queryNames);
-        $stmt->bind_param("sss", ...$arr);
+        $stmt->bind_param("sssi", ...$arr);
         $stmt->execute();
         $result = self::$connect->insert_id;
         $stmt->close();

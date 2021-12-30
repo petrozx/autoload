@@ -13,7 +13,7 @@ class Menu
     }
     public function index(){
         $bd = new DB('users');
-        $result = $bd->saveRows(['qwe','qwe','qwe']);
+        $result = $bd->saveRows(['qwe','qwe','qwe',2]);
         var_dump($result);
         $GLOBALS['content'] = Menu::content();
     }
