@@ -12,7 +12,7 @@ class Menu
         ';
     }
     public function index(){
-        $bd = new DB();
+        $bd = new DB('users');
         $result = $bd->getRows();
         var_dump($result);
         $GLOBALS['content'] = Menu::content();
