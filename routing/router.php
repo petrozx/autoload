@@ -13,6 +13,8 @@ Class Router
                 $this->getFileWithFunc($class);
                 if (function_exists($method)){
                     call_user_func($method);
+                } else {
+                    http_response_code(404);
                 }
             } else {
                 $class = ucfirst($class);
