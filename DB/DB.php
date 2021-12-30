@@ -18,8 +18,8 @@ class DB
         $query = self::$connect->query("SELECT * FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
             $arr[] = $row;
-        return $arr;
         }
+        return $arr;
     }
 
     static function getColumns() {
