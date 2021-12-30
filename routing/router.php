@@ -14,7 +14,7 @@ Class Router
                 if (function_exists($method)){
                     call_user_func($method);
                 } else {
-                    throw new Exception('Запрашиваемый метод не существует');
+                    throw new Exception();
                 }
             } else {
                 $class = ucfirst($class);
@@ -39,7 +39,9 @@ Class Router
     private function getFileWithFunc($file)
     {
         $dir = $_SERVER['DOCUMENT_ROOT'] . "/actions/".$file.".php";
-        include_once($dir);
+        if (file_exists($dir)) {
+            include_once($dir);
+        }
     }
 }
 ?>
