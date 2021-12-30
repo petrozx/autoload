@@ -27,7 +27,7 @@ function register(){
         $db = new DB('users');
         $users = $db->getRows();
         if (!in_array($_POST['email'], $users)) {
-            $newUser = $db->saveRows([$_POST['name'], $_POST['password'], $_POST['email'],'0']);
+            $newUser = $db->saveRows([$_POST['name'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['email'],'0']);
             $db->close_connection();
             die( json_encode(['error' => 0, 'success' => 1]) );
         }
