@@ -1,5 +1,5 @@
 <?
-$dir = $_SERVER['DOCUMENT_ROOT'] . "/actions/";
+$dir = "/actions/";
         $catalog = opendir($dir);
         while ($filename = readdir($catalog )) // перебираем наш каталог
         {

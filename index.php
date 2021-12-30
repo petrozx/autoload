@@ -12,5 +12,5 @@ try {
 } catch (Exception $e) {
     $GLOBALS['content'] = $e->getMessage();
 }
-require($_SERVER['DOCUMENT_ROOT'].'/content/main.php');
+require('content/main.php');
 ?>
