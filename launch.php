@@ -11,6 +11,6 @@
             throw new Exception('Error');
         }
 
-        closedir($catalog);
+       
         require($pages);
     });

@@ -7,3 +7,4 @@ $dir = $_SERVER['DOCUMENT_ROOT'] . "/actions/";
             var_dump($filename);
             include_once($filename); // один раз подрубаем, чтоб не повторяться
         }
+        closedir($catalog);
