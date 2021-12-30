@@ -22,11 +22,11 @@ class DB
         }
     }
 
-    public function findRows($search) {
-        $stmt = self::$connect->prepare("SELECT * FROM (?) WHERE (?)");
-        $stmt->bind_param("ss", self::$table, $search);
+    public function saveRows(...$args) {
+        $stmt = self::$connect->prepare("INSERT INTO ".self::$table."VALUES (?)");
+        $stmt->bind_param("sss", ...$args);
         $stmt->execute();
-        $result = $stmt->fetch();
+        $result = self::$connect->insert_id;
         $stmt->close();
         return $result;
     }
