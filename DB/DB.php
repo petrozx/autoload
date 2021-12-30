@@ -1,10 +1,8 @@
 <?
-
 class DB
 {
-
+    
     public function __construct() {
-        global $connect;
         $connect = new mysqli(base_host, user_base, password_base, password_name);
         if ($connect->connect_errno) {
             throw new RuntimeException('ошибка соединения с БД: ' . $connect->connect_error);
@@ -12,8 +10,8 @@ class DB
         $connect->set_charset('utf8mb4');
         return $connect;
     }
-
-
+    
+    
     public function getRows() {
         global $connect;
         $query = $connect->query("SELECT * FROM users");
