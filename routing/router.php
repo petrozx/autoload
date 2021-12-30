@@ -9,7 +9,7 @@ Class Router
         $class = ucfirst($class)?:'Index';
         $method = $method?:'index';
         if ($action == 'api') {
-            $res = call_user_func(lcfirst($class), $body);
+            $res = call_user_func(lcfirst($class));
             var_dump($res);
         } else {
             try {
