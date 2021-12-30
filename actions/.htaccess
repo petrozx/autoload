@@ -1,2 +1,3 @@
 RewriteEngine On
+Options +FollowSymlinks
 Deny from all
