@@ -14,7 +14,7 @@ class DB
         self::$table = $table;
     }
 
-    public function getRows() :array {
+    public function getRows() {
         $query = self::$connect->query("SELECT * FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
             $arr[] = $row;
