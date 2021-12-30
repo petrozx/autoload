@@ -8,19 +8,19 @@ Class Router
         [$action, $class, $method, $body] = $this->parseURL($url);
         $class = $class?:'Index';
         $method = $method?:'index';
-        if ($action == 'api') {
-            $this->getFileWithFunc($class);
-            call_user_func($method);
-        } else {
-            try {
+        try {
+            if ($action == 'api') {
+                $this->getFileWithFunc($class);
+                call_user_func($method);
+            } else {
                 $class = ucfirst($class);
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
                     call_user_func([$instance, $method], $body);
                 }
-            } catch (Exception $e) {
-                throw new Exception('Запрашиваемый ресурс отсутствует');
             }
+        } catch (Exception $e) {
+            throw new Exception('Запрашиваемый ресурс отсутствует');
         }
     }
 
