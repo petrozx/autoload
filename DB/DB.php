@@ -22,12 +22,12 @@ class DB
         return $arr;
     }
 
-    static function getColumns() :array {
+    static function getColumns() {
         $query = self::$connect->query("SHOW COLUMNS FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
             $names[] = $row['Field'];
         }
-        return $names?:[];
+        return $names;
     }
 
     public function saveRows($arr) {
