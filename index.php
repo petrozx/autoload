@@ -14,4 +14,4 @@ try {
 }
 require('content/main.php');
 ?>
-<script>const from = <?=ACCESS ?></script>
+<script>const from = <?=json_encode(ACCESS) ?></script>
