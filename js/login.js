@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const btnLogin = document.getElementById('login');
     const form = document.getElementById('register');
     const btnLogout = document.getElementById('logout');
-    console.log(from);
+
     btnLogout?.addEventListener('click', async(e)=>{
         const response = await logout()
         if(response.success){

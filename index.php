@@ -1,10 +1,10 @@
 <?
 session_start();
-define('ACCESS', ['petroz.myjino.ru']);
+
 require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DBCon.php');
-require_once('launch.php');
-require_once('routing/router.php');
-require_once('DB/DBCon.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/launch.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/routing/router.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DBCon.php');
 try {
     new Router(
         $_SERVER['REQUEST_URI']
@@ -12,6 +12,5 @@ try {
 } catch (Exception $e) {
     $GLOBALS['content'] = $e->getMessage();
 }
-require('content/main.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
 ?>
-<script>const from = <?=json_encode(ACCESS) ?></script>

@@ -1,5 +1,5 @@
 <?
-if (!in_array($_POST['from'],ACCESS))die('access denied');
+
 function login(){
     if ($_POST['method'] === 'login')
     {
