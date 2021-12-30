@@ -4,7 +4,7 @@ $post = $_POST;
 
 function login($post){
     // if ($post['method'] === 'login')
-    {
+    
         $db = new DBCon();
         $users = $db->getUsers();
         $db->close();
