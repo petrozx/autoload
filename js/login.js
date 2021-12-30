@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const form = document.getElementById('register');
     const btnLogout = document.getElementById('logout');
 
-    btnLogout?.addEventListener('click', async(e)=>{
+    btnLogout&&btnLogout.addEventListener('click', async(e)=>{
         const response = await logout()
         if(response.success){
             window.location.reload()
