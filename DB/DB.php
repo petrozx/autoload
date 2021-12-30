@@ -22,7 +22,7 @@ class DB
         return $arr;
     }
 
-    static function getColumns() {
+    static function getColumns() :array {
         $query = self::$connect->query("SHOW COLUMNS FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
             $names[] = $row['Field'];
