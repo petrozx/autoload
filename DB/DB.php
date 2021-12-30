@@ -15,7 +15,7 @@ class DB
     }
 
     public function getRows() {
-        $query = self::$connect->query("SELECT * FROM ".self::$connect);
+        $query = self::$connect->query("SELECT * FROM ".self::$connect."");
         while ($row = $query->fetch_row()) {
             $arr[] = $row;
         return $arr;
