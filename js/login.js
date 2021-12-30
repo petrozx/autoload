@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     btnLogout.addEventListener('click', async(e)=>{
         const response = await logout()
         if(response.success){
-                window.location.reload()
+            window.location.reload()
         }
     })
 
