@@ -29,6 +29,7 @@ Class Router
     {
         $string = trim(str_replace('/', " ", $url));
         $arr = explode(" ", $string);
+        $arr[0]!=='api' ? array_unshift($arr, "_") : $arr;
         return $arr;
     }
 
