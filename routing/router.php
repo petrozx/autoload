@@ -6,13 +6,14 @@ Class Router
     public function __construct($url)
     {
         [$action, $class, $method, $body] = $this->parseURL($url);
-        $class = ucfirst($class)?:'Index';
+        $class = $class?:'Index';
         $method = $method?:'index';
         if ($action == 'api') {
             $this->getFileWithFunc($class);
             call_user_func($method);
         } else {
             try {
+                $class = ucfirst($class);
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
                     call_user_func([$instance, $method], $body);
