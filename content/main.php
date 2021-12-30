@@ -22,15 +22,17 @@
                 </ul>
             </nav>
             <h1>Hi you are on my site</h1>
-            <?=$GLOBALS['content']?>
-        </div>
-        <div class="footer">
-        <?if (isset($GLOBALS['script'])):?>
-            <script src="<?=$GLOBALS['script']?>"></script>
-        <?endif;?>
-        <div class="made">
-            <a>©Made by petroz</a>
-        </div>
+            <div>
+                <?=$GLOBALS['content']?>
+            </div>
+            <div class="footer">
+                <?if (isset($GLOBALS['script'])):?>
+                    <script src="<?=$GLOBALS['script']?>"></script>
+                <?endif;?>
+                <div class="made">
+                    <a>©Made by petroz</a>
+                </div>
+            </div>
         </div>
     </body>
     </html>
