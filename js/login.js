@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     async function logout() {
         const formData = new FormData()
         formData.append('method', 'logout')
-        const request = await fetch('/api/login/logout', {
+        const request = await fetch('/api/login/logout/', {
             method: "POST",
             headers: {
                 contentType: "application/x-www-form-urlencoded"
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     async function login(data) {
         const formData = new FormData(data)
         formData.append('method', 'login')
-        const request = await fetch('/api/login/login', {
+        const request = await fetch('/api/login/login/', {
             method: "POST",
             headers: {
                 contentType: "application/x-www-form-urlencoded"
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     async function register(data) {
         const formData = new FormData(data)
         formData.append('method', 'register')
-        const request = await fetch('/api/login/register', {
+        const request = await fetch('/api/login/register/', {
             method: "POST",
             headers: {
                 contentType: "application/x-www-form-urlencoded"
