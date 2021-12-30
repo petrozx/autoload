@@ -16,7 +16,7 @@ class DB
 
     public function getRows() {
         $query = self::$connect->query("SELECT * FROM ".self::$table);
-        while ($row = $query->fetch_row()) {
+        while ($row = $query->fetch_assoc()) {
             $arr[] = $row;
         return $arr;
         }
@@ -29,8 +29,6 @@ class DB
         }
         return $names;
     }
-
-
 
     public function saveRows($arr) {
         $names = $this->getColumns();
@@ -45,6 +43,10 @@ class DB
         $result = self::$connect->insert_id;
         $stmt->close();
         return $result;
+    }
+
+    public function close_connection() {
+        self::$connect->close();
     }
 
 }

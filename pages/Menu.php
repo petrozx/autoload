@@ -12,9 +12,7 @@ class Menu
         ';
     }
     public function index(){
-        $bd = new DB('users');
-        $result = $bd->saveRows(['asd', 'asd', 'asd', 'asd']);
-        var_dump($result);
+        $GLOBALS['css'] = '/css/style.css';
         $GLOBALS['content'] = Menu::content();
     }
 

@@ -3,9 +3,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 function login(){
     if ($_POST['method'] === 'login')
     {
-        $db = new DBCon();
-        $users = $db->getUsers();
-        $db->close();
+        $db = new DB('users');
+        $users = $db->getRows();
+        $db->close_connection();
         if (is_array($users)){
             foreach ($users as $user) {
                 if ($_POST['email'] === $user['email']){
@@ -24,11 +24,11 @@ function login(){
 function register(){
     if ($_POST['method'] === 'register')
     {
-        $db = new DBCon();
-        $isHas = $db->findUser($_POST['email']);
-        if ($isHas == 0) {
-            $newUser = $db->saveUser($_POST['name'], $_POST['password'], $_POST['email']);
-            $db->close();
+        $db = new DB('users');
+        $users = $db->getRows();
+        if (in_array($_POST['email'], $users)) {
+            $newUser = $db->saveRows([$_POST['name'], $_POST['password'], $_POST['email'],'0']);
+            $db->close_connection();
             die( json_encode(['error' => 0, 'success' => 1]) );
         }
     }
