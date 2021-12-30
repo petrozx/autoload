@@ -22,7 +22,7 @@ class DB
         }
     }
 
-    public function getColumns() {
+    static function getColumns() {
         $query = self::$connect->query("SHOW COLUMNS FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
             $names[] = $row['Field'];
@@ -33,6 +33,9 @@ class DB
 
 
     public function saveRows($arr) {
+        $names = $this->getColumns();
+        $queryNames = array_map(function($e){ return $e."=?"; }, $names);
+        var_dump($queryNames);
         $stmt = self::$connect->prepare("INSERT INTO ".self::$table." SET `name`=?, `password`=?, `email`=?");
         $stmt->bind_param("sss", ...$arr);
         $stmt->execute();
