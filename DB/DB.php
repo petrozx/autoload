@@ -14,7 +14,7 @@ class DB
         self::$table = $table;
     }
 
-    public function getRows() {
+    public function getRows() :array {
         $query = self::$connect->query("SELECT * FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
             $arr[] = $row;
@@ -27,7 +27,7 @@ class DB
         while ($row = $query->fetch_assoc()) {
             $names[] = $row['Field'];
         }
-        return is_null($names)?[]:$names;
+        return $names;
     }
 
     public function saveRows($arr) {
