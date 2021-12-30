@@ -1,5 +1,5 @@
 <?
-
+global $connect;
 class DB
 {
 
