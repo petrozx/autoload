@@ -14,7 +14,7 @@ Class Router
                 if (function_exists($method)){
                     call_user_func($method);
                 } else {
-                    http_response_code(404);
+                    throw new Exception('Запрашиваемый метод не существует');
                 }
             } else {
                 $class = ucfirst($class);
