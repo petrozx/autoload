@@ -6,8 +6,7 @@ class DB
     public $connect;
     public $table;
 
-    public function __construct($table) {
-        $this->$table = $table;
+    public function __construct() {
         $connect = new mysqli(base_host, user_base, password_base, password_name);
         if ($connect->connect_errno) {
             throw new RuntimeException('ошибка соединения с БД: ' . $connect->connect_error);
