@@ -10,14 +10,6 @@
         if (!file_exists($pages)) {
             throw new Exception('Error');
         }
-        $dir = $_SERVER['DOCUMENT_ROOT'] . "/actions";
-        $catalog = opendir($dir);
-        while ($filename = readdir($catalog )) // перебираем наш каталог
-        {
-            var_dump('test');
-            $filename = $dir."/".$filename;
-            include_once($filename); // один раз подрубаем, чтоб не повторяться
-        }
 
         closedir($catalog);
         require($pages);
