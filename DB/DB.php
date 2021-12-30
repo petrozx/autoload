@@ -34,9 +34,9 @@ class DB
 
     public function saveRows($arr) {
         $names = $this->getColumns();
-        $queryNames = array_map(function($e){ return $e."=?"; }, $names);
-        var_dump($queryNames);
-        $stmt = self::$connect->prepare("INSERT INTO ".self::$table." SET `name`=?, `password`=?, `email`=?");
+        $prepareNames = array_map(function($e){ return $e."=?"; }, $names);
+        $queryNames = implode(",", $prepareNames);
+        $stmt = self::$connect->prepare("INSERT INTO ".self::$table." SET ".$queryNames);
         $stmt->bind_param("sss", ...$arr);
         $stmt->execute();
         $result = self::$connect->insert_id;
