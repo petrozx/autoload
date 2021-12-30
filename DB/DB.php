@@ -25,7 +25,7 @@ class DB
     public function saveRows($arr) {
         $stmt = self::$connect->prepare("INSERT INTO users VALUES (?,?,?)");
         var_dump(...$arr);
-        $stmt->bind_param("sss", ...$arr);
+        $stmt->bind_param("sss", $arr[0], $arr[1], $arr[2]);
         $stmt->execute();
         $result = self::$connect->insert_id;
         $stmt->close();
