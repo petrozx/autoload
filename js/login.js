@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             mode: 'no-cors',
             body: formData,
         })
-        const response = await request.json()
+        const response = await request.text()
         return response
     }
 
