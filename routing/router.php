@@ -9,13 +9,13 @@ Class Router
         $class = ucfirst($class)?:'Index';
         $method = $method?:'index';
         if ($action == 'api') {
-            call_user_func(lcfirst($class), $body);
+            $res = call_user_func(lcfirst($class), $body);
+            var_dump($res);
         } else {
             try {
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
-                    $res = call_user_func([$instance, $method], $body);
-                    var_dump($res);
+                    call_user_func([$instance, $method], $body);
                 }
             } catch (Exception $e) {
                 throw new Exception('Запрашиваемый ресурс отсутствует');
