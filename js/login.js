@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         e.preventDefault()
         const response = await login(form)
         if(response.success){
-            window.location.reload()
+            // window.location.reload()
         }
     })
 
