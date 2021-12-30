@@ -26,10 +26,12 @@ function register(){
     {
         $db = new DB('users');
         $users = $db->getRows();
-        if (!in_array($_POST['email'], $users)) {
-            $newUser = $db->saveRows([$_POST['name'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['email'],'0']);
-            $db->close_connection();
-            die( json_encode(['error' => 0, 'success' => 1]) );
+        foreach($users as $user){
+            if (!in_array($_POST['email'], $user)) {
+                $newUser = $db->saveRows([$_POST['name'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['email'],'0']);
+                $db->close_connection();
+                die( json_encode(['error' => 0, 'success' => 1]) );
+            }
         }
     }
     die( json_encode(['error' => 1, 'success' => 0]) );
