@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelector('select').onchange=(e)=>{
     $('.name-car')?.remove()
     const nameA=e.target.value
-    create('h1', 'name-car','.new-class', nameA)
+    create('h1', 'name-car', '#root', '.new-class', nameA)
   }
 
-  create('div', 'new-class','.wrapper', 'Ваша марка:')
+  create('div', 'new-class','#root', 'select', 'Ваша марка:')
 
   function $(node) {
     const items = document.querySelectorAll(node)
@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     parent.insertBefore(node, referenceNode.nextSibling);
 }
 
-  function create(tag, classname, node, text="") {
+  function create(tag, classname, parent, after, text="") {
     const el = document.createElement(tag)
     el.innerText = text
     classname&&(el.className = classname)
-    insertAfter(body, el, $(node))
+    insertAfter($(parent), el, $(after))
   }
 
 
