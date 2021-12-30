@@ -26,6 +26,7 @@ function register(){
     {
         $db = new DB('users');
         $users = $db->getRows();
+        die(var_dump($users));
         if (in_array($_POST['email'], $users)) {
             $newUser = $db->saveRows([$_POST['name'], $_POST['password'], $_POST['email'],'0']);
             $db->close_connection();
