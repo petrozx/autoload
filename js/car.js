@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const el = document.createElement(tag)
     el.innerText = text
     classname&&(el.className = classname)
-    insertAfter(body, el, $(node))
+    insertAfter(root, el, $(node))
   }
 
 
