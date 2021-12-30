@@ -9,8 +9,8 @@ Class Router
         $class = ucfirst($class)?:'Index';
         $method = $method?:'index';
         if ($action == 'api') {
-            $res = call_user_func($method);
-            var_dump($res);
+            $this->getFileWithFunc($class);
+            call_user_func($method);
         } else {
             try {
                 $instance = new $class($body);
@@ -31,5 +31,10 @@ Class Router
         return $arr;
     }
 
+    private function getFileWithFunc($file)
+    {
+        $dir = $_SERVER['DOCUMENT_ROOT'] . "/actions/".$file.".php";
+        include_once($dir);
+    }
 }
 ?>
