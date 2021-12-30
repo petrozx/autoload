@@ -37,11 +37,10 @@ class DB
         $deleteID = array_search('id',$names);
         unset($names[$deleteID]);
         $code = str_repeat('s',count($names));
-        die($code);
         $prepareNames = array_map(function($e){ return $e."=?"; }, $names);
         $queryNames = implode(",", $prepareNames);
         $stmt = self::$connect->prepare("INSERT INTO ".self::$table." SET ".$queryNames);
-        $stmt->bind_param("ssss", ...$arr);
+        $stmt->bind_param($code, ...$arr);
         $stmt->execute();
         $result = self::$connect->insert_id;
         $stmt->close();
