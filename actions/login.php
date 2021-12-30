@@ -2,9 +2,9 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DBCon.php');
 $post = $_POST;
 
-function login($post){
-    // if ($post['method'] === 'login')
-    
+function login(){
+    if ($_POST['method'] === 'login')
+    {
         $db = new DBCon();
         $users = $db->getUsers();
         $db->close();
@@ -18,16 +18,16 @@ function login($post){
             }
         }
         die(json_encode(['error' => 1, 'success' => 0]));
-    // }
+    }
 }
 
-function register($post){
-    if ($post['method'] === 'register')
+function register(){
+    if ($_POST['method'] === 'register')
     {
         $db = new DBCon();
-        $isHas = $db->findUser($post['email']);
+        $isHas = $db->findUser($_POST['email']);
         if ($isHas == 0) {
-            $newUser = $db->saveUser($post['name'], $post['password'], $post['email']);
+            $newUser = $db->saveUser($_POST['name'], $_POST['password'], $_POST['email']);
             $db->close();
             die(json_encode(['error' => 0, 'success' => 1]));
         } else {
@@ -37,8 +37,8 @@ function register($post){
     }
 }
 
-function logout($post){
-    if ($post['method'] === 'logout')
+function logout(){
+    if ($_POST['method'] === 'logout')
     {
     unset($_SESSION['auth']);
     die(json_encode(['error' => 0, 'success' =>1]));
