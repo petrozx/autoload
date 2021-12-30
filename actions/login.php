@@ -1,5 +1,5 @@
 <?
-
+var_dump(basename(__FILE__));
 function login(){
     if ($_POST['method'] === 'login')
     {
