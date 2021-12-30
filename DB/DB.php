@@ -27,7 +27,7 @@ class DB
         while ($row = $query->fetch_assoc()) {
             $names[] = $row['Field'];
         }
-        $names = $names?:[];
+        $names = $names?$names:[];
         return $names;
     }
 
