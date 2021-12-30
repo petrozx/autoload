@@ -26,6 +26,7 @@ function register(){
     {
         $db = new DB('users');
         $users = $db->getRows();
+        var_dump($users);
         foreach($users as $user){
             if (!in_array($_POST['email'], $user)) {
                 $newUser = $db->saveRows([$_POST['name'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['email'],'0']);
