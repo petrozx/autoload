@@ -1,5 +1,5 @@
 <?
-define('base_host', 'mysql.petroz.myjino.ru');
-define('user_base', 'petroz');
-define('password_base', '198719pv');
-define('password_name', 'petroz');
+define('DB_HOST', 'mysql.petroz.myjino.ru');
+define('DB_USER', 'petroz');
+define('DB_PASS', '198719pv');
+define('DB_NAME', 'petroz');
