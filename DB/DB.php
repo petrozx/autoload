@@ -3,7 +3,7 @@
 class DB
 {
 
-    public $BD;
+    public $connect;
     public $table;
 
     public function __construct($table) {
@@ -18,7 +18,7 @@ class DB
 
 
     public function getRows() {
-        $query = $this->$connect->query("SELECT * FROM ".$this->$table."");
+        $query = $this->query("SELECT * FROM users");
         while ($row = $query->fetch_row()) {
             $arr[] = $row;
         return $arr;
