@@ -1,4 +1,9 @@
 <?
+function getFrom(){
+    $db = new DBCon();
+    $result = $db->getAll('users');
+    var_dump($result);
+}
 
 function login(){
     if ($_POST['method'] === 'login')
