@@ -19,7 +19,7 @@ class DB
         while ($row = $query->fetch_assoc()) {
             $arr[] = $row;
         }
-        return $arr;
+        return $arr?:[];
     }
 
     static function getColumns() {
