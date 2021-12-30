@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             window.location.reload()
         } else {
             form.reset()
-            $('h1').innerText = 'Данные введуны не верно'
+            document.querySelector('h1').innerText = 'Данные введуны не верно'
         }
     })
 
