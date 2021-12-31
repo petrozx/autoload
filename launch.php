@@ -8,7 +8,7 @@
             $GLOBALS['script'] = '/js/' . lcfirst($class) . '.js';
         }
         if (file_exists($css)) {
-            $GLOBALS['css'] = '/css/' . lcfirst($css) . '.css';
+            $GLOBALS['css'] = '/css/' . lcfirst($class) . '.css';
         }
 
         if (!file_exists($pages)) {
