@@ -3,7 +3,14 @@
     width: 200px;
     padding: 10px;
 }
+
+form>input {
+    width: 100%;
+}
+
 .buttons {
     margin-top: 10px;
     height: 30px;
+    display: flex;
+    justify-content: space-between;
 }
