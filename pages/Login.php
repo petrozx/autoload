@@ -3,7 +3,7 @@
 class Login
 {
     public function register() {
-        if (empty($_SESSION['name'])) {
+        if (empty($_SESSION['auth'])) {
             $GLOBALS['content'] = '
             <form id="register">
                 <label for="name">Введите логин:</label>
