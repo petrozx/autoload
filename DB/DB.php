@@ -34,7 +34,9 @@ class DB
     public function saveRows($arr) {
         $names = $this->getColumns();
         $deleteID = array_search('id',$names);
+        $deleteDateCreate = array_search('date_create',$names);
         unset($names[$deleteID]);
+        unset($names[$deleteDateCreate]);
         $code = str_repeat('s',count($names));
         $prepareNames = array_map(function($e){ return $e."=?"; }, $names);
         $queryNames = implode(",", $prepareNames);
