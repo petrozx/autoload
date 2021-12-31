@@ -11,7 +11,7 @@ function login(){
                 if ($_POST['email'] === $user['email']){
                     $verify = password_verify($_POST['password'],$user['password']);
                     if ($verify) {
-                        $_SESSION['name'] = $user['name'];
+                        $_SESSION['auth'] = $user;
                         die( json_encode(['error' => 0, 'success' => 1]) );
                     }
                 }
@@ -40,7 +40,7 @@ function register(){
 function logout(){
     if ($_POST['method'] === 'logout')
     {
-        unset($_SESSION['name']);
+        unset($_SESSION['auth']);
         die( json_encode(['error' => 0, 'success' =>1]) );
     }
     die( json_encode(['error' => 1, 'success' => 0]) );
