@@ -59,6 +59,11 @@ class DB
         return $query;
     }
 
+    public function deleteRaw($id) {
+        $query = self::$connect->query("DELETE FROM ".self::$table." WHERE `users`.`id` = ".$id);
+        return $query;
+    }
+
     public function close_connection() {
         self::$connect->close();
     }
