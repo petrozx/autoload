@@ -50,7 +50,7 @@ class DB
         $prepareNames = array_map(function($e){ return $e." TEXT"; }, $columns);
         $prepareNames = implode(",", $prepareNames);
         $query = self::$connect->query("CREATE TABLE ".$name ." ". "(id INTEGER AUTO_INCREMENT PRIMARY KEY,
-        date_create DATE NOT NULL DEFAULT CURRENT_TIMESTAMP". $prepareNames .")");
+        date_create DATE NOT NULL DEFAULT CURRENT_TIMESTAMP ". $prepareNames .")");
     }
 
     public function close_connection() {
