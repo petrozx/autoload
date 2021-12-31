@@ -56,8 +56,6 @@ class DB
 
     static function deleteTable($name) {
         $query = self::$connect->query("DROP TABLE ".$name);
-        return $query;
-        
     }
 
     public function close_connection() {
