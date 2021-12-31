@@ -1,4 +1,7 @@
 <?
+/**
+ * Основной класс для работы с БД
+ */
 class DB
 {
     public static $connect;
