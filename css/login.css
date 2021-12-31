@@ -3,9 +3,12 @@
     width: 200px;
     padding: 10px;
 }
-
+#register {
+    border: 2px solid;
+    padding: 20px;
+}
 form>input {
-    width: 98%;
+    width: 103%;
 }
 
 .buttons {
