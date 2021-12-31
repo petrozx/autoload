@@ -48,10 +48,16 @@ class DB
         return $result;
     }
 
-    public function createTable($name, $columns) {
+    static function createTable($name, $columns) {
         $prepareNames = array_map(function($e){ return $e." TEXT"; }, $columns);
         $prepareNames = implode(",", $prepareNames);
         $query = self::$connect->query("CREATE TABLE ".$name ." ". "(id INTEGER AUTO_INCREMENT PRIMARY KEY, date_create DATE DEFAULT CURRENT_TIMESTAMP, ". $prepareNames .")");
+    }
+
+    static function deleteTable($name) {
+        $query = self::$connect->query("DROP TABLE ".$name);
+        return $query;
+        
     }
 
     public function close_connection() {
