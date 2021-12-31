@@ -12,7 +12,7 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="user-info"><a><?=$_SESSION['auth']['name']?:'Гость'?></a></div>
+            <div class="user-info"><a><?=$_SESSION['auth']?:'Гость'?></a></div>
             <nav>
                 <ul class="navbar">
                     <li><a href="/car/mycar/">выберите машину</a></li>
