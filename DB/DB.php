@@ -4,7 +4,7 @@ class DB
     public static $connect;
     public static $table;
 
-    public function __construct($table='users') {
+    public function __construct($table='') {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $connect = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if ($connect->connect_errno) {
@@ -48,14 +48,15 @@ class DB
         return $result;
     }
 
-    static function createTable($name, $columns) {
+    public function createTable($name, $columns) {
         $prepareNames = array_map(function($e){ return $e." TEXT"; }, $columns);
         $prepareNames = implode(",", $prepareNames);
         $query = self::$connect->query("CREATE TABLE ".$name ." ". "(id INTEGER AUTO_INCREMENT PRIMARY KEY, date_create DATE DEFAULT CURRENT_TIMESTAMP, ". $prepareNames .")");
     }
 
-    static function deleteTable($name) {
+    public function deleteTable($name) {
         $query = self::$connect->query("DROP TABLE ".$name);
+        return $query;
     }
 
     public function close_connection() {
