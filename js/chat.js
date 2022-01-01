@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const resSend = await sendMessage()
         console.log(resSend);
     })
-    // setInterval(await showAll, 300);
+    setInterval(await showAll, 1000);
 
     async function showAll() {
         const get = await getall();
@@ -45,21 +45,21 @@ document.addEventListener("DOMContentLoaded", async()=>{
         return await req.json()
     }
 
-    newSebSock()
-    function newSebSock() {
-        const socket = new WebSocket('ws://petroz.myjino.ru/api/chat/websock');
-        socket.onopen = () => {
-            connect.textContent += "Соединение установлено \n"
-        }
-        socket.onerror = (e) => {
-            connect.textContent += "Ошибка соединения: " + (e.message?e.message:"соединение не установлено \n")
-        }
-        socket.onclose = () => {
-            connect.textContent += "Соединение закрыто \n"
-        }
-        socket.onmessage = (event) => {
-            const data = JSON.parse(event.data)
-            console.log(data.type, data.message);
-        }
-    }
+    // newSebSock()
+    // function newSebSock() {
+    //     const socket = new WebSocket('ws://petroz.myjino.ru/api/chat/websock');
+    //     socket.onopen = () => {
+    //         connect.textContent += "Соединение установлено \n"
+    //     }
+    //     socket.onerror = (e) => {
+    //         connect.textContent += "Ошибка соединения: " + (e.message?e.message:"соединение не установлено \n")
+    //     }
+    //     socket.onclose = () => {
+    //         connect.textContent += "Соединение закрыто \n"
+    //     }
+    //     socket.onmessage = (event) => {
+    //         const data = JSON.parse(event.data)
+    //         console.log(data.type, data.message);
+    //     }
+    // }
 })
