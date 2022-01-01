@@ -13,5 +13,8 @@ try {
 } catch (Exception $e) {
     $GLOBALS['content'] = $e->getMessage();
 }
+var_dump($content);
+var_dump($GLOBALS['content']);
+
 require($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
 ?>
