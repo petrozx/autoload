@@ -16,7 +16,7 @@
             <nav>
                 <ul class="navbar">
                     <li><a href="/car/mycar/">выберите машину</a></li>
-                    <li><a href="/showhello/sayhello/">Скажите привет</a></li>
+                    <li><a href="/chat/">Скажите привет</a></li>
                     <li><a href="/menu/list/">Наше меню</a></li>
                     <li><a href="/">Главная</a></li>
                     <li><a href="/login/register">Регитрация</a></li>

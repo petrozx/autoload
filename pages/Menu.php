@@ -13,7 +13,7 @@ class Menu
         ';
     }
     public function index(){
-        $GLOBALS['content'] = Menu::content();
+        return Menu::content();
     }
 
     static function content() {
