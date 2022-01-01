@@ -2,7 +2,7 @@
 Class ShowHello
 {
     public function sayHello() {
-        return "<h1>Hello!</h1>";
+        return "<h2>Hello!</h2>";
     }
 }
 ?>
