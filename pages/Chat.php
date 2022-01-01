@@ -1,7 +1,7 @@
 <?
 Class Chat
 {
-    public function chat() {
+    public function index() {
         return '<div id="chat"></div>';
     }
 }
