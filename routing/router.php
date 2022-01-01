@@ -19,7 +19,7 @@ Class Router
             } else {
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
-                    $GLOBALS['content'] = call_user_func([$instance, $method], $body);
+                    $content = call_user_func([$instance, $method], $body);
                 }
             }
         } catch (Exception $e) {

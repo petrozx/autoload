@@ -10,7 +10,7 @@ try {
         $_SERVER['REQUEST_URI']
     );
 } catch (Exception $e) {
-    $GLOBALS['content'] = $e->getMessage();
+    $content = $e->getMessage();
 }
 
 require($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
