@@ -4,7 +4,7 @@ class Login
 {
     public function register() {
         if (empty($_SESSION['auth'])) {
-            return '
+            $GLOBALS['content'] = '
             <form id="register">
                 <label for="name">Введите логин:</label>
                     <input type="text" name="name"><br>
@@ -19,7 +19,7 @@ class Login
             </form>
             ';
         } else {
-            return '<button type="button" id="logout" >Выйти</button>';
+            $GLOBALS['content'] = '<button type="button" id="logout" >Выйти</button>';
         }
     }
 }

@@ -24,7 +24,7 @@
             </nav>
             <h1>Hi you are on my site</h1>
             <div id="root">
-                <?='<pre>'.print_r($GLOBALS,true).'</pre>'?>
+                <?=$GLOBALS['content']?>
             </div>
             <div class="footer">
                 <?if (isset($GLOBALS['script'])):?>

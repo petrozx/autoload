@@ -2,8 +2,8 @@
 
 class Menu 
 {
-    public function list(): ?string {
-        return '
+    public function list() {
+        $GLOBALS['content'] = '
         <ul>
             <li>Плов</li>
             <li>Борщ</li>
@@ -13,7 +13,7 @@ class Menu
         ';
     }
     public function index(){
-        return Menu::content();
+        $GLOBALS['content'] = Menu::content();
     }
 
     static function content() {
