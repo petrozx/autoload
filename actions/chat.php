@@ -1,4 +1,5 @@
-<?if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
+<?
+// if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 
 function getMessage() {
     if ($_POST['method'] == 'getAll'){
