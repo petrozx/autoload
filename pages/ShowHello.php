@@ -2,7 +2,8 @@
 Class ShowHello
 {
     public function sayHello() {
-        return "<h2>Hello!</h2>";
+        $a = "<h2>Hello!</h2>";
+        return $a;
     }
 }
 ?>
