@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     button.addEventListener("click", async(e)=>{
         e.preventDefault();
-
+        const resSend = sendMessage()
+        console.log(resSend);
+        showAll()
     })
 
     showAll()
@@ -27,11 +29,19 @@ document.addEventListener("DOMContentLoaded", async()=>{
             body: formData
         })
         try {
-            const response = await req.json()
-            return response
+            return await req.json()
         } catch (err) {
             return false
         }
     }
 
+    async function sendMessage() {
+        const formData = new FormData(form)
+        formData.append('method', 'send')
+        const req = await fetch('/api/chat/sendMessage', {
+            method: 'POST',
+            body: formData
+        })
+        return await req.json()
+    }
 })
