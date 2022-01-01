@@ -44,5 +44,13 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
         return await req.json()
     }
+    async function getsock() {
+        const req = await fetch('/', {
+            method: 'GET'
+        })
+        return await req.text()
+    }
+    const ans = getsock()
+    console.log(ans);
 
 })
