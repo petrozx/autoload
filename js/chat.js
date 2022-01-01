@@ -49,13 +49,13 @@ document.addEventListener("DOMContentLoaded", async()=>{
     function newSebSock() {
         const socket = new WebSocket('ws://petroz.myjino.ru/api/chat/websock');
         socket.onopen = () => {
-            connect.textContent += "Соединение установлено"
+            connect.textContent += "Соединение установлено \n"
         }
         socket.onerror = (e) => {
-            connect.textContent += "Ошибка соединения: " + (e.message?e.message:"соединение не установлено")
+            connect.textContent += "Ошибка соединения: " + (e.message?e.message:"соединение не установлено \n")
         }
         socket.onclose = (e) => {
-            connect.textContent += "Соединение закрыто"
+            connect.textContent += "Соединение закрыто \n"
         }
     }
 })
