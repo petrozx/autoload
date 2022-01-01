@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     button.addEventListener("click", async(e)=>{
         e.preventDefault();
-        const resSend = sendMessage()
+        const resSend = await sendMessage()
         console.log(resSend);
-        showAll()
+        await showAll()
     })
 
     showAll()
