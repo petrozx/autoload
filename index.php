@@ -1,6 +1,5 @@
 <?
 session_start();
-unset($GLOBALS['content']);
 require_once($_SERVER['DOCUMENT_ROOT'] . '/launch.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DB.php');
