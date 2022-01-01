@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         return await req.json()
     }
 
-
+    newSebSock()
     function newSebSock() {
         const socket = new WebSocket('ws://petroz.myjino.ru/api/chat/websock');
         socket.onopen = () => {
