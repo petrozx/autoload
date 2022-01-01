@@ -2,7 +2,7 @@
 
 class Menu 
 {
-    public function list(): string {
+    public function list(): ?string {
         return'
         <ul>
             <li>Плов</li>
