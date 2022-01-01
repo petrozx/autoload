@@ -2,7 +2,7 @@
 Class Chat
 {
     public function __construct() {
-        return;
+        $GLOBALS['content'] = '<div id="chat"></div>';
     }
 }
 ?>
