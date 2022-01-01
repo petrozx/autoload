@@ -54,5 +54,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
         socket.onerror = (e) => {
             connect.textContent = "Ошибка соединения: " + (e.message?e.message:"соединение не установлено")
         }
+        socket.onclose = (e) => {
+            connect.textContent = "Соединение закрыто"
+        }
     }
 })
