@@ -8,7 +8,7 @@ class Chat
         foreach($tmpLine as $line) {
             $line = trim($line);
             $prepare = explode(":", $line);
-            $headers[$prepare[0]] = $prepare[1];
+            $headers[$prepare[1]] = $prepare[2];
         }
         $key = $headers['Sec-WebSocket-key'];
         $sKey = base64_encode(pack('H*',sha1($key.'petroz.myjino.ru')));
