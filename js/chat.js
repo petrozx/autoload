@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function showAll() {
         const get = await getall();
+        messages.value = ''
         get&&get.forEach(mes=>{
-            messages.value = ''
             messages.value += mes['date_create']+"\n"+mes['author']+"\n"+mes['message']+"\n"
         })
     }
