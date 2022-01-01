@@ -1,17 +1,18 @@
 <?
     spl_autoload_register(function ($class) {
-        $pages = $_SERVER['DOCUMENT_ROOT'] . '/pages/'. $class . '.php';
-        $script = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class . '.js';
-        $css = $_SERVER['DOCUMENT_ROOT'] . '/css/'. $class . '.css';
+        $other = $class;
+        $pages = $_SERVER['DOCUMENT_ROOT'] . '/pages/'. ucfirst($class) . '.php';
+        $script = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $other . '.js';
+        $css = $_SERVER['DOCUMENT_ROOT'] . '/css/'. $other . '.css';
 
         if (file_exists($script)) {
-            $GLOBALS['script'] = '/js/' . $class . '.js';
+            $GLOBALS['script'] = '/js/' . $other . '.js';
         }
         if (file_exists($css)) {
-            $GLOBALS['css'] = '/css/' . $class . '.css';
+            $GLOBALS['css'] = '/css/' . $other . '.css';
         }
 
-        if (!file_exists(ucfirst($pages))) {
+        if (!file_exists($pages)) {
             throw new Exception('Error');
         }
         require($pages);
