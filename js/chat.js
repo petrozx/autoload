@@ -6,10 +6,14 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     button.addEventListener("click", async(e)=>{
         e.preventDefault();
+
     })
 
     const get = await getall();
-    console.log(get);
+    get?.foreach(mes=>{
+        messages.textContent += mes['date_create']+"\n"+mes['author']+"\n"+mes['message']
+    })
+
 
     async function getall() {
         const formData = new FormData();
