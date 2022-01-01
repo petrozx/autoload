@@ -5,8 +5,9 @@
     margin: 0 auto;
 }
 
-#chat>:first-child {
+#messages {
     height: 300px;
     margin: 20px 0 20px 0;
     padding: 10px;
+    overflow: scroll;
 }
