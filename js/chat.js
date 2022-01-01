@@ -9,10 +9,14 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     })
 
-    const get = await getall();
-    get?.foreach(mes=>{
-        messages.textContent += mes['date_create']+"\n"+mes['author']+"\n"+mes['message']
-    })
+    showAll()
+
+    function showAll() {
+        const get = await getall();
+        get?.foreach(mes=>{
+            messages.innerHTML += mes['date_create']+"\n"+mes['author']+"\n"+mes['message']
+        })
+    }
 
 
     async function getall() {
