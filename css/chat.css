@@ -1,0 +1,10 @@
+#chat {
+    width: 315px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+#chat>:first-child {
+    height: 300px;
+}
