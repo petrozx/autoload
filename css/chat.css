@@ -7,4 +7,6 @@
 
 #chat>:first-child {
     height: 300px;
+    margin: 20px 0 20px 0;
+    padding: 10px;
 }
