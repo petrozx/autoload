@@ -3,7 +3,7 @@
 class Menu 
 {
     public function list(): ?string {
-        return'
+        return '
         <ul>
             <li>Плов</li>
             <li>Борщ</li>
