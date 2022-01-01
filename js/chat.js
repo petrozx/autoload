@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             method: 'POST',
             body: formData
         })
-        $response = await req.json()
+        $response = await req?.json()
         return $response
     }
 
