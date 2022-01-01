@@ -8,10 +8,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
         e.preventDefault();
         const resSend = await sendMessage()
         console.log(resSend);
-        await showAll()
     })
-
-    await showAll()
+    setInterval(await showAll(), 300);
 
     async function showAll() {
         const get = await getall();
