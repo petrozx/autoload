@@ -1,6 +1,6 @@
 <?
 session_start();
-
+unset($GLOBALS['content']);
 require_once($_SERVER['DOCUMENT_ROOT'] . '/launch.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DB.php');
@@ -13,9 +13,6 @@ try {
 } catch (Exception $e) {
     $GLOBALS['content'] = $e->getMessage();
 }
-unset($GLOBALS['content']);
-var_dump($content);
-var_dump($GLOBALS['content']);
 
 require($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
 ?>

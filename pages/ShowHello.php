@@ -2,7 +2,7 @@
 Class ShowHello
 {
     public function sayHello() {
-        $content = '<h2>Hello!</h2>';
+        return '<h2>Hello!</h2>';
     }
 }
 ?>
