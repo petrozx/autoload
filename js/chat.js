@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
         return await req.text()
     }
-    const ans = getsock()
+    const ans = await getsock()
     console.log(ans);
 
 })
