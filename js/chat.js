@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const resSend = await sendMessage()
         console.log(resSend);
     })
-    setInterval(await showAll, 1000);
+    // setInterval(await showAll, 1000);
 
     async function showAll() {
         const get = await getall();
