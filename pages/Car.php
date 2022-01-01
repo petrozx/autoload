@@ -9,7 +9,7 @@ class Car
     }
 
     public function mycar($name) {
-        $GLOBALS['content'] = '<div id="car"></div>';
+        return '<div id="car"></div>';
     }
 
 }

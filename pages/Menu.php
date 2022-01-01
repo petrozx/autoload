@@ -2,7 +2,7 @@
 class Menu 
 {
     public function list(){
-        $GLOBALS['content'] = '
+        return '
         <ul>
             <li>Плов</li>
             <li>Борщ</li>
@@ -12,8 +12,7 @@ class Menu
         ';
     }
     public function index(){
-        $GLOBALS['css'] = '/css/style.css';
-        $GLOBALS['content'] = Menu::content();
+        return Menu::content();
     }
 
     static function content() {

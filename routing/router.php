@@ -20,7 +20,7 @@ Class Router
                 $class = ucfirst($class);
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
-                    call_user_func([$instance, $method], $body);
+                    $GLOBALS['content'] = call_user_func([$instance, $method], $body);
                 }
             }
         } catch (Exception $e) {
