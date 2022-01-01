@@ -1,5 +1,4 @@
 <?
-require_once('DB/Chat.php');
 if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 
 function getMessage() {
