@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function showAll() {
         const get = await getall();
-        get?.foreach(mes=>{
+        get.foreach(mes=>{
             messages.innerHTML += mes['date_create']+"\n"+mes['author']+"\n"+mes['message']
         })
     }
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             method: 'POST',
             body: formData
         })
-        const response = await req.text()
+        const response = await req.json()??[]
         return response
     }
 
