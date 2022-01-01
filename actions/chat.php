@@ -14,7 +14,7 @@ function sendMessage() {
         $bd = new DB('chats');
         $res = $bd->saveRows([$_POST['message'], $_POST['author']]);
         $bd->close_connection();
-        echo json_encode(['error' => 0, 'success' => 1], true);
+        die(json_encode(['error' => 0, 'success' => 1], true));
     }
 }
 
