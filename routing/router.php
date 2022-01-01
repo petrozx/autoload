@@ -5,7 +5,6 @@ Class Router
 
     public function __construct($url)
     {
-        global $content;
         [$action, $class, $method, $body] = $this->parseURL($url);
         $class = $class?:'Index';
         $method = $method?:'index';
@@ -21,6 +20,7 @@ Class Router
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
                     $GLOBALS['content'] = call_user_func([$instance, $method], $body);
+                    return $GLOBALS['content'];
                 }
             }
         } catch (Exception $e) {
