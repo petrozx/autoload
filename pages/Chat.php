@@ -5,7 +5,7 @@ Class Chat
         return '
         <div class="connect"></div>
         <form id="chat">
-        <textarea readonly rows="10" cols="45" class="messages" placeholder="тут будут все сообщения"></textarea>
+        <div class="messages" ></div>
         <input type="text" name="message" class="message" placeholder="введите сообщение">
         <button type="submit">отправить</button>
         </form>';

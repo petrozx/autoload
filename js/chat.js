@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const get = await getall();
         messages.value = ''
         get&&get.forEach(mes=>{
-            messages.value += mes['date_create']+"\n"+mes['author']+"\n"+mes['message']+"\n\n"
+            const newMes = document.createElement('div')
+            newMes.innerText = mes['date_create']+"\n"+mes['author']+"\n"+mes['message']+"\n\n"
+            messages.append(newMes)
         })
     }
 
@@ -44,13 +46,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
         return await req.json()
     }
-    async function getsock() {
-        const req = await fetch('/', {
-            method: 'GET'
-        })
-        return await req.text()
-    }
-    const ans = await getsock()
-    console.log(ans);
+
 
 })
