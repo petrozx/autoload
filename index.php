@@ -13,6 +13,7 @@ try {
 } catch (Exception $e) {
     $GLOBALS['content'] = $e->getMessage();
 }
+unset($GLOBALS['content']);
 var_dump($content);
 var_dump($GLOBALS['content']);
 
