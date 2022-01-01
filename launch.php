@@ -11,9 +11,8 @@
             $GLOBALS['css'] = '/css/' . $class . '.css';
         }
 
-        if (!file_exists($pages)) {
+        if (!file_exists(ucfirst($pages))) {
             throw new Exception('Error');
         }
-
         require($pages);
     });
