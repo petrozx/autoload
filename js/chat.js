@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             const response = await req.json()
             return response
         } catch (err) {
-            return []
+            return false
         }
     }
 
