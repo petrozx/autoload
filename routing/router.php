@@ -21,6 +21,7 @@ Class Router
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
                     $GLOBALS['content'] = call_user_func([$instance, $method], $body);
+                    var_dump($GLOBALS['content']);
                 }
             }
         } catch (Exception $e) {
