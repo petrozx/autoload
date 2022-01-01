@@ -1,9 +1,9 @@
 <?
 session_start();
 
+require_once($_SERVER['DOCUMENT_ROOT'] . '/launch.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DB.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/launch.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/routing/router.php');
 
 try {
