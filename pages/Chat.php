@@ -1,7 +1,7 @@
 <?
 Class Chat
 {
-    public function __construct() {
+    public function chat() {
         return '<div id="chat"></div>';
     }
 }
