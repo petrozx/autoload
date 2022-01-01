@@ -3,6 +3,7 @@ Class Chat
 {
     public function index() {
         return '
+        <div class="connect"></div>
         <form id="chat">
         <textarea readonly rows="10" cols="45" class="messages" placeholder="тут будут все сообщения"></textarea>
         <input type="text" name="message" class="message" placeholder="введите сообщение">
