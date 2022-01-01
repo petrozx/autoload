@@ -1,6 +1,6 @@
 <?
     spl_autoload_register(function ($class) {
-        $pages = $_SERVER['DOCUMENT_ROOT'] . '/pages/'. ucfirst($class) . '.php';
+        $pages = $_SERVER['DOCUMENT_ROOT'] . '/pages/'. $class . '.php';
         $script = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class . '.js';
         $css = $_SERVER['DOCUMENT_ROOT'] . '/css/'. $class . '.css';
 
