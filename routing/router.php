@@ -21,7 +21,6 @@ Class Router
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
                     $content = call_user_func([$instance, $method], $body);
-                    return $content;
                 }
             }
         } catch (Exception $e) {

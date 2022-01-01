@@ -1,8 +1,9 @@
 <?
+global $content;
 Class ShowHello
 {
-    public function sayHello(): ?string {
-        return '<h2>luyiluyilyuilyui Hello!</h2>';
+    public function sayHello() {
+        $content = '<h2>Hello!</h2>';
     }
 }
 ?>
