@@ -1,5 +1,5 @@
 <?
-// if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
+if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 
 function getMessage() {
     if ($_POST['method'] == 'getAll'){
@@ -19,20 +19,6 @@ function sendMessage() {
     }
 }
 
-function websock() {
-    $chat = new Chat();
-    $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-    socket_set_option($socket, SOL_SOCKET, SO_REUSEADDR, true);
-    socket_bind($socket, 0, 80);
-    socket_listen($socket, true);
-    while (true) {
-        $newSocket = socket_accept($socket);
-        $header = socket_read($newSocket, 1024);
-        $chat->sendHeaders($header, $newSocket, 'petroz.myjino.ru/chat/', 80);
-    }
-
-    socket_close($socket);
-}
 
 
 
