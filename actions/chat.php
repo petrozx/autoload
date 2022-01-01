@@ -1,4 +1,5 @@
 <?
+require_once('DB/Chat.php');
 // if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 
 // function getMessage() {
@@ -19,7 +20,7 @@
 //     }
 // }
 
-function websock() {
+// function websock() {
     $chat = new Chat();
     $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
     socket_set_option($socket, SOL_SOCKET, SO_REUSEADDR, true);
@@ -32,7 +33,7 @@ function websock() {
     }
 
     socket_close($socket);
-}
+// }
 
 
 
