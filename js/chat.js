@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         await showAll()
     })
 
-    showAll()
+    await showAll()
 
     async function showAll() {
         const get = await getall();
