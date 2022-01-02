@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         e.preventDefault();
         const resSend = await sendMessage()
         form.reset()
+        await showAll()
     })
     setInterval(await showAll, 5000);
     await showAll()
