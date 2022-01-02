@@ -31,8 +31,10 @@ function register(){
                 die( json_encode(['error' => 1, 'success' => 0]) );
             }
         }
-        $db->saveRows([$_POST['name'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['email'],'0']);
+        $idUser = $db->saveRows([$_POST['name'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['email'],'0']);
+        $objUser = $db->getFilterRows('id='.$idUser);
         $db->close_connection();
+        $_SESSION['auth'] = $objUser[0];
         die( json_encode(['error' => 0, 'success' => 1]) );
     }
 }
