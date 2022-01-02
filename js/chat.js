@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const message = document.querySelector('.message')
     const connect = document.querySelector('.connect')
 
-    button.addEventListener("click", async(e)=>{
+    button?.addEventListener("click", async(e)=>{
         e.preventDefault();
         await sendMessage()
         await updateMessage()
