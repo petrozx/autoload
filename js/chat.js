@@ -26,14 +26,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
             length++
         }
     }
-    await updateMessage()
+    updateMessage()
     async function updateMessage() {
         const mess = Array.from(messages.querySelectorAll('div'))
-        let maximus;
-        mess.sort((min, max) =>{
-        min = min.dataset.id
-        console.log(min);
-        maximus = max.dataset.$id})
+        console.log(mess);
     }
 
     async function getall() {
