@@ -14,9 +14,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function showAll() {
         const get = await getall();
-        console.log(1);
         const length = messages.querySelectorAll('div').length
-        console.log(2);
+        console.log(length);
         get&&get.forEach(mes=>{
             if (length < get.length){
                 const newMes = document.createElement('div')
