@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function showAll() {
         const get = await getall();
-        const length = messages.querySelectorAll('div').length
         console.log(length);
         get&&get.forEach(mes=>{
+            const length = messages.querySelectorAll('div').length
             if (length < get.length){
                 const newMes = document.createElement('div')
                 newMes.innerText = mes['date_create']+"\n"+mes['author']+"\n"+mes['message']+"\n\n"
