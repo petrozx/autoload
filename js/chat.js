@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
     updateMessage()
     async function updateMessage() {
-        const mess = messages.querySelectorAll('div')
+        const mess = Array.from(messages.querySelectorAll('div'))
         let maximus;
         mess.sort((min, max) =>{
         min = min.dataset.id
