@@ -26,6 +26,14 @@ class DB
         return $arr?:[];
     }
 
+    public function getFilterRows($filter) {
+        $query = self::$connect->query("SELECT * FROM ".self::$table." WHERE ". $filter);
+        while ($row = $query->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return $arr?:[];
+    }
+
     private function getColumns() {
         $query = self::$connect->query("SHOW COLUMNS FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
