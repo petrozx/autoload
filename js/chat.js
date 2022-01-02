@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     setInterval(await showAll, 1000);
 
     async function showAll() {
-        let i;
+        let i=0;
         const get = await getall();
         while (get.length > i)
             i = (messages.querySelectorAll('div').length)||0
