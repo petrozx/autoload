@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const messages = document.querySelector('.messages')
     const message = document.querySelector('.message')
     const connect = document.querySelector('.connect')
+    const length = messages.getElementsByTagName('div').length
 
     button.addEventListener("click", async(e)=>{
         e.preventDefault();
@@ -14,7 +15,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function showAll() {
         const get = await getall();
-        const length = messages.querySelectorAll('div').length
         let i = 0;
         while (length < get.length){
             const newMes = document.createElement('div')
