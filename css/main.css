@@ -5,6 +5,8 @@
 
 .wrapper {
     min-width: fit-content;
+    height: 937px;
+    position: relative;
 }
 
 ul.navbar {
