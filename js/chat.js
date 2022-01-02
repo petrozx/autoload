@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         let length = messages.querySelectorAll('div').length
         while (length < get.length) {
             const newMes = document.createElement('div')
+            newMes.dataset.id(get[length]['id'])
             newMes.innerText = get[length]['date_create']+"\n"+get[length]['author']+"\n"+get[length]['message']+"\n\n"
             messages.append(newMes)
             length++
@@ -30,6 +31,21 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const formData = new FormData();
         formData.append('method', 'getAll')
         const req = await fetch('/api/chat/getMessage', {
+            method: 'POST',
+            body: formData
+        })
+        try {
+            return await req.json()
+        } catch (err) {
+            return false
+        }
+    }
+
+    async function update() {
+        const formData = new FormData();
+        formData.append('method', 'update')
+        formData.append('id', )
+        const req = await fetch('/api/chat/update', {
             method: 'POST',
             body: formData
         })
