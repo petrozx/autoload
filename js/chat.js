@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         let maximus;
         mess.sort((min, max) =>{
         min = min.dataset.id
-        console.log(min.dataset.id);
+        console.log(min);
         maximus = max.dataset.$id})
     }
 
