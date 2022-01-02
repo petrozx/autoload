@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             length++
         }
     }
-    updateMessage()
+    await updateMessage()
     async function updateMessage() {
         const mess = Array.from(messages.querySelectorAll('div'))
         let maximus;
