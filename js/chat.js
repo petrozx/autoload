@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const messages = document.querySelector('.messages')
     const message = document.querySelector('.message')
     const connect = document.querySelector('.connect')
-    const length = messages.getElementsByTagName('div').length
 
     button.addEventListener("click", async(e)=>{
         e.preventDefault();
@@ -15,13 +14,14 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function showAll() {
         const get = await getall();
-        let i = 0;
-        while (length < get.length){
-            const newMes = document.createElement('div')
-            newMes.innerText = get[i]['date_create']+"\n"+get[i]['author']+"\n"+get[i]['message']+"\n\n"
-            messages.append(newMes)
-            i++
-        }
+        const length = messages.querySelectorAll('div').length
+        get&&get.forEach(mes=>{
+            if (length < get.length){
+                const newMes = document.createElement('div')
+                newMes.innerText = mes['date_create']+"\n"+mes['author']+"\n"+mes['message']+"\n\n"
+                messages.append(newMes)
+            }
+        })
     }
 
 
