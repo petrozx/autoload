@@ -79,6 +79,24 @@ document.addEventListener("DOMContentLoaded", async()=>{
             })
             return await req.json()
         }
+    } else {
+        const chats = document.querySelector('.chats')
+        const users = await getAllUsers()
+        console.log(users);
+        users.forEach(user =>{
+            const divUser = document.createElement('div')
+            divUser.className = 'user'
+            divUser.dataset.id = user['id']
+            divUser.innerText = user['name']
+            chats.append(divUser)
+        })
+
+        async function getAllUsers() {
+            const req = await fetch('/api/chat/users',{
+                method: 'POST'
+            })
+            return await req.json()
+        }
     }
 
 })
