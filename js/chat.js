@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async()=>{
 
-    if (window.location.href === 'http://petroz.myjino.ru/chat/private/') {
+    if (window.location.href == 'http://petroz.myjino.ru/chat/private/') {
         const form = document.getElementById('chat')
         const button = document.getElementsByTagName('button')[0]
         const messages = document.querySelector('.messages')
