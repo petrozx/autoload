@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         users.forEach(user =>{
             const divUser = document.createElement('a')
             divUser.className = 'user'
-            divUser.href = '/chat/private/?user=' + user['name']
+            divUser.href = '/chat/private/?user=' + user['id']
             divUser.dataset.id = user['id']
             divUser.innerText = user['name']
             chats.append(divUser)
@@ -27,7 +27,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const messages = document.querySelector('.messages')
         const message = document.querySelector('.message')
         const connect = document.querySelector('.connect')
-        console.log($_GET('user'))
+        console.log($_GET('id'))
+
         button?.addEventListener("click", async(e)=>{
             e.preventDefault();
             await sendMessage()
