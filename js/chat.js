@@ -13,13 +13,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
     setInterval(await showAll, 1000);
 
     async function showAll() {
-        let i=0;
         const get = await getall();
-        while (get.length > i)
-            i = (messages.querySelectorAll('div').length)||0
-            console.log(i);
+        const length = messages.querySelectorAll('div')
+        while (length > get.length) {}
             const newMes = document.createElement('div')
-            newMes.innerText = get[i]['date_create']+"\n"+get[i]['author']+"\n"+get[i]['message']+"\n\n"
+            newMes.innerText = get[length]['date_create']+"\n"+get[length]['author']+"\n"+get[length]['message']+"\n\n"
             messages.append(newMes)
     }
 
