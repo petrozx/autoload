@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const get = await getall();
         const length = messages.querySelectorAll('div').length
         while (length < get.length){
-        get&&get.forEach(mes=>{
-                const newMes = document.createElement('div')
-                newMes.innerText = mes['date_create']+"\n"+mes['author']+"\n"+mes['message']+"\n\n"
-                messages.append(newMes)
-            })
+            let i = 0;
+            const newMes = document.createElement('div')
+            newMes.innerText = get[i]['date_create']+"\n"+get[i]['author']+"\n"+get[i]['message']+"\n\n"
+            messages.append(newMes)
+            i++
         }
     }
 
