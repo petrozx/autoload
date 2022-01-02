@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     button.addEventListener("click", async(e)=>{
         e.preventDefault();
         const resSend = await sendMessage()
-        message.reset()
+        form.reset()
     })
     setInterval(await showAll, 1000);
 
