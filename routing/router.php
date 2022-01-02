@@ -5,7 +5,6 @@ Class Router
 
     public function __construct($url)
     {
-        global $content;
         [$action, $class, $method, $body] = $this->parseURL($url);
         $class = $class?:'Index';
         $method = $method?:'index';
