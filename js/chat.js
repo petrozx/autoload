@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function showAll() {
         const get = await getall();
-        let length = messages.querySelectorAll('div').length
+        let length = messages?.querySelectorAll('div').length
         while (length < get.length) {
             const newMes = document.createElement('div')
             newMes.dataset.id = get[length]['id']
