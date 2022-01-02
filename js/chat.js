@@ -29,7 +29,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
     updateMessage()
     async function updateMessage() {
         const mess = Array.from(messages.querySelectorAll('div'))
-        console.log(mess);
+        const max = mess[mess.length - 1].dataset.id
+        console.log(max);
     }
 
     async function getall() {
