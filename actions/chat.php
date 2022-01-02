@@ -19,6 +19,15 @@ function sendMessage() {
     }
 }
 
+function update() {
+    if ($_POST['method'] == 'update'){
+        $bd = new DB('chats');
+        $res = $bd->getFilterRows('id>='. $_POST['id']);
+        $bd->close_connection();
+        die(json_encode($res, true));
+    }
+}
+
 
 
 

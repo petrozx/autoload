@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
     button.addEventListener("click", async(e)=>{
         e.preventDefault();
         await sendMessage()
-        await showAll()
+        await updateMessage()
         form.reset()
     })
 
-    setInterval(await showAll, 5000);
+    setInterval(await updateMessage, 5000);
     await showAll()
 
     async function showAll() {
@@ -26,11 +26,17 @@ document.addEventListener("DOMContentLoaded", async()=>{
             length++
         }
     }
-    updateMessage()
+
     async function updateMessage() {
         const mess = Array.from(messages.querySelectorAll('div'))
         const max = mess[mess.length - 1].dataset.id
-        console.log(max);
+        const response = await update(max)
+        response.forEach(el=>{
+            const newMes = document.createElement('div')
+            newMes.dataset.id = el['id']
+            newMes.innerText = el['date_create']+"\n"+el['author']+"\n"+el['message']+"\n\n"
+            messages.append(newMes)
+        })
     }
 
     async function getall() {
