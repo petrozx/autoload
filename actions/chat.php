@@ -28,6 +28,18 @@ function update() {
     }
 }
 
-
+function users() {
+    $bd = new DB('users');
+    $res = $bd->getRows();
+    $bd->close_connection();
+    foreach($res as $user) {
+        $array = array(
+            'id' => $user['id'],
+            'name' => $user['name']
+        );
+        $arRes[] = $array;
+    }
+    die(json_encode($arRes, true));
+}
 
 

@@ -5,7 +5,7 @@ Class Chat
         return '<div class="chats"></div>';
     }
 
-    public function private() {
+    public function private($name) {
         return '
         <div class="connect"></div>
         <form id="chat">
