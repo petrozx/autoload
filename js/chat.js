@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
 
     async function updateMessage() {
-        const mess = Array.from(messages.querySelectorAll('div'))
+        const mess = Array.from(messages?.querySelectorAll('div'))
         const max = mess[mess.length - 1]?.dataset.id
         const response = await update(max||0)
         response.forEach(el=>{
