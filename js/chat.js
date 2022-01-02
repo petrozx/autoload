@@ -17,11 +17,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const get = await getall();
         while (get.length > i)
             i = messages.querySelectorAll('div').length
-            if (length < get.length){
                 const newMes = document.createElement('div')
                 newMes.innerText = get[i]['date_create']+"\n"+get[i]['author']+"\n"+get[i]['message']+"\n\n"
                 messages.append(newMes)
-            }
     }
 
 
