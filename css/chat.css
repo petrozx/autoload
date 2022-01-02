@@ -14,4 +14,10 @@
 
 button {
     padding: 20px;
+    height: 60px;
+}
+
+.message {
+    height: 25px;
+    margin-bottom: 10px;
 }
