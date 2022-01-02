@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     } else {
         const chats = document.querySelector('.chats')
         const users = await getAllUsers()
+        console.log(users);
         users.forEach(user =>{
             const divUser = document.createElement('div')
             divUser.className = 'user'
