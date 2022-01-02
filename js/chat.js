@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const messages = document.querySelector('.messages')
         const message = document.querySelector('.message')
         const connect = document.querySelector('.connect')
-        console.log($_GET(user))
+        console.log($_GET('user'))
         button?.addEventListener("click", async(e)=>{
             e.preventDefault();
             await sendMessage()
