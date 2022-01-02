@@ -84,8 +84,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const users = await getAllUsers()
         console.log(users);
         users.forEach(user =>{
-            const divUser = document.createElement('div')
+            const divUser = document.createElement('a')
             divUser.className = 'user'
+            divUser.href = '/chat/private/' + user['name']
             divUser.dataset.id = user['id']
             divUser.innerText = user['name']
             chats.append(divUser)
