@@ -26,6 +26,15 @@ document.addEventListener("DOMContentLoaded", async()=>{
             length++
         }
     }
+    updateMessage()
+    async function updateMessage() {
+        const mess = messages.querySelectorAll('div')
+        let maximus;
+        mess.sort((min, max) =>{
+        min = min.dataset.id
+        maximus = max.dataset.$id})
+        console.log(maximus);
+    }
 
     async function getall() {
         const formData = new FormData();
@@ -41,10 +50,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
         }
     }
 
-    async function update() {
+    async function update($id) {
         const formData = new FormData();
         formData.append('method', 'update')
-        formData.append('id', )
+        formData.append('id', $id)
         const req = await fetch('/api/chat/update', {
             method: 'POST',
             body: formData
