@@ -91,7 +91,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
 
         async function getAllUsers() {
-            const req = await fetch('/api/chat/users')
+            const req = await fetch('/api/chat/users',{
+                method: 'POST'
+            })
             return await req.json()
         }
 
