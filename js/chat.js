@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
         let maximus;
         mess.sort((min, max) =>{
         min = min.dataset.id
+        console.log(min.dataset.id);
         maximus = max.dataset.$id})
-        console.log(maximus);
     }
 
     async function getall() {
