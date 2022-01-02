@@ -1,6 +1,25 @@
 document.addEventListener("DOMContentLoaded", async()=>{
 
-    if (window.location.href == 'http://petroz.myjino.ru/chat/private/') {
+    if (window.location.href == 'http://petroz.myjino.ru/chat/') {
+        const chats = document.querySelector('.chats')
+        const users = await getAllUsers()
+        console.log(users);
+        users.forEach(user =>{
+            const divUser = document.createElement('a')
+            divUser.className = 'user'
+            divUser.href = '/chat/private/?user=' + user['name']
+            divUser.dataset.id = user['id']
+            divUser.innerText = user['name']
+            chats.append(divUser)
+        })
+
+        async function getAllUsers() {
+            const req = await fetch('/api/chat/users',{
+                method: 'POST'
+            })
+            return await req.json()
+        }
+    } else {
         const form = document.getElementById('chat')
         const button = document.getElementsByTagName('button')[0]
         const messages = document.querySelector('.messages')
@@ -76,25 +95,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
             const req = await fetch('/api/chat/sendMessage', {
                 method: 'POST',
                 body: formData
-            })
-            return await req.json()
-        }
-    } else {
-        const chats = document.querySelector('.chats')
-        const users = await getAllUsers()
-        console.log(users);
-        users.forEach(user =>{
-            const divUser = document.createElement('a')
-            divUser.className = 'user'
-            divUser.href = '/chat/private/?user=' + user['name']
-            divUser.dataset.id = user['id']
-            divUser.innerText = user['name']
-            chats.append(divUser)
-        })
-
-        async function getAllUsers() {
-            const req = await fetch('/api/chat/users',{
-                method: 'POST'
             })
             return await req.json()
         }
