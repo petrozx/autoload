@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.wrapper {
+    min-width: fit-content;
+}
+
 ul.navbar {
     display: flex;
     justify-content: space-around;
@@ -24,7 +28,6 @@ ul.navbar {
     border: 1px dashed;
     padding: 14px;
     border-radius: 5px;
-    min-height: 36px;
 }
 .footer {
     position: absolute;
