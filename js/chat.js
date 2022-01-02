@@ -19,13 +19,15 @@ document.addEventListener("DOMContentLoaded", async()=>{
             })
             return await req.json()
         }
+
     } else {
+
         const form = document.getElementById('chat')
         const button = document.getElementsByTagName('button')[0]
         const messages = document.querySelector('.messages')
         const message = document.querySelector('.message')
         const connect = document.querySelector('.connect')
-
+        console.log($_GET(user))
         button?.addEventListener("click", async(e)=>{
             e.preventDefault();
             await sendMessage()
@@ -97,6 +99,12 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 body: formData
             })
             return await req.json()
+        }
+
+        function $_GET(key) {
+            var p = window.location.search;
+            p = p.match(new RegExp(key + '=([^&=]+)'));
+            return p ? p[1] : false;
         }
     }
 
