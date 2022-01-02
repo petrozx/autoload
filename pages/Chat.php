@@ -2,6 +2,10 @@
 Class Chat
 {
     public function index() {
+        return '<div class="chats"></div>';
+    }
+
+    public function private() {
         return '
         <div class="connect"></div>
         <form id="chat">
