@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
             const newMes = document.createElement('div')
             newMes.innerText = get[length]['date_create']+"\n"+get[length]['author']+"\n"+get[length]['message']+"\n\n"
             messages.append(newMes)
+            length++
         }
-
     }
 
 
