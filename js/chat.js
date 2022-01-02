@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const resSend = await sendMessage()
         form.reset()
     })
-    setInterval(await showAll, 1000);
-
+    setInterval(await showAll, 5000);
+    await showAll()
     async function showAll() {
         const get = await getall();
         let length = messages.querySelectorAll('div').length
