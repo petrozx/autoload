@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         }
     }
 
-    window.onunload =()=>{console.log('hi');}
+    window.onunload =()=>{isOnline()}
 
     async function isOnline() {
         const req = await fetch('/api/chat/online', {
