@@ -47,10 +47,12 @@ button {
     content: 'online';
     font-size: 10px;
     color: orange;
+    margin-left: 5px;
 }
 
 .offline::after {
     content: 'offline';
     color: black;
     font-size: 10px;
+    margin-left: 5px;
 }
