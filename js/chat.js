@@ -39,23 +39,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         setInterval(await updateMessage, 5000);
         await updateMessage()
 
-        async function showAll() {
-            const get = await getall();
-            let length = messages?.querySelectorAll('div').length
-            while (length < get.length) {
-                const newMes = document.createElement('div')
-                newMes.dataset.id = get[length]['id']
-                if(get[length]['author_id'] == chatWith){
-                    newMes.className = 'self';
-                } else {
-                    newMes.className = 'other';
-                }
-                newMes.dataset.name = get[length]['author']
-                newMes.innerText = get[length]['date_create']+"\n"+get[length]['author']+"\n"+get[length]['message']+"\n\n"
-                messages.append(newMes)
-                length++
-            }
-        }
 
         async function updateMessage() {
             const mess = Array.from(messages?.querySelectorAll('div'))
@@ -72,21 +55,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.innerText = el['date_create']+"\n"+el['author']+"\n"+el['message']+"\n\n"
                 messages.append(newMes)
             })
-        }
-
-        async function getall() {
-            const formData = new FormData();
-            formData.append('method', 'getAll')
-            formData.append('chat', chatWith)
-            const req = await fetch('/api/chat/getMessage', {
-                method: 'POST',
-                body: formData
-            })
-            try {
-                return await req.json()
-            } catch (err) {
-                return false
-            }
         }
 
         async function update(id) {
