@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         }
     }
 
-    window.onunload = async() => await isOnline()
+    window.onbeforeunload = async() => await isOnline()
 
     async function isOnline() {
         const req = await fetch('/api/chat/online', {
