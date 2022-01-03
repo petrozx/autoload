@@ -91,7 +91,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
         }
     }
 
-    window.addEventListener('unload', await isOnline)
+    window.addEventListener("beforeunload", function (e) {
+        (e || window.event).returnValue = isOnline() //Gecko + IE
+        return isOnline()                            //Webkit, Safari, Chrome
+      });
 
     async function isOnline() {
         const req = await fetch('/api/chat/online', {
