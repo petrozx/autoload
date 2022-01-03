@@ -69,12 +69,20 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
     }
 
+    async function User() {
+        const req = await fetch('/api/login/userAuth', {
+            method: 'POST',
+            body: ""
+        })
+        return await req.json()
+    }
+
     setInterval(await isOnline, 60000);
 
     if (window.location.href == 'http://petroz.myjino.ru/chat/') {
         const chats = document.querySelector('.chats')
         const users = await getAllUsers()
-        console.log(users);
+        const globalUser = await User();
         users.forEach(user =>{
             const divUser = document.createElement('a')
             divUser.className = 'user'
@@ -86,6 +94,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             } else {
                 divUser.className = 'user offline'
             }
+            if (globalUser != user['id'])
             chats.append(divUser)
         })
 

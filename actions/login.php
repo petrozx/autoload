@@ -47,3 +47,10 @@ function logout(){
     }
     die( json_encode(['error' => 1, 'success' => 0]) );
 }
+
+function userAuth() {
+    if(empty($_SESSION['auth']))
+        die( json_encode(['error' => 0, 'success' => $_SESSION['auth']['id']]) );
+    else
+        die( json_encode(['error' => 1, 'success' => 0]) );
+}
