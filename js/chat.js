@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const messages = document.querySelector('.messages')
     const message = document.querySelector('.message')
     const connect = document.querySelector('.connect')
+    console.log(connect);
     connect?.innerText &= "Соединение установлено"
     const chatWith = $_GET('user')
 
