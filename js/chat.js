@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const req = await fetch('/api/chat/online', {
             method: 'POST'
         })
-        return false
+        return null
     }
 
     async function sendMessage() {
