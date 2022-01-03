@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function updateMessage() {
         const mess = Array.from(messages?.querySelectorAll('div'))
+        const globalUser = await User();
         const max = mess[mess.length - 1]?.dataset.id
         const response = await update(max||0)
         response&&response.forEach(el=>{
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.className = 'other';
             }
             newMes.innerText = el['date_create']+"\n"+el['author']+"\n"+el['message']+"\n\n"
-            messages.append(newMes)
+            if (globalUser['success'] == el['author_id'] && chatWith == el['author_id']) messages.append(newMes)
         })
     }
 
