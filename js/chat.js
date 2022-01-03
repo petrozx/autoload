@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         }
     }
 
-    if (window.closed())await isOnline()
+    if (window.closed)await isOnline()
 
     async function isOnline() {
         const req = await fetch('/api/chat/online', {
