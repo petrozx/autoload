@@ -27,10 +27,10 @@ button {
 }
 
 .self {
-    float: left;
+    text-align: left;
     width: 100%;
 }
 
 .other {
-    float: right;
+    text-align: right;
 }
