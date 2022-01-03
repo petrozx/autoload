@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             form.reset()
         })
 
-        setInterval(await updateMessage, await isOnline, 5000);
+        setInterval(await updateMessage, 5000);
         await updateMessage()
 
 
