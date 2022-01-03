@@ -30,7 +30,7 @@ function sendMessage() {
 function update() {
     if ($_POST['method'] == 'update'){
         $tebleChat = 'chats'.$_POST['chat'];
-        $tableFrom = 'chat'.$_POST['chatFrom'];
+        $tableFrom = 'chats'.$_POST['chatFrom'];
         $bd = new DB($tebleChat);
         $is_exist = $bd->checkTable($tebleChat);
         $bd->close_connection();
