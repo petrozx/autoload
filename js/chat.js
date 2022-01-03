@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function updateMessage() {
         const mess = Array.from(messages?.querySelectorAll('div'))
-        const max = mess[mess.length - 1]?.dataset.id
+        const max = mess.length
         const response = await update(max||0)
         response&&response.forEach(el=>{
             const newMes = document.createElement('div')
