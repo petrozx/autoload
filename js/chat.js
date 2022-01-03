@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             while (length < get.length) {
                 const newMes = document.createElement('div')
                 newMes.dataset.id = get[length]['id']
+                newMes.dataset.name = get[length]['author']
                 newMes.innerText = get[length]['date_create']+"\n"+get[length]['author']+"\n"+get[length]['message']+"\n\n"
                 messages.append(newMes)
                 length++
