@@ -91,13 +91,13 @@ document.addEventListener("DOMContentLoaded", async()=>{
         }
     }
 
-    window.onload =()=>{isOnline()}
+    await isOnline()
 
     async function isOnline() {
         const req = await fetch('/api/chat/online', {
             method: 'POST'
         })
-        return
+        return false
     } 
 
 })
