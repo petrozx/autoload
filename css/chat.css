@@ -43,14 +43,14 @@ button {
     padding: 10px;
 }
 
-.online::before {
+.online::after {
     content: 'online';
-    font-size: 8px;
+    font-size: 10px;
     color: orange;
 }
 
-.offline::before {
+.offline::after {
     content: 'offline';
     color: black;
-    font-size: 8px;
+    font-size: 10px;
 }
