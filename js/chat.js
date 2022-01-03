@@ -76,12 +76,12 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const users = await getAllUsers()
         console.log(users);
         users.forEach(user =>{
-            if(new Date(user['date_update']).getTime() + 15*60*100 < new Date().getTime())console.log(new Date(user['date_update']).getTime() + 15*60*100);
             const divUser = document.createElement('a')
             divUser.className = 'user'
             divUser.href = '/chat/private/?user=' + user['id']
             divUser.dataset.id = user['id']
             divUser.innerText = user['name']
+            if(new Date(user['date_update']).getTime() + 1*60*100 < new Date().getTime())divUser.className = 'user offline'
             chats.append(divUser)
         })
 
