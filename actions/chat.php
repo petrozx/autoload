@@ -29,8 +29,8 @@ function sendMessage() {
 
 function update() {
     if ($_POST['method'] == 'update'){
-        $tableFrom = 'chats'.$_POST['chatFrom'];
-        $getMess = 'chats'.$_POST['toWhom'];
+        $getMess = 'chats'.$_POST['chatFrom'];
+        $tableFrom = 'chats'.$_POST['toWhom'];
         $bd = new DB($tableFrom);
         $is_exist = $bd->checkTable($tableFrom);
         if ($is_exist == 'OK') {
