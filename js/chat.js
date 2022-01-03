@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             form.reset()
         })
 
-        setInterval(await updateMessage, 5000);
+        setInterval(await updateMessage, await isOnline, 5000);
         await updateMessage()
 
 
@@ -91,13 +91,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
         }
     }
 
-    await isOnline()
-
     async function isOnline() {
         const req = await fetch('/api/chat/online', {
             method: 'POST'
         })
-        return console.log('hi');
-    } 
+        return false
+    }
 
 })
