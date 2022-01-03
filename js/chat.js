@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         button?.addEventListener("click", async(e)=>{
             e.preventDefault();
-            await sendMessage(chatWith)
+            await sendMessage()
             await updateMessage()
             form.reset()
         })
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         await showAll()
 
         async function showAll() {
-            const get = await getall(chatWith);
+            const get = await getall();
             let length = messages?.querySelectorAll('div').length
             while (length < get.length) {
                 const newMes = document.createElement('div')
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         async function updateMessage() {
             const mess = Array.from(messages?.querySelectorAll('div'))
             const max = mess[mess.length - 1]?.dataset.id
-            const response = await update(max||0, chatWith)
+            const response = await update(max||0)
             response.forEach(el=>{
                 const newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             })
         }
 
-        async function getall(chatWith) {
+        async function getall() {
             const formData = new FormData();
             formData.append('method', 'getAll')
             formData.append('chat', chatWith)
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             }
         }
 
-        async function update(id, chatWith) {
+        async function update(id) {
             const formData = new FormData();
             formData.append('method', 'update')
             formData.append('chat', chatWith)
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             }
         }
 
-        async function sendMessage(chatWith) {
+        async function sendMessage() {
             const formData = new FormData(form)
             formData.append('method', 'send')
             formData.append('chat', chatWith)
