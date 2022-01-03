@@ -35,7 +35,7 @@ function update() {
         $is_exist = $bd->checkTable($tebleChat);
         $bd->close_connection();
         if ($is_exist == 'OK') {
-            $newbd = new DB($tableFrom);
+            $newbd = new DB($tebleChat);
             $res = $newbd->getFilterRows('id>'. $_POST['id']);
             $bd->close_connection();
         } else {
