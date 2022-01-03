@@ -30,11 +30,10 @@ function sendMessage() {
 function update() {
     if ($_POST['method'] == 'update'){
         $tableFrom = 'chats'.$_POST['chatFrom'];
-        $toWhomChat = 'chats'.$_POST['toWhom'];
         $bd = new DB($tableFrom);
         $is_exist = $bd->checkTable($tableFrom);
         if ($is_exist == 'OK') {
-            $res = $bd->getFilterRows('id>'. $_POST['id'].'AND to_whom_message = '.$toWhomChat);
+            $res = $bd->getFilterRows('id>'. $_POST['id']);
         } else {
             $bd->createTable(['message', 'author', 'to_whom_message']);
             die();
