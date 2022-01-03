@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const button = document.getElementsByTagName('button')[0]
     const messages = document.querySelector('.messages')
     const message = document.querySelector('.message')
-    const connect = document.querySelector('.connect')?.(innerText = "Соединение установлено")
+    const connect = document.querySelector('.connect').innerText = "Соединение установлено"
 
     async function getAllUsers() {
         const req = await fetch('/api/chat/users',{
