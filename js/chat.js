@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const button = document.getElementsByTagName('button')[0]
     const messages = document.querySelector('.messages')
     const message = document.querySelector('.message')
+    const globalUser = await User();
     const chatWith = $_GET('user')
 
     async function getAllUsers() {
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     async function update(id) {
         const formData = new FormData();
         formData.append('method', 'update')
-        formData.append('chat', chatWith)
+        formData.append('chat', globalUser)
         formData.append('id', id)
         const req = await fetch('/api/chat/update', {
             method: 'POST',
@@ -54,7 +55,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function updateMessage() {
         const mess = Array.from(messages?.querySelectorAll('div'))
-        const globalUser = await User();
         const max = mess[mess.length - 1]?.dataset.id
         const response = await update(max||0)
         response&&response.forEach(el=>{
@@ -83,7 +83,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
     if (window.location.href == 'http://petroz.myjino.ru/chat/') {
         const chats = document.querySelector('.chats')
         const users = await getAllUsers()
-        const globalUser = await User();
         users.forEach(user =>{
             const divUser = document.createElement('a')
             divUser.className = 'user'
