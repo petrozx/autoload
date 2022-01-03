@@ -30,15 +30,18 @@ function sendMessage() {
 function update() {
     if ($_POST['method'] == 'update'){
         $tebleChat = 'chats'.$_POST['chat'];
+        $tableFrom = 'chat'.$_POST['chatFrom'];
         $bd = new DB($tebleChat);
         $is_exist = $bd->checkTable($tebleChat);
+        $bd->close_connection();
         if ($is_exist == 'OK') {
-            $res = $bd->getFilterRows('id>'. $_POST['id']);
+            $newbd = new DB($tableFrom);
+            $res = $newbd->getFilterRows('id>'. $_POST['id']);
+            $bd->close_connection();
         } else {
             $bd->createTable(['message', 'author', 'author_id']);
             die();
         }
-        $bd->close_connection();
         die(json_encode($res, true));
     }
 }
