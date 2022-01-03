@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         button?.addEventListener("click", async(e)=>{
             e.preventDefault();
-            await sendMessage()
+            await sendMessage(chatWith)
             await updateMessage()
             form.reset()
         })
 
-        // setInterval(await updateMessage, 5000);
+        setInterval(await updateMessage, 5000);
         await showAll()
 
         async function showAll() {
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         async function updateMessage() {
             const mess = Array.from(messages?.querySelectorAll('div'))
             const max = mess[mess.length - 1]?.dataset.id
-            const response = await update(max||0)
+            const response = await update(max||0, chatWith)
             response.forEach(el=>{
                 const newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
@@ -78,10 +78,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
             }
         }
 
-        async function update($id) {
+        async function update(id, chatWith) {
             const formData = new FormData();
             formData.append('method', 'update')
-            formData.append('id', $id)
+            formData.append('chat', chatWith)
+            formData.append('id', id)
             const req = await fetch('/api/chat/update', {
                 method: 'POST',
                 body: formData
@@ -93,9 +94,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
             }
         }
 
-        async function sendMessage() {
+        async function sendMessage(chatWith) {
             const formData = new FormData(form)
             formData.append('method', 'send')
+            formData.append('chat', chatWith)
             const req = await fetch('/api/chat/sendMessage', {
                 method: 'POST',
                 body: formData
