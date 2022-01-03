@@ -60,14 +60,14 @@ class DB
     }
 
     public function isOnline() {
-        $query = self::$connect->query("UPDATE `users` SET `is_online` = '0' WHERE `users`.`id` = ".date('Y-m-d H:i:s'));
+        $query = self::$connect->query("UPDATE `users` SET `date_update` = ".date('Y-m-d H:i:s')." WHERE `users`.`id` = ".$_SESSION['auth']['id']);
         return $query;
     }
 
     public function createTable($columns) {
         $prepareNames = array_map(function($e){ return $e." TEXT"; }, $columns);
         $prepareNames = implode(",", $prepareNames);
-        $query = self::$connect->query("CREATE TABLE ". self::$table ." (id INTEGER AUTO_INCREMENT PRIMARY KEY, date_create DATE DEFAULT CURRENT_TIMESTAMP + INTERVAL 7 HOUR, ". $prepareNames .")");
+        $query = self::$connect->query("CREATE TABLE ". self::$table ." (id INTEGER AUTO_INCREMENT PRIMARY KEY, date_create DATE DEFAULT CURRENT_TIMESTAMP, ". $prepareNames .")");
     }
 
     public function deleteTable($name) {
