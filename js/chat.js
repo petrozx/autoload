@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             divUser.className = 'user'
             divUser.href = '/chat/private/?user=' + user['id']
             divUser.dataset.id = user['id']
+            divUser.dataset.lastCheck = user['date_update']
             divUser.innerText = user['name']
             chats.append(divUser)
         })
