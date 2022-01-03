@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
 
         // setInterval(await updateMessage, 5000);
-        await showAll(chatWith)
+        await showAll()
 
-        async function showAll(chatWith) {
+        async function showAll() {
             const get = await getall(chatWith);
             let length = messages?.querySelectorAll('div').length
             while (length < get.length) {
