@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
     }
 
+    setInterval(await isOnline, 60000);
+
     if (window.location.href == 'http://petroz.myjino.ru/chat/') {
         const chats = document.querySelector('.chats')
         const users = await getAllUsers()
@@ -94,10 +96,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
 
         setInterval(await updateMessage, 5000);
-        setInterval(await isOnline, 60000);
         await updateMessage()
-
-        console.log(new Date());
-
     }
 })
