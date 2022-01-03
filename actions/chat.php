@@ -50,7 +50,8 @@ function users() {
     foreach($res as $user) {
         $array = array(
             'id' => $user['id'],
-            'name' => $user['name']
+            'name' => $user['name'],
+            'date_update' => $user['date_update']
         );
         $arRes[] = $array;
     }
