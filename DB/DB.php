@@ -59,10 +59,10 @@ class DB
         return $result;
     }
 
-    public function createTable($name, $columns) {
+    public function createTable($columns) {
         $prepareNames = array_map(function($e){ return $e." TEXT"; }, $columns);
         $prepareNames = implode(",", $prepareNames);
-        $query = self::$connect->query("CREATE TABLE ".$name ." ". "(id INTEGER AUTO_INCREMENT PRIMARY KEY, date_create DATE DEFAULT CURRENT_TIMESTAMP, ". $prepareNames .")");
+        $query = self::$connect->query("CREATE TABLE ". self::$table ." ". "(id INTEGER AUTO_INCREMENT PRIMARY KEY, date_create DATE DEFAULT CURRENT_TIMESTAMP, ". $prepareNames .")");
     }
 
     public function deleteTable($name) {
@@ -73,6 +73,11 @@ class DB
     public function deleteRaw($id) {
         $query = self::$connect->query("DELETE FROM ".self::$table." WHERE `users`.`id` = ".$id);
         return $query;
+    }
+    public function checkTable($name) {
+        $query = self::$connect->query("CHECK TABLE petroz.".$name);
+        $row = $query->fetch_assoc();
+        return $row['Msg_text'];
     }
 
     public function close_connection() {

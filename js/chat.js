@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const messages = document.querySelector('.messages')
         const message = document.querySelector('.message')
         const connect = document.querySelector('.connect')
-        console.log($_GET('user'))
+        const chatWith = $_GET('user')
 
         button?.addEventListener("click", async(e)=>{
             e.preventDefault();
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         await showAll()
 
         async function showAll() {
-            const get = await getall();
+            const get = await getall(chatWith);
             let length = messages?.querySelectorAll('div').length
             while (length < get.length) {
                 const newMes = document.createElement('div')
@@ -63,9 +63,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
             })
         }
 
-        async function getall() {
+        async function getall(chatWith) {
             const formData = new FormData();
             formData.append('method', 'getAll')
+            formData.append('chat', chatWith)
             const req = await fetch('/api/chat/getMessage', {
                 method: 'POST',
                 body: formData

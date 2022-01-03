@@ -3,8 +3,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 
 function getMessage() {
     if ($_POST['method'] == 'getAll'){
-        $bd = new DB('chats');
-        $res = $bd->getRows();
+        $bd = new DB('chats'.$_POST['chatWith']);
+        $is_exist = $bd->checkTable('chats'.$_POST['chatWith']);
+        if ($is_exist == 'OK') {
+            $res = $bd->getRows();
+        } else {
+            $bd->createTable(['message', 'author']);
+        }
         $bd->close_connection();
         die(json_encode($res, true));
     }
