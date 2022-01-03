@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     async function update(id) {
         const formData = new FormData();
         formData.append('method', 'update')
-        formData.append('chatFrom', globalUser['success'])
+        formData.append('chatFrom', chatWith)
         formData.append('toWhom', globalUser['success'])
         formData.append('id', id)
         const req = await fetch('/api/chat/update', {
