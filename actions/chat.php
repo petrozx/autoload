@@ -31,7 +31,13 @@ function update() {
     if ($_POST['method'] == 'update'){
         $tebleChat = 'chats'.$_POST['chat'];
         $bd = new DB($tebleChat);
-        $res = $bd->getFilterRows('id>'. $_POST['id']);
+        $is_exist = $bd->checkTable($tebleChat);
+        if ($is_exist == 'OK') {
+            $res = $bd->getFilterRows('id>'. $_POST['id']);
+        } else {
+            $bd->createTable(['message', 'author', 'author_id']);
+            die();
+        }
         $bd->close_connection();
         die(json_encode($res, true));
     }
