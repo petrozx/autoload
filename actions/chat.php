@@ -4,6 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 function getMessage() {
     if ($_POST['method'] == 'getAll'){
         $tebleChat = 'chats'.$_POST['chatWith'];
+        var_dump($tebleChat);
         $bd = new DB($tebleChat);
         $is_exist = $bd->checkTable($tebleChat);
         if ($is_exist == 'OK') {
