@@ -25,3 +25,11 @@ button {
 .user {
     display: block;
 }
+
+.self {
+    float: left;
+}
+
+.other {
+    float: right;
+}
