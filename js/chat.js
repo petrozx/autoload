@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         setInterval(await isOnline, 60000);
         await updateMessage()
 
-        console.log(new Date().toString());
+        console.log(new Date());
         async function updateMessage() {
             const mess = Array.from(messages?.querySelectorAll('div'))
             const max = mess[mess.length - 1]?.dataset.id
