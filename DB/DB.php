@@ -44,9 +44,9 @@ class DB
 
     public function saveRows($arr) {
         $names = $this->getColumns();
-        $deleteID = array_search('id',$names);
-        $deleteDateCreate = array_search('date_create',$names);
-        $deleteDateUpdate = array_search('date_update',$names);
+        $deleteID = array_search('id', $names);
+        $deleteDateCreate = array_search('date_create', $names);
+        $deleteDateUpdate = array_search('date_update', $names);
         unset($names[$deleteID]);
         unset($names[$deleteDateCreate]);
         unset($names[$deleteDateUpdate]);
