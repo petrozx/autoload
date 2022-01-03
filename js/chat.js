@@ -45,6 +45,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
             while (length < get.length) {
                 const newMes = document.createElement('div')
                 newMes.dataset.id = get[length]['id']
+                if(get[length]['author_id'] == chatWith){
+                    newMes.className = 'self';
+                } else {
+                    newMes.className = 'other';
+                }
                 newMes.dataset.name = get[length]['author']
                 newMes.innerText = get[length]['date_create']+"\n"+get[length]['author']+"\n"+get[length]['message']+"\n\n"
                 messages.append(newMes)
@@ -59,6 +64,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
             response.forEach(el=>{
                 const newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
+                if(el['author_id'] == chatWith){
+                    newMes.className = 'self';
+                } else {
+                    newMes.className = 'other';
+                }
                 newMes.innerText = el['date_create']+"\n"+el['author']+"\n"+el['message']+"\n\n"
                 messages.append(newMes)
             })

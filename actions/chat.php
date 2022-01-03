@@ -9,7 +9,7 @@ function getMessage() {
         if ($is_exist == 'OK') {
             $res = $bd->getRows();
         } else {
-            $bd->createTable(['message', 'author']);
+            $bd->createTable(['message', 'author', 'author_id']);
             die();
         }
         $bd->close_connection();
@@ -21,7 +21,7 @@ function sendMessage() {
     if ($_POST['method'] == 'send'){
         $tebleChat = 'chats'.$_POST['chat'];
         $bd = new DB($tebleChat);
-        $res = $bd->saveRows([$_POST['message'], $_SESSION['auth']['name']?:'Гость']);
+        $res = $bd->saveRows([ $_POST['message'], ($_SESSION['auth']['name']?:'Гость'), ($_SESSION['auth']['id']?:'') ]);
         $bd->close_connection();
         die(json_encode(['error' => 0, 'success' => 1], true));
     }
