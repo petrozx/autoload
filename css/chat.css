@@ -34,3 +34,11 @@ button {
 .other {
     text-align: right;
 }
+
+.connect {
+    display: block;
+    height: 20px;
+    background: #ff000030;
+    border: 1px solid;
+    padding: 10px;
+}
