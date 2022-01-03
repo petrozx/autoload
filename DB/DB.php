@@ -50,6 +50,7 @@ class DB
         unset($names[$deleteID]);
         unset($names[$deleteDateCreate]);
         unset($names[$deleteDateUpdate]);
+        var_dump($names);
         $code = str_repeat('s',count($names));
         $prepareNames = array_map(function($e){ return $e."=?"; }, $names);
         $queryNames = implode(",", $prepareNames);
