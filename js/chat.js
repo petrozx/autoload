@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const response = await update(max||0)
         response&&response.forEach(el=>{
             const newMes = document.createElement('div')
+            newMes.dataset.id = el['id']
             if(el['author_id'] == chatWith){
                 newMes.className = 'self';
             } else {
