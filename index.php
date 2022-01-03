@@ -12,6 +12,6 @@ try {
 } catch (Exception $e) {
     $content = $e->getMessage();
 }
-var_dump(date("Y-m-d H:i:s"));
+
 require($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
 ?>
