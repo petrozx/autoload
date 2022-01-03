@@ -9,6 +9,7 @@ function getMessage() {
             $res = $bd->getRows();
         } else {
             $bd->createTable(['message', 'author']);
+            die();
         }
         $bd->close_connection();
         die(json_encode($res, true));
