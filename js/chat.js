@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     async function sendMessage() {
         const formData = new FormData(form)
         formData.append('method', 'send')
-        formData.append('chat', chatWith)
+        formData.append('chat', globalUser)
         const req = await fetch('/api/chat/sendMessage', {
             method: 'POST',
             body: formData
