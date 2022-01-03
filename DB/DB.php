@@ -31,7 +31,6 @@ class DB
         while ($row = $query->fetch_assoc()) {
             $arr[] = $row;
         }
-        var_dump($arr);
         return $arr?:[];
     }
 

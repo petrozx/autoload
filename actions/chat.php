@@ -36,6 +36,7 @@ function update() {
         if ($is_exist == 'OK') {
             $newDB = new DB($getMess);
             $res = $newDB->getFilterRows('id>'. $_POST['id']);
+            var_dump($res);
             $newDB->close_connection();
             die(json_encode($res, true));
         } else {
