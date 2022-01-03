@@ -41,7 +41,6 @@ function update() {
         } else {
             $bd->createTable(['message', 'author', 'to_whom_message']);
         }
-        $newDB->close_connection();
         $bd->close_connection();
         die(json_encode($res, true));
     }
