@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             divUser.dataset.id = user['id']
             divUser.innerText = user['name']
             if(new Date(user['date_update']).getTime() + 1*60*100 < new Date().getTime())divUser.className = 'user offline'
+            console.log(new Date(user['date_update']).getTime() + 1*60*100);
             chats.append(divUser)
         })
 
