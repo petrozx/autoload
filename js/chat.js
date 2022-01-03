@@ -94,8 +94,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
             } else {
                 divUser.className = 'user offline'
             }
-            if (globalUser != user['id'])
-            chats.append(divUser)
+            if (globalUser != user['id']) {
+                chats.append(divUser)
+            }
         })
 
     } else {
