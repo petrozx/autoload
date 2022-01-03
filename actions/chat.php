@@ -32,7 +32,6 @@ function update() {
         $tableFrom = 'chats'.$_POST['chatFrom'];
         $bd = new DB($tableFrom);
         $is_exist = $bd->checkTable($tableFrom);
-        $bd->close_connection();
         if ($is_exist == 'OK') {
             $res = $bd->getFilterRows('id>'. $_POST['id']);
         } else {
