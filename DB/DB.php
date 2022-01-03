@@ -50,8 +50,8 @@ class DB
         unset($names[$deleteID]);
         unset($names[$deleteDateCreate]);
         unset($names[$deleteDateUpdate]);
-        var_dump($names);
         $code = str_repeat('s',count($names));
+        var_dump($code);
         $prepareNames = array_map(function($e){ return $e."=?"; }, $names);
         $queryNames = implode(",", $prepareNames);
         $stmt = self::$connect->prepare("INSERT INTO ".self::$table." SET ".$queryNames);
