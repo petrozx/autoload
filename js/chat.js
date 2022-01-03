@@ -91,9 +91,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
         }
     }
 
-    window.addEventListener("beforeunload", function (e) {
-        (e || window.event).returnValue = isOnline() //Gecko + IE
-        return isOnline()                            //Webkit, Safari, Chrome
+    window.addEventListener("unload", function (e) {
+        console.log(e.target);
+        return isOnline()
       });
 
     async function isOnline() {
