@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.className = 'other';
             }
             newMes.innerText = el['date_create']+"\n"+el['author']+"\n"+el['message']+"\n\n"
-            if (el['to_whom_message'] == globalUser['success'])
+            if (el['to_whom_message'] == globalUser['success'] || el['to_whom_message'] == chatWith)
                 messages.append(newMes)
         })
     }
