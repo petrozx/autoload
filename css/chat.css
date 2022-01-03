@@ -42,3 +42,15 @@ button {
     border: 1px solid;
     padding: 10px;
 }
+
+.online::before {
+    content: 'online';
+    font-size: 8px;
+    color: orange;
+}
+
+.offline::before {
+    content: 'offline';
+    color: black;
+    font-size: 8px;
+}

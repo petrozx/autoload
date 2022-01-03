@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             if(new Date(user['date_update']).getTime() + 1*60*100 > new Date().getTime()) {
                 divUser.className = 'user online'
             } else {
-                divUser.className = 'user ofline'
+                divUser.className = 'user offline'
             }
             chats.append(divUser)
         })
