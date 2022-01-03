@@ -37,12 +37,12 @@ function update() {
             $newDB = new DB($getMess);
             $res = $newDB->getFilterRows('id>'. $_POST['id']);
             $newDB->close_connection();
+            die(json_encode($res, true));
         } else {
             $bd->createTable(['message', 'author', 'to_whom_message']);
             $bd->close_connection();
             die();
         }
-        die(json_encode($res, true));
     }
 }
 
