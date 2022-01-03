@@ -37,11 +37,11 @@ function update() {
             $resMy = $bd->getFilterRows('id>'. $_POST['id']);
             $newDB = new DB($getMess);
             $resMe = $newDB->getFilterRows('id>'. $_POST['id']);
-            $newDB->close_connection();
             $res = array_merge($resMe, $resMy);
         } else {
             $bd->createTable(['message', 'author', 'to_whom_message']);
         }
+        $newDB->close_connection();
         $bd->close_connection();
         die(json_encode($res, true));
     }
