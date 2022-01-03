@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
     }
 
-    setInterval(await isOnline, 15000);
+    setInterval(await isOnline, 60000);
 
     if (window.location.href == 'http://petroz.myjino.ru/chat/') {
         const chats = document.querySelector('.chats')
