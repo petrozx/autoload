@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             divUser.href = '/chat/private/?user=' + user['id']
             divUser.dataset.id = user['id']
             divUser.innerText = user['name']
-            if(new Date(user['date_update']).getTime() + 1*60*100 > new Date().getTime())divUser.className = 'user offline'
+            if(new Date(user['date_update']).getTime() + 1*60*100 < new Date().getTime())divUser.className = 'user offline'
             chats.append(divUser)
         })
 
