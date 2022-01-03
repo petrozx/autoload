@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             const mess = Array.from(messages?.querySelectorAll('div'))
             const max = mess[mess.length - 1]?.dataset.id
             const response = await update(max||0)
-            response.forEach(el=>{
+            response&&response.forEach(el=>{
                 const newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
                 if(el['author_id'] == chatWith){
