@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
 
         setInterval(await updateMessage, 5000);
-        setInterval(await isOnline, 5000);
+        setInterval(await isOnline, 60000);
         await updateMessage()
 
 
