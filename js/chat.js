@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.className = 'other';
             }
             newMes.innerText = el['date_create']+"\n"+el['author']+"\n"+el['message']+"\n\n"
-            if (globalUser['success'] == el['author_id'] && chatWith == el['author_id']) messages.append(newMes)
+            if (globalUser['success'] == el['author_id'] || chatWith == el['author_id']) messages.append(newMes)
         })
     }
 
