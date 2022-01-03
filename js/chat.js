@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 divUser.className = 'user offline'
             }
             if (globalUser['success'] != user['id']) {
-                console.log(globalUser);
                 chats.append(divUser)
             }
         })
