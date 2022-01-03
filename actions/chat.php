@@ -34,15 +34,12 @@ function update() {
         $bd = new DB($tableFrom);
         $is_exist = $bd->checkTable($tableFrom);
         if ($is_exist == 'OK') {
-            $newDB = new DB($getMess);
-            $res = $newDB->getFilterRows('id>'. $_POST['id']);
-            $newDB->close_connection();
-            die(json_encode($res, true));
+            $res = $bd->getFilterRows('id>'. $_POST['id']);
         } else {
             $bd->createTable(['message', 'author', 'to_whom_message']);
-            $bd->close_connection();
-            die();
         }
+        $bd->close_connection();
+        die(json_encode($res, true));
     }
 }
 

@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
     async function update(id) {
         const formData = new FormData();
         formData.append('method', 'update')
-        formData.append('chatFrom', chatWith)
-        formData.append('toWhom', globalUser['success'])
+        formData.append('chatFrom', globalUser['success'])
+        formData.append('toWhom', chatWith)
         formData.append('id', id)
         const req = await fetch('/api/chat/update', {
             method: 'POST',
@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
     async function sendMessage() {
         const formData = new FormData(form)
         formData.append('method', 'send')
-        formData.append('to_whom_message', globalUser['success'])
-        formData.append('chat', chatWith)
+        formData.append('to_whom_message', chatWith)
+        formData.append('chat', globalUser['success'])
         const req = await fetch('/api/chat/sendMessage', {
             method: 'POST',
             body: formData
