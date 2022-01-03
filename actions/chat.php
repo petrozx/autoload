@@ -57,4 +57,7 @@ function users() {
     die(json_encode($arRes, true));
 }
 
-
+function online() {
+    $bd = new DB('users');
+    $bd->isOnline();
+}

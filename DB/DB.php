@@ -59,6 +59,11 @@ class DB
         return $result;
     }
 
+    public function isOnline() {
+        $query = self::$connect->query("UPDATE `users` SET `is_online` = '0' WHERE `users`.`id` = ".$_SESSION['auth']['id']);
+        return $query;
+    }
+
     public function createTable($columns) {
         $prepareNames = array_map(function($e){ return $e." TEXT"; }, $columns);
         $prepareNames = implode(",", $prepareNames);
