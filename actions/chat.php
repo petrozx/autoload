@@ -34,9 +34,9 @@ function update() {
         $bd = new DB($tableFrom);
         $is_exist = $bd->checkTable($tableFrom);
         if ($is_exist == 'OK') {
-            $resMy = $bd->getFilterRows('id>0');
+            $resMy = $bd->getFilterRows('id>'. $_POST['id']);
             $newDB = new DB($getMess);
-            $resMe = $newDB->getFilterRows('id>0');
+            $resMe = $newDB->getFilterRows('id>'. $_POST['id']);
             $res = array_merge($resMe, $resMy);
         } else {
             $bd->createTable(['message', 'author', 'to_whom_message']);
