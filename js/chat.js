@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const button = document.getElementsByTagName('button')[0]
     const messages = document.querySelector('.messages')
     const message = document.querySelector('.message')
-    const connect = document.querySelector('.connect')
     console.log(connect);
+    const connect = document.querySelector('.connect')
     connect?.innerText &= "Соединение установлено"
     const chatWith = $_GET('user')
 
