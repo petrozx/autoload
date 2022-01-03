@@ -98,6 +98,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
             method: 'POST'
         })
         return
-    }
+    } 
 
 })
