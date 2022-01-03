@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
 
         setInterval(await updateMessage, 5000);
-        await updateMessage()
+        await showAll()
 
         async function showAll() {
             const get = await getall();
