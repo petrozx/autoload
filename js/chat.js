@@ -126,5 +126,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
             return
         }
         const audio = new navigator.mediaDevices.getUserMedia({audio: true})
+        const mike = document.querySelector('.mike')
+        mike.srcObject = mike
+        mike.play()
     }
 })
