@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             } else {
                 newMes.className = 'other';
             }
-            const [name] = usersALL[(usersALL.indexOf(el['author']))]
+            const {name} = usersALL[(usersALL.indexOf(el['author']))]
             newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
                 messages.append(newMes)
                 max = el['date_create']
