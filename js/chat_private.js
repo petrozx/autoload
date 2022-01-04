@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 }
             } else if (el['type'] == 'audio') {
                 const newMes = document.createElement('audio')
-                console.log(newMes);
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'audio self';
                 } else {
@@ -71,6 +70,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.controls = true;
                 newMes.autoplay = true;
             }
+            console.log(newMes);
             let name;
             usersALL.forEach(element => {
                 if (element['id'] == el['author']) name = element['name']
