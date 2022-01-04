@@ -1,11 +1,7 @@
-
 RewriteEngine On
-Options +FollowSymlinks
-RewriteBase /
-DirectoryIndex index.php
 
-RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|jsx|tif|tiff|docx|xlsx|ico)$|test\.php$
+RewriteCond %{HTTPS} off
 
-RewriteRule ^(.*)$ $1 [L,QSA]
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
 
-RewriteRule ^(.*)$ index.php?params=$1 [L,QSA]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
