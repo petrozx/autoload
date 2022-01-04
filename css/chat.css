@@ -30,6 +30,13 @@ button {
     display: block;
 }
 
+.user::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
 .self {
     text-align: left;
     background: #deffce;
