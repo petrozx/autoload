@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             } else {
                 newMes.className = 'other';
             }
-            newMes.innerText = new Date(el['date_create']*1000)+"\n"+el['author']+"\n"+el['message']+"\n\n"
+            newMes.innerText = formatTime(el['date_create'])+"\n"+el['author']+"\n"+el['message']+"\n\n"
             if (el['author'] == globalUser['success'] || el['what_a_chat'] == chatWith)
                 messages.append(newMes)
         })
@@ -77,6 +77,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
             body: ""
         })
         return await req.json()
+    }
+
+    function formatTime(unix) {
+        const date = new Date(unix*1000)
+        return date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear()+" "+date.getSeconds()+":"+date.getMinutes()+":"+date.getHours()
     }
 
     setInterval(await isOnline, 60000);
