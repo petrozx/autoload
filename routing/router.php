@@ -20,8 +20,8 @@ Class Router
                     throw new Exception();
                 }
             } else {
-                $this->getJS($class, $method);
-                $this->getCss($class);
+                $js = $this->getJS($class, $method);
+                $css = $this->getCss($class);
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
                     $content = call_user_func([$instance, $method], $body);
@@ -51,14 +51,14 @@ Class Router
     {
         $dir = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class.'_'.$method. '.js';
         if (file_exists($dir)) {
-            $js = '/js/' . $class.'_'.$method . '.js';
+            return '/js/' . $class.'_'.$method . '.js';
         }
     }
     private function getCss($file)
     {
         $dir = $_SERVER['DOCUMENT_ROOT'] . '/css/'. $file . '.css';
         if (file_exists($dir)) {
-            $css = '/css/' . $file . '.css';
+            return '/css/' . $file . '.css';
         }
     }
 }
