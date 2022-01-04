@@ -51,8 +51,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const mess = Array.from(messages?.querySelectorAll('div'))
         const response = await update(max||0)
         response&&response.forEach(el=>{
-            console.log(el['type']);
-            if(el['type'] == 'text') {
+            if (el['type'] == 'text') {
                 const newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
                 if(el['author'] == globalUser['success']){
