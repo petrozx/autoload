@@ -19,6 +19,8 @@ button {
 
 .mike {
     height: 33px;
+    width: 33px;
+    cursor: pointer;
 }
 
 .message {
