@@ -36,7 +36,15 @@ Class Router
     {
         $string = trim(str_replace('/', " ", $url));
         $arr = explode(" ", $string);
-        $arr[0]!=='api' ? array_unshift($arr, "_") : $arr;
+        // $arr[0]!=='api' ? array_unshift($arr, "_") : $arr;
+        switch ($arr[0]) {
+            case "api":
+                return $arr;
+            case "save":
+                return array_unshift($arr, "upload");
+            default:
+            return array_unshift($arr, "_");
+        }
         return $arr;
     }
 
