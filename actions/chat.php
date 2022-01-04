@@ -33,7 +33,8 @@ function update() {
         ' AND author=' . $_SESSION['auth']['id'].
         ' AND what_a_chat='.$_POST['chat'].
         ' OR author='.$_POST['chat'].
-        ' AND what_a_chat='.$_SESSION['auth']['id']);
+        ' AND what_a_chat='.$_SESSION['auth']['id'].
+        ' AND date_create>'.$_POST['date_create']);
         $bd->close_connection();
         die(json_encode($res, true));
     }
