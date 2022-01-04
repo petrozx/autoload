@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             audio.src = response.data;
             audio.controls = true;
             audio.autoplay = true;
-            document.querySelector('#messages').appendChild(audio);
+            messages.appendChild(audio);
         }
     }
 })
