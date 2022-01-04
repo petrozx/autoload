@@ -1,3 +1,2 @@
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteRule ^apache-redirect-http-to-https\.html$ https://www.petroz.myjino.ru/apache-redirect-http-to-https.html [R=301,L]
