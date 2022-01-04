@@ -6,7 +6,7 @@ DirectoryIndex index.php
 
 RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|jsx|tif|tiff|docx|xlsx|ico)$|test\.php$
 RewriteCond %{SERVER_PORT} !^443$
-RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
 RewriteRule ^(.*)$ $1 [L,QSA]
 
 #RewriteRule ^(.*)$ index.php [L]
