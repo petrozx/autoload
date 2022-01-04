@@ -29,11 +29,13 @@ button {
 .self {
     text-align: left;
     background: #deffce;
+    border-bottom: 1px solid white;
 }
 
 .other {
     text-align: right;
     background: #ffb8b8;
+    border-bottom: 1px solid white;
 }
 
 .connect {
