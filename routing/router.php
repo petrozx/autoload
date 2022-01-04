@@ -19,8 +19,6 @@ Class Router
                 } else {
                     throw new Exception();
                 }
-            } else if ($action == 'upload') {
-
             } else {
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
@@ -40,8 +38,6 @@ Class Router
         $arr = explode(" ", $string);
         switch ($arr[0]) {
             case "api":
-                break;
-            case "upload":
                 break;
             default:
             array_unshift($arr, "_");
