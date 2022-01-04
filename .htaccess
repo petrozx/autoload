@@ -6,10 +6,6 @@ DirectoryIndex index.php
 
 RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|doc|xls|js|jsx|tif|tiff|docx|xlsx|ico)$|test\.php$
 
-RewriteCond %{ENV:HTTPS} !on 
-
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
 RewriteRule ^(.*)$ $1 [L,QSA]
 
 RewriteRule ^(.*)$ index.php?params=$1 [L,QSA]
