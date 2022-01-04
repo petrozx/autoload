@@ -50,9 +50,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
     async function updateMessage() {
         const mess = Array.from(messages?.querySelectorAll('div'))
         const response = await update(max||0)
+        let newMes = "";
         response&&response.forEach(el=>{
             if (el['type'] == 'text') {
-                const newMes = document.createElement('div')
+                newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'self';
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                     newMes.className = 'other';
                 }
             } else if (el['type'] == 'audio') {
-                const newMes = document.createElement('audio')
+                newMes = document.createElement('audio')
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'audio self';
                 } else {
@@ -70,7 +71,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.controls = true;
                 newMes.autoplay = true;
             }
-            console.log(newMes);
             let name;
             usersALL.forEach(element => {
                 if (element['id'] == el['author']) name = element['name']
