@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.controls = true;
                 newMes.autoplay = true;
             }
+            console.log(newMess);
             let name;
             usersALL.forEach(element => {
                 if (element['id'] == el['author']) name = element['name']
