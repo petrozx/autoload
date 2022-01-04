@@ -34,6 +34,7 @@ function update() {
             ' AND author=' . $_SESSION['auth']['id'].
             ' AND what_a_chat='.$_POST['chat'].
             ' OR author='.$_POST['chat'].
+            ' AND date_create>'.$_POST['date_create'].
             ' AND what_a_chat='.$_SESSION['auth']['id']
         );
         $bd->close_connection();
