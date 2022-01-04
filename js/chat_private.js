@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             usersALL.forEach(element => {
                 if (element['id'] == el['author']) name = element['name']
             });
-            newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
+            // newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
                 messages.append(newMes)
                 max = el['date_create']
         })
@@ -136,14 +136,5 @@ document.addEventListener("DOMContentLoaded", async()=>{
         let promise = await fetch('/api/chat/save', {
             method: 'POST',
             body: form});
-        if (promise.ok) {
-            let response =  await promise.json();
-            console.log(response.data);
-            let audio = document.createElement('audio');
-            audio.src = response.data;
-            audio.controls = true;
-            audio.autoplay = true;
-            messages.appendChild(audio);
-        }
     }
 })
