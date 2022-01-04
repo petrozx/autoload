@@ -69,7 +69,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 messages.append(newMes)
                 max = el['date_create']
         })
-        console.log(max);
     }
 
     async function User() {
