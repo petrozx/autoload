@@ -26,6 +26,10 @@ button {
     margin-bottom: 10px;
 }
 
+.chats {
+    margin: 20px;
+}
+
 .user {
     display: block;
 }
