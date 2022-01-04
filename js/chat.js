@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const message = document.querySelector('.message')
     const globalUser = await User();
     const chatWith = $_GET('user')
+    const usersALL = await getAllUsers()
 
     async function getAllUsers() {
         const req = await fetch('/api/chat/users',{
@@ -65,7 +66,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
             } else {
                 newMes.className = 'other';
             }
-            newMes.innerText = formatTime(el['date_create'])+"\n"+el['author']+"\n"+el['message']+"\n\n"
+            const [name] = usersALL[(usersALL.indexOf(el['author']))]
+            newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
                 messages.append(newMes)
                 max = el['date_create']
         })
@@ -88,8 +90,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     if (window.location.href == 'http://petroz.myjino.ru/chat/') {
         const chats = document.querySelector('.chats')
-        const users = await getAllUsers()
-        users.forEach(user =>{
+        usersALL.forEach(user =>{
             const divUser = document.createElement('a')
             divUser.className = 'user'
             divUser.href = '/chat/private/?user=' + user['id']
