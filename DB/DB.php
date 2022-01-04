@@ -65,7 +65,7 @@ class DB
     public function createTable($columns) {
         $prepareNames = array_map(function($e){ return $e." TEXT"; }, $columns);
         $prepareNames = implode(",", $prepareNames);
-        $query = self::$connect->query("CREATE TABLE ". self::$table ." (id INTEGER AUTO_INCREMENT PRIMARY KEY, date_create DATE DEFAULT CURRENT_TIMESTAMP, ". $prepareNames .")");
+        $query = self::$connect->query("CREATE TABLE IF NOT EXIST ". self::$table ." (id INTEGER AUTO_INCREMENT PRIMARY KEY, date_create DATE DEFAULT CURRENT_TIMESTAMP, ". $prepareNames .")");
     }
 
     public function deleteTable($name) {
