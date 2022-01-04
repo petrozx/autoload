@@ -7,4 +7,4 @@
     }
     setInterval(await isOnline, 60000)
     await isOnline()
-})
+})()
