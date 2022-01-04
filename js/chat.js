@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
     let max;
     async function updateMessage() {
         const mess = Array.from(messages?.querySelectorAll('div'))
-        console.log(max);
         const response = await update(max||0)
         response&&response.forEach(el=>{
             const newMes = document.createElement('div')
@@ -70,6 +69,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 messages.append(newMes)
                 max = el['date_create']
         })
+        console.log(max);
     }
 
     async function User() {
