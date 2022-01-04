@@ -19,7 +19,7 @@ function getMessage() {
 
 function sendMessage() {
     if ($_POST['method'] == 'send'){
-        $bd = new DB('chat'.$_SESSION['auth']['id']);
+        $bd = new DB('chat_'.$_SESSION['auth']['id']);
         $bd->createTable('date_create', 'message', 'author', 'what_a_chat');
         // $res = $bd->saveRows([time() ,$_POST['message'], ($_SESSION['auth']['id']?:'Гость'), $_POST['what_a_chat'] ]);
         // $bd->close_connection();
