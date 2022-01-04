@@ -39,11 +39,12 @@ Class Router
         // $arr[0]!=='api' ? array_unshift($arr, "_") : $arr;
         switch ($arr[0]) {
             case "api":
-                return $arr;
+                break;
             case "save":
-                return array_unshift($arr, "upload");
+                break;
             default:
-            return array_unshift($arr, "_");
+            array_unshift($arr, "_");
+            break;
         }
         return $arr;
     }
