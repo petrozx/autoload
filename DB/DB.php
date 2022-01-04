@@ -45,11 +45,7 @@ class DB
     public function saveRows($arr) {
         $names = $this->getColumns();
         $deleteID = array_search('id', $names);
-        $deleteDateCreate = array_search('date_create', $names);
-        $deleteDateUpdate = array_search('date_update', $names);
         unset($names[$deleteID]);
-        unset($names[$deleteDateCreate]);
-        unset($names[$deleteDateUpdate]);
         $code = str_repeat('s',count($names));
         $prepareNames = array_map(function($e){ return $e."=?"; }, $names);
         $queryNames = implode(",", $prepareNames);
@@ -62,7 +58,7 @@ class DB
     }
 
     public function isOnline() {
-        $query = self::$connect->query("UPDATE `users` SET `date_update` = NOW() + INTERVAL 7 HOUR WHERE `users`.`id` = ".$_SESSION['auth']['id']);
+        $query = self::$connect->query("UPDATE `users` SET `date_update` = time() WHERE `users`.`id` = ".$_SESSION['auth']['id']);
         return $query;
     }
 
