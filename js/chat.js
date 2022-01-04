@@ -93,23 +93,24 @@ document.addEventListener("DOMContentLoaded", async()=>{
     setInterval(await isOnline, 60000);
 
     if (window.location.href == 'http://petroz.myjino.ru/chat/') {
-        const chats = document.querySelector('.chats')
-        usersALL.forEach(user =>{
-            const divUser = document.createElement('a')
-            divUser.className = 'user'
-            divUser.href = '/chat/private/?user=' + user['id']
-            divUser.dataset.id = user['id']
-            divUser.innerText = user['name']
-            if(new Date(user['date_update']).getTime() + 15*60*100 > new Date().getTime()) {
-                divUser.className = 'user online'
-            } else {
-                divUser.className = 'user offline'
-            }
-            if (globalUser['success'] != user['id']) {
-                chats.append(divUser)
-            }
-        })
-
+        if (!globalUser['error']) {
+            const chats = document.querySelector('.chats')
+            usersALL.forEach(user =>{
+                const divUser = document.createElement('a')
+                divUser.className = 'user'
+                divUser.href = '/chat/private/?user=' + user['id']
+                divUser.dataset.id = user['id']
+                divUser.innerText = user['name']
+                if(new Date(user['date_update']).getTime() + 15*60*100 > new Date().getTime()) {
+                    divUser.className = 'user online'
+                } else {
+                    divUser.className = 'user offline'
+                }
+                if (globalUser['success'] != user['id']) {
+                    chats.append(divUser)
+                }
+            })
+        }
     } else {
         const connect = document.querySelector('.connect').innerText = "Соединение установлено"
 

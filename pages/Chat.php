@@ -5,7 +5,7 @@ Class Chat
         if (!empty($_SESSION['auth'])) {
             return '<div class="chats"></div>';
         } else {
-            return '<div class="connect"></div>';
+            return '<div class="connect">Вы не авторизированы</div>';
         }
     }
 
