@@ -19,9 +19,8 @@ function getMessage() {
 
 function sendMessage() {
     if ($_POST['method'] == 'send'){
-        $tebleChat = 'chats'.$_POST['chat'];
-        $bd = new DB($tebleChat);
-        $res = $bd->saveRows([ $_POST['message'], ($_SESSION['auth']['name']?:'Гость'), ($_POST['to_whom_message']?:'') ]);
+        $bd = new DB('chat');
+        $res = $bd->saveRows([ $_POST['message'], ($_SESSION['auth']['id']?:'Гость'), $_POST['what_a_chat'] ]);
         $bd->close_connection();
         die(json_encode(['error' => 0, 'success' => 1], true));
     }
@@ -29,18 +28,8 @@ function sendMessage() {
 
 function update() {
     if ($_POST['method'] == 'update'){
-        $getMess = 'chats'.$_POST['chatFrom'];
-        $tableFrom = 'chats'.$_POST['toWhom'];
-        $bd = new DB($tableFrom);
-        $is_exist = $bd->checkTable($tableFrom);
-        if ($is_exist == 'OK') {
-            $resMy = $bd->getFilterRows('id>'. $_POST['id']);
-            $newDB = new DB($getMess);
-            $resMe = $newDB->getFilterRows('id>'. $_POST['id']);
-            $res = array_merge($resMe, $resMy);
-        } else {
-            $bd->createTable(['message', 'author', 'to_whom_message']);
-        }
+        $bd = new DB('chat');
+        $res = $bd->getFilterRows('what_a_chat='. $_POST['what_a_chat']);
         $bd->close_connection();
         die(json_encode($res, true));
     }
