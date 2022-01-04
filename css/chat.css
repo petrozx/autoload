@@ -1,5 +1,5 @@
 #chat {
-    width: 315px;
+    max-width: 650px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
