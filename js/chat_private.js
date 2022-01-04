@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 }
                 newMes.src = el['message'];
                 newMes.controls = true;
-                newMes.autoplay = true;
+                newMes.autoplay = false;
             }
                 messages.append(newMes)
                 max = el['date_create']
