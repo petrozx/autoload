@@ -12,7 +12,7 @@
     overflow-y: scroll;
 }
 
-.messages::after {
+.message::after {
     content: "\1F3A4";
 }
 
