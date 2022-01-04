@@ -61,3 +61,19 @@ function online() {
     $bd = new DB('users');
     $bd->isOnline();
 }
+
+function save(){
+    $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/upload/';
+    $typeFile = explode('/', $_FILES['voice']['type']);
+    $wayFile = basename(md5($_FILES['voice']['tmp_name'].time()).'.'.$typeFile[1]);
+    $uploadFile = $uploadDir . $wayFile;
+    if (move_uploaded_file($_FILES['voice']['tmp_name'], $uploadFile)) {
+        $response = ['result'=>'OK'];
+        $bd = new DB('chat');
+        $res = $bd->saveRows([ time() ,'/upload/'. $wayFile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio' ]);
+        $bd->close_connection();
+    } else {
+        $response = ['result'=>'ERROR'];
+    }
+    die(json_encode($response));
+}

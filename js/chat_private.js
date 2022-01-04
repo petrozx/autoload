@@ -51,12 +51,24 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const mess = Array.from(messages?.querySelectorAll('div'))
         const response = await update(max||0)
         response&&response.forEach(el=>{
-            const newMes = document.createElement('div')
-            newMes.dataset.id = el['id']
-            if(el['author'] == globalUser['success']){
-                newMes.className = 'self';
-            } else {
-                newMes.className = 'other';
+            if(el['type'] == 'text') {
+                const newMes = document.createElement('div')
+                newMes.dataset.id = el['id']
+                if(el['author'] == globalUser['success']){
+                    newMes.className = 'self';
+                } else {
+                    newMes.className = 'other';
+                }
+            } else if (el['type'] == 'audio') {
+                const newMes = document.createElement('audio')
+                if(el['author'] == globalUser['success']){
+                    newMes.className = 'audio self';
+                } else {
+                    newMes.className = 'audio other';
+                }
+                newMes.src = el['message'];
+                newMes.controls = true;
+                newMes.autoplay = true;
             }
             let name;
             usersALL.forEach(element => {
@@ -121,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     });
 
     async function sendVoice(form) {
-        let promise = await fetch('/api/voice/save', {
+        let promise = await fetch('/api/chat/save', {
             method: 'POST',
             body: form});
         if (promise.ok) {
