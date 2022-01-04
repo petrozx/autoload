@@ -12,10 +12,6 @@
     overflow-y: scroll;
 }
 
-button::after {
-    content: "\1F3A4";
-}
-
 button {
     padding: 20px;
     height: 60px;
