@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const response = await update(max||0)
         response&&response.forEach(el=>{
             if (el['type'] == 'text') {
-                console.log('hi');
                 const newMes = document.createElement('div')
+                console.log(newMes);
                 newMes.dataset.id = el['id']
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'self';
