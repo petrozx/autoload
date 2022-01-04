@@ -27,6 +27,7 @@
                 <?=$content?>
             </div>
             <div class="footer">
+            <script src="/js/script.js"></script>
                 <?if ($js):?>
                     <script src="<?=$js?>"></script>
                 <?endif;?>

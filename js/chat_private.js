@@ -29,13 +29,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         }
     }
 
-    async function isOnline() {
-        const req = await fetch('/api/chat/online', {
-            method: 'POST'
-        })
-        return null
-    }
-
     async function sendMessage() {
         const formData = new FormData(form)
         formData.append('method', 'send')
@@ -87,8 +80,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const date = new Date(unix*1000)
         return date.getDate()+"/"+date.getMonth()+1+"/"+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
     }
-
-    setInterval(await isOnline, 60000);
 
     const connect = document.querySelector('.connect').innerText = "Соединение установлено"
         button?.addEventListener("click", async(e)=>{
