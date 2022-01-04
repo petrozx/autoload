@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         response&&response.forEach(el=>{
             const newMes = document.createElement('div')
             newMes.dataset.id = el['id']
-            if(el['author'] == chatWith){
+            if(el['author'] == globalUser['success']){
                 newMes.className = 'self';
             } else {
                 newMes.className = 'other';
