@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             divUser.dataset.id = user['id']
             divUser.innerText = user['name']
             console.log((user['date_update'] + 10*60)+"      "+new Date().getTime());
-            if((user['date_update'] + 10*60*100) > new Date().getTime() ) {
+            if((user['date_update'] + 10*60) > new Date().getTime() ) {
                 divUser.className = 'user online'
             } else {
                 divUser.className = 'user offline'
