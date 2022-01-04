@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             divUser.href = '/chat/private/?user=' + user['id']
             divUser.dataset.id = user['id']
             divUser.innerText = user['name']
-            console.log(new Date(user['date_update'] + 15*60).getTime());
+            console.log(new Date(user['date_update']).getTime());
             console.log("-----------------------------------------");
             console.log(new Date().getTime());
             if(new Date(user['date_update'] + 15*60).getTime() > new Date().getTime() ) {
