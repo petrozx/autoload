@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         if (!navigator.mediaDevices) {
             return
         }
-        const audio = new navigator.mediaDevices.getUserMedia({audio: true})
+        const audio = await navigator.mediaDevices.getUserMedia({audio: true})
         const mike = document.querySelector('.mike')
         mike.srcObject = mike
         mike.play()
