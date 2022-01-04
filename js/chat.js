@@ -112,7 +112,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         }
     } else {
         const connect = document.querySelector('.connect').innerText = "Соединение установлено"
-
         button?.addEventListener("click", async(e)=>{
             e.preventDefault();
             await sendMessage()
@@ -122,5 +121,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         setInterval(await updateMessage, 5000);
         await updateMessage()
+
+        if (!navigator.mediaDevices) {
+            return
+        }
+        const audio = new navigator.mediaDevices.getUserMedia({audio: true})
     }
 })
