@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const response = await update(max||0)
         response&&response.forEach(el=>{
             if (el['type'] == 'text') {
+                console.log('hi');
                 const newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
                 if(el['author'] == globalUser['success']){
@@ -70,7 +71,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.controls = true;
                 newMes.autoplay = true;
             }
-            console.log(newMess);
             let name;
             usersALL.forEach(element => {
                 if (element['id'] == el['author']) name = element['name']
