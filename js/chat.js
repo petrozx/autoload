@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     async function update(date) {
         const formData = new FormData();
         formData.append('method', 'update')
-        formData.append('what_a_chat', chatWith)
+        formData.append('chat', chatWith)
         formData.append('date_create', date)
         const req = await fetch('/api/chat/update', {
             method: 'POST',
@@ -66,10 +66,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.className = 'other';
             }
             newMes.innerText = formatTime(el['date_create'])+"\n"+el['author']+"\n"+el['message']+"\n\n"
-            if (globalUser['success'] == el['author'] && el['what_a_chat'] == chatWith || el['author'] == chatWith && el['what_a_chat']==globalUser['success']) {
+            // if (globalUser['success'] == el['author'] && el['what_a_chat'] == chatWith || el['author'] == chatWith && el['what_a_chat']==globalUser['success']) {
                 messages.append(newMes)
                 max = el['date_create']
-            }
+            // }
         })
     }
 
