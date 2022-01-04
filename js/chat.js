@@ -121,10 +121,5 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         setInterval(await updateMessage, 5000);
         await updateMessage()
-
-        const audio = await navigator.mediaDevices.getUserMedia({audio: true})
-        const mike = document.querySelector('.mike')
-        mike.srcObject = audio
-        mike.play()
     }
 })
