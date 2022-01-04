@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         response&&response.forEach(el=>{
             if (el['type'] == 'text') {
                 const newMes = document.createElement('div')
-                console.log(newMes);
                 newMes.dataset.id = el['id']
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'self';
@@ -62,6 +61,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 }
             } else if (el['type'] == 'audio') {
                 const newMes = document.createElement('audio')
+                console.log(newMes);
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'audio self';
                 } else {
