@@ -6,5 +6,5 @@
         return null
     }
     setInterval(await isOnline, 60000)
-    await isOnline, 60000
+    await isOnline()
 })
