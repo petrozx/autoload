@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'audio mine';
                 } else {
-                    newMes.className = 'audio other';
+                    newMes.className = 'audio not-mine';
                 }
                 newMes.src = el['message'];
                 newMes.controls = true;

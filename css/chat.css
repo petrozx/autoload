@@ -53,6 +53,16 @@ button {
     border-bottom: 2px solid white;
 }
 
+.mine {
+    height: 20px;
+    float: left;
+}
+
+.not-mine {
+    height: 20px;
+    float: right;
+}
+
 .connect {
     display: block;
     height: 20px;
