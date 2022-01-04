@@ -1,4 +1,4 @@
-(async()=>{
+document.addEventListener("DOMContentLoaded", async()=>{
     const usersALL = await getAllUsers()
     const globalUser = await User();
 
