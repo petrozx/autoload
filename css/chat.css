@@ -53,19 +53,19 @@ button {
     border-bottom: 2px solid white;
 }
 
-.mine {
+.audio {
     height: 20px;
-    float: left;
     width: 40%;
-    display: block;
+    margin-top: 5px;
+}
+
+.mine {
+    float: left;
     margin-right: 100px;
 }
 
 .not-mine {
-    height: 20px;
     float: right;
-    width: 40%;
-    display: block;
     margin-left: 100px;
 }
 
