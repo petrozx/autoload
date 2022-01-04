@@ -46,7 +46,17 @@ class DB
         $names = $this->getColumns();
         $deleteID = array_search('id', $names);
         unset($names[$deleteID]);
-        $code = str_repeat('s',count($names));
+        $code = '';
+        foreach($names as $name) {
+            switch (gettype($name)) {
+                case "string":
+                    $code .= 's';
+                    break;
+                case "integer":
+                    $code .= 'i';
+                    break;
+            }
+        }
         $prepareNames = array_map(function($e){ return $e."=?"; }, $names);
         $queryNames = implode(",", $prepareNames);
         $stmt = self::$connect->prepare("INSERT INTO ".self::$table." SET ".$queryNames);
