@@ -13,5 +13,5 @@ function save(){
     } else {
         $response = ['result'=>'ERROR', 'data'=>''];
     }
-    echo json_encode($response);
+    die(json_encode($response));
 }
