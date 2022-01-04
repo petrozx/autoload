@@ -5,8 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/main.css">
-        <?if (isset($GLOBALS['css'])):?>
-            <link rel="stylesheet" href="<?=$GLOBALS['css']?>">
+        <?if ($css):?>
+            <link rel="stylesheet" href="<?=$css?>">
         <?endif;?>
         <title>Document</title>
     </head>
@@ -27,8 +27,8 @@
                 <?=$content?>
             </div>
             <div class="footer">
-                <?if (isset($GLOBALS['script'])):?>
-                    <script src="<?=$GLOBALS['script']?>"></script>
+                <?if ($js):?>
+                    <script src="<?=$js?>"></script>
                 <?endif;?>
                 <div class="made">
                     <a>©Made by petroz</a>

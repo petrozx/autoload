@@ -6,6 +6,8 @@ Class Router
     public function __construct($url)
     {
         global $content;
+        global $css;
+        global $js;
         [$action, $class, $method, $body] = $this->parseURL($url);
         $class = $class?:'Index';
         $method = $method?:'index';
@@ -18,6 +20,8 @@ Class Router
                     throw new Exception();
                 }
             } else {
+                $this->getJS($class, $method);
+                $this->getCss($class);
                 $instance = new $class($body);
                 if (method_exists($instance, $method)) {
                     $content = call_user_func([$instance, $method], $body);
@@ -41,6 +45,20 @@ Class Router
         $dir = $_SERVER['DOCUMENT_ROOT'] . "/actions/".$file.".php";
         if (file_exists($dir)) {
             include_once($dir);
+        }
+    }
+    private function getJS($class, $method)
+    {
+        $dir = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class.'_'.$method. '.js';
+        if (file_exists($dir)) {
+            $js = '/js/' . $class.'_'.$method . '.js';
+        }
+    }
+    private function getCss($file)
+    {
+        $dir = $_SERVER['DOCUMENT_ROOT'] . '/css/'. $file . '.css';
+        if (file_exists($dir)) {
+            $css = '/css/' . $file . '.css';
         }
     }
 }
