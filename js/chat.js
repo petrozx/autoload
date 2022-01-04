@@ -60,12 +60,12 @@ document.addEventListener("DOMContentLoaded", async()=>{
         response&&response.forEach(el=>{
             const newMes = document.createElement('div')
             newMes.dataset.id = el['id']
-            if(el['author_id'] == chatWith){
+            if(el['author'] == chatWith){
                 newMes.className = 'self';
             } else {
                 newMes.className = 'other';
             }
-            newMes.innerText = el['date_create']+"\n"+el['author']+"\n"+el['message']+"\n\n"
+            newMes.innerText = new Data(el['date_create'])+el['']+"\n"+el['author']+"\n"+el['message']+"\n\n"
             if (el['author'] == globalUser['success'] || el['what_a_chat'] == chatWith)
                 messages.append(newMes)
         })
