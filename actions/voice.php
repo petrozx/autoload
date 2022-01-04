@@ -5,7 +5,7 @@
  * Возвращает JSON бъект в зависимоти от результата обработки
  */
 function save(){
-    $uploadDir = 'upload/';
+    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/upload/';
     $typeFile = explode('/', $_FILES['voice']['type']);
     $uploadFile = $uploadDir . basename(md5($_FILES['voice']['tmp_name'].time()).'.'.$typeFile[1]);
     if (move_uploaded_file($_FILES['voice']['tmp_name'], $uploadFile)) {
