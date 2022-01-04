@@ -1,4 +1,4 @@
-(async()=>{
+document.addEventListener("DOMContentLoaded", async()=>{
     const form = document.getElementById('chat')
     const button = document.getElementsByTagName('button')[0]
     const messages = document.querySelector('.messages')
