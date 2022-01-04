@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             } else if (el['type'] == 'audio') {
                 newMes = document.createElement('audio')
                 if(el['author'] == globalUser['success']){
-                    newMes.className = 'audio self';
+                    newMes.className = 'audio mine';
                 } else {
                     newMes.className = 'audio other';
                 }
