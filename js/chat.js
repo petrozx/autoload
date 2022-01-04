@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     function formatTime(unix) {
         const date = new Date(unix*1000)
-        return date.getDate()+"/"+date.getMonth()+1+"/"+date.getFullYear()+" "+date.getSeconds()+":"+date.getMinutes()+":"+date.getHours()
+        return date.getDate()+"/"+date.getMonth()+1+"/"+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes()+":"+date.seconds()
     }
 
     setInterval(await isOnline, 60000);
