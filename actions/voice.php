@@ -5,11 +5,11 @@
  * Возвращает JSON бъект в зависимоти от результата обработки
  */
 function save(){
-    $uploadDir = 'https://petroz.ru/upload';
+    $uploadDir = 'https://petroz.ru/upload/';
     $typeFile = explode('/', $_FILES['voice']['type']);
     $uploadFile = $uploadDir . basename(md5($_FILES['voice']['tmp_name'].time()).'.'.$typeFile[1]);
     if (move_uploaded_file($_FILES['voice']['tmp_name'], $uploadFile)) {
-        $response = ['result'=>'OK', 'data'=>'/'.$uploadFile];
+        $response = ['result'=>'OK', 'data'=>$uploadFile];
     } else {
         $response = ['result'=>'ERROR', 'data'=>''];
     }
