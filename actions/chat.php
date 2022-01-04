@@ -29,12 +29,12 @@ function sendMessage() {
 function update() {
     if ($_POST['method'] == 'update'){
         $bd = new DB('chat');
-        $res = $bd->getFilterRows('date_create>'.$_POST['date_create'].
-        ' AND author=' . $_SESSION['auth']['id'].
-        ' AND what_a_chat='.$_POST['chat'].
-        ' OR author='.$_POST['chat'].
-        ' AND what_a_chat='.$_SESSION['auth']['id'].
-        ' AND date_create>'.$_POST['date_create']);
+        $res = $bd->getFilterRows(
+            'date_create>'.$_POST['date_create'].
+            ' AND author=' . $_SESSION['auth']['id'].
+            ' AND what_a_chat='.$_POST['chat'].
+            ' OR author='.$_POST['chat'].
+            ' AND what_a_chat='.$_SESSION['auth']['id']);
         $bd->close_connection();
         die(json_encode($res, true));
     }
