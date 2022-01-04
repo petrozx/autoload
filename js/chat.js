@@ -66,8 +66,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.className = 'other';
             }
             newMes.innerText = formatTime(el['date_create'])+"\n"+el['author']+"\n"+el['message']+"\n\n"
+            if (globalUser['success'] == el['author'] && el['what_a_chat'] == chatWith) {
                 messages.append(newMes)
                 max = el['date_create']
+            }
         })
     }
 
