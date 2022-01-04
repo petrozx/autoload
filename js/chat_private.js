@@ -60,6 +60,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 } else {
                     newMes.className = 'other';
                 }
+                let name;
+                usersALL.forEach(element => {
+                    if (element['id'] == el['author']) name = element['name']
+                });
+                newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
             } else if (el['type'] == 'audio') {
                 newMes = document.createElement('audio')
                 if(el['author'] == globalUser['success']){
@@ -71,11 +76,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.controls = true;
                 newMes.autoplay = true;
             }
-            let name;
-            usersALL.forEach(element => {
-                if (element['id'] == el['author']) name = element['name']
-            });
-            newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
                 messages.append(newMes)
                 max = el['date_create']
         })
