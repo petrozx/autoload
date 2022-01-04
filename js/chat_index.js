@@ -1,9 +1,18 @@
 (async()=>{
     const usersALL = await getAllUsers()
+    const globalUser = await User();
 
     async function getAllUsers() {
         const req = await fetch('/api/chat/users',{
             method: 'POST'
+        })
+        return await req.json()
+    }
+
+    async function User() {
+        const req = await fetch('/api/login/userAuth', {
+            method: 'POST',
+            body: ""
         })
         return await req.json()
     }
