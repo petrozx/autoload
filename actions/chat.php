@@ -29,7 +29,7 @@ function sendMessage() {
 function update() {
     if ($_POST['method'] == 'update'){
         $bd = new DB('chat');
-        $res = $bd->getFilterRows('what_a_chat='. $_POST['what_a_chat']);
+        $res = $bd->getFilterRows('what_a_chat='. $_POST['what_a_chat'] . 'AND date_create>'.$_POST['date_create']);
         $bd->close_connection();
         die(json_encode($res, true));
     }

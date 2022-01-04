@@ -13,10 +13,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
         return await req.json()
     }
 
-    async function update() {
+    async function update(date) {
         const formData = new FormData();
         formData.append('method', 'update')
         formData.append('what_a_chat', chatWith)
+        formData.append('date_create', date)
         const req = await fetch('/api/chat/update', {
             method: 'POST',
             body: formData
@@ -52,10 +53,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
         p = p.match(new RegExp(key + '=([^&=]+)'));
         return p ? p[1] : false;
     }
-
+    let max;
     async function updateMessage() {
         const mess = Array.from(messages?.querySelectorAll('div'))
-        const max = mess.length
         const response = await update(max||0)
         response&&response.forEach(el=>{
             const newMes = document.createElement('div')
@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             newMes.innerText = formatTime(el['date_create'])+"\n"+el['author']+"\n"+el['message']+"\n\n"
             if (el['author'] == globalUser['success'] || el['what_a_chat'] == chatWith)
                 messages.append(newMes)
+                max = el['date_create']
         })
     }
 
