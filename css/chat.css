@@ -56,11 +56,17 @@ button {
 .mine {
     height: 20px;
     float: left;
+    width: 40%;
+    display: block;
+    margin-right: 100px;
 }
 
 .not-mine {
     height: 20px;
     float: right;
+    width: 40%;
+    display: block;
+    margin-left: 100px;
 }
 
 .connect {
