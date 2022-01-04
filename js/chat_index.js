@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
             divUser.href = '/chat/private/?user=' + user['id']
             divUser.dataset.id = user['id']
             divUser.innerText = user['name']
-            console.log((+user['date_update']*1000 + 10*60*1000)+"      "+new Date().getTime());
             if( (+user['date_update']*1000 + 10*60*1000) > (new Date().getTime()) ) {
                 divUser.className = 'user online'
             } else {
