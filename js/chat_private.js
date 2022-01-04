@@ -91,4 +91,47 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         setInterval(await updateMessage, 5000);
         await updateMessage()
+
+    navigator.mediaDevices.getUserMedia({ audio: true})
+    .then(stream => {
+        const mediaRecorder = new MediaRecorder(stream);
+
+        document.querySelector('.mike').addEventListener('mousedown', function(){
+            mediaRecorder.start();
+        });
+        let audioChunks = [];
+        mediaRecorder.addEventListener("dataavailable",function(event) {
+            audioChunks.push(event.data);
+        });
+
+        document.querySelector('.mike').addEventListener('mouseup', function(){
+            mediaRecorder.stop();
+        });
+
+        mediaRecorder.addEventListener("stop", function() {
+            const audioBlob = new Blob(audioChunks, {
+                type: 'audio/wav'
+            });
+
+            let fd = new FormData();
+            fd.append('voice', audioBlob);
+            sendVoice(fd);
+            audioChunks = [];
+        });
+    });
+
+    async function sendVoice(form) {
+        let promise = await fetch('/api/voice/save', {
+            method: 'POST',
+            body: form});
+        if (promise.ok) {
+            let response =  await promise.json();
+            console.log(response.data);
+            let audio = document.createElement('audio');
+            audio.src = response.data;
+            audio.controls = true;
+            audio.autoplay = true;
+            document.querySelector('#messages').appendChild(audio);
+        }
+    }
 })
