@@ -27,14 +27,14 @@ button {
 }
 
 .chats {
-    margin: 20px;
+    margin: 10px;
 }
 
 .user {
     display: block;
 }
 
-.user::after {
+.user::before {
     content: "";
     width: 10px;
     height: 10px;
