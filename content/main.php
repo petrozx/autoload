@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-        <footer class="container-lg footer mt-auto">
+        <footer class="container-lg footer mt-auto mh-20">
             <div class="bg-light">
                 <script src="/js/script.js"></script>
                 <? if ($js) : ?>
