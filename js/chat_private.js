@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async()=>{
     const form = document.getElementById('chat')
-    const button = document.getElementsByTagName('button')[0]
+    const button = document.getElementById('send-message')
     const messages = document.querySelector('.messages')
     const globalUser = await User();
     const chatWith = $_GET('user')
