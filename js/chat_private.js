@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         await updateMessage()
 
     navigator.mediaDevices.getUserMedia({ audio: true})
-    .then(stream => {
+    .then(async stream => {
         const mediaRecorder = new MediaRecorder(stream);
 
         document.querySelector('.mike').addEventListener('mousedown', function(){
@@ -134,8 +134,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
             let fd = new FormData();
             fd.append('voice', audioBlob);
             fd.append('what_a_chat', chatWith)
-            sendVoice(fd);
-            updateMessage()
+            await sendVoice(fd);
+            await updateMessage()
             audioChunks = [];
         });
     });
