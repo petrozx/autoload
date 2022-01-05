@@ -89,8 +89,8 @@
                 </div>
             </div>
         </div>
-        <footer class="footer mt-auto py-3 bg-light">
-            <div class="container">
+        <footer class="container-lg footer mt-auto py-3">
+            <div class="bg-light h-100 w-100">
                 <script src="/js/script.js"></script>
                 <? if ($js) : ?>
                 <script src="<?= $js ?>"></script>
