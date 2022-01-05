@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.duration = 'auto';
             }
                 messages.append(newMes)
-                newMes.scrollIntoView()
+                newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 max = el['date_create']
         })
     }

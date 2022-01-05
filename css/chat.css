@@ -2,7 +2,6 @@
     min-height: 300px;
     max-height: 300px;
     overflow-y: scroll;
-    transition: all 0.5s ease-out;
 }
 
 .b-example-divider {
