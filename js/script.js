@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         const req = await fetch('/api/chat/online', {
             method: 'POST'
         })
-        return req.json()
+        return req?.json()
     }
     const auth = await isOnline()
 
