@@ -83,7 +83,7 @@
                 </div>
             </nav>
             <h1>Hi you are on my site</h1>
-            <div class="wrapper-container">
+            <div class="container">
                 <div id="root">
                     <?= $content ?>
                 </div>
