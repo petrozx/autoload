@@ -33,7 +33,7 @@
             <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <?=empty($_SESSION['auth'])?'Гость'
                 :'<span class="fs-4 me-2">'.$_SESSION['auth']['name'].'</span>'.
-                '<button type="button" id="logout" class="btn btn-outline-dark bi">Выйти
+                '<button type="button" id="logout" class="btn btn-outline-dark btn-sm">Выйти
                 </button>'?>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
