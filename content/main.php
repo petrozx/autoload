@@ -33,7 +33,7 @@
                 <div class="text-end">
                     <div class="col-12 d-flex justify-content-end align-items-center">
                         <?=empty($_SESSION['auth'])?'<span class="fs-4">Гость</span>'
-                        :'<span class="fs-4 mr-2">'.$_SESSION['auth']['name'].'</span>'.
+                        :'<span class="fs-4 me-4">'.$_SESSION['auth']['name'].'</span>'.
                         '<button id="logout" class="btn btn-outline-secondary">Выйти
                         </button>'?>
                     </div>
