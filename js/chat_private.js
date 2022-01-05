@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const response = await update(max||0)
         let newMes = "";
         response&&response.forEach(el=>{
+            spiner.classList.remove('d-none')
             if (el['type'] == 'text') {
                 newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
@@ -81,6 +82,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 messages.append(newMes)
                 newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 max = el['date_create']
+                spiner.classList.add('d-none')
         })
     }
 
@@ -138,11 +140,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
     });
 
     async function sendVoice(form) {
-        spiner.classList.remove('d-none')
         let promise = await fetch('/api/chat/save', {
             method: 'POST',
             body: form});
         let response = await promise.json()
-            spiner.classList.add('d-none')
     }
 })
