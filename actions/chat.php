@@ -62,9 +62,9 @@ function online() {
         $bd = new DB('users');
         $bd->isOnline($_SESSION['auth']['id']);
         $bd->close_connection();
-        die(json_encode(['error' => 0]));
+        die(json_encode(['success' => 1]));
     } else {
-        die(json_encode(['error' => 1]));
+        die(json_encode(['success' => 0]));
     }
 }
 
