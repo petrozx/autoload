@@ -42,9 +42,9 @@
                                         $users = $bd->getRows();
                                         foreach ($users as $user):?>
                                             <li><a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a></li>
-                                        <?endforeach;
-                                    endif?>
+                                        <?endforeach;?>
                                 </ul>
+                                    <?endif?>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/login/register">Регистрация</a>
