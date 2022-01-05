@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         return date.getDate()+"/"+date.getMonth()+1+"/"+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
     }
 
-    const connect = document.querySelector('#alert').innerText = "Соединение установлено"
         button.addEventListener("click", async(e)=>{
             e.preventDefault();
             await sendMessage()
@@ -108,9 +107,12 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
 
         setInterval(await updateMessage, 5000);
+
+        const connect = document.querySelector('#alert').innerText = "Загрузка"
         spiner.classList.remove('d-none')
         await updateMessage()
         spiner.classList.add('d-none')
+        const connect = document.querySelector('#alert').innerText = "Соединение установлено"
 
     navigator.mediaDevices.getUserMedia({ audio: true})
     .then(stream => {
