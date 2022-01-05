@@ -32,13 +32,13 @@
                                 <a class="nav-link dropdown-toggle" href="/chat" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Чат
                                 </a>
+                                <? if (!empty($_SESSION['auth'])):?>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="/chat">Чаты</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <? if (!empty($_SESSION['auth'])):
-                                        $bd = new DB('users');
+                                        <? $bd = new DB('users');
                                         $users = $bd->getRows();
                                         foreach ($users as $user):?>
                                             <li><a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a></li>
