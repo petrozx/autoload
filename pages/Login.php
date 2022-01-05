@@ -6,7 +6,7 @@ class Login
         if (empty($_SESSION['auth'])) {
             return '
             <form id="register">
-                <div class="input-group mb-3">
+                <div class="mb-3">
                     <label class="form-label" for="name">Введите логин:</label>
                         <input class="form-control" type="text" name="name"><br>
                     <label class="form-label" for="password">Введите пароль:</label>
