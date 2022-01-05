@@ -34,9 +34,9 @@
     </symbol>
     </svg>
         <div class="container">
-            <div class="text-end mb-3">
+            <div class="text-end h-50">
                 <?=empty($_SESSION['auth'])?'Гость'
-                :'<span class="fs-4 h-50">'.$_SESSION['auth']['name'].'</span>'.
+                :'<span class="fs-4">'.$_SESSION['auth']['name'].'</span>'.
                 '<button type="button" id="logout" class="btn btn-black btn-sm">Выйти
                 </button>'?>
             </div>
