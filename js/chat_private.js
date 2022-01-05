@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
     let max;
     async function updateMessage() {
-        spiner.classList.remove('d-none')
         const mess = Array.from(messages?.querySelectorAll('div'))
         const response = await update(max||0)
         let newMes = "";
@@ -83,7 +82,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 max = el['date_create']
         })
-        spiner.classList.add('d-none')
     }
 
     async function User() {
@@ -112,6 +110,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     navigator.mediaDevices.getUserMedia({ audio: true})
     .then(stream => {
+        spiner.classList.remove('d-none')
         const mediaRecorder = new MediaRecorder(stream);
 
         document.querySelector('.mike').addEventListener('mousedown', function(){
@@ -137,6 +136,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             sendVoice(fd);
             audioChunks = [];
         });
+        spiner.classList.add('d-none')
     });
 
     async function sendVoice(form) {
