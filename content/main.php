@@ -34,7 +34,7 @@
     </symbol>
     </svg>
         <div class="container-lg">
-            <div class="text-end">
+            <div class="text-end mb-3">
                 <?=empty($_SESSION['auth'])?'Гость'
                 :'<span class="fs-4 me-2">'.$_SESSION['auth']['name'].'</span>'.
                 '<button type="button" id="logout" class="btn btn-black btn-sm">Выйти
