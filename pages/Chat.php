@@ -2,17 +2,19 @@
 Class Chat
 {
     public function index() {
-            $bd = new DB('users');
-            $users = $bd->getRows();
-            foreach ($users as $user):
-                if ($user['id'] !== $_SESSION['auth']['id']):?>
-                    <div class="feature col">
-                        <div class="feature-icon bg-primary bg-gradient">
-                            <a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a>
-                        </div>
-                    </div>
-                <?endif;
-            endforeach;
+        $res = '';
+        $bd = new DB('users');
+        $users = $bd->getRows();
+        foreach ($users as $user):
+            if ($user['id'] !== $_SESSION['auth']['id']):
+                $res .= '<div class="feature col">
+                            <div class="feature-icon bg-primary bg-gradient">
+                                <a class="dropdown-item" href="/chat/private/?user='.$user['id'].'">'.$user['name'].'</a>
+                            </div>
+                        </div>';
+            endif;
+        endforeach;
+        return $res;
     }
 
     public function private($name) {
