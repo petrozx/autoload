@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         e.preventDefault()
         const response = await register(form)
         if(response.success){
-            window.location.reload()
+            document.location.href = 'https://petroz.ru/'
         }
     })
 
