@@ -1,4 +1,5 @@
 <?
+header('Location: http://'.$_SERVER['HTTP_HOST'].'/login/register');
 Class Chat
 {
     public function index() {
