@@ -9,9 +9,10 @@ document.addEventListener('DOMContentLoaded', async()=>{
         const req = await fetch('/api/chat/online', {
             method: 'POST'
         })
-        return req?.json()
+        return req.json()
     }
-    const auth = await isOnline()
+    if (window.location.href != 'https://petroz.ru/login/register')
+        const auth = await isOnline()
 
     if (auth['success']){
         setInterval(await isOnline, 60000)
