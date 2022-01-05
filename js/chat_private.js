@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             fd.append('voice', audioBlob);
             fd.append('what_a_chat', chatWith)
             sendVoice(fd);
-            await updateMessage()
+            updateMessage()
             audioChunks = [];
         });
     });
