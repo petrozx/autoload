@@ -38,11 +38,13 @@
     </symbol>
     </svg>
         <div class="container">
-            <div class="text-end">
-                <?=empty($_SESSION['auth'])?'Гость'
-                :'<span class="fs-4">'.$_SESSION['auth']['name'].'</span>'.
-                '<button id="logout" class="btn btn-primary btn-sm">Выйти
-                </button>'?>
+            <div class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <div class="text-end">
+                    <?=empty($_SESSION['auth'])?'Гость'
+                    :'<span class="fs-4">'.$_SESSION['auth']['name'].'</span>'.
+                    '<button id="logout" class="btn btn-primary btn-sm">Выйти
+                    </button>'?>
+                </div>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
