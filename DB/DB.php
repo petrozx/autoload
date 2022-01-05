@@ -45,7 +45,9 @@ class DB
     public function saveRows($arr) {
         $names = $this->getColumns();
         $deleteID = array_search('id', $names);
+        $deleteDC = array_search('date_create', $names);
         unset($names[$deleteID]);
+        unset($names[$deleteDC]);
         $code = '';
         foreach($names as $name) {
             switch (gettype($name)) {
