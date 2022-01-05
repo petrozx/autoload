@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', async()=>{
 
     document.querySelectorAll('.nav-link').forEach(function(link){
-        const prepare = window.location.pathname.replace(/\//g, ' ')
-        console.log(prepare);
-        if (prepare.includes(link.pathname))
+        if (link.href == window.location.href)
             link.classList.add('active')
     })
 
