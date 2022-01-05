@@ -89,8 +89,8 @@
                 </div>
             </div>
         </div>
+        <div class="container">
         <footer class="footer mt-auto py-3 bg-light">
-            <div class="container">
                 <script src="/js/script.js"></script>
                 <? if ($js) : ?>
                 <script src="<?= $js ?>"></script>
@@ -98,7 +98,7 @@
                 <div class="made">
                     <span class="text-muted">©Made by petroz</span>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </body>
 </html>
