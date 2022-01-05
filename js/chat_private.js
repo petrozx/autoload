@@ -140,9 +140,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
     });
 
     async function sendVoice(form) {
+        spiner.classList.remove('d-none')
         let promise = await fetch('/api/chat/save', {
             method: 'POST',
             body: form});
         let response = await promise.json()
+        spiner.classList.add('d-none')
     }
 })

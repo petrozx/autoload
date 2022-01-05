@@ -9,8 +9,8 @@ Class Chat
             return '
             <div class="connect alert alert-primary">
                 <div class="d-flex align-items-center">
-                    <strong id="alert">Loading...</strong>
-                        <div class="spinner-border text-primary ms-auto" role="status" aria-hidden="true"></div>
+                    <strong id="alert"></strong>
+                        <div class="spinner-border text-primary ms-auto d-none" role="status" aria-hidden="true"></div>
                 </div>
             </div>
             <form id="chat">
