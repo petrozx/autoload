@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         const response = await request.json()
         return response
     }
-    
+
     if (window.location.href != 'https://petroz.ru/login/register') {
         await isOnline()
         setInterval(await isOnline, 60000)
@@ -38,4 +38,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             window.location.reload()
         }
     })
+
+    const search = document.querySelector('[type="search"]')
+    console.log(search);
 })
