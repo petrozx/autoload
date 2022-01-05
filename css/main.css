@@ -4,9 +4,10 @@
 }
 
 .wrapper {
-    min-width: fit-content;
+    max-width: 76%;
     height: 937px;
     position: relative;
+    margin: 0 auto;
 }
 
 ul.navbar {
