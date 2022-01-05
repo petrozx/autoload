@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         return date.getDate()+"/"+date.getMonth()+1+"/"+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
     }
 
-    const connect = document.querySelector('.connect').innerText = "Соединение установлено"
+    const connect = document.querySelector('#alert').innerText = "Соединение установлено"
         button.addEventListener("click", async(e)=>{
             e.preventDefault();
             await sendMessage()
