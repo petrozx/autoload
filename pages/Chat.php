@@ -9,7 +9,13 @@ Class Chat
             return '
             <div class="connect alert alert-primary"></div>
             <form id="chat">
-            <div class="messages form-control" ></div>
+            <div class="messages form-control" >
+            <div class="text-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            </div>
             <input type="text" name="message" class="message form-control form-control-lg" placeholder="введите сообщение">
             <div class="mike">&#127908;</div>
             <button id="send-message" class="btn btn-lg btn-outline-primary">отправить</button>
