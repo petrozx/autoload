@@ -40,5 +40,5 @@ document.addEventListener('DOMContentLoaded', async()=>{
     })
 
     const search = document.querySelector('[type="search"]')
-    console.log(search);
+    const btnSearch = document.querySelector('#search')
 })
