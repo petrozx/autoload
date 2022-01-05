@@ -18,8 +18,8 @@
             <div class="user-info"><a><?= $_SESSION['auth']['name'] ?: 'Гость' ?></a></div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
+                    <img src="/images/logo.png" alt="" width="30" height="30">
                     <a class="navbar-brand" href="/">Главная
-                        <img src="/images/logo.png" alt="" width="20" height="20">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
