@@ -39,12 +39,12 @@
                                     <? $bd = new DB('users');
                                     $users = $bd->getRows();
                                     foreach ($users as $user):?>
-                                    <li><a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a></li>
+                                        <li><a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a></li>
                                     <?endforeach?>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                <a class="nav-link" href="/login/register">Регистрация</a>
                             </li>
                         </ul>
                         <form class="d-flex">
