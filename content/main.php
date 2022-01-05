@@ -56,7 +56,7 @@
                 </div>
             </nav>
             <h1>Hi you are on my site</h1>
-            <div class="container-sm">
+            <div class="container-fluid">
                 <div class="wrapper-container">
                     <div id="root">
                         <?= $content ?>
