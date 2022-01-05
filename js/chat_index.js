@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     if (!globalUser['error']) {
         const chats = document.querySelectorAll('.online')
         usersALL.forEach((user,key) =>{
-            if( (+user['date_update']*1000 + 10*60*1000) > (new Date().getTime()) && usersALL['id'] != user['id']) {
+            if( (+user['date_update']*1000 + 10*60*1000) > (new Date().getTime()) && globalUser['id'] != user['id']) {
                 chats[key].innerText = 'В сети'
             } else {
                 chats[key].innerText = 'Не в сети'
