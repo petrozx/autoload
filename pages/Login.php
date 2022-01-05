@@ -14,7 +14,7 @@ class Login
                                 <input class="form-control" type="password" placeholder="Пароль" name="password"><br>
                                 <input class="form-control" type="email" placeholder="name@example.com" name="email"><br>
                             <div class="buttons">
-                                <button class="w-100 mb-3 btn btn-lg btn-primary" id="reg">Зарегитрироваться</button>
+                                <button class="w-100 mb-2 btn btn-lg btn-primary" id="reg">Зарегитрироваться</button>
                                 <button class="w-100 btn btn-lg btn-primary" id="login">Войти</button>
                             </div>
                         </div>
