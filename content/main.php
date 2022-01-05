@@ -15,13 +15,15 @@
         <div class="wrapper">
             <div class="user-info"><a><?=$_SESSION['auth']['name']?:'Гость'?></a></div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="/car/mycar/">выберите машину</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/chat/">Чат</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/menu/list/">Наше меню</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/">Главная</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/login/register">Регитрация</a></li>
-                </ul>
+                <div class="container-fluid">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="/car/mycar/">выберите машину</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/chat/">Чат</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/menu/list/">Наше меню</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/">Главная</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/login/register">Регитрация</a></li>
+                    </ul>
+                </div>
             </nav>
             <h1>Hi you are on my site</h1>
             <div class="main-wrapper">
