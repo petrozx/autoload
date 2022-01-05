@@ -7,8 +7,8 @@ class Login
             return '
             <div class="text-center">
                 <div class="form-signin"
-                    <form id="register">
-                        <div class="mb-3">
+                    <div class="mb-3">
+                        <form id="register">
                             <h3 class="form-label mb-3">Форма авторизации:</h3>
                                 <input class="form-control" type="text"placeholder="Логин" name="name"><br>
                                 <input class="form-control" type="password" placeholder="Пароль" name="password"><br>
@@ -17,8 +17,8 @@ class Login
                                 <button class="w-100 mb-2 btn btn-lg btn-primary" id="reg">Зарегитрироваться</button>
                                 <button class="w-100 btn btn-lg btn-primary" id="login">Войти</button>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
             ';
