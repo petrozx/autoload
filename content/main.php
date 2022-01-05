@@ -22,8 +22,8 @@
                     <li><a href="/login/register">Регитрация</a></li>
                 </ul>
             </nav>
+            <h1>Hi you are on my site</h1>
             <div class="wrapper-container">
-                <h1>Hi you are on my site</h1>
                 <div id="root">
                     <?=$content?>
                 </div>
