@@ -11,6 +11,14 @@
         <? endif; ?>
         <title>Petroz.dev</title>
     </head>
+    <style>
+        footer {
+        position: absolute;
+        bottom: 0;
+        height: 50px;
+        border-top: 1px solid #212529;
+        }
+    </style>
     <body>
         <div class="container-lg">
             <div class="user-info"><a><?= $_SESSION['auth']['name'] ?: 'Гость' ?></a></div>
