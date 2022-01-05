@@ -90,7 +90,7 @@
             </div>
         </div>
         <footer class="container-lg footer mt-auto py-3">
-            <div class="container-lg bg-light">
+            <div class="container bg-light">
                 <script src="/js/script.js"></script>
                 <? if ($js) : ?>
                 <script src="<?= $js ?>"></script>
