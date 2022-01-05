@@ -9,7 +9,7 @@ Class Chat
             return '
             <div class="connect alert alert-primary">
                 <div class="d-flex align-items-center">
-                    <strong id="alert">Загрузка...</strong>
+                    <span id="alert">Загрузка...</span>
                     <div class="spinner-border text-primary ms-auto d-none" role="status" aria-hidden="true"></div>
                 </div>
             </div>
