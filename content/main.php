@@ -47,8 +47,10 @@
                                     </li>
                                     <? $bd = new DB('users');
                                     $users = $bd->getRows();
-                                    foreach ($users as $user):?>
-                                        <li><a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a></li>
+                                    foreach ($users as $user):
+                                        if ($user['id'] !== $_SESSION['auth']['id']):?>
+                                            <li><a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a></li>
+                                        <?endif;?>
                                     <?endforeach?>
                                 </ul>
                             </li>
