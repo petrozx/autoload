@@ -32,7 +32,7 @@
                                     Чат
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="/chat">Action</a></li>
+                                    <li><a class="dropdown-item" href="/chat">Чаты</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
