@@ -15,7 +15,7 @@
         body {
             padding-top: 40px;
         }
-        
+
         footer {
         position: absolute;
         bottom: 0;
@@ -34,7 +34,7 @@
     </symbol>
     </svg>
         <div class="container-lg">
-            <div class="text-end mb-2">
+            <div class="text-end">
                 <?=empty($_SESSION['auth'])?'Гость'
                 :'<span class="fs-4 me-2">'.$_SESSION['auth']['name'].'</span>'.
                 '<button type="button" id="logout" class="btn btn-black btn-sm">Выйти
