@@ -12,7 +12,6 @@
     </head>
     <body>
         <div class="wrapper">
-            <div class="user-info"><a><?=$_SESSION['auth']['name']?:'Гость'?></a></div>
             <nav>
                 <ul class="navbar">
                     <li><a href="/car/mycar/">выберите машину</a></li>
@@ -22,9 +21,12 @@
                     <li><a href="/login/register">Регитрация</a></li>
                 </ul>
             </nav>
-            <h1>Hi you are on my site</h1>
-            <div id="root">
-                <?=$content?>
+            <div class="wrapper-container">
+                <div class="user-info"><a><?=$_SESSION['auth']['name']?:'Гость'?></a></div>
+                <h1>Hi you are on my site</h1>
+                <div id="root">
+                    <?=$content?>
+                </div>
             </div>
             <div class="footer">
             <script src="/js/script.js"></script>
