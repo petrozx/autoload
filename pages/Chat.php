@@ -2,11 +2,17 @@
 Class Chat
 {
     public function index() {
-        if (!empty($_SESSION['auth'])) {
-            return '<div class="chats row g-4 py-5 row-cols-1 row-cols-lg-3"></div>';
-        } else {
-            return '<div class="connect">Вы не авторизированы</div>';
-        }
+            $bd = new DB('users');
+            $users = $bd->getRows();
+            foreach ($users as $user):
+                if ($user['id'] !== $_SESSION['auth']['id']):?>
+                    <div class="feature col">
+                        <div class="feature-icon bg-primary bg-gradient">
+                            <a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a>
+                        </div>
+                    </div>
+                <?endif;
+            endforeach;
     }
 
     public function private($name) {
