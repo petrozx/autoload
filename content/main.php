@@ -89,7 +89,7 @@
                         <?= $content ?>
                     </div>
                 </div>
-            <footer class="container">
+            <footer class="blog-footer">
                 <script src="/js/script.js"></script>
                 <? if ($js) : ?>
                     <script src="<?= $js ?>"></script>
