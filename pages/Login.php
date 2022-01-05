@@ -15,15 +15,15 @@ class Login
                                 <label for="floatingInput">Login</label>
                             </div>
                             <div class="form-floating">
-                                <input type="password" class="form-control" id="floatingInput" name="password" placeholder="Password">
-                                <label for="floatingInput">Password</label>
+                                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
                             </div>
                             <div class="form-floating">
                                 <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
                                 <label for="floatingInput">Email address</label>
                             </div>
                             <div class="buttons">
-                                <button class="w-100 mb-2 mt-3 btn btn-lg btn-primary" id="reg">Зарегитрироваться</button>
+                                <button class="w-100 mb-2 mt-3 btn btn-lg btn-primary" id="reg">Регистрация</button>
                                 <button class="w-100 btn btn-lg btn-primary" id="login">Войти</button>
                             </div>
                         </form>
