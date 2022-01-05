@@ -9,12 +9,10 @@ class Login
                 <div class="form-signin"
                     <form id="register">
                         <div class="mb-3">
-                            <label class="form-label" for="name">Введите логин:</label>
-                                <input class="form-control" type="text" name="name"><br>
-                            <label class="form-label" for="password">Введите пароль:</label>
-                                <input class="form-control" type="password" name="password"><br>
-                            <label class="form-label" for="email">Введите почту:</label>
-                                <input class="form-control" type="email" name="email"><br>
+                            <h3 class="form-label">Форма авторизации:</h3>
+                                <input class="form-control" type="text"placeholder="Логин" name="name"><br>
+                                <input class="form-control" type="password" placeholder="Пароль" name="password"><br>
+                                <input class="form-control" type="email" placeholder="name@example.com" name="email"><br>
                             <div class="buttons">
                                 <button class="w-100 mb-3 btn btn-lg btn-primary" id="reg">Зарегитрироваться</button>
                                 <button class="w-100 btn btn-lg btn-primary" id="login">Войти</button>
