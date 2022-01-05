@@ -56,13 +56,11 @@
                 </div>
             </nav>
             <h1>Hi you are on my site</h1>
-            <div class="container-fluid">
                 <div class="wrapper-container">
                     <div id="root">
                         <?= $content ?>
                     </div>
                 </div>
-            </div>
             <div class="footer">
                 <script src="/js/script.js"></script>
                 <? if ($js) : ?>
