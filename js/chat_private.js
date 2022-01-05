@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         mediaRecorder.addEventListener("stop", function() {
             const audioBlob = new Blob(audioChunks, {
-                type: 'audio/mp3'
+                type: 'audio/mpeg'
             });
 
             let fd = new FormData();
