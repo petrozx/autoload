@@ -23,7 +23,7 @@ class Login
                                 <label for="floatingInput">Email address</label>
                             </div>
                             <div class="buttons">
-                                <button class="w-100 mb-1 btn btn-lg btn-primary" id="reg">Регистрация</button>
+                                <button class="w-100 mb-2 btn btn-lg btn-primary" id="reg">Регистрация</button>
                                 <button class="w-100 btn btn-lg btn-primary" id="login">Войти</button>
                             </div>
                         </form>
