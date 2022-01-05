@@ -30,7 +30,7 @@
     </symbol>
     </svg>
         <div class="container">
-            <div class="py-3 mb-5 border-bottom">
+            <div class="py-3 mb-3 border-bottom">
                 <div class="text-end">
                     <div class="col-12 d-flex justify-content-end align-items-center">
                         <?=empty($_SESSION['auth'])?'<span class="fs-4">Гость</span>'
