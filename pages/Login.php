@@ -15,8 +15,8 @@ class Login
                                 <label for="floatingInput">Login</label>
                             </div>
                             <div class="form-floating">
-                                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
-                                <label for="floatingPassword">Password</label>
+                                <input type="password" class="form-control" id="floatingInput" name="password" placeholder="Password">
+                                <label for="floatingInput">Password</label>
                             </div>
                             <div class="form-floating">
                                 <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
