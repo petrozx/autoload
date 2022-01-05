@@ -1,6 +1,5 @@
-    <!DOCTYPE html>
-    <html lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +11,6 @@
         <? endif; ?>
         <title>Petroz.dev</title>
     </head>
-
     <body>
         <div class="wrapper">
             <div class="user-info"><a><?= $_SESSION['auth']['name'] ?: 'Гость' ?></a></div>
@@ -76,5 +74,4 @@
             </div>
         </div>
     </body>
-
-    </html>
+</html>
