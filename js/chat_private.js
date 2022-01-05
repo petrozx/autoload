@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const form = document.getElementById('chat')
     const button = document.getElementById('send-message')
     const messages = document.querySelector('.messages')
+    const spiner = document.querySelector('.spinner-border')
     const globalUser = await User();
     const chatWith = $_GET('user')
     const usersALL = await getAllUsers()
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
     let max;
     async function updateMessage() {
+        spiner.classList.remove('d-none')
         const mess = Array.from(messages?.querySelectorAll('div'))
         const response = await update(max||0)
         let newMes = "";
@@ -81,6 +83,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 max = el['date_create']
         })
+        spiner.classList.add('d-none')
     }
 
     async function User() {
