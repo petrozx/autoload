@@ -23,9 +23,11 @@
                 </ul>
             </nav>
             <h1>Hi you are on my site</h1>
-            <div class="wrapper-container">
-                <div id="root">
-                    <?=$content?>
+            <div class="main-wrapper">
+                <div class="wrapper-container">
+                    <div id="root">
+                        <?=$content?>
+                    </div>
                 </div>
             </div>
             <div class="footer">
