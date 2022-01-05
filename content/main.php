@@ -12,11 +12,21 @@
         <title>Petroz.dev</title>
     </head>
     <style>
-        footer {
+        /* footer {
         position: absolute;
         bottom: 0;
         height: 50px;
         background-color: #f8f9fa
+        } */
+        .blog-footer {
+        padding: 2.5rem 0;
+        color: #727272;
+        text-align: center;
+        background-color: #f9f9f9;
+        border-top: .05rem solid #e5e5e5;
+        }
+        .blog-footer p:last-child {
+        margin-bottom: 0;
         }
     </style>
     <body>
