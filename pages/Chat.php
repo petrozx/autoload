@@ -24,7 +24,8 @@ Class Chat
             if ($user['id'] !== $_SESSION['auth']['id']):
                 $res .= '<div class="feature col">
                             <div class="feature-icon bg-primary bg-gradient"></div>
-                            <a class="icon-link" href="/chat/private/?user='.$user['id'].'">'.$user['name'].'
+                            <h2>'.$user['name'].'</h2>
+                            <a class="icon-link" href="/chat/private/?user='.$user['id'].'">К чату
                             <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg></a>
                         </div>';
             endif;
