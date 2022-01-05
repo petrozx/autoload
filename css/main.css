@@ -6,11 +6,11 @@
 .wrapper {
     position: relative;
     background: #ebe8e8;
+    height: 900px;
 }
 
 .wrapper-container {
     max-width: 76%;
-    height: 937px;
     position: relative;
     margin: 0 auto;
     background: #ffffffc4;
