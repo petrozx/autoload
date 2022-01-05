@@ -1,6 +1,7 @@
 .messages {
     min-height: 300px;
-    max-height: 600px;
+    max-height: 300px;
+    overflow-y: scroll;
 }
 
 .b-example-divider {
