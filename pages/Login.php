@@ -9,6 +9,10 @@ class Login
                 <div class="form-signin"
                     <div class="mb-3">
                         <form id="register">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">Email address</label>
+                            </div>
                             <h3 class="form-label mb-3">Форма авторизации:</h3>
                                 <input class="form-control" type="text"placeholder="Логин" name="name"><br>
                                 <input class="form-control" type="password" placeholder="Пароль" name="password"><br>
