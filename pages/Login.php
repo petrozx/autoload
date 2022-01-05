@@ -12,9 +12,9 @@ class Login
                     <input class="form-control" type="password" name="password"><br>
                 <label class="form-label" for="email">Введите почту:</label>
                     <input type="email" name="email"><br>
-                <div class="btn btn-primary buttons">
-                    <button id="reg">Зарегитрироваться</button>
-                    <button id="login">Войти</button>
+                <div class="buttons">
+                    <button class="btn btn-primary" id="reg">Зарегитрироваться</button>
+                    <button class="btn btn-primary" id="login">Войти</button>
                 </div>
             </form>
             ';
