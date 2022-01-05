@@ -24,6 +24,7 @@ body {
 
   .form-signin input[type="password"] {
     border-radius: 0;
+    margin-bottom: -1px;
   }
   
   .form-signin input[type="email"] {
