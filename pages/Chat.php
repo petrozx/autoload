@@ -10,11 +10,11 @@ Class Chat
             <div class="connect alert alert-primary"></div>
             <form id="chat">
             <div class="messages form-control" >
-            <div class="text-center">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </div>
-            </div>
             </div>
             <input type="text" name="message" class="message form-control form-control-lg" placeholder="введите сообщение">
             <div class="mike">&#127908;</div>
