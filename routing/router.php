@@ -22,7 +22,11 @@ Class Router
             } else {
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
-                $instance = new $class($body);
+                if (class_exists($class)) {
+                    $instance = new $class($body);
+                } else {
+                    throw new Exception();
+                }
                 if (method_exists($instance, $method)) {
                     $content = call_user_func([$instance, $method], $body);
                 }
