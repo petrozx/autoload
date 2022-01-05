@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', async()=>{
 
     document.querySelectorAll('.nav-link').forEach(function(link){
-            if (link.pathname == window.location.pathname)
-                this.classList.add('active')
+        if (link.pathname == window.location.pathname)
+            link.classList.add('active')
     })
 
 
