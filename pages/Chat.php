@@ -7,7 +7,7 @@ Class Chat
 
     public function private($name) {
             return '
-            <div class="connect"></div>
+            <div class="connect alert alert-primary"></div>
             <form id="chat">
             <div class="messages form-control" ></div>
             <input type="text" name="message" class="message form-control form-control-lg" placeholder="введите сообщение">
