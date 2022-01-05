@@ -108,7 +108,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
 
         setInterval(await updateMessage, 5000);
+        spiner.classList.remove('d-none')
         await updateMessage()
+        spiner.classList.add('d-none')
 
     navigator.mediaDevices.getUserMedia({ audio: true})
     .then(stream => {
