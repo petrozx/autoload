@@ -99,6 +99,7 @@
                         <?= $content ?>
                     </div>
                 </div>
+            </div>
             <footer class="blog-footer">
                 <script src="/js/script.js"></script>
                 <? if ($js) : ?>
@@ -108,6 +109,5 @@
                     <a>©Made by petroz</a>
                 </div>
             </footer>
-        </div>
     </body>
 </html>
