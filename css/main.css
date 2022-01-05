@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.body::-webkit-scrollbar {
+    display: none; 
+}
+
 .wrapper {
     position: relative;
     background: #ebe8e8;
