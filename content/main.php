@@ -30,7 +30,12 @@
     </symbol>
     </svg>
         <div class="container-lg">
-            <div class="user-info"><a><?= $_SESSION['auth']['name'] ?: 'Гость' ?></a></div>
+            <div class="user-info">
+                <?=empty($_SESSION['auth'])?'Гость'
+                :$_SESSION['auth']['name'].
+                '<button type="button" class="btn btn-outline-dark">Dark
+                </button>'?>
+            </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="/">
