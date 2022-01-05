@@ -13,7 +13,7 @@
     </head>
     <style>
         body {
-            padding-top: 40px;
+            padding-top: 20px;
         }
 
         footer {
