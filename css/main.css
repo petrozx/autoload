@@ -17,6 +17,10 @@
     border-radius: 10px;
 }
 
+.main-wrapper {
+    padding: 0 25px;
+}
+
 nav {
     margin-bottom: 10px;
 }
