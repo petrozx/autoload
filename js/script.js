@@ -11,10 +11,8 @@ document.addEventListener('DOMContentLoaded', async()=>{
         })
         return req.json()
     }
-    if (window.location.href != 'https://petroz.ru/login/register')
-        const auth = await isOnline()
-
-    if (auth['success']){
+    if (window.location.href != 'https://petroz.ru/login/register') {
+        await isOnline()
         setInterval(await isOnline, 60000)
     }
 })
