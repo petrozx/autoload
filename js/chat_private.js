@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.src = el['message'];
                 newMes.controls = true;
                 newMes.autoplay = false;
-                newMes.preload = 'metadata';
+                newMes.duration = true;
             }
                 messages.append(newMes)
                 max = el['date_create']
