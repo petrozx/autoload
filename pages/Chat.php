@@ -14,7 +14,7 @@ Class Chat
             <div class="connect"></div>
             <form id="chat">
             <div class="messages" ></div>
-            <input type="text" name="message" class="message" placeholder="введите сообщение">
+            <input type="text" name="message" class="message form-control form-control-lg" placeholder="введите сообщение">
             <div class="mike">&#127908;</div>
             <button id="send-message" class="btn btn-lg btn-outline-primary">отправить</button>
             </form>';
