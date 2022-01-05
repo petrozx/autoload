@@ -64,7 +64,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" <?if(!empty($_SESSION['auth'])):?>disabled<?endif?> href="/login/register">Регистрация</a>
+                                <a class="nav-link" <?if(!empty($_SESSION['auth'])):?>aria-disabled="true"<?endif?> href="/login/register">Регистрация</a>
                             </li>
                         </ul>
                         <form class="d-flex">
