@@ -30,7 +30,7 @@
     </symbol>
     </svg>
         <div class="container-lg">
-            <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <div class="text-end">
                 <?=empty($_SESSION['auth'])?'Гость'
                 :'<span class="fs-4 me-2">'.$_SESSION['auth']['name'].'</span>'.
                 '<button type="button" id="logout" class="btn btn-black btn-sm">Выйти
