@@ -12,14 +12,6 @@
         <title>Petroz.dev</title>
     </head>
     <style>
-        body {
-            padding-top: 20px;
-        }
-
-        .text-end {
-            height: 40px;
-        }
-
         footer {
         position: absolute;
         bottom: 0;
@@ -41,7 +33,7 @@
             <div class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
                 <div class="text-end">
                     <?=empty($_SESSION['auth'])?'Гость'
-                    :'<span class="fs-4">'.$_SESSION['auth']['name'].'</span>'.
+                    :'<span class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">'.$_SESSION['auth']['name'].'</span>'.
                     '<button id="logout" class="btn btn-primary btn-sm">Выйти
                     </button>'?>
                 </div>
