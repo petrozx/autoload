@@ -12,7 +12,6 @@
         <title>Petroz.dev</title>
     </head>
     <body>
-        <div class="container-lg">
             <div class="user-info"><a><?= $_SESSION['auth']['name'] ?: 'Гость' ?></a></div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
@@ -56,7 +55,7 @@
                 </div>
             </nav>
             <h1>Hi you are on my site</h1>
-                <div class="wrapper-container">
+                <div class="container-lg">
                     <div id="root">
                         <?= $content ?>
                     </div>
@@ -70,6 +69,5 @@
                     <a>©Made by petroz</a>
                 </div>
             </div>
-        </div>
     </body>
 </html>
