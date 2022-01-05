@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async()=>{
 
-    document.querySelectorAll('.nav-link').forEach(link=>{
+    document.querySelectorAll('.nav-link').forEach(function(link){
         link.addEventListener('click', function(e) {
             console.log(this);
             if (this.pathname == window.location.pathname)
