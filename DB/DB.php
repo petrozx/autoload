@@ -59,6 +59,7 @@ class DB
                     break;
             }
         }
+        var_dump($code);
         $prepareNames = array_map(function($e){ return $e."=?"; }, $names);
         $queryNames = implode(",", $prepareNames);
         $stmt = self::$connect->prepare("INSERT INTO ".self::$table." SET ".$queryNames);
