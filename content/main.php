@@ -12,7 +12,11 @@
         <title>Petroz.dev</title>
     </head>
     <style>
-
+    .container-footer {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+    }
     </style>
     <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -79,12 +83,13 @@
                 </div>
             </nav>
             <h1>Hi you are on my site</h1>
-                <div class="wrapper-container">
-                    <div id="root">
-                        <?= $content ?>
-                    </div>
+            <div class="wrapper-container">
+                <div id="root">
+                    <?= $content ?>
                 </div>
-                <footer class="footer mt-auto py-3 bg-light">
+            </div>
+            <footer class="footer mt-auto py-3 bg-light">
+                    <div class="container-footer">>
                     <script src="/js/script.js"></script>
                     <? if ($js) : ?>
                         <script src="<?= $js ?>"></script>
@@ -92,7 +97,8 @@
                     <div class="made">
                         <a>©Made by petroz</a>
                     </div>
-                </footer>
+                </div>
+            </footer>
         </div>
     </body>
 </html>
