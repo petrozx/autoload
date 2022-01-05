@@ -61,7 +61,7 @@
                         <?= $content ?>
                     </div>
                 </div>
-            <div class="footer">
+            <footer class="container">
                 <script src="/js/script.js"></script>
                 <? if ($js) : ?>
                     <script src="<?= $js ?>"></script>
@@ -69,7 +69,7 @@
                 <div class="made">
                     <a>©Made by petroz</a>
                 </div>
-            </div>
+            </footer>
         </div>
     </body>
 </html>
