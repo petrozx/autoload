@@ -110,7 +110,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     navigator.mediaDevices.getUserMedia({ audio: true})
     .then(stream => {
-        spiner.classList.remove('d-none')
         const mediaRecorder = new MediaRecorder(stream);
 
         document.querySelector('.mike').addEventListener('mousedown', function(){
@@ -136,12 +135,13 @@ document.addEventListener("DOMContentLoaded", async()=>{
             sendVoice(fd);
             audioChunks = [];
         });
-        spiner.classList.add('d-none')
     });
 
     async function sendVoice(form) {
+        spiner.classList.remove('d-none')
         let promise = await fetch('/api/chat/save', {
             method: 'POST',
             body: form});
+            spiner.classList.add('d-none')
     }
 })
