@@ -1,3 +1,8 @@
+
+#root {
+    min-height: 519px;
+}
+
 #chat {
     max-width: 650px;
     display: flex;
