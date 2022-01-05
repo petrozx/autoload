@@ -108,11 +108,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         setInterval(await updateMessage, 5000);
 
-        const connect = document.querySelector('#alert').innerText = "Загрузка"
+        document.querySelector('#alert').innerText = "Загрузка"
         spiner.classList.remove('d-none')
         await updateMessage()
         spiner.classList.add('d-none')
-        const connect = document.querySelector('#alert').innerText = "Соединение установлено"
+        document.querySelector('#alert').innerText = "Соединение установлено"
 
     navigator.mediaDevices.getUserMedia({ audio: true})
     .then(stream => {
