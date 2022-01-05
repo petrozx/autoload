@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const messages = document.querySelector('.messages')
     const spiner = document.querySelector('.spinner-border')
     const connectText = document.querySelector('#alert')
+    spiner.classList.remove('d-none')
     const globalUser = await User();
     const chatWith = $_GET('user')
     const usersALL = await getAllUsers()
@@ -16,7 +17,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
 
     async function update(date) {
-        spiner.classList.remove('d-none')
         const formData = new FormData();
         formData.append('method', 'update')
         formData.append('chat', chatWith)
@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
             method: 'POST',
             body: formData
         })
-        spiner.classList.add('d-none')
         try {
             return await req.json()
         } catch (err) {
@@ -136,6 +135,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             fd.append('voice', audioBlob);
             fd.append('what_a_chat', chatWith)
             sendVoice(fd);
+            await updateMessage()
             audioChunks = [];
         });
     });
@@ -146,4 +146,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
             body: form});
         let response = await promise.json()
     }
+    spiner.classList.add('d-none')
+    connectText.innerText = 'Соединение установлено'
 })
