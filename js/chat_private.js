@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const response = await update(max||0)
         let newMes = "";
         response&&response.forEach(el=>{
+            spiner.classList.remove('d-none')
             if (el['type'] == 'text') {
                 newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
@@ -80,6 +81,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.duration = 'auto';
             }
                 messages.append(newMes)
+                spiner.classList.add('d-none')
                 newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 max = el['date_create']
         })
