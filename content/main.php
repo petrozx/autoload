@@ -12,7 +12,7 @@
         <title>Petroz.dev</title>
     </head>
     <style>
-    .container-footer {
+    .container {
     width: auto;
     max-width: 680px;
     padding: 0 15px;
@@ -89,13 +89,13 @@
                 </div>
             </div>
             <footer class="footer mt-auto py-3 bg-light">
-                    <div class="container-footer">
+                    <div class="container">
                     <script src="/js/script.js"></script>
                     <? if ($js) : ?>
                         <script src="<?= $js ?>"></script>
                     <? endif; ?>
                     <div class="made">
-                        <a>©Made by petroz</a>
+                        <span class="text-muted">©Made by petroz</span>
                     </div>
                 </div>
             </footer>
