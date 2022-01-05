@@ -12,7 +12,7 @@
         <title>Petroz.dev</title>
     </head>
     <body>
-        <div class="wrapper">
+        <div class="container">
             <div class="user-info"><a><?= $_SESSION['auth']['name'] ?: 'Гость' ?></a></div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
