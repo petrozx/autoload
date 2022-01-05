@@ -18,9 +18,7 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="/car/mycar/">выберите машину</a></li>
                             <li class="nav-item"><a class="nav-link" href="/chat/">Чат</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/menu/list/">Наше меню</a></li>
                             <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
                             <li class="nav-item"><a class="nav-link active" href="/login/register">Регитрация</a></li>
                         </ul>
