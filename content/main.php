@@ -12,6 +12,10 @@
         <title>Petroz.dev</title>
     </head>
     <style>
+        body {
+            padding-top: 40px;
+        }
+        
         footer {
         position: absolute;
         bottom: 0;
