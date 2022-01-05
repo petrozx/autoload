@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", async()=>{
-    spiner.classList.remove('d-none')
     const form = document.getElementById('chat')
     const button = document.getElementById('send-message')
     const messages = document.querySelector('.messages')
     const spiner = document.querySelector('.spinner-border')
     const connectText = document.querySelector('#alert')
+    spiner.classList.remove('d-none')
     const globalUser = await User();
     const chatWith = $_GET('user')
     const usersALL = await getAllUsers()
