@@ -88,17 +88,17 @@
                     <?= $content ?>
                 </div>
             </div>
-            <footer class="footer mt-auto py-3 bg-light">
-                    <div class="container">
-                    <script src="/js/script.js"></script>
-                    <? if ($js) : ?>
-                        <script src="<?= $js ?>"></script>
-                    <? endif; ?>
-                    <div class="made">
-                        <span class="text-muted">©Made by petroz</span>
-                    </div>
-                </div>
-            </footer>
         </div>
+        <footer class="footer mt-auto py-3 bg-light">
+            <div class="container">
+                <script src="/js/script.js"></script>
+                <? if ($js) : ?>
+                <script src="<?= $js ?>"></script>
+                <? endif; ?>
+                <div class="made">
+                    <span class="text-muted">©Made by petroz</span>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
