@@ -142,6 +142,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         let promise = await fetch('/api/chat/save', {
             method: 'POST',
             body: form});
+        let response = await promise.json()
             spiner.classList.add('d-none')
     }
 })
