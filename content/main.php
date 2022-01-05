@@ -17,6 +17,7 @@
         bottom: 0;
         height: 50px;
         border-top: 1px solid #212529;
+        background-color: #f8f9fa
         }
     </style>
     <body>
