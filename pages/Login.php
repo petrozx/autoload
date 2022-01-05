@@ -11,7 +11,7 @@ class Login
                 <label class="form-label" for="password">Введите пароль:</label>
                     <input class="form-control" type="password" name="password"><br>
                 <label class="form-label" for="email">Введите почту:</label>
-                    <input type="email" name="email"><br>
+                    <input class="form-label" type="email" name="email"><br>
                 <div class="buttons">
                     <button class="btn btn-primary" id="reg">Зарегитрироваться</button>
                     <button class="btn btn-primary" id="login">Войти</button>
