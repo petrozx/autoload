@@ -7,14 +7,14 @@ Class Chat
 
     public function private($name) {
             return '
-            <div class="connect alert alert-primary"></div>
+            <div class="connect alert alert-primary">
+                <div class="d-flex align-items-center">
+                    <strong>Loading...</strong>
+                        <div class="spinner-border text-primary ms-auto" role="status" aria-hidden="true"></div>
+                </div>
+            </div>
             <form id="chat">
             <div class="messages form-control" >
-                <div class="d-flex justify-content-center">
-                    <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
             </div>
             <input type="text" name="message" class="message form-control form-control-lg" placeholder="введите сообщение">
             <div class="mike">&#127908;</div>
