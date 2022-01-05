@@ -31,7 +31,7 @@
     </svg>
         <div class="container">
             <div class="py-3 mb-4 border-bottom">
-                <div class="text-end">
+                <div class="text-end col-4 d-flex justify-content-end align-items-center">
                     <?=empty($_SESSION['auth'])?'Гость'
                     :'<span class="fs-4">'.$_SESSION['auth']['name'].'</span>'.
                     '<button id="logout" class="btn btn-primary btn-sm">Выйти
