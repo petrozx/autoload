@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const mess = Array.from(messages?.querySelectorAll('div'))
         const response = await update(max||0)
         let newMes = "";
+        spiner.classList.remove('d-none')
         response&&response.forEach(el=>{
-            spiner.classList.remove('d-none')
             if (el['type'] == 'text') {
                 newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
