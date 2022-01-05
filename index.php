@@ -12,7 +12,5 @@ try {
 } catch (Exception $e) {
     $content = $e->getMessage();
 }
-if (!empty($_SESSION['auth']))header('Location: https://petroz.ru/login/register');
-
 require($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
 ?>
