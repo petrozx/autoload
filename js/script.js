@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     document.querySelectorAll('.nav-link').forEach(link=>{
         link.addEventListener('click', function(e) {
+            console.log(this);
             if (this.pathname == window.location.pathname)
                 this.classList.add('active')
         })
