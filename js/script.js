@@ -5,10 +5,6 @@ document.addEventListener('DOMContentLoaded', async()=>{
             link.classList.add('active')
     })
 
-
-
-
-
     async function isOnline() {
         const req = await fetch('/api/chat/online', {
             method: 'POST'
