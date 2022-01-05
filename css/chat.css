@@ -5,6 +5,10 @@
     margin: 0 auto;
 }
 
+.wrapper-container {
+    max-width: 34%;
+}
+
 .messages {
     height: 300px;
     margin: 20px 0 20px 0;
