@@ -2,7 +2,7 @@
 Class Chat
 {
     public function index() {
-        return '<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">'.$this->chats().'</div>';
+        return '<div class="row g-4 py-5 row-cols-1 row-cols-lg-6">'.$this->chats().'</div>';
     }
 
     public function private($name) {
