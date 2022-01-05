@@ -8,7 +8,7 @@
         <?if ($css):?>
             <link rel="stylesheet" href="<?=$css?>">
         <?endif;?>
-        <title>Document</title>
+        <title>Petroz.dev</title>
     </head>
     <body>
         <div class="wrapper">
