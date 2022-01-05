@@ -16,7 +16,7 @@
             <div class="user-info"><a><?=$_SESSION['auth']['name']?:'Гость'?></a></div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link active" href="/car/mycar/">выберите машину</a></li>
                             <li class="nav-item"><a class="nav-link active" href="/chat/">Чат</a></li>
