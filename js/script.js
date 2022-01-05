@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     document.querySelectorAll('.nav-link').forEach(link=>{
         link.addEventListener('click', function(e) {
-        this.classList.toggle('active')
+            if (this.location.href == window.location.href)
+                this.classList.add('active')
         })
     })
 
