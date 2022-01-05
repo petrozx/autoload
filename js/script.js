@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async()=>{
 
     document.querySelectorAll('.nav-link').forEach(function(link){
-        if (link.href == window.location.href)
+        if (link.href == window.location.href || link.href.includes('chat'))
             link.classList.add('active')
     })
 
