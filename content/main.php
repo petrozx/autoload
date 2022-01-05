@@ -14,9 +14,9 @@
     <body>
         <div class="wrapper">
             <div class="user-info"><a><?=$_SESSION['auth']['name']?:'Гость'?></a></div>
-            <nav>
-                <ul class="navbar">
-                    <li><a href="/car/mycar/">выберите машину</a></li>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li><a class="nav-link active" href="/car/mycar/">выберите машину</a></li>
                     <li><a href="/chat/">Чат</a></li>
                     <li><a href="/menu/list/">Наше меню</a></li>
                     <li><a href="/">Главная</a></li>
