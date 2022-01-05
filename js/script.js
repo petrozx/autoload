@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         return req.json()
     }
     const auth = await isOnline()
-    if (!auth['error'] || window.location.href !== 'https://petroz.ru/login/register'){
+    if (!auth['error'] && window.location.href !== 'https://petroz.ru/login/register'){
         setInterval(await isOnline, 60000)
     } else {
         window.location.href = 'https://petroz.ru/login/register'
