@@ -11,16 +11,16 @@ class Login
                         <form id="register">
                         <h3 class="form-label mb-3">Форма авторизации:</h3>
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInput" name="name" placeholder="Login">
-                                <label for="floatingInput">Login</label>
+                                <input type="text" class="form-control" id="floatingName" name="name" placeholder="Login">
+                                <label for="floatingName">Login</label>
                             </div>
                             <div class="form-floating">
-                                <input type="password" class="form-control" id="floatingInput" name="password" placeholder="Password">
-                                <label for="floatingInput">Password</label>
+                                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
                             </div>
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
-                                <label for="floatingInput">Email address</label>
+                                <input type="email" class="form-control" id="floatingEmail" name="email" placeholder="name@example.com">
+                                <label for="floatingEmail">Email address</label>
                             </div>
                             <div class="buttons">
                                 <button class="w-100 mb-2 btn btn-lg btn-primary" id="reg">Регистрация</button>
