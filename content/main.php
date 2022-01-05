@@ -29,7 +29,7 @@
                                 <a class="nav-link" href="/">Главная</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="/chat" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Чат
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
