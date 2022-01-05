@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.controls = true;
                 newMes.autoplay = false;
                 newMes.preload = 'metadata';
-                newMes.type = 'audio/mpeg';
             }
                 messages.append(newMes)
                 max = el['date_create']
@@ -125,7 +124,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         mediaRecorder.addEventListener("stop", function() {
             const audioBlob = new Blob(audioChunks, {
-                type: 'audio/mpeg'
+                type: 'audio/ogg'
             });
 
             let fd = new FormData();
