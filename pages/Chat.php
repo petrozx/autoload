@@ -3,7 +3,7 @@ Class Chat
 {
     public function index() {
         if (!empty($_SESSION['auth'])) {
-            return '<div class="chats"></div>';
+            return '<div class="chats row g-4 py-5 row-cols-1 row-cols-lg-3"></div>';
         } else {
             return '<div class="connect">Вы не авторизированы</div>';
         }
