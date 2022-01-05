@@ -35,7 +35,7 @@
                     <div class="col-12 d-flex justify-content-end align-items-center">
                         <?=empty($_SESSION['auth'])?'<span class="fs-4">Гость</span>'
                         :'<span class="fs-4">'.$_SESSION['auth']['name'].'</span>'.
-                        '<button id="logout" class="btn btn-primary btn-sm">Выйти
+                        '<button id="logout" class="btn btn-primary btn-md">Выйти
                         </button>'?>
                     </div>
                 </div>
