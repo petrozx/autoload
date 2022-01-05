@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
 
     const connect = document.querySelector('.connect').innerText = "Соединение установлено"
-        button?.addEventListener("click", async(e)=>{
+        button.addEventListener("click", async(e)=>{
             e.preventDefault();
             await sendMessage()
             await updateMessage()

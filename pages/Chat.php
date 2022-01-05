@@ -16,7 +16,7 @@ Class Chat
             <div class="messages" ></div>
             <input type="text" name="message" class="message" placeholder="введите сообщение">
             <div class="mike">&#127908;</div>
-            <button>отправить</button>
+            <button class="btn btn-lg btn-outline-primary">отправить</button>
             </form>';
     }
 }
