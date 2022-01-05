@@ -32,8 +32,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
 
     async function sendMessage() {
-        connectText.innerText = "Загрузка"
-        spiner.classList.remove('d-none')
         const formData = new FormData(form)
         formData.append('method', 'send')
         formData.append('what_a_chat', chatWith)
@@ -42,8 +40,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
             method: 'POST',
             body: formData
         })
-        spiner.classList.add('d-none')
-        connectText.innerText = "Соединение установлено"
         return await req.json()
     }
 
@@ -111,11 +107,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         setInterval(await updateMessage, 5000);
 
-        connectText.innerText = "Загрузка"
-        spiner.classList.remove('d-none')
         await updateMessage()
-        spiner.classList.add('d-none')
-        connectText.innerText = "Соединение установлено"
 
     navigator.mediaDevices.getUserMedia({ audio: true})
     .then(stream => {
@@ -147,13 +139,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
     });
 
     async function sendVoice(form) {
-        connectText.innerText = "Загрузка"
-        spiner.classList.remove('d-none')
         let promise = await fetch('/api/chat/save', {
             method: 'POST',
             body: form});
         let response = await promise.json()
-        spiner.classList.add('d-none')
-        connectText.innerText = "Соединение установлено"
     }
 })
