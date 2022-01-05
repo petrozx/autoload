@@ -67,8 +67,8 @@ class DB
         return $result;
     }
 
-    public function isOnline() {
-        $query = self::$connect->query("UPDATE `users` SET `date_update` = ".time()." WHERE `users`.`id` = ".$_SESSION['auth']['id']);
+    public function isOnline($user) {
+        $query = self::$connect->query("UPDATE `users` SET `date_update` = ".time()." WHERE `users`.`id` = ".$user);
         return $query;
     }
 

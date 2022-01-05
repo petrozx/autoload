@@ -1,4 +1,3 @@
-<?if (!empty($_SESSION['auth']))header('Location: https://petroz.ru/login/register');?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

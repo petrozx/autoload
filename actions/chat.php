@@ -58,8 +58,14 @@ function users() {
 }
 
 function online() {
-    $bd = new DB('users');
-    $bd->isOnline();
+    if (!empty($_SESSION['auth'])) {
+        $bd = new DB('users');
+        $bd->isOnline($_SESSION['auth']['id']);
+        $bd->close_connection();
+        die(json_encode(['error' => 0]));
+    } else {
+        die(json_encode(['error' => 1]));
+    }
 }
 
 function save(){
