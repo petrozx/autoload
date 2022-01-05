@@ -18,7 +18,7 @@
     padding: 0 15px;
     }
     </style>
-    <body>
+    <body class="d-flex flex-column h-100">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="chevron-right" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <footer class="footer mt-auto py-3 bg-light">
-                    <div class="container-footer">>
+                    <div class="container-footer">
                     <script src="/js/script.js"></script>
                     <? if ($js) : ?>
                         <script src="<?= $js ?>"></script>
