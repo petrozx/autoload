@@ -100,15 +100,15 @@
                         <?= $content ?>
                     </div>
                 </div>
-            </div>
-            <footer class="blog-footer">
-                <script src="/js/script.js"></script>
-                <? if ($js) : ?>
-                    <script src="<?= $js ?>"></script>
-                <? endif; ?>
-                <div class="made">
-                    <a>©Made by petroz</a>
-                </div>
-            </footer>
+                <footer class="blog-footer">
+                    <script src="/js/script.js"></script>
+                    <? if ($js) : ?>
+                        <script src="<?= $js ?>"></script>
+                    <? endif; ?>
+                    <div class="made">
+                        <a>©Made by petroz</a>
+                    </div>
+                </footer>
+        </div>
     </body>
 </html>
