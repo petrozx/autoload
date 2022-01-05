@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         await updateMessage()
 
     navigator.mediaDevices.getUserMedia({ audio: true})
-    .then(async stream => {
+    .then(stream => {
         const mediaRecorder = new MediaRecorder(stream);
 
         document.querySelector('.mike').addEventListener('mousedown', function(){
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             mediaRecorder.stop();
         });
 
-        mediaRecorder.addEventListener("stop", function() {
+        mediaRecorder.addEventListener("stop", async function() {
             const audioBlob = new Blob(audioChunks, {
                 type: 'audio/mp3'
             });
