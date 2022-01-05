@@ -16,8 +16,8 @@ class Login
                             <label class="form-label" for="email">Введите почту:</label>
                                 <input class="form-control" type="email" name="email"><br>
                             <div class="buttons">
-                                <button class="btn btn-primary" id="reg">Зарегитрироваться</button>
-                                <button class="btn btn-primary" id="login">Войти</button>
+                                <button class="w-100 btn btn-lg btn-primary" id="reg">Зарегитрироваться</button>
+                                <button class="w-100 btn btn-lg btn-primary" id="login">Войти</button>
                             </div>
                         </div>
                     </form>
