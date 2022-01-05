@@ -25,7 +25,7 @@ Class Chat
                 $res .= '<div class="feature col">
                             <div class="feature-icon bg-primary bg-gradient"></div>
                             <h3>'.$user['name'].'</h3>
-                            <a class="icon-link" href="/chat/private/?user='.$user['id'].'">К чату
+                            <a class="icon-link" href="/chat/private/?user='.$user['id'].'">Написать
                             <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg></a>
                         </div>';
             endif;
