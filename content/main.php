@@ -24,7 +24,7 @@
         text-align: center;
         background-color: #f9f9f9;
         border-top: .05rem solid #e5e5e5;
-        margin-top: -2.5rem;
+        margin-bottom: -2.5rem;
         }
         .blog-footer p:last-child {
         margin-bottom: 0;
