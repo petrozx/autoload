@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
 
     async function sendMessage() {
+        spiner.classList.remove('d-none')
         const formData = new FormData(form)
         formData.append('method', 'send')
         formData.append('what_a_chat', chatWith)
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             method: 'POST',
             body: formData
         })
+        spiner.classList.add('d-none')
         return await req.json()
     }
 
@@ -49,7 +51,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
     let max;
     async function updateMessage() {
-        spiner.classList.remove('d-none')
         const mess = Array.from(messages?.querySelectorAll('div'))
         const response = await update(max||0)
         let newMes = "";
@@ -82,7 +83,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 messages.append(newMes)
                 newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 max = el['date_create']
-                spiner.classList.add('d-none')
         })
     }
 
