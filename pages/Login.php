@@ -5,22 +5,29 @@ class Login
     public function register() {
         if (empty($_SESSION['auth'])) {
             return '
-            <main class="text-center">
-                <form id="register">
-                    <div class="mb-3 md">
-                        <label class="form-label" for="name">Введите логин:</label>
-                            <input class="form-control" type="text" name="name"><br>
-                        <label class="form-label" for="password">Введите пароль:</label>
-                            <input class="form-control" type="password" name="password"><br>
-                        <label class="form-label" for="email">Введите почту:</label>
-                            <input class="form-control" type="email" name="email"><br>
-                        <div class="buttons">
-                            <button class="btn btn-primary" id="reg">Зарегитрироваться</button>
-                            <button class="btn btn-primary" id="login">Войти</button>
-                        </div>
-                    </div>
-                </form>
-            </main>
+            <main class="form-signin">
+            <form>
+              <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+              <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+          
+              <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+          
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+              <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+            </form>
+          </main>
             ';
         } else {
             return '<button class="btn btn-primary" type="button" id="logout" >Выйти</button>';
