@@ -5,7 +5,7 @@ class Login
     public function register() {
         if (empty($_SESSION['auth'])) {
             return '
-            <main class="form-signin">
+            <main class="text-center">
                 <form id="register">
                     <div class="mb-3 md">
                         <label class="form-label" for="name">Введите логин:</label>
