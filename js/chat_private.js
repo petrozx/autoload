@@ -90,10 +90,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.duration = 'auto';
             }
                 messages.append(newMes)
-                if(el['is_read'==1]){
                 console.log(el);
                     newMes.scrollIntoView({block: "center", behavior: "smooth"})
-                }
                 max = el['date_create']
         })
         response.length&&await sendRead(response)
