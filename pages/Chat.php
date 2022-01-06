@@ -30,10 +30,8 @@ Class Chat
         $newBD = new DB('chat');
         foreach ($users as $user):
             if($user['date_update'] + 10*60 > time()) {
-                $curent = 'В сети';
                 $color = 'bg-danger';
             } else {
-                $curent = 'Не в сети';
                 $color = 'bg-secondary';
             }
             if ($user['id'] != $_SESSION['auth']['id']):
@@ -50,7 +48,6 @@ Class Chat
                                 </a>
                             </div>
                             <h3>'.$user['name'].'</h3>
-                            <p class="online">'.$curent.'</p>
                             <a class="icon-link" href="/chat/private/?user='.$user['id'].'">Написать
                             <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg></a>
                         </div>';
