@@ -32,7 +32,7 @@ Class Router
                 }
             }
         } catch (Exception $e) {
-            throw new Exception('Запрашиваемый ресурс отсутствует');
+            throw new Exception($e);
         }
     }
 
