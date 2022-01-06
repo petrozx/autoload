@@ -89,7 +89,7 @@ class DB
     }
 
     public function updateRaw($id, $field) {
-        $res = self::$connect->query("UPDATE ".self::$table." SET ".$field." WHERE id=".$id);
+        $res = self::$connect->query("UPDATE ".self::$table." SET ".$field." WHERE users.id=".$id);
         return $res;
     }
 
