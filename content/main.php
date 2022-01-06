@@ -26,6 +26,12 @@
         justify-content: space-between;
         align-items: flex-start;
     }
+
+    .badge {
+        padding: 0.25em 0.45em;
+        font-size: .55em;
+        font-weight: 500;
+    }
     </style>
     <body class="d-flex flex-column h-100">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
