@@ -29,7 +29,7 @@ Class Chat
         $newBD = new DB('chat');
         foreach ($users as $user):
             $unRead = $newBD->getFilterRows('is_read=0 AND author NOT IN ('.$_SESSION['auth']['id'].') AND what_a_chat='.$user['id']);
-            var_dump(count($unRead));
+            $count = count($unRead);
             if($user['date_update'] + 10*60 > time()) {
                 $curent = 'В сети';
             } else {
@@ -39,7 +39,7 @@ Class Chat
                 $res .= '<div class="feature col chats-block">
                             <div class="feature-icon bg-primary bg-gradient position-relative">
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">'.
-                                count($unRead).'
+                                $count.'
                                 <span class="visually-hidden">unread messages</span>
                             </span>
                                 <a style="color: white" href="/chat/private/?user='.$user['id'].'">
