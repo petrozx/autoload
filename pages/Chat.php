@@ -2,6 +2,7 @@
 Class Chat
 {
     public function index() {
+        var_dump($this->chats());
         return '<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">'.$this->chats().'</div>';
     }
 
