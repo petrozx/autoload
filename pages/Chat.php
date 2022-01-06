@@ -34,7 +34,7 @@ Class Chat
                 $curent = 'Не в сети';
             }
             if ($user['id'] != $_SESSION['auth']['id']):
-                $unRead = $newBD->getFilterRows('is_read=0 AND what_a_chat='.$user['id']);
+                $unRead = $newBD->getFilterRows('is_read=0 AND what_a_chat='.$_SESSION['auth']['id']);
                 var_dump($_SESSION['auth']['id']);
                 $res .= '<div class="feature col chats-block">
                             <div class="feature-icon bg-primary bg-gradient position-relative">
