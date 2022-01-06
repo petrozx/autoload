@@ -88,7 +88,9 @@ function mesRead() {
     $data = json_decode(file_get_contents('php://input'), true);
     $bd = new DB('chat');
     foreach($data as $mes) {
-        $bd->updateRaw($mes['id'], 'is_read=1');
+        if ($_SESSION['auth']['id'] != $mes['author']) {
+            $bd->updateRaw($mes['id'], 'is_read=1');
+        }
     }
     $bd->close_connection();
 }
