@@ -27,6 +27,7 @@ Class Chat
         $bd = new DB('users');
         $users = $bd->getRows();
         foreach ($users as $user):
+            $unRead = $bd->getFilterRows('is_read=0 AND author != '.$_SESSION['auth']['id'].' AND what_a_chat='.$user['id']);
             if($user['date_update'] + 10*60 > time()) {
                 $curent = 'В сети';
             } else {
@@ -35,8 +36,8 @@ Class Chat
             if ($user['id'] !== $_SESSION['auth']['id']):
                 $res .= '<div class="feature col chats-block">
                             <div class="feature-icon bg-primary bg-gradient position-relative">
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                99+
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">'.
+                                (count($unRead)?:0).'
                                 <span class="visually-hidden">unread messages</span>
                             </span>
                                 <a style="color: white" href="/chat/private/?user='.$user['id'].'">
@@ -50,6 +51,7 @@ Class Chat
                         </div>';
             endif;
         endforeach;
+        $bd->close_connection();
         return $res;
     }
 }
