@@ -57,9 +57,10 @@ function userAuth() {
 
 function userUpdate() {
     $bd = new DB('user');
-    $name = $_POST['name']?"name={$_POST['name']}":'';
-    $pass = $_POST['password']?'password='.password_hash($_POST['password']):'';
+    $name = $_POST['name']?"name={$_POST['name']}":"";
+    $pass = $_POST['password']?'password='.password_hash($_POST['password']):"";
     $res = $bd->updateRaw($_SESSION['auth']['id'], $name.'AND'.$pass);
     $bd->close_connection();
+    var_dump($res);
     return $res;
 }
