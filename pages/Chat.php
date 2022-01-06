@@ -33,7 +33,7 @@ Class Chat
                 $curent = 'Не в сети';
             }
             if ($user['id'] !== $_SESSION['auth']['id']):
-                return ?> <div class="feature col">
+                return (?> <div class="feature col">
                             <div class="feature-icon bg-primary bg-gradient">
                                 <a style="color: white" href="/chat/private/?user='.$user['id'].'">
                                     <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>
@@ -44,7 +44,7 @@ Class Chat
                             <a class="icon-link" href="/chat/private/?user='.$user['id'].'">Написать
                             <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg></a>
                         </div>';
-            <?endif;
+            <?)endif;
         endforeach;
         return $res;
     }
