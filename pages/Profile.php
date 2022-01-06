@@ -12,7 +12,7 @@ class Profile
             <label for='password' class='form-label'>Новый пароль</label>
             <input name='password' class='form-control mb-3'>
             <label for='repeat' class='form-label'>Повторите пароль</label>
-            <input name='repeat' class='form-control mb-3'>
+            <input name='repeat' class='form-control mb-5'>
             <div class='btn-group' role='group' aria-label='Подтведите действия'>
                 <button type='button' id='save' class='btn btn-warning'>Сохранить</button>
                 <button type='button' id='cancel' class='btn btn-success'>Отменить</button>
@@ -20,5 +20,4 @@ class Profile
         </form>
         ";
     }
-
 }
