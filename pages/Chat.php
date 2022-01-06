@@ -2,7 +2,6 @@
 Class Chat
 {
     public function index() {
-        var_dump($this->chats());
         return '<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">'.$this->chats().'</div>';
     }
 
@@ -29,6 +28,7 @@ Class Chat
         $users = $bd->getRows();
         foreach ($users as $user):
             $unRead = $bd->getFilterRows('is_read=0 AND author!='.$_SESSION['auth']['id'].' AND what_a_chat='.$user['id']);
+            var_dump($unRead);
             if($user['date_update'] + 10*60 > time()) {
                 $curent = 'В сети';
             } else {
