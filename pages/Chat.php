@@ -33,7 +33,7 @@ Class Chat
                 $curent = 'Не в сети';
             }
             if ($user['id'] !== $_SESSION['auth']['id']):
-                $res .= '<div class="feature col">
+                $res .= '<div class="feature col chats-block">
                             <div class="feature-icon bg-primary bg-gradient">
                                 <a style="color: white" href="/chat/private/?user='.$user['id'].'">
                                     <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>

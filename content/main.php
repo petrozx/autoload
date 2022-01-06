@@ -13,9 +13,18 @@
     </head>
     <style>
     .container {
-    width: auto;
-    max-width: 680px;
-    padding: 0 15px;
+        width: auto;
+        max-width: 680px;
+        padding: 0 15px;
+    }
+
+    .chats-block {
+        align-content: stretch;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
     }
     </style>
     <body class="d-flex flex-column h-100">
