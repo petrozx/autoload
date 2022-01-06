@@ -51,7 +51,6 @@ Class Chat
                         </div>';
             endif;
         endforeach;
-        $bd->close_connection();
         return $res;
     }
 }
