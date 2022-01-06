@@ -4,8 +4,11 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const btnC = document.getElementById('cancel')
     const pass = document.querySelector('input[name=password]')
     const repeat = document.querySelector('input[name=repeat]')
+
     btnS.addEventListener('click', _=>{
-        console.log(pass, repeat);
+        if (pass.value === repeat.value) {
+            const resp = await updateUser(form)
+        }
     })
 
     async function updateUser(form) {
