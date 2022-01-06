@@ -23,17 +23,17 @@ Class Chat
     }
 
     private function chats() {
-        $res = '';
+        $res = [];
         $bd = new DB('users');
         $users = $bd->getRows();
-        foreach ($users as $user):
+        $res = array_map(function($user) {
             if($user['date_update'] + 10*60 > time()) {
                 $curent = 'В сети';
             } else {
                 $curent = 'Не в сети';
             }
             if ($user['id'] !== $_SESSION['auth']['id']):
-                $res .= '<div class="feature col">
+                return ?><div class="feature col">
                             <div class="feature-icon bg-primary bg-gradient">
                                 <a style="color: white" href="/chat/private/?user='.$user['id'].'">
                                     <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>
@@ -43,9 +43,9 @@ Class Chat
                             <p class="online">'.$curent.'</p>
                             <a class="icon-link" href="/chat/private/?user='.$user['id'].'">Написать
                             <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg></a>
-                        </div>';
-            endif;
-        endforeach;
+                        </div>
+            <? endif;
+        }, $users);
         return $res;
     }
 }
