@@ -31,14 +31,16 @@
         <div class="container-lg">
             <div class="py-3 mb-3 border-bottom">
                 <div class="text-end">
+                <div class="dropdown">
                     <div class="col-12 d-flex justify-content-end align-items-center">
                         <?=empty($_SESSION['auth'])?'<span class="fs-4">Гость</span>'
-                        :'<div class="fs-4 me-4 position-relative">'.$_SESSION['auth']['name'].
+                        :'<div class="fs-4 me-4 btn btn-secondary dropdown-toggle position-relative">'.$_SESSION['auth']['name'].
                         '<span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"><span class="visually-hidden">New alerts</span></span>'.
                         '</div>'.
                         '<button id="logout" class="btn btn-outline-secondary">Выйти
                         </button>'?>
                     </div>
+                </div>
                 </div>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
