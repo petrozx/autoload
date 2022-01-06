@@ -90,8 +90,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.duration = 'auto';
             }
                 messages.append(newMes)
-                if(el['is_read']=='1' || el['author']==globalUser['succes']) {
-                    console.log(el['is_read']);
+                if(el['is_read']=='1' || el['author']==globalUser['success']) {
                     newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 }
                 max = el['date_create']
