@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             }
                 messages.append(newMes)
                 if(el['is_read']) {
+                    console.log(el['is_read']);
                     newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 }
                 max = el['date_create']
