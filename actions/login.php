@@ -57,9 +57,9 @@ function userAuth() {
 
 function userUpdate() {
     $bd = new DB('users');
-    $name = !empty($_POST['name'])?('name='.$_POST['name']):'';
-    $pass = !empty($_POST['password'])?('password='.password_hash($_POST['password'], PASSWORD_DEFAULT).' '):'';
-    $res = $bd->updateRaw($_SESSION['auth']['id'], $name.','.$pass);
+    $name = !empty($_POST['name'])?('name = '.$_POST['name']):'';
+    $pass = !empty($_POST['password'])?('password = '.password_hash($_POST['password'], PASSWORD_DEFAULT)):'';
+    $res = $bd->updateRaw($_SESSION['auth']['id'], $name.', '.$pass);
     $bd->close_connection();
     return $res;
 }
