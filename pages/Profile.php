@@ -5,8 +5,8 @@ class Profile
 
     public function index() {
         return "
-        <form id='profile' class='h-100 p-5 mb-3 card border-light rounded-3'>
-            <div class='card-header'>Редактировать данные</div>
+        <div class='card-header h-100 p-5 mb-3 card border-light rounded-3'>Редактировать данные</div>
+            <form id='profile'>
             <label for='name' class='form-label'>Логин</label>
             <input name='name' class='form-control mb-3' value={$_SESSION['auth']['name']}>
             <label for='password' class='form-label'>Новый пароль</label>
@@ -16,8 +16,8 @@ class Profile
             <div class='btn-group' role='group' aria-label='Подтведите действия'>
                 <button type='button' id='save' class='btn btn-warning'>Сохранить</button>
                 <button type='button' id='cancel' class='btn btn-success'>Отменить</button>
-            </div>
-        </form>
+            </form>
+        </div>
         ";
     }
 }
