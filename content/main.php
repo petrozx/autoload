@@ -28,7 +28,7 @@
     }
 
     .badge {
-        padding: 0.25em 0.45em;
+        padding: 0.08em 0.45em;
         font-size: .55em;
         font-weight: 500;
     }
