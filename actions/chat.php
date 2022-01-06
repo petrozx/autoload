@@ -76,10 +76,18 @@ function save(){
     if (move_uploaded_file($_FILES['voice']['tmp_name'], $uploadFile)) {
         $response = ['result'=>'OK'];
         $bd = new DB('chat');
-        $res = $bd->saveRows([ time() ,'/upload/'. $wayFile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio' ]);
+        $res = $bd->saveRows([ time() ,'/upload/'. $wayFile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio', 0 ]);
         $bd->close_connection();
     } else {
         $response = ['result'=>'ERROR'];
     }
     die(json_encode($response));
+}
+
+function mesRead() {
+    $data = json_decode(file_get_contents('php://input'));
+    $bd = new DB('chat');
+    foreach($data as $mes) {
+        $bd->updateRaw($mes['íd'], 'is_read=1');
+    }
 }

@@ -87,6 +87,12 @@ class DB
         $query = self::$connect->query("DELETE FROM ".self::$table." WHERE `users`.`id` = ".$id);
         return $query;
     }
+
+    public function updateRaw($id, $field) {
+        $res = self::$connect->query("UPDATE ".self::$table." SET ".$field." WHERE id=".$id);
+        return $res;
+    }
+
     public function checkTable($name) {
         $query = self::$connect->query("CHECK TABLE petroz.".$name);
         $row = $query->fetch_assoc();

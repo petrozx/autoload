@@ -49,6 +49,15 @@ document.addEventListener("DOMContentLoaded", async()=>{
         p = p.match(new RegExp(key + '=([^&=]+)'));
         return p ? p[1] : false;
     }
+
+    async function sendRead(array) {
+        const req = await fetch('/api/chat/mesRead', {
+            method: 'POST',
+            body: JSON.stringify(array)
+        })
+        return await req.json()
+    }
+
     let max;
     async function updateMessage() {
         const mess = Array.from(messages?.querySelectorAll('div'))
@@ -84,6 +93,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 max = el['date_create']
         })
+        response&&(await sendRead(response))
     }
 
     async function User() {
