@@ -16,6 +16,7 @@ class Profile
             <div class='btn-group' role='group' aria-label='Подтведите действия'>
                 <button type='button' id='save' class='btn btn-warning'>Сохранить</button>
                 <button type='button' id='cancel' class='btn btn-success'>Отменить</button>
+            </div>
             </form>
         </div>
         ";
