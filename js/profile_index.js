@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     async function updateUser(formData) {
         const form = new FormData(formData)
-        const req = await fetch('/api/login/userUpdate', {
+        const req = await fetch('/api/login/userUpdate/', {
             method: 'POST',
             body: form
         })
