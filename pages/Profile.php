@@ -14,7 +14,7 @@ class Profile
             <label for='repeat' class='form-label'>Повторите пароль</label>
             <input name='repeat' class='form-control mb-3'>
             <div class='btn-group' role='group' aria-label='Подтведите действия'>
-                <button type='button' id='save' class='btn btn-danger'>Сохранить</button>
+                <button type='button' id='save' class='btn btn-warning'>Сохранить</button>
                 <button type='button' id='cancel' class='btn btn-success'>Отменить</button>
             </div>
         </form>
