@@ -26,6 +26,7 @@ Class Chat
         $res = '';
         $bd = new DB('users');
         $users = $bd->getRows();
+        $bd->close_connection();
         $newBD = new DB('chat');
         foreach ($users as $user):
             if($user['date_update'] + 10*60 > time()) {
@@ -52,6 +53,7 @@ Class Chat
                         </div>';
             endif;
         endforeach;
+        $newBD->close_connection();
         return $res;
     }
 }
