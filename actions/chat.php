@@ -20,7 +20,7 @@ function getMessage() {
 function sendMessage() {
     if ($_POST['method'] == 'send'){
         $bd = new DB('chat');
-        $res = $bd->saveRows([ time() ,$_POST['message'], $_SESSION['auth']['id'], $_POST['what_a_chat'], 'text']);
+        $res = $bd->saveRows([ time() ,$_POST['message'], $_SESSION['auth']['id'], $_POST['what_a_chat'], 'text', 0]);
         $bd->close_connection();
         die(json_encode(['error' => 0, 'success' => 1], true));
     }
