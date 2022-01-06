@@ -34,11 +34,15 @@
                 <div class="dropdown">
                     <div class="col-12 d-flex justify-content-end align-items-center">
                         <?=empty($_SESSION['auth'])?'<span class="fs-4">Гость</span>'
-                        :'<div class="fs-4 me-4 btn btn-secondary dropdown-toggle position-relative">'.$_SESSION['auth']['name'].
+                        :'<a class="fs-4 me-4 btn btn-secondary dropdown-toggle position-relative" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">'.$_SESSION['auth']['name'].
                         '<span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"><span class="visually-hidden">New alerts</span></span>'.
-                        '</div>'.
-                        '<button id="logout" class="btn btn-outline-secondary">Выйти
-                        </button>'?>
+                        '</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" id="logout" href="#">Выход</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>';
+                        ?>
                     </div>
                 </div>
                 </div>
