@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             method: 'POST',
             body: form
         })
-        return await req.json()
+        return await req.text()
     }
 
 
