@@ -34,7 +34,11 @@ Class Chat
             }
             if ($user['id'] !== $_SESSION['auth']['id']):
                 $res .= '<div class="feature col chats-block">
-                            <div class="feature-icon bg-primary bg-gradient">
+                            <div class="feature-icon bg-primary bg-gradient position-relative">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                99+
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
                                 <a style="color: white" href="/chat/private/?user='.$user['id'].'">
                                     <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>
                                 </a>
