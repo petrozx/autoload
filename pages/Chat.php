@@ -27,7 +27,7 @@ Class Chat
         $bd = new DB('users');
         $users = $bd->getRows();
         foreach ($users as $user):
-            $unRead = $bd->getFilterRows('is_read=0 AND author != '.$_SESSION['auth']['id'].' AND what_a_chat='.$user['id']);
+            $unRead = $bd->getFilterRows('is_read=0 AND author!='.$_SESSION['auth']['id'].' AND what_a_chat='.$user['id']);
             if($user['date_update'] + 10*60 > time()) {
                 $curent = 'В сети';
             } else {
