@@ -158,8 +158,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
             body: form});
         let response = await promise.json()
     }
-    const chatWithUser = (usersALL.filter(el=>el['id']==chatWith))[0]['name']
-    console.log(chatWithUser);
     spiner.classList.add('d-none')
-    connectText.innerText = 'Соединение установлено: Чат с '+chatWithUser
+    connectText.innerText = 'Соединение установлено: Чат с '+(usersALL.filter(el=>el['id']==chatWith))[0]['name']
 })
