@@ -85,7 +85,7 @@ function save(){
 }
 
 function mesRead() {
-    $data = json_decode(file_get_contents('php://input'));
+    $data = json_decode(file_get_contents('php://input'), true);
     $bd = new DB('chat');
     foreach($data as $mes) {
         $bd->updateRaw($mes['íd'], 'is_read=1');
