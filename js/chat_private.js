@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const mess = Array.from(messages?.querySelectorAll('div'))
         const response = await update(max||0)
         let newMes = "";
-        response&&response.forEach(el=>{
+        response.length&&response.forEach(el=>{
             if (el['type'] == 'text') {
                 newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 max = el['date_create']
         })
-        response&&await sendRead(response)
+        response.length&&await sendRead(response)
     }
 
     async function User() {
