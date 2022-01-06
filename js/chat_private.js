@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             method: 'POST',
             body: JSON.stringify(array)
         })
-        return await req.json()
+        return true;
     }
 
     let max;
