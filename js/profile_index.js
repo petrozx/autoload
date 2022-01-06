@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const pass = document.querySelector('input[name=password]')
     const repeat = document.querySelector('input[name=repeat]')
 
-    btnS.addEventListener('click', async _=>{
+    btnS.addEventListener('click', async()=>{
         if (pass.value === repeat.value) {
             const resp = await updateUser(form)
         }
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             method: 'POST',
             body: form
         })
-        return await req.text()
+        return 1;
     }
 
 

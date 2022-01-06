@@ -60,7 +60,7 @@ function userUpdate() {
     $name = !empty($_POST['name'])?('name='.$_POST['name']):'';
     $pass = !empty($_POST['password'])?('password='.password_hash($_POST['password'], PASSWORD_DEFAULT)):'';
     $res = $bd->updateRaw($_SESSION['auth']['id'], $name.', '.$pass);
-    var_dump($name.', '.$pass);
+    var_dump($name.', '.$_POST['name']);
     $bd->close_connection();
     return $res;
 }
