@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.scrollIntoView({block: "center", behavior: "smooth"})
                 max = el['date_create']
         })
-        await sendRead(response||[])
+        response&&await sendRead(response)
     }
 
     async function User() {
