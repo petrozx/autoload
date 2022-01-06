@@ -4,8 +4,16 @@ class Profile
 {
 
     public function index() {
-        return "<label for='name' class='form-label'>Логин</label>
-                <input name='name' class='form-control' value={$_SESSION['auth']['name']}>";
+        return "
+        <form id='profile'>
+        <label for='name' class='form-label'>Логин</label>
+        <input name='name' class='form-control' value={$_SESSION['auth']['name']}>
+        <label for='password' class='form-label'>Новый пароль</label>
+        <input name='password' class='form-control'>
+        <label for='repeat' class='form-label'>Повторите пароль</label>
+        <input name='repeat' class='form-control'>
+        </form>
+        ";
     }
 
 }
