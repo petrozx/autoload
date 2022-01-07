@@ -129,12 +129,21 @@ document.addEventListener("DOMContentLoaded", async()=>{
             e.preventDefault()
             mediaRecorder.start();
         });
+        document.querySelector('.mike').addEventListener('mousedown', function(e){
+            e.preventDefault()
+            mediaRecorder.start();
+        });
+
         let audioChunks = [];
         mediaRecorder.addEventListener("dataavailable",function(event) {
             audioChunks.push(event.data);
         });
 
         document.querySelector('.mike').addEventListener('touchend', function(e){
+            e.preventDefault()
+            mediaRecorder.stop();
+        });
+        document.querySelector('.mike').addEventListener('mouseup', function(e){
             e.preventDefault()
             mediaRecorder.stop();
         });
