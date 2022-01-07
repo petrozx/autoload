@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                     newMes.className = 'audio not-mine';
                 }
                 sourse.src = el['message'];
-                sourse.type = 'audio/ogg'
+                sourse.type = 'audio/mpeg'
                 newMes.append(sourse)
                 newMes.controls = true;
                 newMes.preload="metadata"
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         mediaRecorder.addEventListener("stop", async function() {
             const audioBlob = new Blob(audioChunks, {
-                type: 'audio/ogg'
+                type: 'audio/mpeg'
             });
 
             let fd = new FormData();
