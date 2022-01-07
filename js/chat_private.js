@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 source.type = 'audio/mp3'
                 newMes.append(source)
                 newMes.controls = true;
-                newMes.onload = (e) => {
+                newMes.onclick = (e) => {
                     e.target.play()
                     console.log('hi');
                 }
