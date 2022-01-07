@@ -91,8 +91,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.controls = true;
                 newMes.preload="metadata"
                 newMes.onclick = () => {
-                    load()
-                    play()
+                    sourse.load()
+                    sourse.play()
                 }
                 // newMes.duration = 'auto';
             }
