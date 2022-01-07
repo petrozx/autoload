@@ -80,11 +80,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
             } else if (el['type'] == 'audio') {
                 newMes = new Audio(el['message'])
                 if(el['author'] == globalUser['success']){
-                    newMes.className = 'audio mine';
+                    newMes.className = 'mine';
                 } else {
-                    newMes.className = 'audio not-mine';
+                    newMes.className = 'not-mine';
                 }
-                newMes.type = 'audio/mpeg'
+                newMes.type = 'audio/mp3'
                 newMes.controls = true;
                 newMes.load()
             }
