@@ -87,7 +87,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.type = 'audio/mpeg'
                 newMes.controls = true;
                 newMes.load()
-                newMes.play()
+                document.addEventListener('touchstart',()=> newMes.play())
+                
             }
                 messages.append(newMes)
                 if(el['is_read']=='1' || el['author']==globalUser['success']) {
