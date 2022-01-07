@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     .then(stream => {
         const mediaRecorder = new MediaRecorder(stream);
 
-        document.querySelector('.mike').addEventListener('mousedown', function(){
+        document.querySelector('.mike').addEventListener('touchstart', function(){
             mediaRecorder.start();
         });
         let audioChunks = [];
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             audioChunks.push(event.data);
         });
 
-        document.querySelector('.mike').addEventListener('mouseup', function(){
+        document.querySelector('.mike').addEventListener('touchend', function(){
             mediaRecorder.stop();
         });
 
