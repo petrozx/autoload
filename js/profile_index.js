@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', async()=>{
             method: 'POST',
             body: form
         })
-        return 1;
+        return await req.json();
     }
-
 
 
 })
