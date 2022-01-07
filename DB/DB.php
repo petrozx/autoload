@@ -100,7 +100,7 @@ class DB
                     break;
             }
         }
-        array_pop($fields);
+        // array_pop($fields);
         $arrKeys = array_keys($fields);
         foreach($arrKeys as $key){$prepareFieldsKeys .= $key.'=?';}
         var_dump($arrKeys);
