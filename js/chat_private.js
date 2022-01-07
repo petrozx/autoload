@@ -78,22 +78,22 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 });
                 newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
             } else if (el['type'] == 'audio') {
-                newMes = document.createElement('audio')
-                const sourse = document.createElement('source')
+                newMes = new Audio(el['message'])
+                // const sourse = document.createElement('source')
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'audio mine';
                 } else {
                     newMes.className = 'audio not-mine';
                 }
-                sourse.src = el['message'];
-                sourse.type = 'audio/mp3'
-                newMes.append(sourse)
-                newMes.controls = true;
-                newMes.preload="metadata"
-                newMes.onclick = () => {
-                    sourse.load()
-                    sourse.play()
-                }
+                // sourse.src = el['message'];
+                // sourse.type = 'audio/mp3'
+                // newMes.append(sourse)
+                // newMes.controls = true;
+                // newMes.preload="metadata"
+                // newMes.onclick = () => {
+                //     sourse.load()
+                //     sourse.play()
+                // }
                 // newMes.duration = 'auto';
             }
                 messages.append(newMes)
