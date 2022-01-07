@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         });
 
         mediaRecorder.addEventListener("stop", async function() {
-            const audioBlob = new Blob(audioChunks, {
+            const audioBlob = new Blob(audioChunks.buffer, {
                 type: 'audio/mp3'
             });
 
