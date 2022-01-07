@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 } else {
                     newMes.className = 'not-mine';
                 }
-                newMes.type = 'audio/mp3'
+                newMes.type = 'audio/mpeg'
                 newMes.controls = true;
                 newMes.load()
             }
