@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     .then(stream => {
         const mediaRecorder = new MediaRecorder(stream, {
             audioBitsPerSecond : 128000,
-            mimeType : 'audio/mp3'
+            mimeType : 'audio/mp4'
           });
 
         document.querySelector('.mike').addEventListener('touchstart', function(e){
