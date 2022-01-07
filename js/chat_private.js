@@ -78,16 +78,16 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 });
                 newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
             } else if (el['type'] == 'audio') {
-                newMes = document.createElement('audio')
+                newMes = document.createElement('source')
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'audio mine';
                 } else {
                     newMes.className = 'audio not-mine';
                 }
                 newMes.src = el['message'];
-                newMes.controls = true;
-                newMes.autoplay = false;
-                newMes.duration = 'auto';
+                // newMes.controls = true;
+                // newMes.autoplay = false;
+                // newMes.duration = 'auto';
             }
                 messages.append(newMes)
                 if(el['is_read']=='1' || el['author']==globalUser['success']) {
