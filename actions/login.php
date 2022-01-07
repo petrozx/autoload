@@ -68,7 +68,7 @@ function userUpdate() {
     }
     $res = $bd->updateRaw($_SESSION['auth']['id'], $arrResult);
     $newUser = $bd->getFilterRows($_SESSION['auth']['id']);
-    $_SESSION['auth'] = $newUser[0];
+    $_SESSION['auth'] = $newUser;
     $bd->close_connection();
     die(json_encode( ['success'=> $res] ));
 }
