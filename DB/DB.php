@@ -104,7 +104,7 @@ class DB
         $prepareFieldsKeys = array_map(function($e){return $e."=?";}, $arrKeys);
         $prepareFieldsKeys = implode(', ', $prepareFieldsKeys);
         $prepareFields = array_values($fields);
-        var_dump($prepareFields);
+        array_pop($prepareFields);
         $stmt = self::$connect->prepare("UPDATE ".self::$table." SET {$prepareFieldsKeys} WHERE users.id=".$id);
         $stmt->bind_param($code, ...$prepareFields);
         $result = self::$connect->insert_id;
