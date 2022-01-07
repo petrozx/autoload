@@ -89,8 +89,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 source.type = 'audio/mp3'
                 newMes.append(source)
                 newMes.controls = true;
-                // newMes.preload="metadata"
-                // newMes.duration = 'auto';
+                source.onload = (e) => {
+                    e.target.play()
+                    console.log('hi');
+                }
             }
                 messages.append(newMes)
                 if(el['is_read']=='1' || el['author']==globalUser['success']) {
