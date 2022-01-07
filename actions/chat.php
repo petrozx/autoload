@@ -93,4 +93,5 @@ function mesRead() {
         }
     }
     $bd->close_connection();
+    die( json_encode(['error' => 0]) );
 }
