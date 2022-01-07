@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                     newMes.className = 'audio not-mine';
                 }
                 newMes.src = el['message'];
+                newMes.type = 'audio/mp3'
                 // newMes.controls = true;
                 // newMes.autoplay = false;
                 // newMes.duration = 'auto';
