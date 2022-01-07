@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.append(source)
                 newMes.controls = true;
                 newMes.preload = 'none';
+                newMes.load()
             }
                 messages.append(newMes)
                 if(el['is_read']=='1' || el['author']==globalUser['success']) {
