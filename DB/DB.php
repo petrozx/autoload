@@ -101,8 +101,8 @@ class DB
             }
         }
         array_pop($fields);
-        var_dump($fields);
-        $prepareFieldsKeys = impode(',',array_map(function($field){return "{$field}=?";}, array_keys($fields)));
+        $arrKeys = array_keys($fields);
+        $prepareFieldsKeys = impode(',',array_map(function($field){return "{$field}=?";}, $arrKeys));
         var_dump($prepareFieldsKey);
         $prepareFields = array_values($fields);
         var_dump($prepareFields);
