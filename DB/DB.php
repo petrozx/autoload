@@ -91,7 +91,6 @@ class DB
     public function updateRaw($id, $fields) {
         // try {
             $code = '';
-            var_dump($fields);
             foreach($fields as $field) {
                 switch (gettype($field)) {
                     case "string":
