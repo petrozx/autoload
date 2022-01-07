@@ -90,6 +90,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.append(sourse)
                 newMes.controls = true;
                 newMes.preload="metadata"
+                newMes.onclick = () => {
+                    load()
+                    play()
+                }
                 // newMes.duration = 'auto';
             }
                 messages.append(newMes)
