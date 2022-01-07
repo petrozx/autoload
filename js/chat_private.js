@@ -86,8 +86,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 }
                 newMes.type = 'audio/mpeg'
                 newMes.controls = true;
-                
-                connectText.addEventListener('touchstart',()=> newMes.load())
+                newMes.load()
                 
             }
                 messages.append(newMes)
@@ -126,7 +125,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
     navigator.mediaDevices.getUserMedia({audio: true})
     .then(stream => {
         const mediaRecorder = new MediaRecorder(stream, {
-            audioBitsPerSecond : 128000
+            audioBitsPerSecond : 128000,
+            mimeType: "QuickTime"
           });
 
         document.querySelector('.mike').addEventListener('touchstart', function(e){
