@@ -103,7 +103,7 @@ class DB
         // array_pop($fields);
         $arrKeys = array_keys($fields);
         foreach($arrKeys as $key){$prepareFieldsKeys .= $key.'=?';}
-        var_dump($arrKeys);
+        var_dump($prepareFieldsKeys);
         $prepareFields = array_values($fields);
         $stmt = self::$connect->prepare("UPDATE ".self::$table." SET {$prepareFieldsKeys} WHERE users.id=".$id);
         $stmt->bind_param($code, ...$prepareFields);
