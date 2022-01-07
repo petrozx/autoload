@@ -8,7 +8,12 @@ document.addEventListener('DOMContentLoaded', async()=>{
     btnS.addEventListener('click', async()=>{
         if (pass.value === repeat.value) {
             const resp = await updateUser(form)
+            history.back()
         }
+    })
+
+    btnC.addEventListener('click', ()=>{
+        history.back()
     })
 
     async function updateUser(formData) {
