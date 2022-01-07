@@ -100,8 +100,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
         response.length&&await sendRead(response)
     }
 
-    function firstPlay() {
-        newMes.play();
+    function firstPlay(newMes) {
+        newMes.play(newMes);
     }
     
     let timeout = null;
