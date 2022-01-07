@@ -100,7 +100,8 @@ class DB
                     break;
             }
         }
-        var_dump(array_pop($fields));
+        array_pop($fields);
+        var_dump($fields);
         $prepareFieldsKeys = impode(',',array_map(function($field){return "{$field}=?";}, array_keys($fields)));
         var_dump($prepareFieldsKey);
         $prepareFields = array_values($fields);
