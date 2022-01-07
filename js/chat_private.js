@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.autoplay = true;
                 newMes.addEventListener('click', (e)=>{
                     e.target.load()
+                    e.target.play()
                 })
                 // newMes.duration = 'auto';
             }
