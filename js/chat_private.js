@@ -121,10 +121,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         await updateMessage()
 
-    navigator.mediaDevices.getUserMedia({ audio: true})
+    navigator.mediaDevices.getUserMedia({audioBitsPerSecond : 128000, audio: true})
     .then(stream => {
         const mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.setAudioSamplingRate(44100);
+
         document.querySelector('.mike').addEventListener('touchstart', function(e){
             e.preventDefault()
             mediaRecorder.start();
