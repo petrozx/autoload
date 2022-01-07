@@ -78,16 +78,13 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 });
                 newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
             } else if (el['type'] == 'audio') {
-                newMes = new Audio()
-                const source = document.createElement('source')
+                newMes = new Audio(el['message'])
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'audio mine';
                 } else {
                     newMes.className = 'audio not-mine';
                 }
-                source.src = el['message'];
-                source.type = 'audio/mpeg'
-                newMes.append(source)
+                newMes.type = 'audio/mpeg'
                 newMes.controls = true;
                 newMes.muted = true;
                 newMes.addEventListener('click', ()=>{
