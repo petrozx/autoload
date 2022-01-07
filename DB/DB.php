@@ -102,8 +102,8 @@ class DB
         }
         array_pop($fields);
         $arrKeys = array_keys($fields);
-        $prepareFieldsKeys = array_map(function($field){"{$field}=?";}, $arrKeys);
-        var_dump($arrKeys);
+        $prepareFieldsKeys = array_map(function($field){return "{$field}=?";}, $arrKeys);
+        var_dump($prepareFieldsKeys);
         $prepareFields = array_values($fields);
         var_dump($prepareFields);
         $stmt = self::$connect->prepare("UPDATE ".self::$table." SET {$prepareFieldsKeys} WHERE users.id=".$id);
