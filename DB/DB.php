@@ -89,26 +89,31 @@ class DB
     }
 
     public function updateRaw($id, $fields) {
-        $code = '';
-        foreach($fields as $field) {
-            switch (gettype($field)) {
-                case "string":
-                    $code .= 's';
-                    break;
-                case "integer":
-                    $code .= 'i';
-                    break;
+        try {
+            $code = '';
+            foreach($fields as $field) {
+                switch (gettype($field)) {
+                    case "string":
+                        $code .= 's';
+                        break;
+                    case "integer":
+                        $code .= 'i';
+                        break;
+                }
             }
+            $arrKeys = array_keys($fields);
+            $prepareFieldsKeys = array_map(function($e){return $e."=?";}, $arrKeys);
+            $prepareFieldsKeys = implode(', ', $prepareFieldsKeys);
+            $stmt = self::$connect->prepare("UPDATE ".self::$table." SET {$prepareFieldsKeys} WHERE users.id=".$id);
+            $prepareFields = array_values($fields);
+            $stmt->bind_param($code, ...$prepareFields);
+            $result = self::$connect->insert_id;
+            return $result;
+        } catch(Exception $e) {
+            throw new Exception('Ошибка обновления');
+        } finally {
+            $stmt->execute();
         }
-        $arrKeys = array_keys($fields);
-        $prepareFieldsKeys = array_map(function($e){return $e."=?";}, $arrKeys);
-        $prepareFieldsKeys = implode(', ', $prepareFieldsKeys);
-        $stmt = self::$connect->prepare("UPDATE ".self::$table." SET {$prepareFieldsKeys} WHERE users.id=".$id);
-        $prepareFields = array_values($fields);
-        $stmt->bind_param($code, ...$prepareFields);
-        $result = self::$connect->insert_id;
-        $stmt->execute();
-        return $result;
     }
 
     public function checkTable($name) {
