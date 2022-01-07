@@ -90,8 +90,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.append(source)
                 newMes.controls = true;
                 newMes.muted = true;
-                newMes.addEventListener('click', ()=>
+                newMes.addEventListener('click', ()=>{
                 newMes.load()
+                newMes.play()
+                }
                 )
             }
                 messages.append(newMes)
