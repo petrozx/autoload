@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                     newMes.className = 'audio not-mine';
                 }
                 source.src = el['message'];
-                source.type = 'audio/mp3'
+                source.type = 'audio/mpeg'
                 newMes.append(source)
                 newMes.controls = true;
                 newMes.muted = true;
