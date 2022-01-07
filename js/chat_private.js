@@ -86,11 +86,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
                     newMes.className = 'audio not-mine';
                 }
                 sourse.src = el['message'];
-                sourse.type = 'audio/mpeg'
+                sourse.type = 'audio/mp3'
                 newMes.append(sourse)
                 newMes.controls = true;
                 newMes.preload="metadata"
-                // newMes.autoplay = false;
+                newMes.autoplay = true;
                 // newMes.duration = 'auto';
             }
                 messages.append(newMes)
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         mediaRecorder.addEventListener("stop", async function() {
             const audioBlob = new Blob(audioChunks, {
-                type: 'audio/mpeg'
+                type: 'audio/mp3'
             });
 
             let fd = new FormData();
