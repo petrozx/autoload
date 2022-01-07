@@ -91,6 +91,7 @@ class DB
     public function updateRaw($id, $fields) {
         // try {
             $code = '';
+            var_dump($fields);
             foreach($fields as $field) {
                 switch (gettype($field)) {
                     case "string":
@@ -103,7 +104,6 @@ class DB
             }
             $arrKeys = array_keys($fields);
             $prepareFieldsKeys = array_map(function($e){return $e."=?";}, $arrKeys);
-            var_dump($prepareFieldsKeys);
             $prepareFieldsKeys = implode(', ', $prepareFieldsKeys);
             $stmt = self::$connect->prepare("UPDATE ".self::$table." SET {$prepareFieldsKeys} WHERE users.id=".$id);
             $prepareFields = array_values($fields);
