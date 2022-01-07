@@ -4,8 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/launch.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/DB/DB.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/routing/router.php');
-header('Content-Transfer-Encoding: binary');
-header('Content-Type: audio/mpeg, audio/x-mpeg, audio/x-mpeg-3, audio/mpeg3');
+
 try {
     new Router(
         $_SERVER['REQUEST_URI']
