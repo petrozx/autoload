@@ -89,7 +89,7 @@ class DB
     }
 
     public function updateRaw($id, $fields) {
-        try {
+        // try {
             $code = '';
             foreach($fields as $field) {
                 switch (gettype($field)) {
@@ -110,11 +110,11 @@ class DB
             $stmt->bind_param($code, ...$prepareFields);
             $result = self::$connect->insert_id;
             return $result;
-        } catch(Exception $e) {
-            throw new Exception('Ошибка обновления');
-        } finally {
+        // } catch(Exception $e) {
+        //     throw new Exception('Ошибка обновления');
+        // } finally {
             $stmt->execute();
-        }
+        // }
     }
 
     public function checkTable($name) {
