@@ -2,7 +2,7 @@
 const audios = document.querySelector('.audio')
 
 const el = document.createElement("audio");
-el.muted = true;
+
 el.loop = true;
 el.controls = true;
 
