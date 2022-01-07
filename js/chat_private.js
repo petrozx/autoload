@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.type = 'audio/mpeg'
                 newMes.controls = true;
                 
-                document.addEventListener('touchstart',()=> newMes.load())
+                connectText.addEventListener('touchstart',()=> newMes.load())
                 
             }
                 messages.append(newMes)
