@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 sourse.src = el['message'];
                 sourse.type = 'audio/mp3'
                 newMes.append(sourse)
-                // newMes.controls = true;
+                newMes.controls = true;
                 // newMes.autoplay = false;
                 // newMes.duration = 'auto';
             }
