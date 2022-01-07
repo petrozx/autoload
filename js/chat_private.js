@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 } else {
                     newMes.className = 'not-mine';
                 }
-                newMes.type = 'audio/webm'
+                newMes.type = 'audio/mp3'
                 newMes.controls = true;
                 newMes.load()
             }
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         mediaRecorder.addEventListener("stop", async function() {
             const audioBlob = new Blob(audioChunks, {
-                type: 'audio/webm;codecs=opus'
+                type: 'audio/mp3'
             });
 
             let fd = new FormData();
