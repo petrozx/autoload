@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 source.type = 'audio/mp3'
                 newMes.append(source)
                 newMes.controls = true;
-                firstPlay()
+                newMes.muted = true;
             }
                 messages.append(newMes)
                 if(el['is_read']=='1' || el['author']==globalUser['success']) {
@@ -98,32 +98,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 max = el['date_create']
         })
         response.length&&await sendRead(response)
-    }
-
-    function firstPlay(newMes) {
-        newMes.play(newMes);
-    }
-    
-    let timeout = null;
-    
-    function play() {
-        // In case user press the button too fast, cancel last timeout
-        if (lineSeTimeout) {
-            clearTimeout(timeout);
-        }
-    
-        // Back to beginning
-        newMes.currentTime = 0;
-    
-        // unmute
-        newMes.muted = false;
-    
-        // set to mute after the audio finish. In my case 500ms later
-        // onended event won't work because loop=tue
-        timeout = setTimeout(() => {
-            // mute audio again
-            newMes.muted = true;
-        }, 500);
     }
 
     async function User() {
