@@ -89,7 +89,7 @@ class DB
     }
 
     public function updateRaw($id, $fields) {
-        try {
+        // try {
             $code = '';
             foreach($fields as $field) {
                 switch (gettype($field)) {
@@ -103,17 +103,18 @@ class DB
             }
             $arrKeys = array_keys($fields);
             $prepareFieldsKeys = array_map(function($e){return $e."=?";}, $arrKeys);
+            var_dump($prepareFieldsKeys);
             $prepareFieldsKeys = implode(', ', $prepareFieldsKeys);
             $stmt = self::$connect->prepare("UPDATE ".self::$table." SET {$prepareFieldsKeys} WHERE users.id=".$id);
             $prepareFields = array_values($fields);
             $stmt->bind_param($code, ...$prepareFields);
             $result = self::$connect->insert_id;
             return $result;
-        } catch(Exception $e) {
-            throw new Exception('Ошибка обновления');
-        } finally {
-            $stmt->execute();
-        }
+        // } catch(Exception $e) {
+        //     throw new Exception('Ошибка обновления');
+        // } finally {
+        //     $stmt->execute();
+        // }
     }
 
     public function checkTable($name) {
