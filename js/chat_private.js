@@ -92,7 +92,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.preload="metadata"
                 newMes.autoplay = true;
                 newMes.addEventListener('click', (e)=>{
-                    e.target.load()
                     e.target.play()
                 })
                 // newMes.duration = 'auto';
