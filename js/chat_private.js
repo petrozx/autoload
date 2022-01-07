@@ -89,7 +89,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.muted = true;
                 newMes.addEventListener('click', ()=>{
                 newMes.load()
-                newMes.play()
                 }
                 )
             }
