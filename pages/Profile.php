@@ -4,7 +4,7 @@ class Profile
 {
 
     public function index() {
-        $name = htmlentities($_SESSION['auth']['name']);
+        $name = htmlentities($_SESSION['auth']['name'], "UTF-8");
         return "
         <div class='card-header'>Редактировать данные</div>
         <form id='profile' class='h-100 p-5 mb-3 card border-light rounded-3'>
