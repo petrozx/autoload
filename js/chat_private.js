@@ -78,16 +78,18 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 });
                 newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
             } else if (el['type'] == 'audio') {
-                newMes = new Audio(el['message'])
+                newMes = new Audio()
+                const source = document.createElement('source')
                 if(el['author'] == globalUser['success']){
                     newMes.className = 'mine';
                 } else {
                     newMes.className = 'not-mine';
                 }
-                newMes.type = 'audio/mpeg'
+                source.src = source
+                source.type = 'audio/mpeg'
+                newMes.append(source)
                 newMes.controls = true;
-                newMes.load()
-                
+                newMes.preload = 'none';
             }
                 messages.append(newMes)
                 if(el['is_read']=='1' || el['author']==globalUser['success']) {
