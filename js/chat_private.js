@@ -86,11 +86,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 }
                 newMes.type = 'audio/mpeg'
                 newMes.controls = true;
-                newMes.muted = true;
-                newMes.addEventListener('click', ()=>{
-                newMes.load()
-                }
-                )
             }
                 messages.append(newMes)
                 if(el['is_read']=='1' || el['author']==globalUser['success']) {
