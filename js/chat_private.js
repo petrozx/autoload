@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.append(source)
                 newMes.controls = true;
                 document.onclick = (e) => {
+                    newMes.load()
                     newMes.play()
                     console.log('hi');
                 }
