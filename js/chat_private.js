@@ -89,7 +89,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 source.type = 'audio/mpeg'
                 newMes.append(source)
                 newMes.controls = true;
-                newMes.load()
+                newMes.muted = true;
+                newMes.addEventListener('click', ()=>
+                newMes.play()
+                )
             }
                 messages.append(newMes)
                 if(el['is_read']=='1' || el['author']==globalUser['success']) {
