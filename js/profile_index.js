@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     async function updateUser(formData) {
         const form = new FormData(formData)
+        form.delete('repeat')
         const req = await fetch('/api/login/userUpdate/', {
             method: 'POST',
             body: form

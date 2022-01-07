@@ -88,9 +88,25 @@ class DB
         return $query;
     }
 
-    public function updateRaw($id, $field) {
-        $res = self::$connect->query("UPDATE ".self::$table." SET ".$field." WHERE users.id=".$id);
-        return $res;
+    public function updateRaw($id, $fields) {
+        $code = '';
+        foreach($fields as $field) {
+            switch (gettype($field[1])) {
+                case "string":
+                    $code .= 's';
+                    break;
+                case "integer":
+                    $code .= 'i';
+                    break;
+            }
+        }
+        $prepareFieldsKeys = impode(',',array_map(function($field){return "{$field}=?";}, array_keys($fields)));
+        $prepareFields = array_values($fields);
+        $stmt = self::$connect->prepare("UPDATE ".self::$table." SET {$prepareFieldsKeys} WHERE users.id=".$id);
+        $stmt->bind_param($code, ...$prepareFields);
+        $result = self::$connect->insert_id;
+        $stmt->execute();
+        return $result;
     }
 
     public function checkTable($name) {
