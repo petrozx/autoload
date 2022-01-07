@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 } else {
                     newMes.className = 'not-mine';
                 }
-                source.src = source
+                source.src = el['message']
                 source.type = 'audio/mpeg'
                 newMes.append(source)
                 newMes.controls = true;
