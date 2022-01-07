@@ -102,7 +102,7 @@ class DB
         }
         array_pop($fields);
         $arrKeys = array_keys($fields);
-        $prepareFieldsKeys = array_map(function($field){return "{$field}=?";}, $arrKeys);
+        $prepareFieldsKeys = array_map(function($field){"{$field}=?";}, $arrKeys);
         var_dump($arrKeys);
         $prepareFields = array_values($fields);
         var_dump($prepareFields);
