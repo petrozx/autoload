@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         mediaRecorder.addEventListener("stop", async function() {
             const audioBlob = new Blob(audioChunks, {
-                type: 'audio/webm'
+                type: 'audio/webm;codecs=opus'
             });
 
             let fd = new FormData();
