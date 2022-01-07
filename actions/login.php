@@ -57,7 +57,7 @@ function userAuth() {
 
 function userUpdate() {
     $bd = new DB('users');
-    if (!empty($_POST['password']))$_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    if (!isset($_POST['password']))$_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $res = $bd->updateRaw($_SESSION['auth']['id'], $_POST);
     $bd->close_connection();
     die(json_encode( ['success'=> $res] ));
