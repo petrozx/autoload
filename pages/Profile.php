@@ -8,7 +8,7 @@ class Profile
         <div class='card-header'>Редактировать данные</div>
         <form id='profile' class='h-100 p-5 mb-3 card border-light rounded-3'>
             <label for='name' class='form-label'>Логин</label>
-            <input name='name' type=text class='form-control mb-3' value=".$_SESSION['auth']['name'].">
+            <input name='name' type=text class='form-control mb-3' value={$_SESSION['auth']['name']}>
             <label for='password' class='form-label'>Новый пароль</label>
             <input name='password' type='password' class='form-control mb-3'>
             <label for='repeat' class='form-label'>Повторите пароль</label>
