@@ -79,8 +79,10 @@ function save(){
         $response = ['result'=>'OK'];
         $bd = new DB('chat');
         $output = array();
-        $result = exec("ffmpeg -i '{$uploadDir}{$wayFile}' -crf 23 '{$uploadDir}{$mp3name}'", $output);
-        $res = $bd->saveRows([ time() ,'/upload/'. $wayFile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio', 0 ]);
+        if ($typeFile[1] != 'mp3'){
+            exec("ffmpeg -i '{$uploadDir}{$wayFile}' -crf 23 '{$uploadDir}{$mp3name}'", $output);
+        }
+        $res = $bd->saveRows([ time() ,'/upload/'. $mp3name, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio', 0 ]);
         $bd->close_connection();
     } else {
         $response = ['result'=>'ERROR'];
