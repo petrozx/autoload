@@ -79,9 +79,9 @@ function save(){
         $response = ['result'=>'OK'];
         $bd = new DB('chat');
         $output = array();
-        $result = exec("ffmpeg -i '{$wayFile}' -crf 23 '{$mp3name}'", $output);
-        var_dump($wayFile);
-        var_dump($mp3name);
+        $result = exec('ffmpeg -i /upload/'.$wayFile.' -crf 23 /upload/'.$mp3name, $output);
+        var_dump($result);
+        var_dump($output);
         $res = $bd->saveRows([ time() ,'/upload/'. $wayFile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio', 0 ]);
         $bd->close_connection();
     } else {
