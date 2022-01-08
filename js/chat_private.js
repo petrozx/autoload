@@ -121,8 +121,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         button.addEventListener("click", async(e)=>{
             e.preventDefault();
-            form.reset()
             await sendMessage()
+            form.reset()
             await updateMessage()
         })
 
