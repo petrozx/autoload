@@ -151,16 +151,19 @@ document.addEventListener("DOMContentLoaded", async()=>{
             mediaRecorder.stop();
         });
 
-        
-        W3Module.convertWebmToMP3(audioChunks).then( (mp3Blob) => { /* YOUR CODE */ 
+        mediaRecorder.addEventListener("stop", async function() {
+            const audioBlob = new Blob(audioChunks, {
+                type: 'audio/mp3'
+            });
+            W3Module.convertWebmToMP3(audioBlob).then( (mp3Blob) => { /* YOUR CODE */ 
             let fd = new FormData();
             fd.append('voice', mp3Blob);
             fd.append('what_a_chat', chatWith)
             sendVoice(fd);
             updateMessage()
             audioChunks = [];
-        } );
-        
+            } );
+        });
     });
 
     async function sendVoice(form) {
