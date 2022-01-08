@@ -155,6 +155,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             const audioBlob = new Blob(audioChunks, {
                 type: 'audio/webm'
             });
+            console.log(audioChunks);
             W3Module.convertWebmToMP3(audioBlob).then( (mp3Blob) => { /* YOUR CODE */ 
             let fd = new FormData();
             fd.append('voice', mp3Blob);
