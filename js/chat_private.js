@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             const mess = Array.from(messages?.querySelectorAll('div'))
             const response = await update(max||0)
             let newMes = "";
-            response.length&&response.forEach(el=>{
+            (response.length)&&response.forEach(el=>{
                 if (el['type'] == 'text') {
                     newMes = document.createElement('div')
                     newMes.dataset.id = el['id']
