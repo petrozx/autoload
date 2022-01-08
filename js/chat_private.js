@@ -86,9 +86,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes.append(audio)
                 const source = document.createElement('source')
                 if(el['author'] == globalUser['success']){
-                    audio.className = 'me-2 mb-2 justify-content-start';
+                    newMes.className = 'me-2 mb-2 justify-content-start';
                 } else {
-                    audio.className = 'ms-2 mb-2 justify-content-end';
+                    newMes.className = 'ms-2 mb-2 justify-content-end';
                 }
             }
                 messages.append(newMes)
