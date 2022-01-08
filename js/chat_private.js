@@ -153,9 +153,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         mediaRecorder.addEventListener("stop", async function() {
             const audioBlob = new Blob(audioChunks, {
-                type: 'audio/mp3'
+                type: 'audio/webm'
             });
-            W3Module.convertWebmToMP3(audioChunks).then( (mp3Blob) => { /* YOUR CODE */ 
+            W3Module.convertWebmToMP3(audioBlob).then( (mp3Blob) => { /* YOUR CODE */ 
             let fd = new FormData();
             fd.append('voice', mp3Blob);
             fd.append('what_a_chat', chatWith)
