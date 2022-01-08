@@ -76,7 +76,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 usersALL.forEach(element => {
                     if (element['id'] == el['author']) name = element['name']
                 });
-                newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
+                // newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
+                newMes.innerText = el['message']
             } else if (el['type'] == 'audio') {
                 newMes = document.createElement('div')
                 const audio = new Audio(el['message'])
