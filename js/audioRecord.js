@@ -1,6 +1,6 @@
 (function(window){
 
-  var WORKER_PATH = 'js/recorderWorker.js';
+  var WORKER_PATH = '/js/recorderWorker.js';
 
 
 	function RecorderObject (source, cfg){
