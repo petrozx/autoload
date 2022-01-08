@@ -264,6 +264,477 @@ function Version() {
 
 }
 
+
+function Presets() {
+    function VBRPresets(qual, comp, compS,
+                        y, shThreshold, shThresholdS,
+                        adj, adjShort, lower,
+                        curve, sens, inter,
+                        joint, mod, fix) {
+        this.vbr_q = qual;
+        this.quant_comp = comp;
+        this.quant_comp_s = compS;
+        this.expY = y;
+        this.st_lrm = shThreshold;
+        this.st_s = shThresholdS;
+        this.masking_adj = adj;
+        this.masking_adj_short = adjShort;
+        this.ath_lower = lower;
+        this.ath_curve = curve;
+        this.ath_sensitivity = sens;
+        this.interch = inter;
+        this.safejoint = joint;
+        this.sfb21mod = mod;
+        this.msfix = fix;
+    }
+
+    function ABRPresets(kbps, comp, compS,
+                        joint, fix, shThreshold,
+                        shThresholdS, bass, sc,
+                        mask, lower, curve,
+                        interCh, sfScale) {
+        this.quant_comp = comp;
+        this.quant_comp_s = compS;
+        this.safejoint = joint;
+        this.nsmsfix = fix;
+        this.st_lrm = shThreshold;
+        this.st_s = shThresholdS;
+        this.nsbass = bass;
+        this.scale = sc;
+        this.masking_adj = mask;
+        this.ath_lower = lower;
+        this.ath_curve = curve;
+        this.interch = interCh;
+        this.sfscale = sfScale;
+    }
+
+    var lame;
+
+    this.setModules = function (_lame) {
+        lame = _lame;
+    };
+
+    /**
+     * <PRE>
+     * Switch mappings for VBR mode VBR_RH
+     *             vbr_q  qcomp_l  qcomp_s  expY  st_lrm   st_s  mask adj_l  adj_s  ath_lower  ath_curve  ath_sens  interChR  safejoint sfb21mod  msfix
+     * </PRE>
+     */
+    var vbr_old_switch_map = [
+        new VBRPresets(0, 9, 9, 0, 5.20, 125.0, -4.2, -6.3, 4.8, 1, 0, 0, 2, 21, 0.97),
+        new VBRPresets(1, 9, 9, 0, 5.30, 125.0, -3.6, -5.6, 4.5, 1.5, 0, 0, 2, 21, 1.35),
+        new VBRPresets(2, 9, 9, 0, 5.60, 125.0, -2.2, -3.5, 2.8, 2, 0, 0, 2, 21, 1.49),
+        new VBRPresets(3, 9, 9, 1, 5.80, 130.0, -1.8, -2.8, 2.6, 3, -4, 0, 2, 20, 1.64),
+        new VBRPresets(4, 9, 9, 1, 6.00, 135.0, -0.7, -1.1, 1.1, 3.5, -8, 0, 2, 0, 1.79),
+        new VBRPresets(5, 9, 9, 1, 6.40, 140.0, 0.5, 0.4, -7.5, 4, -12, 0.0002, 0, 0, 1.95),
+        new VBRPresets(6, 9, 9, 1, 6.60, 145.0, 0.67, 0.65, -14.7, 6.5, -19, 0.0004, 0, 0, 2.30),
+        new VBRPresets(7, 9, 9, 1, 6.60, 145.0, 0.8, 0.75, -19.7, 8, -22, 0.0006, 0, 0, 2.70),
+        new VBRPresets(8, 9, 9, 1, 6.60, 145.0, 1.2, 1.15, -27.5, 10, -23, 0.0007, 0, 0, 0),
+        new VBRPresets(9, 9, 9, 1, 6.60, 145.0, 1.6, 1.6, -36, 11, -25, 0.0008, 0, 0, 0),
+        new VBRPresets(10, 9, 9, 1, 6.60, 145.0, 2.0, 2.0, -36, 12, -25, 0.0008, 0, 0, 0)
+    ];
+
+    /**
+     * <PRE>
+     *                 vbr_q  qcomp_l  qcomp_s  expY  st_lrm   st_s  mask adj_l  adj_s  ath_lower  ath_curve  ath_sens  interChR  safejoint sfb21mod  msfix
+     * </PRE>
+     */
+    var vbr_psy_switch_map = [
+        new VBRPresets(0, 9, 9, 0, 4.20, 25.0, -7.0, -4.0, 7.5, 1, 0, 0, 2, 26, 0.97),
+        new VBRPresets(1, 9, 9, 0, 4.20, 25.0, -5.6, -3.6, 4.5, 1.5, 0, 0, 2, 21, 1.35),
+        new VBRPresets(2, 9, 9, 0, 4.20, 25.0, -4.4, -1.8, 2, 2, 0, 0, 2, 18, 1.49),
+        new VBRPresets(3, 9, 9, 1, 4.20, 25.0, -3.4, -1.25, 1.1, 3, -4, 0, 2, 15, 1.64),
+        new VBRPresets(4, 9, 9, 1, 4.20, 25.0, -2.2, 0.1, 0, 3.5, -8, 0, 2, 0, 1.79),
+        new VBRPresets(5, 9, 9, 1, 4.20, 25.0, -1.0, 1.65, -7.7, 4, -12, 0.0002, 0, 0, 1.95),
+        new VBRPresets(6, 9, 9, 1, 4.20, 25.0, -0.0, 2.47, -7.7, 6.5, -19, 0.0004, 0, 0, 2),
+        new VBRPresets(7, 9, 9, 1, 4.20, 25.0, 0.5, 2.0, -14.5, 8, -22, 0.0006, 0, 0, 2),
+        new VBRPresets(8, 9, 9, 1, 4.20, 25.0, 1.0, 2.4, -22.0, 10, -23, 0.0007, 0, 0, 2),
+        new VBRPresets(9, 9, 9, 1, 4.20, 25.0, 1.5, 2.95, -30.0, 11, -25, 0.0008, 0, 0, 2),
+        new VBRPresets(10, 9, 9, 1, 4.20, 25.0, 2.0, 2.95, -36.0, 12, -30, 0.0008, 0, 0, 2)
+    ];
+
+    function apply_vbr_preset(gfp, a, enforce) {
+        var vbr_preset = gfp.VBR == VbrMode.vbr_rh ? vbr_old_switch_map
+            : vbr_psy_switch_map;
+
+        var x = gfp.VBR_q_frac;
+        var p = vbr_preset[a];
+        var q = vbr_preset[a + 1];
+        var set = p;
+
+        // NOOP(vbr_q);
+        // NOOP(quant_comp);
+        // NOOP(quant_comp_s);
+        // NOOP(expY);
+        p.st_lrm = p.st_lrm + x * (q.st_lrm - p.st_lrm);
+        // LERP(st_lrm);
+        p.st_s = p.st_s + x * (q.st_s - p.st_s);
+        // LERP(st_s);
+        p.masking_adj = p.masking_adj + x * (q.masking_adj - p.masking_adj);
+        // LERP(masking_adj);
+        p.masking_adj_short = p.masking_adj_short + x
+            * (q.masking_adj_short - p.masking_adj_short);
+        // LERP(masking_adj_short);
+        p.ath_lower = p.ath_lower + x * (q.ath_lower - p.ath_lower);
+        // LERP(ath_lower);
+        p.ath_curve = p.ath_curve + x * (q.ath_curve - p.ath_curve);
+        // LERP(ath_curve);
+        p.ath_sensitivity = p.ath_sensitivity + x
+            * (q.ath_sensitivity - p.ath_sensitivity);
+        // LERP(ath_sensitivity);
+        p.interch = p.interch + x * (q.interch - p.interch);
+        // LERP(interch);
+        // NOOP(safejoint);
+        // NOOP(sfb21mod);
+        p.msfix = p.msfix + x * (q.msfix - p.msfix);
+        // LERP(msfix);
+
+        lame_set_VBR_q(gfp, set.vbr_q);
+
+        if (enforce != 0)
+            gfp.quant_comp = set.quant_comp;
+        else if (!(Math.abs(gfp.quant_comp - -1) > 0))
+            gfp.quant_comp = set.quant_comp;
+        // SET_OPTION(quant_comp, set.quant_comp, -1);
+        if (enforce != 0)
+            gfp.quant_comp_short = set.quant_comp_s;
+        else if (!(Math.abs(gfp.quant_comp_short - -1) > 0))
+            gfp.quant_comp_short = set.quant_comp_s;
+        // SET_OPTION(quant_comp_short, set.quant_comp_s, -1);
+        if (set.expY != 0) {
+            gfp.experimentalY = set.expY != 0;
+        }
+        if (enforce != 0)
+            gfp.internal_flags.nsPsy.attackthre = set.st_lrm;
+        else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre - -1) > 0))
+            gfp.internal_flags.nsPsy.attackthre = set.st_lrm;
+        // SET_OPTION(short_threshold_lrm, set.st_lrm, -1);
+        if (enforce != 0)
+            gfp.internal_flags.nsPsy.attackthre_s = set.st_s;
+        else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre_s - -1) > 0))
+            gfp.internal_flags.nsPsy.attackthre_s = set.st_s;
+        // SET_OPTION(short_threshold_s, set.st_s, -1);
+        if (enforce != 0)
+            gfp.maskingadjust = set.masking_adj;
+        else if (!(Math.abs(gfp.maskingadjust - 0) > 0))
+            gfp.maskingadjust = set.masking_adj;
+        // SET_OPTION(maskingadjust, set.masking_adj, 0);
+        if (enforce != 0)
+            gfp.maskingadjust_short = set.masking_adj_short;
+        else if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
+            gfp.maskingadjust_short = set.masking_adj_short;
+        // SET_OPTION(maskingadjust_short, set.masking_adj_short, 0);
+        if (enforce != 0)
+            gfp.ATHlower = -set.ath_lower / 10.0;
+        else if (!(Math.abs((-gfp.ATHlower * 10.0) - 0) > 0))
+            gfp.ATHlower = -set.ath_lower / 10.0;
+        // SET_OPTION(ATHlower, set.ath_lower, 0);
+        if (enforce != 0)
+            gfp.ATHcurve = set.ath_curve;
+        else if (!(Math.abs(gfp.ATHcurve - -1) > 0))
+            gfp.ATHcurve = set.ath_curve;
+        // SET_OPTION(ATHcurve, set.ath_curve, -1);
+        if (enforce != 0)
+            gfp.athaa_sensitivity = set.ath_sensitivity;
+        else if (!(Math.abs(gfp.athaa_sensitivity - -1) > 0))
+            gfp.athaa_sensitivity = set.ath_sensitivity;
+        // SET_OPTION(athaa_sensitivity, set.ath_sensitivity, 0);
+        if (set.interch > 0) {
+            if (enforce != 0)
+                gfp.interChRatio = set.interch;
+            else if (!(Math.abs(gfp.interChRatio - -1) > 0))
+                gfp.interChRatio = set.interch;
+            // SET_OPTION(interChRatio, set.interch, -1);
+        }
+
+        /* parameters for which there is no proper set/get interface */
+        if (set.safejoint > 0) {
+            gfp.exp_nspsytune = gfp.exp_nspsytune | set.safejoint;
+        }
+        if (set.sfb21mod > 0) {
+            gfp.exp_nspsytune = gfp.exp_nspsytune | (set.sfb21mod << 20);
+        }
+        if (enforce != 0)
+            gfp.msfix = set.msfix;
+        else if (!(Math.abs(gfp.msfix - -1) > 0))
+            gfp.msfix = set.msfix;
+        // SET_OPTION(msfix, set.msfix, -1);
+
+        if (enforce == 0) {
+            gfp.VBR_q = a;
+            gfp.VBR_q_frac = x;
+        }
+    }
+
+    /**
+     * <PRE>
+     *  Switch mappings for ABR mode
+     *
+     *              kbps  quant q_s safejoint nsmsfix st_lrm  st_s  ns-bass scale   msk ath_lwr ath_curve  interch , sfscale
+     * </PRE>
+     */
+    var abr_switch_map = [
+        new ABRPresets(8, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -30.0, 11, 0.0012, 1), /*   8, impossible to use in stereo */
+        new ABRPresets(16, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -25.0, 11, 0.0010, 1), /*  16 */
+        new ABRPresets(24, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -20.0, 11, 0.0010, 1), /*  24 */
+        new ABRPresets(32, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -15.0, 11, 0.0010, 1), /*  32 */
+        new ABRPresets(40, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -10.0, 11, 0.0009, 1), /*  40 */
+        new ABRPresets(48, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -10.0, 11, 0.0009, 1), /*  48 */
+        new ABRPresets(56, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -6.0, 11, 0.0008, 1), /*  56 */
+        new ABRPresets(64, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -2.0, 11, 0.0008, 1), /*  64 */
+        new ABRPresets(80, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, .0, 8, 0.0007, 1), /*  80 */
+        new ABRPresets(96, 9, 9, 0, 2.50, 6.60, 145, 0, 0.95, 0, 1.0, 5.5, 0.0006, 1), /*  96 */
+        new ABRPresets(112, 9, 9, 0, 2.25, 6.60, 145, 0, 0.95, 0, 2.0, 4.5, 0.0005, 1), /* 112 */
+        new ABRPresets(128, 9, 9, 0, 1.95, 6.40, 140, 0, 0.95, 0, 3.0, 4, 0.0002, 1), /* 128 */
+        new ABRPresets(160, 9, 9, 1, 1.79, 6.00, 135, 0, 0.95, -2, 5.0, 3.5, 0, 1), /* 160 */
+        new ABRPresets(192, 9, 9, 1, 1.49, 5.60, 125, 0, 0.97, -4, 7.0, 3, 0, 0), /* 192 */
+        new ABRPresets(224, 9, 9, 1, 1.25, 5.20, 125, 0, 0.98, -6, 9.0, 2, 0, 0), /* 224 */
+        new ABRPresets(256, 9, 9, 1, 0.97, 5.20, 125, 0, 1.00, -8, 10.0, 1, 0, 0), /* 256 */
+        new ABRPresets(320, 9, 9, 1, 0.90, 5.20, 125, 0, 1.00, -10, 12.0, 0, 0, 0)  /* 320 */
+    ];
+
+    function apply_abr_preset(gfp, preset, enforce) {
+        /* Variables for the ABR stuff */
+        var actual_bitrate = preset;
+
+        var r = lame.nearestBitrateFullIndex(preset);
+
+        gfp.VBR = VbrMode.vbr_abr;
+        gfp.VBR_mean_bitrate_kbps = actual_bitrate;
+        gfp.VBR_mean_bitrate_kbps = Math.min(gfp.VBR_mean_bitrate_kbps, 320);
+        gfp.VBR_mean_bitrate_kbps = Math.max(gfp.VBR_mean_bitrate_kbps, 8);
+        gfp.brate = gfp.VBR_mean_bitrate_kbps;
+        if (gfp.VBR_mean_bitrate_kbps > 320) {
+            gfp.disable_reservoir = true;
+        }
+
+        /* parameters for which there is no proper set/get interface */
+        if (abr_switch_map[r].safejoint > 0)
+            gfp.exp_nspsytune = gfp.exp_nspsytune | 2;
+        /* safejoint */
+
+        if (abr_switch_map[r].sfscale > 0) {
+            gfp.internal_flags.noise_shaping = 2;
+        }
+        /* ns-bass tweaks */
+        if (Math.abs(abr_switch_map[r].nsbass) > 0) {
+            var k = (int)(abr_switch_map[r].nsbass * 4);
+            if (k < 0)
+                k += 64;
+            gfp.exp_nspsytune = gfp.exp_nspsytune | (k << 2);
+        }
+
+        if (enforce != 0)
+            gfp.quant_comp = abr_switch_map[r].quant_comp;
+        else if (!(Math.abs(gfp.quant_comp - -1) > 0))
+            gfp.quant_comp = abr_switch_map[r].quant_comp;
+        // SET_OPTION(quant_comp, abr_switch_map[r].quant_comp, -1);
+        if (enforce != 0)
+            gfp.quant_comp_short = abr_switch_map[r].quant_comp_s;
+        else if (!(Math.abs(gfp.quant_comp_short - -1) > 0))
+            gfp.quant_comp_short = abr_switch_map[r].quant_comp_s;
+        // SET_OPTION(quant_comp_short, abr_switch_map[r].quant_comp_s, -1);
+
+        if (enforce != 0)
+            gfp.msfix = abr_switch_map[r].nsmsfix;
+        else if (!(Math.abs(gfp.msfix - -1) > 0))
+            gfp.msfix = abr_switch_map[r].nsmsfix;
+        // SET_OPTION(msfix, abr_switch_map[r].nsmsfix, -1);
+
+        if (enforce != 0)
+            gfp.internal_flags.nsPsy.attackthre = abr_switch_map[r].st_lrm;
+        else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre - -1) > 0))
+            gfp.internal_flags.nsPsy.attackthre = abr_switch_map[r].st_lrm;
+        // SET_OPTION(short_threshold_lrm, abr_switch_map[r].st_lrm, -1);
+        if (enforce != 0)
+            gfp.internal_flags.nsPsy.attackthre_s = abr_switch_map[r].st_s;
+        else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre_s - -1) > 0))
+            gfp.internal_flags.nsPsy.attackthre_s = abr_switch_map[r].st_s;
+        // SET_OPTION(short_threshold_s, abr_switch_map[r].st_s, -1);
+
+        /*
+         * ABR seems to have big problems with clipping, especially at low
+         * bitrates
+         */
+        /*
+         * so we compensate for that here by using a scale value depending on
+         * bitrate
+         */
+        if (enforce != 0)
+            gfp.scale = abr_switch_map[r].scale;
+        else if (!(Math.abs(gfp.scale - -1) > 0))
+            gfp.scale = abr_switch_map[r].scale;
+        // SET_OPTION(scale, abr_switch_map[r].scale, -1);
+
+        if (enforce != 0)
+            gfp.maskingadjust = abr_switch_map[r].masking_adj;
+        else if (!(Math.abs(gfp.maskingadjust - 0) > 0))
+            gfp.maskingadjust = abr_switch_map[r].masking_adj;
+        // SET_OPTION(maskingadjust, abr_switch_map[r].masking_adj, 0);
+        if (abr_switch_map[r].masking_adj > 0) {
+            if (enforce != 0)
+                gfp.maskingadjust_short = (abr_switch_map[r].masking_adj * .9);
+            else if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
+                gfp.maskingadjust_short = (abr_switch_map[r].masking_adj * .9);
+            // SET_OPTION(maskingadjust_short, abr_switch_map[r].masking_adj *
+            // .9, 0);
+        } else {
+            if (enforce != 0)
+                gfp.maskingadjust_short = (abr_switch_map[r].masking_adj * 1.1);
+            else if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
+                gfp.maskingadjust_short = (abr_switch_map[r].masking_adj * 1.1);
+            // SET_OPTION(maskingadjust_short, abr_switch_map[r].masking_adj *
+            // 1.1, 0);
+        }
+
+        if (enforce != 0)
+            gfp.ATHlower = -abr_switch_map[r].ath_lower / 10.;
+        else if (!(Math.abs((-gfp.ATHlower * 10.) - 0) > 0))
+            gfp.ATHlower = -abr_switch_map[r].ath_lower / 10.;
+        // SET_OPTION(ATHlower, abr_switch_map[r].ath_lower, 0);
+        if (enforce != 0)
+            gfp.ATHcurve = abr_switch_map[r].ath_curve;
+        else if (!(Math.abs(gfp.ATHcurve - -1) > 0))
+            gfp.ATHcurve = abr_switch_map[r].ath_curve;
+        // SET_OPTION(ATHcurve, abr_switch_map[r].ath_curve, -1);
+
+        if (enforce != 0)
+            gfp.interChRatio = abr_switch_map[r].interch;
+        else if (!(Math.abs(gfp.interChRatio - -1) > 0))
+            gfp.interChRatio = abr_switch_map[r].interch;
+        // SET_OPTION(interChRatio, abr_switch_map[r].interch, -1);
+
+        return preset;
+    }
+
+    this.apply_preset = function(gfp, preset, enforce) {
+        /* translate legacy presets */
+        switch (preset) {
+            case Lame.R3MIX:
+            {
+                preset = Lame.V3;
+                gfp.VBR = VbrMode.vbr_mtrh;
+                break;
+            }
+            case Lame.MEDIUM:
+            {
+                preset = Lame.V4;
+                gfp.VBR = VbrMode.vbr_rh;
+                break;
+            }
+            case Lame.MEDIUM_FAST:
+            {
+                preset = Lame.V4;
+                gfp.VBR = VbrMode.vbr_mtrh;
+                break;
+            }
+            case Lame.STANDARD:
+            {
+                preset = Lame.V2;
+                gfp.VBR = VbrMode.vbr_rh;
+                break;
+            }
+            case Lame.STANDARD_FAST:
+            {
+                preset = Lame.V2;
+                gfp.VBR = VbrMode.vbr_mtrh;
+                break;
+            }
+            case Lame.EXTREME:
+            {
+                preset = Lame.V0;
+                gfp.VBR = VbrMode.vbr_rh;
+                break;
+            }
+            case Lame.EXTREME_FAST:
+            {
+                preset = Lame.V0;
+                gfp.VBR = VbrMode.vbr_mtrh;
+                break;
+            }
+            case Lame.INSANE:
+            {
+                preset = 320;
+                gfp.preset = preset;
+                apply_abr_preset(gfp, preset, enforce);
+                gfp.VBR = VbrMode.vbr_off;
+                return preset;
+            }
+        }
+
+        gfp.preset = preset;
+        {
+            switch (preset) {
+                case Lame.V9:
+                    apply_vbr_preset(gfp, 9, enforce);
+                    return preset;
+                case Lame.V8:
+                    apply_vbr_preset(gfp, 8, enforce);
+                    return preset;
+                case Lame.V7:
+                    apply_vbr_preset(gfp, 7, enforce);
+                    return preset;
+                case Lame.V6:
+                    apply_vbr_preset(gfp, 6, enforce);
+                    return preset;
+                case Lame.V5:
+                    apply_vbr_preset(gfp, 5, enforce);
+                    return preset;
+                case Lame.V4:
+                    apply_vbr_preset(gfp, 4, enforce);
+                    return preset;
+                case Lame.V3:
+                    apply_vbr_preset(gfp, 3, enforce);
+                    return preset;
+                case Lame.V2:
+                    apply_vbr_preset(gfp, 2, enforce);
+                    return preset;
+                case Lame.V1:
+                    apply_vbr_preset(gfp, 1, enforce);
+                    return preset;
+                case Lame.V0:
+                    apply_vbr_preset(gfp, 0, enforce);
+                    return preset;
+                default:
+                    break;
+            }
+        }
+        if (8 <= preset && preset <= 320) {
+            return apply_abr_preset(gfp, preset, enforce);
+        }
+
+        /* no corresponding preset found */
+        gfp.preset = 0;
+        return preset;
+    }
+
+    // Rest from getset.c:
+
+    /**
+     * VBR quality level.<BR>
+     * 0 = highest<BR>
+     * 9 = lowest
+     */
+    function lame_set_VBR_q(gfp, VBR_q) {
+        var ret = 0;
+
+        if (0 > VBR_q) {
+            /* Unknown VBR quality level! */
+            ret = -1;
+            VBR_q = 0;
+        }
+        if (9 < VBR_q) {
+            ret = -1;
+            VBR_q = 9;
+        }
+
+        gfp.VBR_q = VBR_q;
+        gfp.VBR_q_frac = 0;
+        return ret;
+    }
+
+}
+
 /*
  *  ReplayGainAnalysis - analyzes input samples and give the recommended dB change
  *  Copyright (C) 2001 David Robinson and Glen Sawyer
@@ -800,475 +1271,294 @@ function GainAnalysis() {
 
 }
 
+/*
+ *      bit reservoir source file
+ *
+ *      Copyright (c) 1999-2000 Mark Taylor
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the
+ * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ * Boston, MA 02111-1307, USA.
+ */
 
-function Presets() {
-    function VBRPresets(qual, comp, compS,
-                        y, shThreshold, shThresholdS,
-                        adj, adjShort, lower,
-                        curve, sens, inter,
-                        joint, mod, fix) {
-        this.vbr_q = qual;
-        this.quant_comp = comp;
-        this.quant_comp_s = compS;
-        this.expY = y;
-        this.st_lrm = shThreshold;
-        this.st_s = shThresholdS;
-        this.masking_adj = adj;
-        this.masking_adj_short = adjShort;
-        this.ath_lower = lower;
-        this.ath_curve = curve;
-        this.ath_sensitivity = sens;
-        this.interch = inter;
-        this.safejoint = joint;
-        this.sfb21mod = mod;
-        this.msfix = fix;
-    }
+/* $Id: Reservoir.java,v 1.9 2011/05/24 20:48:06 kenchis Exp $ */
 
-    function ABRPresets(kbps, comp, compS,
-                        joint, fix, shThreshold,
-                        shThresholdS, bass, sc,
-                        mask, lower, curve,
-                        interCh, sfScale) {
-        this.quant_comp = comp;
-        this.quant_comp_s = compS;
-        this.safejoint = joint;
-        this.nsmsfix = fix;
-        this.st_lrm = shThreshold;
-        this.st_s = shThresholdS;
-        this.nsbass = bass;
-        this.scale = sc;
-        this.masking_adj = mask;
-        this.ath_lower = lower;
-        this.ath_curve = curve;
-        this.interch = interCh;
-        this.sfscale = sfScale;
-    }
+//package mp3;
 
-    var lame;
+/**
+ * ResvFrameBegin:<BR>
+ * Called (repeatedly) at the beginning of a frame. Updates the maximum size of
+ * the reservoir, and checks to make sure main_data_begin was set properly by
+ * the formatter<BR>
+ * Background information:
+ * 
+ * This is the original text from the ISO standard. Because of sooo many bugs
+ * and irritations correcting comments are added in brackets []. A '^W' means
+ * you should remove the last word.
+ * 
+ * <PRE>
+ *  1. The following rule can be used to calculate the maximum
+ *     number of bits used for one granule [^W frame]:<BR>
+ *     At the highest possible bitrate of Layer III (320 kbps
+ *     per stereo signal [^W^W^W], 48 kHz) the frames must be of
+ *     [^W^W^W are designed to have] constant length, i.e.
+ *     one buffer [^W^W the frame] length is:<BR>
+ * 
+ *         320 kbps * 1152/48 kHz = 7680 bit = 960 byte
+ * 
+ *     This value is used as the maximum buffer per channel [^W^W] at
+ *     lower bitrates [than 320 kbps]. At 64 kbps mono or 128 kbps
+ *     stereo the main granule length is 64 kbps * 576/48 kHz = 768 bit
+ *     [per granule and channel] at 48 kHz sampling frequency.
+ *     This means that there is a maximum deviation (short time buffer
+ *     [= reservoir]) of 7680 - 2*2*768 = 4608 bits is allowed at 64 kbps.
+ *     The actual deviation is equal to the number of bytes [with the
+ *     meaning of octets] denoted by the main_data_end offset pointer.
+ *     The actual maximum deviation is (2^9-1)*8 bit = 4088 bits
+ *     [for MPEG-1 and (2^8-1)*8 bit for MPEG-2, both are hard limits].
+ *     ... The xchange of buffer bits between the left and right channel
+ *     is allowed without restrictions [exception: dual channel].
+ *     Because of the [constructed] constraint on the buffer size
+ *     main_data_end is always set to 0 in the case of bit_rate_index==14,
+ *     i.e. data rate 320 kbps per stereo signal [^W^W^W]. In this case
+ *     all data are allocated between adjacent header [^W sync] words
+ *     [, i.e. there is no buffering at all].
+ * </PRE>
+ */
 
-    this.setModules = function (_lame) {
-        lame = _lame;
-    };
 
-    /**
-     * <PRE>
-     * Switch mappings for VBR mode VBR_RH
-     *             vbr_q  qcomp_l  qcomp_s  expY  st_lrm   st_s  mask adj_l  adj_s  ath_lower  ath_curve  ath_sens  interChR  safejoint sfb21mod  msfix
-     * </PRE>
-     */
-    var vbr_old_switch_map = [
-        new VBRPresets(0, 9, 9, 0, 5.20, 125.0, -4.2, -6.3, 4.8, 1, 0, 0, 2, 21, 0.97),
-        new VBRPresets(1, 9, 9, 0, 5.30, 125.0, -3.6, -5.6, 4.5, 1.5, 0, 0, 2, 21, 1.35),
-        new VBRPresets(2, 9, 9, 0, 5.60, 125.0, -2.2, -3.5, 2.8, 2, 0, 0, 2, 21, 1.49),
-        new VBRPresets(3, 9, 9, 1, 5.80, 130.0, -1.8, -2.8, 2.6, 3, -4, 0, 2, 20, 1.64),
-        new VBRPresets(4, 9, 9, 1, 6.00, 135.0, -0.7, -1.1, 1.1, 3.5, -8, 0, 2, 0, 1.79),
-        new VBRPresets(5, 9, 9, 1, 6.40, 140.0, 0.5, 0.4, -7.5, 4, -12, 0.0002, 0, 0, 1.95),
-        new VBRPresets(6, 9, 9, 1, 6.60, 145.0, 0.67, 0.65, -14.7, 6.5, -19, 0.0004, 0, 0, 2.30),
-        new VBRPresets(7, 9, 9, 1, 6.60, 145.0, 0.8, 0.75, -19.7, 8, -22, 0.0006, 0, 0, 2.70),
-        new VBRPresets(8, 9, 9, 1, 6.60, 145.0, 1.2, 1.15, -27.5, 10, -23, 0.0007, 0, 0, 0),
-        new VBRPresets(9, 9, 9, 1, 6.60, 145.0, 1.6, 1.6, -36, 11, -25, 0.0008, 0, 0, 0),
-        new VBRPresets(10, 9, 9, 1, 6.60, 145.0, 2.0, 2.0, -36, 12, -25, 0.0008, 0, 0, 0)
-    ];
+function Reservoir() {
+	var bs;
 
-    /**
-     * <PRE>
-     *                 vbr_q  qcomp_l  qcomp_s  expY  st_lrm   st_s  mask adj_l  adj_s  ath_lower  ath_curve  ath_sens  interChR  safejoint sfb21mod  msfix
-     * </PRE>
-     */
-    var vbr_psy_switch_map = [
-        new VBRPresets(0, 9, 9, 0, 4.20, 25.0, -7.0, -4.0, 7.5, 1, 0, 0, 2, 26, 0.97),
-        new VBRPresets(1, 9, 9, 0, 4.20, 25.0, -5.6, -3.6, 4.5, 1.5, 0, 0, 2, 21, 1.35),
-        new VBRPresets(2, 9, 9, 0, 4.20, 25.0, -4.4, -1.8, 2, 2, 0, 0, 2, 18, 1.49),
-        new VBRPresets(3, 9, 9, 1, 4.20, 25.0, -3.4, -1.25, 1.1, 3, -4, 0, 2, 15, 1.64),
-        new VBRPresets(4, 9, 9, 1, 4.20, 25.0, -2.2, 0.1, 0, 3.5, -8, 0, 2, 0, 1.79),
-        new VBRPresets(5, 9, 9, 1, 4.20, 25.0, -1.0, 1.65, -7.7, 4, -12, 0.0002, 0, 0, 1.95),
-        new VBRPresets(6, 9, 9, 1, 4.20, 25.0, -0.0, 2.47, -7.7, 6.5, -19, 0.0004, 0, 0, 2),
-        new VBRPresets(7, 9, 9, 1, 4.20, 25.0, 0.5, 2.0, -14.5, 8, -22, 0.0006, 0, 0, 2),
-        new VBRPresets(8, 9, 9, 1, 4.20, 25.0, 1.0, 2.4, -22.0, 10, -23, 0.0007, 0, 0, 2),
-        new VBRPresets(9, 9, 9, 1, 4.20, 25.0, 1.5, 2.95, -30.0, 11, -25, 0.0008, 0, 0, 2),
-        new VBRPresets(10, 9, 9, 1, 4.20, 25.0, 2.0, 2.95, -36.0, 12, -30, 0.0008, 0, 0, 2)
-    ];
+	this.setModules  = function(_bs) {
+		bs = _bs;
+	}
 
-    function apply_vbr_preset(gfp, a, enforce) {
-        var vbr_preset = gfp.VBR == VbrMode.vbr_rh ? vbr_old_switch_map
-            : vbr_psy_switch_map;
+	this.ResvFrameBegin = function(gfp, mean_bits) {
+		var gfc = gfp.internal_flags;
+		var maxmp3buf;
+		var l3_side = gfc.l3_side;
 
-        var x = gfp.VBR_q_frac;
-        var p = vbr_preset[a];
-        var q = vbr_preset[a + 1];
-        var set = p;
+		var frameLength = bs.getframebits(gfp);
+		mean_bits.bits = (frameLength - gfc.sideinfo_len * 8) / gfc.mode_gr;
 
-        // NOOP(vbr_q);
-        // NOOP(quant_comp);
-        // NOOP(quant_comp_s);
-        // NOOP(expY);
-        p.st_lrm = p.st_lrm + x * (q.st_lrm - p.st_lrm);
-        // LERP(st_lrm);
-        p.st_s = p.st_s + x * (q.st_s - p.st_s);
-        // LERP(st_s);
-        p.masking_adj = p.masking_adj + x * (q.masking_adj - p.masking_adj);
-        // LERP(masking_adj);
-        p.masking_adj_short = p.masking_adj_short + x
-            * (q.masking_adj_short - p.masking_adj_short);
-        // LERP(masking_adj_short);
-        p.ath_lower = p.ath_lower + x * (q.ath_lower - p.ath_lower);
-        // LERP(ath_lower);
-        p.ath_curve = p.ath_curve + x * (q.ath_curve - p.ath_curve);
-        // LERP(ath_curve);
-        p.ath_sensitivity = p.ath_sensitivity + x
-            * (q.ath_sensitivity - p.ath_sensitivity);
-        // LERP(ath_sensitivity);
-        p.interch = p.interch + x * (q.interch - p.interch);
-        // LERP(interch);
-        // NOOP(safejoint);
-        // NOOP(sfb21mod);
-        p.msfix = p.msfix + x * (q.msfix - p.msfix);
-        // LERP(msfix);
+		/**
+		 * <PRE>
+		 *  Meaning of the variables:
+		 *      resvLimit: (0, 8, ..., 8*255 (MPEG-2), 8*511 (MPEG-1))
+		 *          Number of bits can be stored in previous frame(s) due to
+		 *          counter size constaints
+		 *      maxmp3buf: ( ??? ... 8*1951 (MPEG-1 and 2), 8*2047 (MPEG-2.5))
+		 *          Number of bits allowed to encode one frame (you can take 8*511 bit
+		 *          from the bit reservoir and at most 8*1440 bit from the current
+		 *          frame (320 kbps, 32 kHz), so 8*1951 bit is the largest possible
+		 *          value for MPEG-1 and -2)
+		 * 
+		 *          maximum allowed granule/channel size times 4 = 8*2047 bits.,
+		 *          so this is the absolute maximum supported by the format.
+		 * 
+		 * 
+		 *      fullFrameBits:  maximum number of bits available for encoding
+		 *                      the current frame.
+		 * 
+		 *      mean_bits:      target number of bits per granule.
+		 * 
+		 *      frameLength:
+		 * 
+		 *      gfc.ResvMax:   maximum allowed reservoir
+		 * 
+		 *      gfc.ResvSize:  current reservoir size
+		 * 
+		 *      l3_side.resvDrain_pre:
+		 *         ancillary data to be added to previous frame:
+		 *         (only usefull in VBR modes if it is possible to have
+		 *         maxmp3buf < fullFrameBits)).  Currently disabled,
+		 *         see #define NEW_DRAIN
+		 *         2010-02-13: RH now enabled, it seems to be needed for CBR too,
+		 *                     as there exists one example, where the FhG decoder
+		 *                     can't decode a -b320 CBR file anymore.
+		 * 
+		 *      l3_side.resvDrain_post:
+		 *         ancillary data to be added to this frame:
+		 * 
+		 * </PRE>
+		 */
 
-        lame_set_VBR_q(gfp, set.vbr_q);
+		/* main_data_begin has 9 bits in MPEG-1, 8 bits MPEG-2 */
+		var resvLimit = (8 * 256) * gfc.mode_gr - 8;
 
-        if (enforce != 0)
-            gfp.quant_comp = set.quant_comp;
-        else if (!(Math.abs(gfp.quant_comp - -1) > 0))
-            gfp.quant_comp = set.quant_comp;
-        // SET_OPTION(quant_comp, set.quant_comp, -1);
-        if (enforce != 0)
-            gfp.quant_comp_short = set.quant_comp_s;
-        else if (!(Math.abs(gfp.quant_comp_short - -1) > 0))
-            gfp.quant_comp_short = set.quant_comp_s;
-        // SET_OPTION(quant_comp_short, set.quant_comp_s, -1);
-        if (set.expY != 0) {
-            gfp.experimentalY = set.expY != 0;
-        }
-        if (enforce != 0)
-            gfp.internal_flags.nsPsy.attackthre = set.st_lrm;
-        else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre - -1) > 0))
-            gfp.internal_flags.nsPsy.attackthre = set.st_lrm;
-        // SET_OPTION(short_threshold_lrm, set.st_lrm, -1);
-        if (enforce != 0)
-            gfp.internal_flags.nsPsy.attackthre_s = set.st_s;
-        else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre_s - -1) > 0))
-            gfp.internal_flags.nsPsy.attackthre_s = set.st_s;
-        // SET_OPTION(short_threshold_s, set.st_s, -1);
-        if (enforce != 0)
-            gfp.maskingadjust = set.masking_adj;
-        else if (!(Math.abs(gfp.maskingadjust - 0) > 0))
-            gfp.maskingadjust = set.masking_adj;
-        // SET_OPTION(maskingadjust, set.masking_adj, 0);
-        if (enforce != 0)
-            gfp.maskingadjust_short = set.masking_adj_short;
-        else if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
-            gfp.maskingadjust_short = set.masking_adj_short;
-        // SET_OPTION(maskingadjust_short, set.masking_adj_short, 0);
-        if (enforce != 0)
-            gfp.ATHlower = -set.ath_lower / 10.0;
-        else if (!(Math.abs((-gfp.ATHlower * 10.0) - 0) > 0))
-            gfp.ATHlower = -set.ath_lower / 10.0;
-        // SET_OPTION(ATHlower, set.ath_lower, 0);
-        if (enforce != 0)
-            gfp.ATHcurve = set.ath_curve;
-        else if (!(Math.abs(gfp.ATHcurve - -1) > 0))
-            gfp.ATHcurve = set.ath_curve;
-        // SET_OPTION(ATHcurve, set.ath_curve, -1);
-        if (enforce != 0)
-            gfp.athaa_sensitivity = set.ath_sensitivity;
-        else if (!(Math.abs(gfp.athaa_sensitivity - -1) > 0))
-            gfp.athaa_sensitivity = set.ath_sensitivity;
-        // SET_OPTION(athaa_sensitivity, set.ath_sensitivity, 0);
-        if (set.interch > 0) {
-            if (enforce != 0)
-                gfp.interChRatio = set.interch;
-            else if (!(Math.abs(gfp.interChRatio - -1) > 0))
-                gfp.interChRatio = set.interch;
-            // SET_OPTION(interChRatio, set.interch, -1);
-        }
+		/*
+		 * maximum allowed frame size. dont use more than this number of bits,
+		 * even if the frame has the space for them:
+		 */
+		if (gfp.brate > 320) {
+			/* in freeformat the buffer is constant */
+			maxmp3buf = 8 * ((int) ((gfp.brate * 1000)
+					/ (gfp.out_samplerate / 1152) / 8 + .5));
+		} else {
+			/*
+			 * all mp3 decoders should have enough buffer to handle this value:
+			 * size of a 320kbps 32kHz frame
+			 */
+			maxmp3buf = 8 * 1440;
 
-        /* parameters for which there is no proper set/get interface */
-        if (set.safejoint > 0) {
-            gfp.exp_nspsytune = gfp.exp_nspsytune | set.safejoint;
-        }
-        if (set.sfb21mod > 0) {
-            gfp.exp_nspsytune = gfp.exp_nspsytune | (set.sfb21mod << 20);
-        }
-        if (enforce != 0)
-            gfp.msfix = set.msfix;
-        else if (!(Math.abs(gfp.msfix - -1) > 0))
-            gfp.msfix = set.msfix;
-        // SET_OPTION(msfix, set.msfix, -1);
+			/*
+			 * Bouvigne suggests this more lax interpretation of the ISO doc
+			 * instead of using 8*960.
+			 */
 
-        if (enforce == 0) {
-            gfp.VBR_q = a;
-            gfp.VBR_q_frac = x;
-        }
-    }
+			if (gfp.strict_ISO) {
+				maxmp3buf = 8 * ((int) (320000 / (gfp.out_samplerate / 1152) / 8 + .5));
+			}
+		}
 
-    /**
-     * <PRE>
-     *  Switch mappings for ABR mode
-     *
-     *              kbps  quant q_s safejoint nsmsfix st_lrm  st_s  ns-bass scale   msk ath_lwr ath_curve  interch , sfscale
-     * </PRE>
-     */
-    var abr_switch_map = [
-        new ABRPresets(8, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -30.0, 11, 0.0012, 1), /*   8, impossible to use in stereo */
-        new ABRPresets(16, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -25.0, 11, 0.0010, 1), /*  16 */
-        new ABRPresets(24, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -20.0, 11, 0.0010, 1), /*  24 */
-        new ABRPresets(32, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -15.0, 11, 0.0010, 1), /*  32 */
-        new ABRPresets(40, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -10.0, 11, 0.0009, 1), /*  40 */
-        new ABRPresets(48, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -10.0, 11, 0.0009, 1), /*  48 */
-        new ABRPresets(56, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -6.0, 11, 0.0008, 1), /*  56 */
-        new ABRPresets(64, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, -2.0, 11, 0.0008, 1), /*  64 */
-        new ABRPresets(80, 9, 9, 0, 0, 6.60, 145, 0, 0.95, 0, .0, 8, 0.0007, 1), /*  80 */
-        new ABRPresets(96, 9, 9, 0, 2.50, 6.60, 145, 0, 0.95, 0, 1.0, 5.5, 0.0006, 1), /*  96 */
-        new ABRPresets(112, 9, 9, 0, 2.25, 6.60, 145, 0, 0.95, 0, 2.0, 4.5, 0.0005, 1), /* 112 */
-        new ABRPresets(128, 9, 9, 0, 1.95, 6.40, 140, 0, 0.95, 0, 3.0, 4, 0.0002, 1), /* 128 */
-        new ABRPresets(160, 9, 9, 1, 1.79, 6.00, 135, 0, 0.95, -2, 5.0, 3.5, 0, 1), /* 160 */
-        new ABRPresets(192, 9, 9, 1, 1.49, 5.60, 125, 0, 0.97, -4, 7.0, 3, 0, 0), /* 192 */
-        new ABRPresets(224, 9, 9, 1, 1.25, 5.20, 125, 0, 0.98, -6, 9.0, 2, 0, 0), /* 224 */
-        new ABRPresets(256, 9, 9, 1, 0.97, 5.20, 125, 0, 1.00, -8, 10.0, 1, 0, 0), /* 256 */
-        new ABRPresets(320, 9, 9, 1, 0.90, 5.20, 125, 0, 1.00, -10, 12.0, 0, 0, 0)  /* 320 */
-    ];
+		gfc.ResvMax = maxmp3buf - frameLength;
+		if (gfc.ResvMax > resvLimit)
+			gfc.ResvMax = resvLimit;
+		if (gfc.ResvMax < 0 || gfp.disable_reservoir)
+			gfc.ResvMax = 0;
 
-    function apply_abr_preset(gfp, preset, enforce) {
-        /* Variables for the ABR stuff */
-        var actual_bitrate = preset;
+		var fullFrameBits = mean_bits.bits * gfc.mode_gr
+				+ Math.min(gfc.ResvSize, gfc.ResvMax);
 
-        var r = lame.nearestBitrateFullIndex(preset);
+		if (fullFrameBits > maxmp3buf)
+			fullFrameBits = maxmp3buf;
 
-        gfp.VBR = VbrMode.vbr_abr;
-        gfp.VBR_mean_bitrate_kbps = actual_bitrate;
-        gfp.VBR_mean_bitrate_kbps = Math.min(gfp.VBR_mean_bitrate_kbps, 320);
-        gfp.VBR_mean_bitrate_kbps = Math.max(gfp.VBR_mean_bitrate_kbps, 8);
-        gfp.brate = gfp.VBR_mean_bitrate_kbps;
-        if (gfp.VBR_mean_bitrate_kbps > 320) {
-            gfp.disable_reservoir = true;
-        }
 
-        /* parameters for which there is no proper set/get interface */
-        if (abr_switch_map[r].safejoint > 0)
-            gfp.exp_nspsytune = gfp.exp_nspsytune | 2;
-        /* safejoint */
+		l3_side.resvDrain_pre = 0;
 
-        if (abr_switch_map[r].sfscale > 0) {
-            gfp.internal_flags.noise_shaping = 2;
-        }
-        /* ns-bass tweaks */
-        if (Math.abs(abr_switch_map[r].nsbass) > 0) {
-            var k = (int)(abr_switch_map[r].nsbass * 4);
-            if (k < 0)
-                k += 64;
-            gfp.exp_nspsytune = gfp.exp_nspsytune | (k << 2);
-        }
+		// frame analyzer code
+		if (gfc.pinfo != null) {
+			/*
+			 * expected bits per channel per granule [is this also right for
+			 * mono/stereo, MPEG-1/2 ?]
+			 */
+			gfc.pinfo.mean_bits = mean_bits.bits / 2;
+			gfc.pinfo.resvsize = gfc.ResvSize;
+		}
 
-        if (enforce != 0)
-            gfp.quant_comp = abr_switch_map[r].quant_comp;
-        else if (!(Math.abs(gfp.quant_comp - -1) > 0))
-            gfp.quant_comp = abr_switch_map[r].quant_comp;
-        // SET_OPTION(quant_comp, abr_switch_map[r].quant_comp, -1);
-        if (enforce != 0)
-            gfp.quant_comp_short = abr_switch_map[r].quant_comp_s;
-        else if (!(Math.abs(gfp.quant_comp_short - -1) > 0))
-            gfp.quant_comp_short = abr_switch_map[r].quant_comp_s;
-        // SET_OPTION(quant_comp_short, abr_switch_map[r].quant_comp_s, -1);
+		return fullFrameBits;
+	}
 
-        if (enforce != 0)
-            gfp.msfix = abr_switch_map[r].nsmsfix;
-        else if (!(Math.abs(gfp.msfix - -1) > 0))
-            gfp.msfix = abr_switch_map[r].nsmsfix;
-        // SET_OPTION(msfix, abr_switch_map[r].nsmsfix, -1);
+	/**
+	 * returns targ_bits: target number of bits to use for 1 granule<BR>
+	 * extra_bits: amount extra available from reservoir<BR>
+	 * Mark Taylor 4/99
+	 */
+	this.ResvMaxBits = function(gfp, mean_bits, targ_bits, cbr) {
+		var gfc = gfp.internal_flags;
+		var add_bits;
+        var ResvSize = gfc.ResvSize, ResvMax = gfc.ResvMax;
 
-        if (enforce != 0)
-            gfp.internal_flags.nsPsy.attackthre = abr_switch_map[r].st_lrm;
-        else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre - -1) > 0))
-            gfp.internal_flags.nsPsy.attackthre = abr_switch_map[r].st_lrm;
-        // SET_OPTION(short_threshold_lrm, abr_switch_map[r].st_lrm, -1);
-        if (enforce != 0)
-            gfp.internal_flags.nsPsy.attackthre_s = abr_switch_map[r].st_s;
-        else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre_s - -1) > 0))
-            gfp.internal_flags.nsPsy.attackthre_s = abr_switch_map[r].st_s;
-        // SET_OPTION(short_threshold_s, abr_switch_map[r].st_s, -1);
+		/* compensate the saved bits used in the 1st granule */
+		if (cbr != 0)
+			ResvSize += mean_bits;
 
-        /*
-         * ABR seems to have big problems with clipping, especially at low
-         * bitrates
-         */
-        /*
-         * so we compensate for that here by using a scale value depending on
-         * bitrate
-         */
-        if (enforce != 0)
-            gfp.scale = abr_switch_map[r].scale;
-        else if (!(Math.abs(gfp.scale - -1) > 0))
-            gfp.scale = abr_switch_map[r].scale;
-        // SET_OPTION(scale, abr_switch_map[r].scale, -1);
+		if ((gfc.substep_shaping & 1) != 0)
+			ResvMax *= 0.9;
 
-        if (enforce != 0)
-            gfp.maskingadjust = abr_switch_map[r].masking_adj;
-        else if (!(Math.abs(gfp.maskingadjust - 0) > 0))
-            gfp.maskingadjust = abr_switch_map[r].masking_adj;
-        // SET_OPTION(maskingadjust, abr_switch_map[r].masking_adj, 0);
-        if (abr_switch_map[r].masking_adj > 0) {
-            if (enforce != 0)
-                gfp.maskingadjust_short = (abr_switch_map[r].masking_adj * .9);
-            else if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
-                gfp.maskingadjust_short = (abr_switch_map[r].masking_adj * .9);
-            // SET_OPTION(maskingadjust_short, abr_switch_map[r].masking_adj *
-            // .9, 0);
-        } else {
-            if (enforce != 0)
-                gfp.maskingadjust_short = (abr_switch_map[r].masking_adj * 1.1);
-            else if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
-                gfp.maskingadjust_short = (abr_switch_map[r].masking_adj * 1.1);
-            // SET_OPTION(maskingadjust_short, abr_switch_map[r].masking_adj *
-            // 1.1, 0);
-        }
+		targ_bits.bits = mean_bits;
 
-        if (enforce != 0)
-            gfp.ATHlower = -abr_switch_map[r].ath_lower / 10.;
-        else if (!(Math.abs((-gfp.ATHlower * 10.) - 0) > 0))
-            gfp.ATHlower = -abr_switch_map[r].ath_lower / 10.;
-        // SET_OPTION(ATHlower, abr_switch_map[r].ath_lower, 0);
-        if (enforce != 0)
-            gfp.ATHcurve = abr_switch_map[r].ath_curve;
-        else if (!(Math.abs(gfp.ATHcurve - -1) > 0))
-            gfp.ATHcurve = abr_switch_map[r].ath_curve;
-        // SET_OPTION(ATHcurve, abr_switch_map[r].ath_curve, -1);
+		/* extra bits if the reservoir is almost full */
+		if (ResvSize * 10 > ResvMax * 9) {
+			add_bits = ResvSize - (ResvMax * 9) / 10;
+			targ_bits.bits += add_bits;
+			gfc.substep_shaping |= 0x80;
+		} else {
+			add_bits = 0;
+			gfc.substep_shaping &= 0x7f;
+			/*
+			 * build up reservoir. this builds the reservoir a little slower
+			 * than FhG. It could simple be mean_bits/15, but this was rigged to
+			 * always produce 100 (the old value) at 128kbs
+			 */
+			if (!gfp.disable_reservoir && 0 == (gfc.substep_shaping & 1))
+				targ_bits.bits -= .1 * mean_bits;
+		}
 
-        if (enforce != 0)
-            gfp.interChRatio = abr_switch_map[r].interch;
-        else if (!(Math.abs(gfp.interChRatio - -1) > 0))
-            gfp.interChRatio = abr_switch_map[r].interch;
-        // SET_OPTION(interChRatio, abr_switch_map[r].interch, -1);
+		/* amount from the reservoir we are allowed to use. ISO says 6/10 */
+		var extra_bits = (ResvSize < (gfc.ResvMax * 6) / 10 ? ResvSize
+				: (gfc.ResvMax * 6) / 10);
+		extra_bits -= add_bits;
 
-        return preset;
-    }
+		if (extra_bits < 0)
+			extra_bits = 0;
+		return extra_bits;
+	}
 
-    this.apply_preset = function(gfp, preset, enforce) {
-        /* translate legacy presets */
-        switch (preset) {
-            case Lame.R3MIX:
-            {
-                preset = Lame.V3;
-                gfp.VBR = VbrMode.vbr_mtrh;
-                break;
-            }
-            case Lame.MEDIUM:
-            {
-                preset = Lame.V4;
-                gfp.VBR = VbrMode.vbr_rh;
-                break;
-            }
-            case Lame.MEDIUM_FAST:
-            {
-                preset = Lame.V4;
-                gfp.VBR = VbrMode.vbr_mtrh;
-                break;
-            }
-            case Lame.STANDARD:
-            {
-                preset = Lame.V2;
-                gfp.VBR = VbrMode.vbr_rh;
-                break;
-            }
-            case Lame.STANDARD_FAST:
-            {
-                preset = Lame.V2;
-                gfp.VBR = VbrMode.vbr_mtrh;
-                break;
-            }
-            case Lame.EXTREME:
-            {
-                preset = Lame.V0;
-                gfp.VBR = VbrMode.vbr_rh;
-                break;
-            }
-            case Lame.EXTREME_FAST:
-            {
-                preset = Lame.V0;
-                gfp.VBR = VbrMode.vbr_mtrh;
-                break;
-            }
-            case Lame.INSANE:
-            {
-                preset = 320;
-                gfp.preset = preset;
-                apply_abr_preset(gfp, preset, enforce);
-                gfp.VBR = VbrMode.vbr_off;
-                return preset;
-            }
-        }
+	/**
+	 * Called after a granule's bit allocation. Readjusts the size of the
+	 * reservoir to reflect the granule's usage.
+	 */
+	this.ResvAdjust = function(gfc, gi) {
+		gfc.ResvSize -= gi.part2_3_length + gi.part2_length;
+	}
 
-        gfp.preset = preset;
-        {
-            switch (preset) {
-                case Lame.V9:
-                    apply_vbr_preset(gfp, 9, enforce);
-                    return preset;
-                case Lame.V8:
-                    apply_vbr_preset(gfp, 8, enforce);
-                    return preset;
-                case Lame.V7:
-                    apply_vbr_preset(gfp, 7, enforce);
-                    return preset;
-                case Lame.V6:
-                    apply_vbr_preset(gfp, 6, enforce);
-                    return preset;
-                case Lame.V5:
-                    apply_vbr_preset(gfp, 5, enforce);
-                    return preset;
-                case Lame.V4:
-                    apply_vbr_preset(gfp, 4, enforce);
-                    return preset;
-                case Lame.V3:
-                    apply_vbr_preset(gfp, 3, enforce);
-                    return preset;
-                case Lame.V2:
-                    apply_vbr_preset(gfp, 2, enforce);
-                    return preset;
-                case Lame.V1:
-                    apply_vbr_preset(gfp, 1, enforce);
-                    return preset;
-                case Lame.V0:
-                    apply_vbr_preset(gfp, 0, enforce);
-                    return preset;
-                default:
-                    break;
-            }
-        }
-        if (8 <= preset && preset <= 320) {
-            return apply_abr_preset(gfp, preset, enforce);
-        }
+	/**
+	 * Called after all granules in a frame have been allocated. Makes sure that
+	 * the reservoir size is within limits, possibly by adding stuffing bits.
+	 */
+	this.ResvFrameEnd = function(gfc, mean_bits) {
+		var over_bits;
+		var l3_side = gfc.l3_side;
 
-        /* no corresponding preset found */
-        gfp.preset = 0;
-        return preset;
-    }
+		gfc.ResvSize += mean_bits * gfc.mode_gr;
+		var stuffingBits = 0;
+		l3_side.resvDrain_post = 0;
+		l3_side.resvDrain_pre = 0;
 
-    // Rest from getset.c:
+		/* we must be byte aligned */
+		if ((over_bits = gfc.ResvSize % 8) != 0)
+			stuffingBits += over_bits;
 
-    /**
-     * VBR quality level.<BR>
-     * 0 = highest<BR>
-     * 9 = lowest
-     */
-    function lame_set_VBR_q(gfp, VBR_q) {
-        var ret = 0;
+		over_bits = (gfc.ResvSize - stuffingBits) - gfc.ResvMax;
+		if (over_bits > 0) {
+			stuffingBits += over_bits;
+		}
 
-        if (0 > VBR_q) {
-            /* Unknown VBR quality level! */
-            ret = -1;
-            VBR_q = 0;
-        }
-        if (9 < VBR_q) {
-            ret = -1;
-            VBR_q = 9;
-        }
-
-        gfp.VBR_q = VBR_q;
-        gfp.VBR_q_frac = 0;
-        return ret;
-    }
-
+		/*
+		 * NOTE: enabling the NEW_DRAIN code fixes some problems with FhG
+		 * decoder shipped with MS Windows operating systems. Using this, it is
+		 * even possible to use Gabriel's lax buffer consideration again, which
+		 * assumes, any decoder should have a buffer large enough for a 320 kbps
+		 * frame at 32 kHz sample rate.
+		 * 
+		 * old drain code: lame -b320 BlackBird.wav --. does not play with
+		 * GraphEdit.exe using FhG decoder V1.5 Build 50
+		 * 
+		 * new drain code: lame -b320 BlackBird.wav --. plays fine with
+		 * GraphEdit.exe using FhG decoder V1.5 Build 50
+		 * 
+		 * Robert Hegemann, 2010-02-13.
+		 */
+		/*
+		 * drain as many bits as possible into previous frame ancillary data In
+		 * particular, in VBR mode ResvMax may have changed, and we have to make
+		 * sure main_data_begin does not create a reservoir bigger than ResvMax
+		 * mt 4/00
+		 */
+		{
+			var mdb_bytes = Math.min(l3_side.main_data_begin * 8, stuffingBits) / 8;
+			l3_side.resvDrain_pre += 8 * mdb_bytes;
+			stuffingBits -= 8 * mdb_bytes;
+			gfc.ResvSize -= 8 * mdb_bytes;
+			l3_side.main_data_begin -= mdb_bytes;
+		}
+		/* drain the rest into this frames ancillary data */
+		l3_side.resvDrain_post += stuffingBits;
+		gfc.ResvSize -= stuffingBits;
+	}
 }
 
 /*
@@ -2412,296 +2702,6 @@ function Takehiro() {
             gfc.bv_scf[i - 1] = bv_index;
         }
     }
-}
-
-/*
- *      bit reservoir source file
- *
- *      Copyright (c) 1999-2000 Mark Taylor
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
- */
-
-/* $Id: Reservoir.java,v 1.9 2011/05/24 20:48:06 kenchis Exp $ */
-
-//package mp3;
-
-/**
- * ResvFrameBegin:<BR>
- * Called (repeatedly) at the beginning of a frame. Updates the maximum size of
- * the reservoir, and checks to make sure main_data_begin was set properly by
- * the formatter<BR>
- * Background information:
- * 
- * This is the original text from the ISO standard. Because of sooo many bugs
- * and irritations correcting comments are added in brackets []. A '^W' means
- * you should remove the last word.
- * 
- * <PRE>
- *  1. The following rule can be used to calculate the maximum
- *     number of bits used for one granule [^W frame]:<BR>
- *     At the highest possible bitrate of Layer III (320 kbps
- *     per stereo signal [^W^W^W], 48 kHz) the frames must be of
- *     [^W^W^W are designed to have] constant length, i.e.
- *     one buffer [^W^W the frame] length is:<BR>
- * 
- *         320 kbps * 1152/48 kHz = 7680 bit = 960 byte
- * 
- *     This value is used as the maximum buffer per channel [^W^W] at
- *     lower bitrates [than 320 kbps]. At 64 kbps mono or 128 kbps
- *     stereo the main granule length is 64 kbps * 576/48 kHz = 768 bit
- *     [per granule and channel] at 48 kHz sampling frequency.
- *     This means that there is a maximum deviation (short time buffer
- *     [= reservoir]) of 7680 - 2*2*768 = 4608 bits is allowed at 64 kbps.
- *     The actual deviation is equal to the number of bytes [with the
- *     meaning of octets] denoted by the main_data_end offset pointer.
- *     The actual maximum deviation is (2^9-1)*8 bit = 4088 bits
- *     [for MPEG-1 and (2^8-1)*8 bit for MPEG-2, both are hard limits].
- *     ... The xchange of buffer bits between the left and right channel
- *     is allowed without restrictions [exception: dual channel].
- *     Because of the [constructed] constraint on the buffer size
- *     main_data_end is always set to 0 in the case of bit_rate_index==14,
- *     i.e. data rate 320 kbps per stereo signal [^W^W^W]. In this case
- *     all data are allocated between adjacent header [^W sync] words
- *     [, i.e. there is no buffering at all].
- * </PRE>
- */
-
-
-function Reservoir() {
-	var bs;
-
-	this.setModules  = function(_bs) {
-		bs = _bs;
-	}
-
-	this.ResvFrameBegin = function(gfp, mean_bits) {
-		var gfc = gfp.internal_flags;
-		var maxmp3buf;
-		var l3_side = gfc.l3_side;
-
-		var frameLength = bs.getframebits(gfp);
-		mean_bits.bits = (frameLength - gfc.sideinfo_len * 8) / gfc.mode_gr;
-
-		/**
-		 * <PRE>
-		 *  Meaning of the variables:
-		 *      resvLimit: (0, 8, ..., 8*255 (MPEG-2), 8*511 (MPEG-1))
-		 *          Number of bits can be stored in previous frame(s) due to
-		 *          counter size constaints
-		 *      maxmp3buf: ( ??? ... 8*1951 (MPEG-1 and 2), 8*2047 (MPEG-2.5))
-		 *          Number of bits allowed to encode one frame (you can take 8*511 bit
-		 *          from the bit reservoir and at most 8*1440 bit from the current
-		 *          frame (320 kbps, 32 kHz), so 8*1951 bit is the largest possible
-		 *          value for MPEG-1 and -2)
-		 * 
-		 *          maximum allowed granule/channel size times 4 = 8*2047 bits.,
-		 *          so this is the absolute maximum supported by the format.
-		 * 
-		 * 
-		 *      fullFrameBits:  maximum number of bits available for encoding
-		 *                      the current frame.
-		 * 
-		 *      mean_bits:      target number of bits per granule.
-		 * 
-		 *      frameLength:
-		 * 
-		 *      gfc.ResvMax:   maximum allowed reservoir
-		 * 
-		 *      gfc.ResvSize:  current reservoir size
-		 * 
-		 *      l3_side.resvDrain_pre:
-		 *         ancillary data to be added to previous frame:
-		 *         (only usefull in VBR modes if it is possible to have
-		 *         maxmp3buf < fullFrameBits)).  Currently disabled,
-		 *         see #define NEW_DRAIN
-		 *         2010-02-13: RH now enabled, it seems to be needed for CBR too,
-		 *                     as there exists one example, where the FhG decoder
-		 *                     can't decode a -b320 CBR file anymore.
-		 * 
-		 *      l3_side.resvDrain_post:
-		 *         ancillary data to be added to this frame:
-		 * 
-		 * </PRE>
-		 */
-
-		/* main_data_begin has 9 bits in MPEG-1, 8 bits MPEG-2 */
-		var resvLimit = (8 * 256) * gfc.mode_gr - 8;
-
-		/*
-		 * maximum allowed frame size. dont use more than this number of bits,
-		 * even if the frame has the space for them:
-		 */
-		if (gfp.brate > 320) {
-			/* in freeformat the buffer is constant */
-			maxmp3buf = 8 * ((int) ((gfp.brate * 1000)
-					/ (gfp.out_samplerate / 1152) / 8 + .5));
-		} else {
-			/*
-			 * all mp3 decoders should have enough buffer to handle this value:
-			 * size of a 320kbps 32kHz frame
-			 */
-			maxmp3buf = 8 * 1440;
-
-			/*
-			 * Bouvigne suggests this more lax interpretation of the ISO doc
-			 * instead of using 8*960.
-			 */
-
-			if (gfp.strict_ISO) {
-				maxmp3buf = 8 * ((int) (320000 / (gfp.out_samplerate / 1152) / 8 + .5));
-			}
-		}
-
-		gfc.ResvMax = maxmp3buf - frameLength;
-		if (gfc.ResvMax > resvLimit)
-			gfc.ResvMax = resvLimit;
-		if (gfc.ResvMax < 0 || gfp.disable_reservoir)
-			gfc.ResvMax = 0;
-
-		var fullFrameBits = mean_bits.bits * gfc.mode_gr
-				+ Math.min(gfc.ResvSize, gfc.ResvMax);
-
-		if (fullFrameBits > maxmp3buf)
-			fullFrameBits = maxmp3buf;
-
-
-		l3_side.resvDrain_pre = 0;
-
-		// frame analyzer code
-		if (gfc.pinfo != null) {
-			/*
-			 * expected bits per channel per granule [is this also right for
-			 * mono/stereo, MPEG-1/2 ?]
-			 */
-			gfc.pinfo.mean_bits = mean_bits.bits / 2;
-			gfc.pinfo.resvsize = gfc.ResvSize;
-		}
-
-		return fullFrameBits;
-	}
-
-	/**
-	 * returns targ_bits: target number of bits to use for 1 granule<BR>
-	 * extra_bits: amount extra available from reservoir<BR>
-	 * Mark Taylor 4/99
-	 */
-	this.ResvMaxBits = function(gfp, mean_bits, targ_bits, cbr) {
-		var gfc = gfp.internal_flags;
-		var add_bits;
-        var ResvSize = gfc.ResvSize, ResvMax = gfc.ResvMax;
-
-		/* compensate the saved bits used in the 1st granule */
-		if (cbr != 0)
-			ResvSize += mean_bits;
-
-		if ((gfc.substep_shaping & 1) != 0)
-			ResvMax *= 0.9;
-
-		targ_bits.bits = mean_bits;
-
-		/* extra bits if the reservoir is almost full */
-		if (ResvSize * 10 > ResvMax * 9) {
-			add_bits = ResvSize - (ResvMax * 9) / 10;
-			targ_bits.bits += add_bits;
-			gfc.substep_shaping |= 0x80;
-		} else {
-			add_bits = 0;
-			gfc.substep_shaping &= 0x7f;
-			/*
-			 * build up reservoir. this builds the reservoir a little slower
-			 * than FhG. It could simple be mean_bits/15, but this was rigged to
-			 * always produce 100 (the old value) at 128kbs
-			 */
-			if (!gfp.disable_reservoir && 0 == (gfc.substep_shaping & 1))
-				targ_bits.bits -= .1 * mean_bits;
-		}
-
-		/* amount from the reservoir we are allowed to use. ISO says 6/10 */
-		var extra_bits = (ResvSize < (gfc.ResvMax * 6) / 10 ? ResvSize
-				: (gfc.ResvMax * 6) / 10);
-		extra_bits -= add_bits;
-
-		if (extra_bits < 0)
-			extra_bits = 0;
-		return extra_bits;
-	}
-
-	/**
-	 * Called after a granule's bit allocation. Readjusts the size of the
-	 * reservoir to reflect the granule's usage.
-	 */
-	this.ResvAdjust = function(gfc, gi) {
-		gfc.ResvSize -= gi.part2_3_length + gi.part2_length;
-	}
-
-	/**
-	 * Called after all granules in a frame have been allocated. Makes sure that
-	 * the reservoir size is within limits, possibly by adding stuffing bits.
-	 */
-	this.ResvFrameEnd = function(gfc, mean_bits) {
-		var over_bits;
-		var l3_side = gfc.l3_side;
-
-		gfc.ResvSize += mean_bits * gfc.mode_gr;
-		var stuffingBits = 0;
-		l3_side.resvDrain_post = 0;
-		l3_side.resvDrain_pre = 0;
-
-		/* we must be byte aligned */
-		if ((over_bits = gfc.ResvSize % 8) != 0)
-			stuffingBits += over_bits;
-
-		over_bits = (gfc.ResvSize - stuffingBits) - gfc.ResvMax;
-		if (over_bits > 0) {
-			stuffingBits += over_bits;
-		}
-
-		/*
-		 * NOTE: enabling the NEW_DRAIN code fixes some problems with FhG
-		 * decoder shipped with MS Windows operating systems. Using this, it is
-		 * even possible to use Gabriel's lax buffer consideration again, which
-		 * assumes, any decoder should have a buffer large enough for a 320 kbps
-		 * frame at 32 kHz sample rate.
-		 * 
-		 * old drain code: lame -b320 BlackBird.wav --. does not play with
-		 * GraphEdit.exe using FhG decoder V1.5 Build 50
-		 * 
-		 * new drain code: lame -b320 BlackBird.wav --. plays fine with
-		 * GraphEdit.exe using FhG decoder V1.5 Build 50
-		 * 
-		 * Robert Hegemann, 2010-02-13.
-		 */
-		/*
-		 * drain as many bits as possible into previous frame ancillary data In
-		 * particular, in VBR mode ResvMax may have changed, and we have to make
-		 * sure main_data_begin does not create a reservoir bigger than ResvMax
-		 * mt 4/00
-		 */
-		{
-			var mdb_bytes = Math.min(l3_side.main_data_begin * 8, stuffingBits) / 8;
-			l3_side.resvDrain_pre += 8 * mdb_bytes;
-			stuffingBits -= 8 * mdb_bytes;
-			gfc.ResvSize -= 8 * mdb_bytes;
-			l3_side.main_data_begin -= mdb_bytes;
-		}
-		/* drain the rest into this frames ancillary data */
-		l3_side.resvDrain_post += stuffingBits;
-		gfc.ResvSize -= stuffingBits;
-	}
 }
 
 
@@ -5442,6 +5442,68 @@ function LameGlobalFlags() {
 
 
 
+/**
+ * ATH related stuff, if something new ATH related has to be added, please plug
+ * it here into the ATH.
+ */
+function ATH() {
+    /**
+     * Method for the auto adjustment.
+     */
+    this.useAdjust = 0;
+    /**
+     * factor for tuning the (sample power) point below which adaptive threshold
+     * of hearing adjustment occurs
+     */
+    this.aaSensitivityP = 0.;
+    /**
+     * Lowering based on peak volume, 1 = no lowering.
+     */
+    this.adjust = 0.;
+    /**
+     * Limit for dynamic ATH adjust.
+     */
+    this.adjustLimit = 0.;
+    /**
+     * Determined to lower x dB each second.
+     */
+    this.decay = 0.;
+    /**
+     * Lowest ATH value.
+     */
+    this.floor = 0.;
+    /**
+     * ATH for sfbs in long blocks.
+     */
+    this.l = new_float(Encoder.SBMAX_l);
+    /**
+     * ATH for sfbs in short blocks.
+     */
+    this.s = new_float(Encoder.SBMAX_s);
+    /**
+     * ATH for partitioned sfb21 in long blocks.
+     */
+    this.psfb21 = new_float(Encoder.PSFB21);
+    /**
+     * ATH for partitioned sfb12 in short blocks.
+     */
+    this.psfb12 = new_float(Encoder.PSFB12);
+    /**
+     * ATH for long block convolution bands.
+     */
+    this.cb_l = new_float(Encoder.CBANDS);
+    /**
+     * ATH for short block convolution bands.
+     */
+    this.cb_s = new_float(Encoder.CBANDS);
+    /**
+     * Equal loudness weights (based on ATH).
+     */
+    this.eql_w = new_float(Encoder.BLKSIZE / 2);
+}
+
+
+
 function ReplayGain() {
     this.linprebuf = new_float(GainAnalysis.MAX_ORDER * 2);
     /**
@@ -5552,68 +5614,6 @@ function CBRNewIterationLoop(_quantize)  {
 		this.quantize.rv.ResvFrameEnd(gfc, mean_bits);
 	}
 }
-
-
-/**
- * ATH related stuff, if something new ATH related has to be added, please plug
- * it here into the ATH.
- */
-function ATH() {
-    /**
-     * Method for the auto adjustment.
-     */
-    this.useAdjust = 0;
-    /**
-     * factor for tuning the (sample power) point below which adaptive threshold
-     * of hearing adjustment occurs
-     */
-    this.aaSensitivityP = 0.;
-    /**
-     * Lowering based on peak volume, 1 = no lowering.
-     */
-    this.adjust = 0.;
-    /**
-     * Limit for dynamic ATH adjust.
-     */
-    this.adjustLimit = 0.;
-    /**
-     * Determined to lower x dB each second.
-     */
-    this.decay = 0.;
-    /**
-     * Lowest ATH value.
-     */
-    this.floor = 0.;
-    /**
-     * ATH for sfbs in long blocks.
-     */
-    this.l = new_float(Encoder.SBMAX_l);
-    /**
-     * ATH for sfbs in short blocks.
-     */
-    this.s = new_float(Encoder.SBMAX_s);
-    /**
-     * ATH for partitioned sfb21 in long blocks.
-     */
-    this.psfb21 = new_float(Encoder.PSFB21);
-    /**
-     * ATH for partitioned sfb12 in short blocks.
-     */
-    this.psfb12 = new_float(Encoder.PSFB12);
-    /**
-     * ATH for long block convolution bands.
-     */
-    this.cb_l = new_float(Encoder.CBANDS);
-    /**
-     * ATH for short block convolution bands.
-     */
-    this.cb_s = new_float(Encoder.CBANDS);
-    /**
-     * Equal loudness weights (based on ATH).
-     */
-    this.eql_w = new_float(Encoder.BLKSIZE / 2);
-}
-
 //package mp3;
 
 /**
@@ -8229,6 +8229,14 @@ function Quantize() {
 
 }
 
+//package mp3;
+
+
+function III_psy_ratio() {
+	this.thm = new III_psy_xmin();
+	this.en = new III_psy_xmin();
+}
+
 /*
  *      MP3 window subband -> subband filtering -> mdct routine
  *
@@ -9376,14 +9384,6 @@ function NewMDCT() {
 	}
 }
 
-//package mp3;
-
-
-function III_psy_ratio() {
-	this.thm = new III_psy_xmin();
-	this.en = new III_psy_xmin();
-}
-
 
 /**
  * ENCDELAY The encoder delay.
@@ -9859,7 +9859,7 @@ function Encoder() {
             /* no psy model */
             for (gr = 0; gr < gfc.mode_gr; gr++)
                 for (ch = 0; ch < gfc.channels_out; ch++) {
-                    gfc.l3_side.tt[gr][ch].block_type = Encoder.NORM_TYPE;
+                    gfc.l3_side.tt[gr][ch].block_type = NORM_TYPE;
                     gfc.l3_side.tt[gr][ch].mixed_block_flag = 0;
                     pe_MS[gr][ch] = pe[gr][ch] = 700;
                 }
@@ -15267,8 +15267,7 @@ function Lame() {
             joff = 0 | Math.floor((offset * 2 * bpc) + bpc + .5);
             var xvalue = 0.;
             for (i = 0; i <= filter_l; ++i) {
-		/* force integer index */
-                var j2 = 0 | (i + j - filter_l / 2); 
+                var j2 = i + j - filter_l / 2;
                 var y;
                 y = (j2 < 0) ? inbuf_old[BLACKSIZE + j2] : inbuf[in_bufferPos
                 + j2];
@@ -15343,6 +15342,7 @@ function Lame() {
     }
 
 }
+
 
 
 
@@ -15433,6 +15433,8 @@ function Mp3Encoder(channels, samplerate, kbps) {
     var mp3buf = new_byte(mp3buf_size);
 
     this.encodeBuffer = function (left, right) {
+
+
         if (channels == 1) {
             right = left;
         }
@@ -15442,13 +15444,17 @@ function Mp3Encoder(channels, samplerate, kbps) {
             mp3buf = new_byte(mp3buf_size);
         }
 
+        mp3buf = new_byte(mp3buf_size);             // Reset the buffer every time
+
         var _sz = lame.lame_encode_buffer(gfp, left, right, left.length, mp3buf, 0, mp3buf_size);
-        return new Int8Array(mp3buf.subarray(0, _sz));
+
+        console.log(_sz);
+        return mp3buf.subarray(0, _sz);
     };
 
     this.flush = function () {
         var _sz = lame.lame_encode_flush(gfp, mp3buf, 0, mp3buf_size);
-        return new Int8Array(mp3buf.subarray(0, _sz));
+        return mp3buf.subarray(0, _sz);
     };
 }
 
@@ -15492,6 +15498,7 @@ WavHeader.readHeader = function (dataView) {
             break;
         default:
             throw 'extended fmt chunk not implemented';
+            break;
     }
     pos += fmtLen;
     var data = WavHeader.data;
@@ -15509,10 +15516,81 @@ WavHeader.readHeader = function (dataView) {
     return w;
 };
 
+function testFullLength() {
+    var r = fs.readFileSync("testdata/IMG_0373.wav");
+    var sampleBuf = new Uint8Array(r).buffer;
+    var w = WavHeader.readHeader(new DataView(sampleBuf));
+    var samples = new Int16Array(sampleBuf, w.dataOffset, w.dataLen / 2);
+    var remaining = samples.length;
+    var lameEnc = new Mp3Encoder(); //w.channels, w.sampleRate, 128);
+    var maxSamples = 1152;
+
+    var fd = fs.openSync("testjs2.mp3", "w");
+    var time = new Date().getTime();
+    for (var i = 0; remaining >= maxSamples; i += maxSamples) {
+        var left = samples.subarray(i, i + maxSamples);
+        var right = samples.subarray(i, i + maxSamples);
+
+        var mp3buf = lameEnc.encodeBuffer(left, right);
+        if (mp3buf.length > 0) {
+            fs.writeSync(fd, new Buffer(mp3buf), 0, mp3buf.length);
+        }
+        remaining -= maxSamples;
+    }
+    var mp3buf = lameEnc.flush();
+    if (mp3buf.length > 0) {
+        fs.writeSync(fd, new Buffer(mp3buf), 0, mp3buf.length);
+    }
+    fs.closeSync(fd);
+    time = new Date().getTime() - time;
+    console.log('done in ' + time + 'msec');
+}
+
+function testStereo44100() {
+    var r1 = fs.readFileSync("testdata/Left44100.wav");
+    var r2 = fs.readFileSync("testdata/Right44100.wav");
+    var fd = fs.openSync("stereo.mp3", "w");
+
+    var sampleBuf1 = new Uint8Array(r1).buffer;
+    var sampleBuf2 = new Uint8Array(r2).buffer;
+    var w1 = WavHeader.readHeader(new DataView(sampleBuf1));
+    var w2 = WavHeader.readHeader(new DataView(sampleBuf2));
+
+    var samples1 = new Int16Array(sampleBuf1, w1.dataOffset, w1.dataLen / 2);
+    var samples2 = new Int16Array(sampleBuf2, w2.dataOffset, w2.dataLen / 2);
+    var remaining1 = samples1.length;
+    var remaining2 = samples2.length;
+
+    var lameEnc = new Mp3Encoder(2, w1.sampleRate, 128);
+    var maxSamples = 1152;
+
+    var time = new Date().getTime();
+    for (var i = 0; remaining1 >= maxSamples; i += maxSamples) {
+        var left = samples1.subarray(i, i + maxSamples);
+        var right = samples2.subarray(i, i + maxSamples);
+
+        var mp3buf = lameEnc.encodeBuffer(left, right);
+        if (mp3buf.length > 0) {
+            fs.writeSync(fd, new Buffer(mp3buf), 0, mp3buf.length);
+        }
+        remaining1 -= maxSamples;
+
+    }
+    var mp3buf = lameEnc.flush();
+    if (mp3buf.length > 0) {
+        fs.writeSync(fd, new Buffer(mp3buf), 0, mp3buf.length);
+    }
+    fs.closeSync(fd);
+    time = new Date().getTime() - time;
+    console.log('done in ' + time + 'msec');
+}
+
+//testStereo44100();
+//testFullLength();
 L3Side.SFBMAX = (Encoder.SBMAX_s * 3);
 //testFullLength();
-lamejs.Mp3Encoder = Mp3Encoder;
-lamejs.WavHeader = WavHeader;
+this.Mp3Encoder = Mp3Encoder;
+this.WavHeader = WavHeader;
 }
 //fs=require('fs');
-lamejs();
+//lamejs();
