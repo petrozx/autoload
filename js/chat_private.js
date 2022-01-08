@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             //     type: 'audio/mp3'
             // });
             const blob = new Mp3LameEncoder(121, 44)
-            blob.encode(audioChunks)
+            blob.encode(stream)
             const audioBlob = blob.finish("audio/mpeg")
             blob.cancel()
 
