@@ -126,8 +126,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     navigator.mediaDevices.getUserMedia({audio: true})
     .then(stream => {
-        const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/aac'});
-
+        const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/webm'});
+        console.log(MediaRecorder.isTypeSupported('audio/webm;codecs=opus'))
         document.querySelector('.mike').addEventListener('touchstart', function(e){
             e.preventDefault()
             mediaRecorder.start();
