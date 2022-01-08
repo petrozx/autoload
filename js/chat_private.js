@@ -59,46 +59,51 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
 
     let max;
+    let run = true;
     async function updateMessage() {
-        const mess = Array.from(messages?.querySelectorAll('div'))
-        const response = await update(max||0)
-        let newMes = "";
-        response.length&&response.forEach(el=>{
-            if (el['type'] == 'text') {
-                newMes = document.createElement('div')
-                newMes.dataset.id = el['id']
-                if(el['author'] == globalUser['success']){
-                    newMes.className = 'd-flex me-2 mb-2 justify-content-start';
-                } else {
-                    newMes.className = 'd-flex ms-2 mb-2 justify-content-end';
+        if(run) {
+            run = false
+            const mess = Array.from(messages?.querySelectorAll('div'))
+            const response = await update(max||0)
+            let newMes = "";
+            response.length&&response.forEach(el=>{
+                if (el['type'] == 'text') {
+                    newMes = document.createElement('div')
+                    newMes.dataset.id = el['id']
+                    if(el['author'] == globalUser['success']){
+                        newMes.className = 'd-flex me-2 mb-2 justify-content-start';
+                    } else {
+                        newMes.className = 'd-flex ms-2 mb-2 justify-content-end';
+                    }
+                    let name;
+                    usersALL.forEach(element => {
+                        if (element['id'] == el['author']) name = element['name']
+                    });
+                    // newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
+                    newMes.innerText = el['message']
+                } else if (el['type'] == 'audio') {
+                    newMes = document.createElement('div')
+                    const audio = new Audio(el['message'])
+                    audio.type = 'audio/mpeg'
+                    audio.controls = true;
+                    audio.preload = 'auto';
+                    newMes.append(audio)
+                    const source = document.createElement('source')
+                    if(el['author'] == globalUser['success']){
+                        newMes.className = 'd-flex me-2 mb-2 justify-content-start';
+                    } else {
+                        newMes.className = 'd-flex ms-2 mb-2 justify-content-end';
+                    }
                 }
-                let name;
-                usersALL.forEach(element => {
-                    if (element['id'] == el['author']) name = element['name']
-                });
-                // newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
-                newMes.innerText = el['message']
-            } else if (el['type'] == 'audio') {
-                newMes = document.createElement('div')
-                const audio = new Audio(el['message'])
-                audio.type = 'audio/mpeg'
-                audio.controls = true;
-                audio.preload = 'auto';
-                newMes.append(audio)
-                const source = document.createElement('source')
-                if(el['author'] == globalUser['success']){
-                    newMes.className = 'd-flex me-2 mb-2 justify-content-start';
-                } else {
-                    newMes.className = 'd-flex ms-2 mb-2 justify-content-end';
-                }
-            }
-                messages.append(newMes)
-                if(el['is_read']=='1' || el['author']==globalUser['success']) {
-                    newMes.scrollIntoView({block: "center", behavior: "smooth"})
-                }
-                max = el['date_create']
-        })
-        response.length&&await sendRead(response)
+                    messages.append(newMes)
+                    if(el['is_read']=='1' || el['author']==globalUser['success']) {
+                        newMes.scrollIntoView({block: "center", behavior: "smooth"})
+                    }
+                    max = el['date_create']
+            })
+            response.length&&await sendRead(response)
+        }
+        run = true
     }
 
     async function User() {
