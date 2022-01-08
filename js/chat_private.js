@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
             let fd = new FormData();
             fd.append('voice', audioBlob);
-            fd.append('what_a_chat', mp3Tmp)
+            fd.append('what_a_chat', mp3Data)
             sendVoice(fd);
             updateMessage()
             audioChunks = [];
