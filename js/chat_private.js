@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             const audioBlob = new Blob(audioChunks, {
                 type: 'audio/webm'
             });
-
+            var mp3Data = [];
             var mp3encoder = new lamejs.Mp3Encoder(1, 44100, 128);
             var samples = new Int16Array(44100);
             var mp3Tmp = mp3encoder.encodeBuffer(audioBlob);
