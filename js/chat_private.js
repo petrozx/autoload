@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     navigator.mediaDevices.getUserMedia({audio: true})
     .then(stream => {
-        const mediaRecorder = new MediaRecorder(stream);
+        const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/mp3'});
 
         document.querySelector('.mike').addEventListener('touchstart', function(e){
             e.preventDefault()
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         mediaRecorder.addEventListener("stop", async function() {
             const audioBlob = new Blob(audioChunks, {
-                type: 'audio/mpeg'
+                type: 'audio/mp3'
             });
 
             let fd = new FormData();
