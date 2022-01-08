@@ -71,22 +71,18 @@ function online() {
 
 function save(){
     $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/upload/';
-    $typeFile = explode('/', $_FILES['voice']['type']);
-    $wayFile = basename(md5($_FILES['voice']['tmp_name'].time()).'.'.$typeFile[1]);
     $mp3name = basename(md5($_FILES['voice']['tmp_name'].time()).'.mp3');
-    $uploadFile = $uploadDir . $wayFile;
+    $output = array();
+    $result_code = "";
+    exec("ffmpeg -i '{$_FILES['voice']['tmp_name']}' -crf 23 '{$uploadDir}{$mp3name}'", $output,$result_code);
+    if (!$result_code) {
         $response = ['result'=>'OK'];
         $bd = new DB('chat');
-        $output = array();
-        $result_code = "";
-            $result = exec("ffmpeg -i '{$_FILES['voice']['tmp_name1']}' -crf 23 '{$uploadDir}{$mp3name}'", $output,$result_code);
-            var_dump($result_code);
-
         $res = $bd->saveRows([ time() ,'/upload/'. $mp3name, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio', 0 ]);
         $bd->close_connection();
-    // } else {
-    //     $response = ['result'=>'ERROR'];
-    // }
+    } else {
+        $response = ['result'=>'ERROR'];
+    }
     die(json_encode($response));
 }
 
