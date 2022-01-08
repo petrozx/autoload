@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function sendMessage() {
         const formData = new FormData(form)
+        form.reset()
         formData.append('method', 'send')
         formData.append('what_a_chat', chatWith)
         formData.append('chat', globalUser['success'])
@@ -122,7 +123,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         button.addEventListener("click", async(e)=>{
             e.preventDefault();
             await sendMessage()
-            form.reset()
             await updateMessage()
         })
 
