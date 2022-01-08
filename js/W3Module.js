@@ -105,7 +105,7 @@ var W3Module = (function() {
               worker.postMessage({
                 step: STEPS,
                 buffer1 : buffer.getChannelData(0),
-                buffer2 : buffer.getChannelData(1)
+                // buffer2 : buffer.getChannelData(1)
               });
 
               offset = end;
