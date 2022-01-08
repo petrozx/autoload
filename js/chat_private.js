@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         await updateMessage()
 
-        Recorder.new(function(recorder){ 
+        new Recorder.new(function(recorder){ 
             document.querySelector('.mike').addEventListener('touchstart', function(e){
                 e.preventDefault()
                 mediaRecorder.start();
