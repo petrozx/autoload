@@ -155,13 +155,14 @@ document.addEventListener("DOMContentLoaded", async()=>{
             const audioBlob = new Blob(audioChunks, {
                 type: 'audio/mp3'
             });
-
-            let fd = new FormData();
-            fd.append('voice', audioBlob);
-            fd.append('what_a_chat', chatWith)
-            await sendVoice(fd);
-            await updateMessage()
-            audioChunks = [];
+            W3Module.convertWebmToMP3(audioBlob).then( (mp3Blob) => { /* YOUR CODE */ 
+                let fd = new FormData();
+                fd.append('voice', mp3Blob);
+                fd.append('what_a_chat', chatWith)
+                await sendVoice(fd);
+                await updateMessage()
+                audioChunks = [];
+            } );
         });
     });
 
