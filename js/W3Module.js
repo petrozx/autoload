@@ -135,7 +135,7 @@ var W3Module = (function() {
                 let c = options.clusters.find( x => (x >= max) );
                 nextCluster = (c) ? c : fileSize;
               }
-              // console.log('COUNT BLOCK : ' + countBlock + ' -- nextCluster -- ' + nextCluster);
+              console.log('COUNT BLOCK : ' + countBlock + ' -- nextCluster -- ' + nextCluster);
               readEventHandler(evt.target.result, _end, nextCluster); // define next cluster;
             } else {
               console.log("Read error: " + evt.target.error);
