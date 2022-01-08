@@ -7,8 +7,7 @@
         <script>
             // default path is on the same directory as this HTML
             Mp3LameEncoderConfig = {
-            memoryInitializerPrefixURL: "js/Mp3LameEncoder.min.js.mem"   // must end with slash
-            // => changed to javascripts/Mp3LameEncoder.min.js.mem
+            memoryInitializerPrefixURL: "js/"
             };
         </script>
         <script src="/js/Mp3LameEncoder.min.js"></script>
