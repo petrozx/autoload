@@ -121,9 +121,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         button.addEventListener("click", async(e)=>{
             e.preventDefault();
+            form.reset()
             await sendMessage()
             await updateMessage()
-            form.reset()
         })
 
         setInterval(await updateMessage, 5000);
