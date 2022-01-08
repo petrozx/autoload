@@ -68,9 +68,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes = document.createElement('div')
                 newMes.dataset.id = el['id']
                 if(el['author'] == globalUser['success']){
-                    newMes.className = 'self';
+                    newMes.className = 'd-flex me-2 mb-2 justify-content-start';
                 } else {
-                    newMes.className = 'other';
+                    newMes.className = 'd-flex ms-2 mb-2 justify-content-end';
                 }
                 let name;
                 usersALL.forEach(element => {
