@@ -81,9 +81,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 newMes = new Audio()
                 const source = document.createElement('source')
                 if(el['author'] == globalUser['success']){
-                    newMes.className = 'me-2 mb-2 float-start';
+                    newMes.className = 'me-9 mb-2 float-start';
                 } else {
-                    newMes.className = 'ms-2 mb-2 float-end';
+                    newMes.className = 'ms-9 mb-2 float-end';
                 }
                 source.src = el['message']
                 source.type = 'audio/mpeg'
