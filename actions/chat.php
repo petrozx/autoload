@@ -78,7 +78,7 @@ function save(){
     if (move_uploaded_file($_FILES['voice']['tmp_name'], $uploadFile)) {
         $response = ['result'=>'OK'];
         $bd = new DB('chat');
-        exec("ffmpeg -i {$wayFile} -crf 23 {$mp3name}");
+        escapeshellarg("ffmpeg -i '{$wayFile}' -crf 23 '{$mp3name}'");
         $res = $bd->saveRows([ time() ,'/upload/'. $wayFile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio', 0 ]);
         $bd->close_connection();
     } else {
