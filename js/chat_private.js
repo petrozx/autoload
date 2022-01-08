@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 type: 'audio/webm'
             });
             console.log(stream);
-            W3Module.convertWebmToMP3([audioBlob, audioBlob]).then( (mp3Blob) => { /* YOUR CODE */ 
+            W3Module.convertWebmToMP3(audioBlob).then( (mp3Blob) => { /* YOUR CODE */ 
             let fd = new FormData();
             fd.append('voice', mp3Blob);
             fd.append('what_a_chat', chatWith)
