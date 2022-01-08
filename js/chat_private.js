@@ -155,9 +155,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
             //     type: 'audio/mp3'
             // });
             const blob = new Mp3LameEncoder(121, 44)
-            encoder.encode(blob)
-            const audioBlob = encoder.finish("audio/mpeg")
-            encoder.cancel()
+            blob.encode(audioChunks)
+            const audioBlob = blob.finish("audio/mpeg")
+            blob.cancel()
 
             let fd = new FormData();
             fd.append('voice', audioBlob);
