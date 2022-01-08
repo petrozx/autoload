@@ -124,32 +124,32 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         await updateMessage()
 
-    navigator.mediaDevices.getUserMedia({audio: true})
-    .then(stream => {
-        const mediaRecorder = new MediaRecorder(stream);
+        Recorder.new(function(recorder){ 
+            document.querySelector('.mike').addEventListener('touchstart', function(e){
+                e.preventDefault()
+                mediaRecorder.start();
+            });
+            document.querySelector('.mike').addEventListener('mousedown', function(e){
+                e.preventDefault()
+                mediaRecorder.start();
+            });
+    
+            let audioChunks = [];
+            mediaRecorder.addEventListener("dataavailable",function(event) {
+                audioChunks.push(event.data);
+            });
+    
+            document.querySelector('.mike').addEventListener('touchend', function(e){
+                e.preventDefault()
+                mediaRecorder.stop();
+            });
+            document.querySelector('.mike').addEventListener('mouseup', function(e){
+                e.preventDefault()
+                mediaRecorder.stop();
+            });
 
-        document.querySelector('.mike').addEventListener('touchstart', function(e){
-            e.preventDefault()
-            mediaRecorder.start();
-        });
-        document.querySelector('.mike').addEventListener('mousedown', function(e){
-            e.preventDefault()
-            mediaRecorder.start();
-        });
+        }); 
 
-        let audioChunks = [];
-        mediaRecorder.addEventListener("dataavailable",function(event) {
-            audioChunks.push(event.data);
-        });
-
-        document.querySelector('.mike').addEventListener('touchend', function(e){
-            e.preventDefault()
-            mediaRecorder.stop();
-        });
-        document.querySelector('.mike').addEventListener('mouseup', function(e){
-            e.preventDefault()
-            mediaRecorder.stop();
-        });
 
         mediaRecorder.addEventListener("stop", async function() {
             const audioBlob = new Blob(audioChunks, {
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             updateMessage()
             audioChunks = [];
         });
-    });
+   
 
     async function sendVoice(form) {
         let promise = await fetch('/api/chat/save', {
