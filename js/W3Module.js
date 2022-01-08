@@ -101,11 +101,11 @@ var W3Module = (function() {
 
             audioCtx.decodeAudioData(chunkBuffer, (buffer) => {
               STEPS = (parseInt(STEPS) + 1);
-              // console.log('DECODED IN PROGRESS : ' + STEPS);
+              console.log('DECODED IN PROGRESS : ' + STEPS);
               worker.postMessage({
                 step: STEPS,
                 buffer1 : buffer.getChannelData(0),
-                // buffer2 : buffer.getChannelData(1)
+                buffer2 : buffer.getChannelData(1)
               });
 
               offset = end;
