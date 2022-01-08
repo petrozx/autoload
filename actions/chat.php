@@ -78,8 +78,9 @@ function save(){
         $response = ['result'=>'OK'];
         $bd = new DB('chat');
         $output = array();
-            $result = exec("ffmpeg -i '{$_FILES['voice']['tmp_name']}' -crf 23 '{$upiloadDir}{$mp3name}'", $output);
-            var_dump($result);
+        $result_code = "";
+            $result = exec("ffmpeg -i '{$_FILES['voice']['tmp_name']}' -crf 23 '{$uploadDir}{$mp3name}'", $output,$result_code);
+            var_dump($result_code);
 
         $res = $bd->saveRows([ time() ,'/upload/'. $mp3name, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio', 0 ]);
         $bd->close_connection();
