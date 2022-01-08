@@ -126,8 +126,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     navigator.mediaDevices.getUserMedia({audio: true})
     .then(stream => {
-        const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/webm'});
-        console.log(MediaRecorder.isTypeSupported('audio/ogg;codecs=vorbis'))
+        const mediaRecorder = new MediaRecorder(stream);
         document.querySelector('.mike').addEventListener('touchstart', function(e){
             e.preventDefault()
             mediaRecorder.start();
@@ -152,9 +151,13 @@ document.addEventListener("DOMContentLoaded", async()=>{
         });
 
         mediaRecorder.addEventListener("stop", async function() {
-            const audioBlob = new Blob(audioChunks, {
-                type: 'audio/mp3'
-            });
+            // const audioBlob = new Blob(audioChunks, {
+            //     type: 'audio/mp3'
+            // });
+            const blob = new Mp3LameEncoder(121, 44)
+            encoder.encode(blob)
+            const audioBlob = encoder.finish("audio/mpeg")
+            encoder.cancel()
 
             let fd = new FormData();
             fd.append('voice', audioBlob);
