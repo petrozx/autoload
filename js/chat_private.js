@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                     newMes.className = 'not-mine';
                 }
                 source.src = el['message']
-                source.type = 'audio/mpeg'
+                source.type = 'audio/wav'
                 newMes.append(source)
                 newMes.controls = true;
                 newMes.preload = 'none';
@@ -126,9 +126,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     navigator.mediaDevices.getUserMedia({audio: true})
     .then(stream => {
-        const mediaRecorder = new MediaRecorder(stream, {
-            audioBitsPerSecond : 24000
-          });
+        const mediaRecorder = new MediaRecorder(stream);
 
         document.querySelector('.mike').addEventListener('touchstart', function(e){
             e.preventDefault()
@@ -155,7 +153,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         mediaRecorder.addEventListener("stop", async function() {
             const audioBlob = new Blob(audioChunks, {
-                type: 'audio/mp3'
+                type: 'audio/wav'
             });
 
             let fd = new FormData();
