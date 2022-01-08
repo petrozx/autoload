@@ -73,10 +73,12 @@ function save(){
     $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/upload/';
     $typeFile = explode('/', $_FILES['voice']['type']);
     $wayFile = basename(md5($_FILES['voice']['tmp_name'].time()).'.'.$typeFile[1]);
+    $mp3name = basename(md5($_FILES['voice']['tmp_name'].time()).'.mp3');
     $uploadFile = $uploadDir . $wayFile;
     if (move_uploaded_file($_FILES['voice']['tmp_name'], $uploadFile)) {
         $response = ['result'=>'OK'];
         $bd = new DB('chat');
+        exec("ffmpeg -i {$wayFile} -crf 23 {$mp3name}");
         $res = $bd->saveRows([ time() ,'/upload/'. $wayFile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio', 0 ]);
         $bd->close_connection();
     } else {
