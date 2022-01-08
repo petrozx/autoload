@@ -156,8 +156,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
             let fd = new FormData();
             fd.append('voice', mp3Blob);
             fd.append('what_a_chat', chatWith)
-            await sendVoice(fd);
-            await updateMessage()
+            sendVoice(fd);
+            updateMessage()
             audioChunks = [];
         } );
         
