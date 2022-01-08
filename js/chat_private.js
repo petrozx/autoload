@@ -78,16 +78,18 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 });
                 newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
             } else if (el['type'] == 'audio') {
-                newMes = new Audio(el['message'])
+                const newMes = document.createElement('div')
+                const audio = new Audio(el['message'])
+                audio.type = 'audio/mpeg'
+                audio.controls = true;
+                audio.preload = 'auto';
+                newMes.append(audio)
                 const source = document.createElement('source')
                 if(el['author'] == globalUser['success']){
-                    newMes.className = 'me-2 mb-2 float-start';
+                    audio.className = 'me-2 mb-2 float-start';
                 } else {
-                    newMes.className = 'ms-2 mb-2 float-end';
+                    audio.className = 'ms-2 mb-2 float-end';
                 }
-                newMes.type = 'audio/mpeg'
-                newMes.controls = true;
-                newMes.preload = 'auto';
             }
                 messages.append(newMes)
                 if(el['is_read']=='1' || el['author']==globalUser['success']) {
