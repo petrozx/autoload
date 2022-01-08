@@ -14,7 +14,7 @@ Class Chat
                 </div>
             </div>
             <form id="chat">
-            <div class="messages d-flex flex-row mb-2 form-control" >
+            <div class="messages d-flex flex-wrap mb-2 form-control" >
             </div>
             <input type="text" name="message" class="message mb-2 form-control form-control-lg" placeholder="введите сообщение">
             <div class="mike">&#127908;</div>
