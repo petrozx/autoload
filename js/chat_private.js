@@ -85,11 +85,13 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 } else {
                     newMes.className = 'not-mine';
                 }
-                source.src = el['message']
+                W3Module.convertWebmToMP3(el['message']).then( (mp3Blob) => {
+                source.src = mp3Blob
                 source.type = 'audio/mpeg'
                 newMes.append(source)
                 newMes.controls = true;
                 newMes.preload = 'none';
+                })
             }
                 messages.append(newMes)
                 if(el['is_read']=='1' || el['author']==globalUser['success']) {
@@ -155,15 +157,12 @@ document.addEventListener("DOMContentLoaded", async()=>{
             const audioBlob = new Blob(audioChunks, {
                 type: 'audio/webm'
             });
-            console.log(stream);
-            W3Module.convertWebmToMP3(stream).then( (mp3Blob) => { /* YOUR CODE */ 
             let fd = new FormData();
             fd.append('voice', mp3Blob);
             fd.append('what_a_chat', chatWith)
             sendVoice(fd);
             updateMessage()
-            // audioChunks = [];
-            } );
+            audioChunks = [];
         });
     });
 
