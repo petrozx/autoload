@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     navigator.mediaDevices.getUserMedia({audio: true})
     .then(stream => {
-        const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/mpeg'});
+        const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/mp4'});
 
         document.querySelector('.mike').addEventListener('touchstart', function(e){
             e.preventDefault()
