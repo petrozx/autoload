@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                     newMes.className = 'not-mine';
                 }
                 source.src = el['message']
-                source.type = 'audio/wav'
+                source.type = 'audio/mpeg'
                 newMes.append(source)
                 newMes.controls = true;
                 newMes.preload = 'none';
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
         mediaRecorder.addEventListener("stop", async function() {
             const audioBlob = new Blob(audioChunks, {
-                type: 'audio/wav'
+                type: 'audio/MPEG-4'
             });
 
             let fd = new FormData();
