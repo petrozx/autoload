@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 });
                 newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
             } else if (el['type'] == 'audio') {
-                const newMes = document.createElement('div')
+                newMes = document.createElement('div')
                 const audio = new Audio(el['message'])
                 audio.type = 'audio/mpeg'
                 audio.controls = true;
