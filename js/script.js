@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
                 usersSearch.add(user['name'])
             }
         })
-        if (event.target.value == "") {
+        if (event.target.value == "" || usersSearch == 0) {
             searchBox.classList.remove('show')
             usersSearch.clear()
         }
