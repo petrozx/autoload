@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         li.className = 'dropdown-item'
         place.append(li)
         li.addEventListener('click', e=>{
-            search.value = e.target.innerText
+            search.value = li.innerText
             searchBox.classList.remove('show')
         })
     }
