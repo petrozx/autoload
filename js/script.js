@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         const li = document.createElement('li')
         li.innerText = name
         li.className = 'dropdown-item'
-        place.append('li')
+        place.append(li)
     }
 
     async function getUsers() {
