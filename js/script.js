@@ -43,12 +43,13 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const btnSearch = document.querySelector('#search')
 
     btnSearch.addEventListener('click', async (event) => {
-
+        event.preventDefault()
     })
 
     const users = await getUsers()
 
     search.addEventListener('change', async (event) => {
+        event.preventDefault()
         users.forEach(user => {
             if (user['name'].indexOf(event.target.value) + 1) {
                 console.log(user);
