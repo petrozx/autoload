@@ -6,6 +6,7 @@ Class Chat
     }
 
     public function private($name) {
+        var_dump($_GET['user']);
             return '
             <div class="connect alert alert-primary">
                 <div class="d-flex align-items-center">
