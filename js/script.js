@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     search.addEventListener('input', async (event) => {
         searchBox.querySelectorAll('li').forEach(el=>el.remove())
         searchBox.classList.add('show')
+        usersSearch.clear()
         users.forEach(user => {
             if ((user['name'].toLowerCase()).indexOf((event.target.value).toLowerCase()) + 1) {
                 usersSearch.add(user['name'])
