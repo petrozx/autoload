@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     searchBox.addEventListener('click', e=>{
         search.value = e.target.innerText
-        search.dataset.id = e.target.data.id
+        search.dataset.id = e.target.dataset.id
         searchBox.classList.remove('show')
     })
 
