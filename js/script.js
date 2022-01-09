@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     const users = await getUsers()
 
-    search.addEventListener('input', async (event) => {
+    search.addEventListener('oninput', async (event) => {
         users.forEach(user => {
             if (user['name'].indexOf(search.value) + 1) {
                 console.log(user);
