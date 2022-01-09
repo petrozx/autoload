@@ -127,7 +127,7 @@ class DB
     }
 
     public function chatsWithMe($id){
-        $query = self::$connect->query("SELECT * FROM users INNER JOIN chat ON what_a_chat=users.".$id);
+        $query = self::$connect->query("SELECT users.id, users.name FROM `users` LEFT OUTER JOIN chat ON what_a_chat=users.id WHERE users.id=".$id);
         $row = $query->fetch_assoc();
         return $row;
     }
