@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const users = await getUsers()
 
     search.addEventListener('onchange', async (event) => {
+        console.log(users);
         users.forEach(user => {
             if (user['name'].indexOf(search.value) + 1) {
                 console.log(user);
