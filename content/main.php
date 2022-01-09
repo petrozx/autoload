@@ -82,15 +82,15 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="/chat">Чаты</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
                                     <?if (!empty($_SESSION['auth'])):
                                         $bd = new DB('users');
                                         $users = $bd->chatsWithMe($_SESSION['auth']['id']);
                                         $bd->close_connection();
-                                        if ($users):
-                                            foreach ($users as $user):?>
+                                        if ($users):?>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                            <?foreach ($users as $user):?>
                                                     <li><a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a></li>
                                             <?endforeach;
                                         endif;
