@@ -6,7 +6,7 @@ Class Chat
     }
 
     public function private($name) {
-        var_dump($_GET['user']);
+        if ($_GET['user']) {
             return '
             <div class="connect alert alert-primary">
                 <div class="d-flex align-items-center">
@@ -21,6 +21,9 @@ Class Chat
             <div class="mike">&#127908;</div>
             <button id="send-message" class="btn mb-4 btn-lg btn-outline-primary">отправить</button>
             </form>';
+        } else {
+            return 'Такого пользователя не существет';
+        }
     }
 
     private function chats() {
