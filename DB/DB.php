@@ -128,8 +128,10 @@ class DB
 
     public function chatsWithMe($id){
         $query = self::$connect->query("SELECT users.id, users.name FROM `users` LEFT OUTER JOIN chat ON what_a_chat=users.id WHERE chat.author={$id} OR chat.what_a_chat={$id}");
-        $row = $query->fetch_assoc();
-        return $row;
+        while ($row = $query->fetch_assoc()) {
+            $rows[] = $row;
+        }
+        return $rows;
     }
 
 }
