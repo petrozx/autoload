@@ -102,8 +102,7 @@
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" id="search" type="submit">К чату</button>
                         </form>
-                        <ul class="dropdown-menu" id="search-box">
-                        </ul>
+                        
                     </div>
                 </div>
             </nav>
