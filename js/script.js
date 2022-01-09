@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
             if ((user['name'].toLowerCase()).indexOf((event.target.value).toLowerCase()) + 1) {
                 const find = document.createElement('li')
                 searchBox.classList.add('show')
-                find.className = 'dropdown-item';
+                find.className = 'dropdown-item bottom-0 start-0';
                 find.innerText = user['name'];
                 searchBox.append(find)
             }
