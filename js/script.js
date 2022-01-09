@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         console.log('hi');
     })
 
-    await search.addEventListener('blur', _=> searchBox.classList.remove('show'))
+    await search.addEventListener('blur', _=>setTimeout(_=>searchBox.classList.remove('show'), 100))
 
     function creareSearch(name, place) {
         const li = document.createElement('li')
