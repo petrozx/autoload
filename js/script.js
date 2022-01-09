@@ -51,14 +51,9 @@ document.addEventListener('DOMContentLoaded', async()=>{
         searchBox.querySelectorAll('li').forEach(el=>el.remove())
         users.forEach(user => {
             if ((user['name'].toLowerCase()).indexOf((event.target.value).toLowerCase()) + 1) {
-                const find = document.createElement('li')
-                searchBox.classList.add('show')
-                find.className = 'dropdown-item bottom-0 start-0';
-                find.innerText = user['name'];
-                usersSearch.add(find)
+                usersSearch.add(user['name'])
             }
         })
-        usersSearch.forEach(user=>searchBox.append(user))
         console.log(usersSearch);
     })
 
