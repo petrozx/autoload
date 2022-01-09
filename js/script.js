@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const usersSearch = new Set();
     const users = await getUsers()
     search.addEventListener('input', async (event) => {
-        searchBox.querySelectorAll('li').forEach(el=>el.delete)
+        searchBox.querySelectorAll('li').forEach(el=>el.remove())
         users.forEach(user => {
             if ((user['name'].toLowerCase()).indexOf((event.target.value).toLowerCase()) + 1) {
                 const find = document.createElement('li')
