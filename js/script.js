@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         usersSearch.clear()
         users.forEach(user => {
             if ((user['name'].toLowerCase()).indexOf((event.target.value).toLowerCase()) + 1) {
-                usersSearch.add(user['name'])
+                usersSearch.add(user)
             }
         })
         if (event.target.value == "" || usersSearch.size == 0) {
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     function creareSearch(name, place) {
         const li = document.createElement('li')
-        li.innerText = name
+        li.innerText = name['name']
         li.dataset.id = name['id']
         li.className = 'dropdown-item'
         place.append(li)
