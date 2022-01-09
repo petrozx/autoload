@@ -86,11 +86,11 @@
                                         <hr class="dropdown-divider">
                                     </li>
                                     <? $bd = new DB('users');
-                                    $users = $bd->getRows();
-                                    foreach ($users as $user):
-                                        if ($user['id'] !== $_SESSION['auth']['id']):?>
+                                    $users = $bd->chatsWithMe($_SESSION['auth']['id']);
+                                    $bd->close_connection();
+                                    var_dump($users);
+                                    foreach ($users as $user):?>
                                             <li><a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a></li>
-                                        <?endif;?>
                                     <?endforeach?>
                                 </ul>
                             </li>

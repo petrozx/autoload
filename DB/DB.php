@@ -126,4 +126,10 @@ class DB
         self::$connect->close();
     }
 
+    public function chatsWithMe($id){
+        $query = self::$connect->query("SELECT * FROM users INNER JOIN chat ON what_a_chat=users.".$id);
+        $row = $query->fetch_assoc();
+        return $row;
+    }
+
 }
