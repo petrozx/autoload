@@ -18,7 +18,7 @@ Class Chat
             <div class="messages mb-2 form-control" >
             </div>
             <input type="text" name="message" class="message mb-2 form-control form-control-lg" placeholder="введите сообщение">
-            <button type="button" class="mike btn btn-warning"><img src="/images/mike.png" width="40" height="40" alt></button>
+            <button type="button" class="mike btn btn-warning"><img src="/images/mike.svg" width="40" height="40" alt></button>
             <button id="send-message" class="btn mb-4 btn-lg btn-outline-primary">отправить</button>
             </form>';
         } else {
