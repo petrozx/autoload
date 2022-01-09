@@ -6,7 +6,7 @@ Class Chat
     }
 
     public function private($name) {
-        if (!empty($_GET['user'])) {
+        if ($_GET['user'] != 'undefined') {
             return '
             <div class="connect alert alert-primary">
                 <div class="d-flex align-items-center">
