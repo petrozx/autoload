@@ -103,8 +103,7 @@
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" id="search" type="submit">Поиск</button>
                         </form>
-                        <ul class="dropdown-menu mt-1 border-top-0" id="search-box">
-                        </ul>
+                        <ul class="dropdown-menu mt-1 border-top-0" id="search-box"></ul>
                         </div>
                     </div>
                 </div>
