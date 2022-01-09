@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         users.forEach(user => {
             if ((user['name'].toLowerCase()).indexOf((event.target.value).toLowerCase()) + 1) {
                 const find = document.createElement('div')
-                find.className = 'position-absolute top-100 start-0 translate-middle';
+                find.className = 'dropdown-item';
                 find.innerText = user['name'];
                 searchBox.append(find)
             }
