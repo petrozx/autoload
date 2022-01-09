@@ -62,13 +62,13 @@ document.addEventListener('DOMContentLoaded', async()=>{
         usersSearch.forEach(name=>creareSearch(name, searchBox))
     })
 
-    searchBox.addEventListener('click', e=>{
+    await searchBox.addEventListener('click', e=>{
         search.value = e.target.innerText
         searchBox.classList.remove('show')
         console.log('hi');
     })
 
-    // search.addEventListener('blur', _=> searchBox.classList.remove('show'))
+    await search.addEventListener('blur', _=> searchBox.classList.remove('show'))
 
     function creareSearch(name, place) {
         const li = document.createElement('li')
