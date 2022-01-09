@@ -88,9 +88,11 @@
                                     <? $bd = new DB('users');
                                     $users = $bd->chatsWithMe($_SESSION['auth']['id']);
                                     $bd->close_connection();
-                                    foreach ($users as $user):?>
-                                            <li><a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a></li>
-                                    <?endforeach?>
+                                    if (count($users)):
+                                        foreach ($users as $user):?>
+                                                <li><a class="dropdown-item" href="/chat/private/?user=<?php echo $user['id']?>"><?php echo $user['name']?></a></li>
+                                        <?endforeach;
+                                    endif?>
                                 </ul>
                             </li>
                             <li class="nav-item">

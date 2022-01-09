@@ -132,7 +132,7 @@ class DB
             $rows[] = $row;
         }
         $result = $this->array_unique_key($rows, 'id');
-        return $result;
+        return $result||[];
     }
 
     private function array_unique_key($array, $key) {
