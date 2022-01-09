@@ -131,7 +131,7 @@ class DB
         while ($row = $query->fetch_assoc()) {
             $rows[] = $row;
         }
-        $result = array_unique($rows, 'name');
+        $result = array_unique($rows, 'id');
         return $result;
     }
 
