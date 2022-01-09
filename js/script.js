@@ -50,7 +50,10 @@ document.addEventListener('DOMContentLoaded', async()=>{
     search.addEventListener('input', async (event) => {
         users.forEach(user => {
             if ((user['name'].toLowerCase()).indexOf((event.target.value).toLowerCase()) + 1) {
-                console.log(user);
+                const find = document.createElement('div')
+                find.className = 'position-absolute top-100 start-100 translate-middle';
+                find.innerText = user['name'];
+                search.append(find)
             }
         })
     })
