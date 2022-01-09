@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     btnSearch.addEventListener('click', async (event) => {
         event.preventDefault()
     })
-
+    const usersSearch = new Set();
     const users = await getUsers()
     search.addEventListener('input', async (event) => {
         users.forEach(user => {
@@ -54,7 +54,8 @@ document.addEventListener('DOMContentLoaded', async()=>{
                 searchBox.classList.add('show')
                 find.className = 'dropdown-item bottom-0 start-0';
                 find.innerText = user['name'];
-                searchBox.append(find)
+                usersSearch.add(find)
+                usersSearch.forEach(user=>searchBox.append(user))
             }
         })
     })
