@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     search.addEventListener('change', async (event) => {
         users.forEach(user => {
-            if (user['name'].indexOf(search.value) + 1) {
+            // if (user['name'].indexOf(search.value) + 1) {
                 console.log(search.value);
-            }
+            // }
         })
     })
 
