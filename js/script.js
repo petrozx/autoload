@@ -55,9 +55,9 @@ document.addEventListener('DOMContentLoaded', async()=>{
                 find.className = 'dropdown-item bottom-0 start-0';
                 find.innerText = user['name'];
                 usersSearch.add(find)
-                usersSearch.forEach(user=>searchBox.append(user))
             }
         })
+        usersSearch.forEach(user=>searchBox.append(user))
     })
 
     async function getUsers() {
