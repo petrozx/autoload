@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         users.forEach(user => {
             if ((user['name'].toLowerCase()).indexOf((event.target.value).toLowerCase()) + 1) {
                 const find = document.createElement('li')
+                searchBox.classList.add('show')
                 find.className = 'dropdown-item';
                 find.innerText = user['name'];
                 searchBox.append(find)

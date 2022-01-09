@@ -100,8 +100,8 @@
                         </ul>
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" id="search" type="submit">Search</button>
-                            <ul class="dropdown-menu show" id="search-box">
+                            <button class="btn btn-outline-success" id="search" type="submit">К чату</button>
+                            <ul class="dropdown-menu" id="search-box">
                             </ul>
                         </form>
                     </div>
