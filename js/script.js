@@ -45,9 +45,10 @@ document.addEventListener('DOMContentLoaded', async()=>{
     btnSearch.addEventListener('click', async (event) => {
         event.preventDefault()
     })
+    const usersSearch = new Set();
     const users = await getUsers()
     search.addEventListener('input', async (event) => {
-        const usersSearch = new Set();
+        usersSearch.clear()
         users.forEach(user => {
             if ((user['name'].toLowerCase()).indexOf((event.target.value).toLowerCase()) + 1) {
                 const find = document.createElement('li')
