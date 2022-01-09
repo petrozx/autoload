@@ -127,7 +127,7 @@ class DB
     }
 
     public function chatsWithMe($id){
-        $query = self::$connect->query("SELECT users.id, users.name FROM `users` INNER JOIN chat ON 
+        $query = self::$connect->query("SELECT users.id, users.name FROM `users` INNER JOIN chat ON
         what_a_chat=users.id OR chat.author=users.id WHERE what_a_chat={$id} AND users.id!={$id} OR chat.author={$id} AND users.id!={$id}");
         while ($row = $query->fetch_assoc()) {
             $rows[] = $row;
