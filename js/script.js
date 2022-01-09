@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const searchBox = document.querySelector('#search-box')
     btnSearch.addEventListener('click', async (event) => {
         event.preventDefault()
+        window.location.href = `/chat/private/?user=${search.dataset.id}`
     })
     const usersSearch = new Set();
     const users = await getUsers()
