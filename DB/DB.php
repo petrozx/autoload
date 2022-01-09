@@ -131,8 +131,12 @@ class DB
         while ($row = $query->fetch_assoc()) {
             $rows[] = $row;
         }
-        $result = $this->array_unique_key($rows, 'id');
-        return $result;
+        if (!empty($rows)) {
+            $result = $this->array_unique_key($rows, 'id');
+        } else {
+            $result = false;
+        }
+            return $result;
     }
 
     private function array_unique_key($array, $key) {
