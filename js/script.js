@@ -54,6 +54,9 @@ document.addEventListener('DOMContentLoaded', async()=>{
                 usersSearch.add(user['name'])
             }
         })
+        if (event.target.value == "") {
+            usersSearch.clear()
+        }
         console.log(usersSearch);
     })
 
