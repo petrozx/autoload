@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 console.log(search);
     search.addEventListener('input', async (event) => {
         users.forEach(user => {
-            if (user['name'].indexOf(event.target.value) + 1) {
+            if (toLowerCase(user['name']).indexOf(toLowerCase(event.target.value)) + 1) {
                 console.log(user);
             }
         })
