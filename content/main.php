@@ -101,9 +101,9 @@
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" id="search" type="submit">Поиск</button>
-                            <ul class="dropdown-menu" id="search-box">
-                            </ul>
                         </form>
+                        <ul class="dropdown-menu" id="search-box">
+                        </ul>
                     </div>
                 </div>
             </nav>
