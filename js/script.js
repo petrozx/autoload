@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     const search = document.querySelector('[type="search"]')
     const btnSearch = document.querySelector('#search')
-
+    const searchBox = document.querySelector('#search-box')
     btnSearch.addEventListener('click', async (event) => {
         event.preventDefault()
     })
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
                 const find = document.createElement('div')
                 find.className = 'position-absolute top-100 start-100 translate-middle';
                 find.innerText = user['name'];
-                search.append(find)
+                searchBox.append(find)
             }
         })
     })

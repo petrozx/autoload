@@ -98,8 +98,8 @@
                                 <a class="nav-link <?if(!empty($_SESSION['auth'])):?>disabled<?endif?>" href="/login/register">Войти</a>
                             </li>
                         </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2 position-relative" type="search" placeholder="Search" aria-label="Search">
+                        <form class="d-flex position-relative" id="search-box">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" id="search" type="submit">Search</button>
                         </form>
                     </div>
