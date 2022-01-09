@@ -41,4 +41,24 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     const search = document.querySelector('[type="search"]')
     const btnSearch = document.querySelector('#search')
+
+    btnSearch.addEventListener('click', async (event) => {
+
+    })
+
+    const users = await getUsers()
+
+    search.addEventListener('change', async (event) => {
+        users.forEach(user => {
+            if (user['name'].indexOf(search.value))
+                console.log(user);
+        })
+    })
+
+    async function getUsers() {
+        const req = await fetch('/api/chat/users', {
+            method: 'POST'
+        })
+        return await req.json()
+    }
 })
