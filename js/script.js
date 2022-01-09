@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     })
     const usersSearch = new Set();
     const users = await getUsers()
-    search.addEventListener('input', async (event) => {
+    search.addEventListener('change', async (event) => {
         searchBox.querySelectorAll('li').forEach(el=>el.remove())
         searchBox.classList.add('show')
         usersSearch.clear()
