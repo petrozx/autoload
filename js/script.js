@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
         li.addEventListener('click', e=>{
             search.value = li.innerText
             searchBox.classList.remove('show')
+            console.log('hi');
         })
     }
 
