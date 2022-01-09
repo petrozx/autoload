@@ -73,3 +73,9 @@
   .mike {
     float: right;
   }
+
+  .btn--mic {
+    position: relative;
+    width: 50px;
+    height: auto;
+}
