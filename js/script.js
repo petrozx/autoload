@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', async()=>{
         })
         if (event.target.value == "" || usersSearch == 0) {
             searchBox.classList.remove('show')
-            usersSearch.clear()
         }
         usersSearch.forEach(name=>creareSearch(name, searchBox))
     })
