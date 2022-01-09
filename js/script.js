@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     searchBox.addEventListener('click', e=>{
         search.value = e.target.innerText
         searchBox.classList.remove('show')
+        console.log('hi');
     })
 
     search.addEventListener('blur', _=> searchBox.classList.remove('show'))
