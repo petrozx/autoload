@@ -49,16 +49,25 @@ document.addEventListener('DOMContentLoaded', async()=>{
     const users = await getUsers()
     search.addEventListener('input', async (event) => {
         searchBox.querySelectorAll('li').forEach(el=>el.remove())
+        searchBox.classList.add('show')
         users.forEach(user => {
             if ((user['name'].toLowerCase()).indexOf((event.target.value).toLowerCase()) + 1) {
                 usersSearch.add(user['name'])
             }
         })
         if (event.target.value == "") {
+            searchBox.classList.remove('show')
             usersSearch.clear()
         }
-        console.log(usersSearch);
+        usersSearch.forEach(name=>creareSearch(name, searchBox))
     })
+
+    function creareSearch(name, place) {
+        const li = document.createElement('li')
+        li.innerText = name
+        li.className = 'dropdown-item'
+        place.append('li')
+    }
 
     async function getUsers() {
         const req = await fetch('/api/chat/users', {
