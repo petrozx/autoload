@@ -69,7 +69,13 @@ document.addEventListener('DOMContentLoaded', async()=>{
         li.innerText = name
         li.className = 'dropdown-item'
         place.append(li)
+        li.addEventListener('click', e=>{
+            search.value = e.target.innerText
+            searchBox.classList.remove('show')
+        })
     }
+
+
 
     async function getUsers() {
         const req = await fetch('/api/chat/users', {
