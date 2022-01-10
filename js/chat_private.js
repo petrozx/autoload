@@ -178,10 +178,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
     spiner.classList.add('d-none')
     const fileInput = document.querySelector('[type=file]')
-    const events = ['drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave drop'];
+    const events = ['drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop'];
     events.forEach(e=>{
         messages.addEventListener(e, (event)=>{
-            event.preventDefault();
+            event.preventDefault()
             event.stopPropagation()
             console.log('hi');
         })
