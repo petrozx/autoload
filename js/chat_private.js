@@ -95,6 +95,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
                     } else {
                         newMes.className = 'd-flex ms-2 mb-2 justify-content-end';
                     }
+                } else if (el['type'] == 'file') {
+                    newMes = document.createElement('img')
+                    newMes.src = el['message']
+                    newMes.width = '30px';
+                    newMes.height = '30px';
                 }
                     messages.append(newMes)
                     if(el['is_read']=='1' || el['author']==globalUser['success']) {
@@ -207,7 +212,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         fileInput.classList.remove('file-show')
         console.log(this.files[0]);
         const a = await sendFile(this.files[0])
-        console.log(a);
+        await updateMessage
     })
 
     async function sendFile(file) {

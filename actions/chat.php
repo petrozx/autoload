@@ -107,7 +107,7 @@ function has_new() {
 
 function saveFile() {
     $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/upload/';
-    $nameFile = basename($_FILES['file']['name'].'.'.$_FILES['userfile']['type']);
+    $nameFile = basename(md5($_FILES['file']['name'].'.'.$_FILES['userfile']['type'].time()));
     $uploadfile = $uploadDir . $nameFile;
     $res = move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
     if ($res) {
