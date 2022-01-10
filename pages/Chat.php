@@ -9,12 +9,11 @@ Class Chat
         if ($_GET['user'] != 'undefined') {
             $bd = new DB('users');
             $name = $bd->getFilterRows('id='.$_GET['user']);
-            var_dump($name);
             $bd->close_connection();
             return '
             <div class="connect alert alert-primary">
                 <div class="d-flex align-items-center">
-                    <span id="alert">Чат с '.$name.'</span>
+                    <span id="alert">Чат с '.$name[0]['name'].'</span>
                     <div class="spinner-border text-primary ms-auto d-none" role="status" aria-hidden="true"></div>
                 </div>
             </div>
