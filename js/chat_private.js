@@ -198,12 +198,12 @@ document.addEventListener("DOMContentLoaded", async()=>{
     messages.addEventListener('dragleave', (event)=>{
         event.preventDefault()
         event.stopPropagation()
-        let dx = event.pageX - messages.offsetLeft;
-        let dy = event.pageY - messages.offsetTop;
+        let dx = fileInput.pageX - messages.offsetLeft;
+        let dy = fileInput.pageY - messages.offsetTop;
         console.log(dx, dy);
-        if ((dx < 0) || (dx > messages.width) || (dy < 0) || (dy > messages.height)) {
+        if ((dx < 0) || (dx > fileInput.width) || (dy < 0) || (dy > fileInput.height)) {
             messages.classList.remove('focus')
-            // fileInput.classList.remove('file-show')
+            fileInput.classList.remove('file-show')
         }
     })
 
