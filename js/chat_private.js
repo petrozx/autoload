@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         fileInput.classList.remove('file-show')
     })
 
-    messages.addEventListener('dragleave', (event)=>{
+    messages.addEventListener('dragend', (event)=>{
         event.preventDefault()
         event.stopPropagation()
         messages.classList.remove('focus')
