@@ -187,7 +187,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
     })
 
-    messages.addEventListener('drop', ()=>{
+    messages.addEventListener('drop', (event)=>{
+        event.preventDefault()
+        event.stopPropagation()
         messages.classList.remove('focus')
     })
 })
