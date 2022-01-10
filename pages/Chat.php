@@ -18,9 +18,9 @@ Class Chat
                 </div>
             </div>
             <form id="chat">
+            <div class="messages mb-2 form-control" >
             <input type="file">
-                    <div class="messages mb-2 form-control" >
-                    </div>
+            </div>
                     <div class="d-flex mb-2">
                         <input type="text" name="message" class="message form-control form-control-lg" placeholder="введите сообщение">
                         <!-- <object class="mike btn btn-warning" type="image/svg+xml" data="https://petroz.ru/images/mike.svg"></object> -->
