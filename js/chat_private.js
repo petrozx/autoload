@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 } else if (el['type'] == 'file') {
                     newMes = document.createElement('img')
                     newMes.src = el['message']
-                    newMes.style.width = '30px';
-                    newMes.style.height = '30px';
+                    newMes.style.width = '100px';
+                    newMes.style.height = '100px';
                 }
                     messages.append(newMes)
                     if(el['is_read']=='1' || el['author']==globalUser['success']) {
@@ -210,7 +210,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
     fileInput.addEventListener('change', async function(e) {
         messages.classList.remove('focus')
         fileInput.classList.remove('file-show')
-        console.log(this.files[0]);
         const a = await sendFile(this.files[0])
         await updateMessage
     })
