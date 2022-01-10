@@ -195,11 +195,15 @@ document.addEventListener("DOMContentLoaded", async()=>{
         fileInput.classList.remove('file-show')
     })
 
-    messages.addEventListener('dragend', (event)=>{
+    messages.addEventListener('dragleave', (event)=>{
         event.preventDefault()
         event.stopPropagation()
-        messages.classList.remove('focus')
-        fileInput.classList.remove('file-show')
+        let dx = e.pageX - messages.offset().left;
+        let dy = e.pageY - messages.offset().top;
+        if ((dx < 0) || (dx > messages.width()) || (dy < 0) || (dy > messages.height())) {
+            messages.classList.remove('focus')
+            fileInput.classList.remove('file-show')
+        }
     })
 
     fileInput.addEventListener('change',function(e) {
