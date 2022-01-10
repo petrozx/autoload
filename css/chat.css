@@ -96,10 +96,6 @@
     width: 100%;
   }
 
-  #chat {
-    position: relative;
-  }
-
   .focus {
     color: #212529;
     background-color: #fff;
