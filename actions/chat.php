@@ -109,6 +109,13 @@ function saveFile() {
     $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/upload/';
     $uploadfile = $uploadDir . basename($_FILES['file']['name'].'.'.$_FILES['userfile']['type']);
     $res = move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
-
-    die(json_encode(['success' => $res]));
+    if ($res) {
+        $response = ['result'=>'OK'];
+        $bd = new DB('chat');
+        $res = $bd->saveRows([ time() , $uploadfile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'file', 0 ]);
+        $bd->close_connection();
+    } else {
+        $response = ['result'=>'ERROR'];
+    }
+    die(json_encode($response));
 }
