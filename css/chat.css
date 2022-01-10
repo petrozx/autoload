@@ -109,5 +109,5 @@
   }
 
   .file-show {
-    z-index: 20;
+    z-index: 2 !important;
   }
