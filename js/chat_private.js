@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 } else if (el['type'] == 'file') {
                     newMes = document.createElement('img')
                     newMes.src = el['message']
-                    newMes.width = '30px';
-                    newMes.height = '30px';
+                    newMes.style.width = '30px';
+                    newMes.style.height = '30px';
                 }
                     messages.append(newMes)
                     if(el['is_read']=='1' || el['author']==globalUser['success']) {
