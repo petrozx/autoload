@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", async()=>{
     spiner.classList.remove('d-none')
     const globalUser = await User();
     const chatWith = $_GET('user')
-    const usersALL = await getAllUsers()
+    // const usersALL = await getAllUsers()
 
-    async function getAllUsers() {
-        const req = await fetch('/api/chat/users',{
-            method: 'POST'
-        })
-        return await req.json()
-    }
+    // async function getAllUsers() {
+    //     const req = await fetch('/api/chat/users',{
+    //         method: 'POST'
+    //     })
+    //     return await req.json()
+    // }
 
     async function update(date) {
         const formData = new FormData();
