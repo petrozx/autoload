@@ -109,5 +109,5 @@ function saveFile() {
     $uploadfile = $_SERVER['DOCUMENT_ROOT'].'/upload/';
     $res = move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
 
-    die(json_encode(['data'=>$res]));
+    die(json_encode(['data'=>$res, 'name' => $_FILES['userfile']['tmp_name']]));
 }
