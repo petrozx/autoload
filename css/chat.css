@@ -76,6 +76,11 @@
 
   .btn--mic {
     position: relative;
-    width: 50px;
+    width: 55px;
     height: auto;
 }
+
+  .btn--mic:hover .svg-mike,
+  .btn--mic:active .svg-mike {
+    fill: #FFFFFF;
+  }
