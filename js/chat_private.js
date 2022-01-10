@@ -201,10 +201,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
         let dx = fileInput.pageX - fileInput.offsetLeft;
         let dy = fileInput.pageY - fileInput.offsetTop;
         console.log(fileInput.offsetLeft,fileInput.offsetTop);
-        if ((dx < 0) || (dx > fileInput.width) || (dy < 0) || (dy > fileInput.height)) {
-            messages.classList.remove('focus')
-            fileInput.classList.remove('file-show')
-        }
+        // if ((dx < 0) || (dx > fileInput.width) || (dy < 0) || (dy > fileInput.height)) {
+        //     messages.classList.remove('focus')
+        //     fileInput.classList.remove('file-show')
+        // }
     })
 
     fileInput.addEventListener('change',function(e) {
