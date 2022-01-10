@@ -111,7 +111,7 @@ function saveFile() {
     $uploadfile = $uploadDir . $nameFile;
     $res = move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
     if ($res) {
-        $response = ['result'=>$_FILES['file']['type']];
+        $response = ['result'=>$_FILES];
         $bd = new DB('chat');
         $res = $bd->saveRows([ time() , '/upload/'. $nameFile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'file', 0 ]);
         $bd->close_connection();
