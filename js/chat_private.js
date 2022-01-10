@@ -205,8 +205,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
     fileInput.addEventListener('change', async function(e) {
         messages.classList.remove('focus')
         fileInput.classList.remove('file-show')
-        console.log(this.value);
-        const a = await sendFile(this.value)
+        console.log(fileInput.value);
+        const a = await sendFile(fileInput.value)
         console.log(a);
     })
 
