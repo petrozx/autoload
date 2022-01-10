@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     const fileInput = document.querySelector('[type=file]')
 
 
-        messages.addEventListener('dragenter', (event)=>{
+        messages.addEventListener('dragstart', (event)=>{
             event.preventDefault()
             event.stopPropagation()
             messages.classList.add('focus')
