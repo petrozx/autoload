@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         console.log(dx, dy);
         if ((dx < 0) || (dx > messages.width) || (dy < 0) || (dy > messages.height)) {
             messages.classList.remove('focus')
-            fileInput.classList.remove('file-show')
+            // fileInput.classList.remove('file-show')
         }
     })
 
