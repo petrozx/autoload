@@ -97,3 +97,10 @@ function mesRead() {
     $bd->close_connection();
     die( json_encode(['error' => 0]) );
 }
+
+function has_new() {
+    $bd = new DB('users');
+    $res = $bd->has_newMessage($_POST['id']);
+    $bd->close_connection();
+    return $res;
+}
