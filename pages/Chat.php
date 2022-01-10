@@ -13,7 +13,7 @@ Class Chat
             return '
             <div class="connect alert alert-primary">
                 <div class="d-flex align-items-center">
-                    <span id="alert">Чат с '.$name.'</span>
+                    <span id="alert">Чат с '.$name['name'].'</span>
                     <div class="spinner-border text-primary ms-auto d-none" role="status" aria-hidden="true"></div>
                 </div>
             </div>
