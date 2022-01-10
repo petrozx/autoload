@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     fileInput.addEventListener('change',function(e) {
         let files = this.files;
-        fileInput.classList.remove('file-show')
+        fileInput.classList.remove('focus')
         console.log(files);
     })
 })
