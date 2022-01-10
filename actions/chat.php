@@ -104,3 +104,7 @@ function has_new() {
     $bd->close_connection();
     return $res;
 }
+
+function saveFile() {
+    return json_encode($_FILES, true);
+}

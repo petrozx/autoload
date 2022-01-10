@@ -198,19 +198,24 @@ document.addEventListener("DOMContentLoaded", async()=>{
     fileInput.addEventListener('dragleave', (event)=>{
         event.preventDefault()
         event.stopPropagation()
-        // let dx = event.pageX
-        // let dy = event.pageY
-        // console.log(dx, dy);
-        // if ((dx < 0) || (dx > messages.width) || (dy < 0) || (dy > messages.height)) {
-            messages.classList.remove('focus')
-            fileInput.classList.remove('file-show')
-        // }
-    })
-
-    fileInput.addEventListener('change',function(e) {
-        let files = this.files;
         messages.classList.remove('focus')
         fileInput.classList.remove('file-show')
-        console.log(files);
     })
+
+    fileInput.addEventListener('change', async function(e) {
+        messages.classList.remove('focus')
+        fileInput.classList.remove('file-show')
+        await sendFile(this.files)
+        const a = await updateMessage()
+        console.log(a);
+    })
+
+    async function sendFile(file) {
+        const formData = new FormData()
+        formData.append('file', file)
+        const req = await fetch('/api/chat/saveFile', {
+            method: 'POST'
+        })
+        return await req.json()
+    }
 })
