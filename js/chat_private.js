@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         event.preventDefault()
         event.stopPropagation()
         messages.classList.remove('focus')
-        setTimeout(()=>{fileInput.classList.remove('file-show')},200)
+        setTimeout(()=>{fileInput.classList.remove('file-show')},1000)
     })
 
     fileInput.addEventListener('change',function(e) {
