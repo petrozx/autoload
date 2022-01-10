@@ -91,7 +91,7 @@
     opacity: 0;
   }
 
-  input[type=file]:focus + .messages {
+  .messages {
     outline: 1px solid #0078d7;
     outline: -webkit-focus-ring-color auto 5px;
 }
