@@ -183,6 +183,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         messages.addEventListener(e, (event)=>{
             event.preventDefault();
             event.stopPropagation()
+            console.log('hi');
         })
     })
 })
