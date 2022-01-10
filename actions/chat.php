@@ -106,7 +106,8 @@ function has_new() {
 }
 
 function saveFile() {
-    $uploadfile = $_SERVER['DOCUMENT_ROOT'].'/upload/';
+    $uploadDir = '/upload/';
+    $uploadfile = $uploadDir . basename($_FILES['file']['name'].'.'.$_FILES['userfile']['type']);
     $res = move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
 
     die(json_encode(['success' => $res]));
