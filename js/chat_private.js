@@ -198,13 +198,13 @@ document.addEventListener("DOMContentLoaded", async()=>{
     fileInput.addEventListener('dragleave', (event)=>{
         event.preventDefault()
         event.stopPropagation()
-        let dx = event.pageX
-        let dy = event.pageY
-        console.log(dx, dy);
-        if ((dx < 0) || (dx > messages.width) || (dy < 0) || (dy > messages.height)) {
-            // messages.classList.remove('focus')
-            // fileInput.classList.remove('file-show')
-        }
+        // let dx = event.pageX
+        // let dy = event.pageY
+        // console.log(dx, dy);
+        // if ((dx < 0) || (dx > messages.width) || (dy < 0) || (dy > messages.height)) {
+            messages.classList.remove('focus')
+            fileInput.classList.remove('file-show')
+        // }
     })
 
     fileInput.addEventListener('change',function(e) {
