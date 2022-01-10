@@ -183,7 +183,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         messages.addEventListener(e, (event)=>{
             event.preventDefault()
             event.stopPropagation()
-            fileInput.value = event.target
         })
     })
 })
