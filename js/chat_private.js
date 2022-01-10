@@ -184,6 +184,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
             event.preventDefault()
             event.stopPropagation()
             messages.classList.add('focus')
+            fileInput.classList.add('file-show')
         })
     })
 
@@ -191,13 +192,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
         event.preventDefault()
         event.stopPropagation()
         messages.classList.remove('focus')
-        fileInput.classList.add('file-show')
+        fileInput.classList.remove('file-show')
     })
 
     fileInput.addEventListener('change',function(e) {
         let files = this.files;
-        setTimeout(_=>fileInput.classList.remove('file-show'),100)
-        
         console.log(files);
     })
 })
