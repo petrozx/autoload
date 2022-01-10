@@ -34,8 +34,8 @@ Class Chat
                                 </style><defs/><path class="svg-mike" fill="#0d6efd" d="M43.9,90.5c-8.9,0-16.1-7.3-16.1-16.2V37.9c0-9,7.2-16.2,16.1-16.2C52.8,21.7,60,29,60,37.9v36.3  C60,83.2,52.8,90.5,43.9,90.5L43.9,90.5z M65.8,64h10.8v13.8c0,15.4-12.1,28.1-27.3,29v11.3h16.2v10.8H22.3v-10.8h16.2v-11.3  c-15.2-0.9-27.3-13.6-27.3-29V64h10.8v13.8c0,10.1,8.2,18.2,18.2,18.2h7.3c10.1,0,18.2-8.2,18.2-18.2V64L65.8,64z"/><rect class="st2" height="30" id="_x3C_Slice_x3E__100_" width="20"/></svg>
                         </button>
                     </div>
+                    <button id="send-message" class="btn mb-4 btn-lg btn-outline-primary">отправить</button>
                     <input type="file">
-                        <button id="send-message" class="btn mb-4 btn-lg btn-outline-primary">отправить</button>
             </form>';
         } else {
             return 'Такого пользователя не существет';
