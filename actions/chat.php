@@ -106,5 +106,5 @@ function has_new() {
 }
 
 function saveFile() {
-    die(json_encode($_FILES[0], true));
+    die(json_encode($_FILES));
 }
