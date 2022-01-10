@@ -177,5 +177,5 @@ document.addEventListener("DOMContentLoaded", async()=>{
         let response = await promise.json()
     }
     spiner.classList.add('d-none')
-    connectText.innerText = 'Соединение установлено: Чат с '+(usersALL.filter(el=>el['id']==chatWith))[0]['name']
+    connectText.innerText = 'Соединение установлено: Чат с '+(users.filter(el=>el['id']==chatWith))[0]['name']
 })
