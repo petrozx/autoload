@@ -19,7 +19,7 @@ Class Chat
             </div>
             <form id="chat">
             <input type="file">
-                    <div tabindex="0" class="messages mb-2 form-control" >
+                    <div class="messages mb-2 form-control" >
                     </div>
                     <div class="d-flex mb-2">
                         <input type="text" name="message" class="message form-control form-control-lg" placeholder="введите сообщение">
