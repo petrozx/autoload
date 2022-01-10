@@ -89,3 +89,7 @@
     position: absolute;
     visibility: hidden;
   }
+
+  input[type=file]:focus + .messages {
+    outline: -webkit-focus-ring-color auto 5px;
+}
