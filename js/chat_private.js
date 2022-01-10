@@ -216,6 +216,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const req = await fetch('/api/chat/saveFile', {
             method: 'POST'
         })
-        return await req.json()
+        return await req.text()
     }
 })
