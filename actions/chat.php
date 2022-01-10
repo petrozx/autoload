@@ -107,12 +107,13 @@ function has_new() {
 
 function saveFile() {
     $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/upload/';
-    $uploadfile = $uploadDir . basename($_FILES['file']['name'].'.'.$_FILES['userfile']['type']);
+    $nameFile = basename($_FILES['file']['name'].'.'.$_FILES['userfile']['type']);
+    $uploadfile = $uploadDir . $nameFile;
     $res = move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
     if ($res) {
         $response = ['result'=>'OK'];
         $bd = new DB('chat');
-        $res = $bd->saveRows([ time() , $uploadfile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'file', 0 ]);
+        $res = $bd->saveRows([ time() , '/upload/'. $nameFile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'file', 0 ]);
         $bd->close_connection();
     } else {
         $response = ['result'=>'ERROR'];
