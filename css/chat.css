@@ -84,3 +84,7 @@
   .btn--mic:active .svg-mike {
     fill: #FFFFFF;
   }
+
+  input[type=file]{
+    position: absolute;
+  }

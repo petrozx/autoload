@@ -19,6 +19,7 @@ Class Chat
             </div>
             <form id="chat">
                         <div class="messages mb-2 form-control" >
+                        <input type="file">
                         </div>
                     <div class="d-flex mb-2">
                         <input type="text" name="message" class="message form-control form-control-lg" placeholder="введите сообщение">
@@ -35,7 +36,6 @@ Class Chat
                         </button>
                     </div>
                     <button id="send-message" class="btn mb-4 btn-lg btn-outline-primary">отправить</button>
-                    <input type="file">
             </form>';
         } else {
             return 'Такого пользователя не существет';
