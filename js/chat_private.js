@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         event.stopPropagation()
         let dx = event.pageX - fileInput.offsetLeft;
         let dy = event.pageY - fileInput.offsetTop;
-
+        console.log(event.pageX, event.pageY);
         if ((dx < 0) || (dx > fileInput.width) || (dy < 0) || (dy > fileInput.height)) {
             messages.classList.remove('focus')
             fileInput.classList.remove('file-show')
