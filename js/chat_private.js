@@ -212,9 +212,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     async function sendFile(file) {
         const formData = new FormData()
-        formData.append('file', formData)
+        formData.append('file', file)
         const req = await fetch('/api/chat/saveFile', {
-            method: 'POST'
+            method: 'POST',
+            body: formData
         })
         return await req.json()
     }
