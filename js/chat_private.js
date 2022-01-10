@@ -77,9 +77,9 @@ document.addEventListener("DOMContentLoaded", async()=>{
                         newMes.className = 'd-flex ms-2 mb-2 justify-content-end';
                     }
                     let name;
-                    usersALL.forEach(element => {
-                        if (element['id'] == el['author']) name = element['name']
-                    });
+                    // usersALL.forEach(element => {
+                    //     if (element['id'] == el['author']) name = element['name']
+                    // });
                     // newMes.innerText = formatTime(el['date_create'])+"\n"+name+"\n"+el['message']+"\n\n"
                     newMes.innerText = el['message']
                 } else if (el['type'] == 'audio') {
