@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     }
     spiner.classList.add('d-none')
     const fileInput = document.querySelector('[type=file]')
-    const events = ['drag', 'dragstart', 'dragover', 'dragenter', 'dragleave'];
+    const events = ['drag', 'dragstart', 'dragend', 'dragover', 'dragenter'];
     events.forEach(e=>{
         messages.addEventListener(e, (event)=>{
             event.preventDefault()
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
         fileInput.classList.remove('file-show')
     })
 
-    messages.addEventListener('dragend', (event)=>{
+    messages.addEventListener('dragleave', (event)=>{
         event.preventDefault()
         event.stopPropagation()
         messages.classList.remove('focus')
