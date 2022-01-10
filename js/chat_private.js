@@ -205,8 +205,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     fileInput.addEventListener('change', async function(e) {
         messages.classList.remove('focus')
         fileInput.classList.remove('file-show')
-        await sendFile(this.files)
-        const a = await updateMessage()
+        const a = await sendFile(this.files)
         console.log(a);
     })
 
@@ -216,6 +215,6 @@ document.addEventListener("DOMContentLoaded", async()=>{
         const req = await fetch('/api/chat/saveFile', {
             method: 'POST'
         })
-        return await req.text()
+        return await req.json()
     }
 })
