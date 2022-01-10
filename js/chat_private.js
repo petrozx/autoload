@@ -198,9 +198,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
     messages.addEventListener('dragleave', (event)=>{
         event.preventDefault()
         event.stopPropagation()
-        let dx = e.pageX - messages.offset().left;
-        let dy = e.pageY - messages.offset().top;
-        console.log(dx, dy);
+        let dx = event.pageX - messages.offset().left;
+        let dy = event.pageY - messages.offset().top;
         if ((dx < 0) || (dx > messages.width()) || (dy < 0) || (dy > messages.height())) {
             messages.classList.remove('focus')
             fileInput.classList.remove('file-show')
