@@ -177,4 +177,12 @@ document.addEventListener("DOMContentLoaded", async()=>{
         let response = await promise.json()
     }
     spiner.classList.add('d-none')
+    const fileInput = document.querySelector('[type=file]')
+    const events = ['drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave drop'];
+    events.forEach(e=>{
+        messages.addEventListener(e, (event)=>{
+            event.preventDefault();
+            event.stopPropagation()
+        })
+    })
 })
