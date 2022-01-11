@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     document.querySelectorAll('.images').forEach(el => {
         el.addEventListener('click', () => {
-
+            el.classList.toggle('open')
         })
     })
 })
