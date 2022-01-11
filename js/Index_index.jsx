@@ -3,17 +3,12 @@
 
 function App() {
 const [fifa, setFifa] = React.useState();
-  
+
   React.useEffect(() => {
     fetch('/api/login/userAuth', {
       method: 'POST'
-    }).then(res => res.json())
-    .then(result => {
-      setFifa(result)
-    })
-  })
+    }).then(res => res.json()).then(result => {setFifa(result)})})
 
-  console.log(fifa);
   return(
     <h1>Привет, мир!</h1>
   )
