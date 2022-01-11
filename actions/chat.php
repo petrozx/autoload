@@ -62,15 +62,15 @@ function online() {
     if (!empty($_SESSION['auth'])) {
         $bd = new DB('users');
         $bd->isOnline($_SESSION['auth']['id']);
+        $mes = $bd->has_newMessage($_SESSION['auth']['id']);
         $bd->close_connection();
-        $mes = has_new();
         die(json_encode(['success' => 1, 'message' => $mes]));
     } else {
         die(json_encode(['success' => 0]));
     }
 }
 
-function save(){
+function save() {
     $uploadDir = $_SERVER['DOCUMENT_ROOT'].'/upload/';
     $mp3name = basename(md5($_FILES['voice']['tmp_name'].time()).'.mp3');
     $output = array();
@@ -97,13 +97,6 @@ function mesRead() {
     }
     $bd->close_connection();
     die( json_encode(['error' => 0]) );
-}
-
-function has_new() {
-    $bd = new DB('users');
-    $res = $bd->has_newMessage($_SESSION['auth']['id']);
-    $bd->close_connection();
-    return $res;
 }
 
 function saveFile() {
