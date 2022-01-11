@@ -98,8 +98,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                 } else if (el['type'] == 'file') {
                     newMes = document.createElement('img')
                     newMes.src = el['message']
-                    newMes.style.width = '100px';
-                    newMes.style.height = '100px';
+                    newMes.className = 'images'
                 }
                     messages.append(newMes)
                     if(el['is_read']=='1' || el['author']==globalUser['success']) {
@@ -224,4 +223,10 @@ document.addEventListener("DOMContentLoaded", async()=>{
         })
         return await req.json()
     }
+
+    document.querySelectorAll('.images').forEach(el => {
+        el.addEventListener('click', () => {
+
+        })
+    })
 })

@@ -112,3 +112,20 @@
   .file-show {
     z-index: 2 !important;
   }
+
+  .images {
+    width: 300px;
+    height: 300px;
+  }
+
+  .open {
+    width: 60rem;
+    height: 40rem;
+    position: fixed;
+    left: 0;
+    /* bottom: 20%; */
+    /* right: 20%; */
+    top: 10%;
+    left: 14%;
+    z-index: 20;
+  }
