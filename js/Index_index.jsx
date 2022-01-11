@@ -1,4 +1,13 @@
+
+
+function App() {
+  return(
+    <h1>Привет, мир!</h1>
+  )
+}
+
+
 ReactDOM.render(
-    <h1>Привет, мир!</h1>,
+    <App/>,
     document.getElementById('root')
   );
