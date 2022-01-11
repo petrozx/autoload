@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     const circle = document.querySelector('#circle')
 
-    function onlineAndShow() {
+    async function onlineAndShow() {
         const resp = await isOnline()
         if (resp['message'] == true) {
             circle.classList.remove('d-none')
