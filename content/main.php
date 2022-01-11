@@ -53,7 +53,7 @@
                     <div class="col-12 d-flex justify-content-end align-items-center">
                         <?=empty($_SESSION['auth'])?'<span class="fs-4">Гость</span>'
                         :'<a class="fs-4 me-4 btn btn-light btn-sm dropdown-toggle position-relative" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">'.$_SESSION['auth']['name'].
-                        '<span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"><span class="visually-hidden">New alerts</span></span>'.
+                        '<span id="circle" class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"><span class="visually-hidden">New alerts</span></span>'.
                         '</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="/profile">Профиль</a></li>

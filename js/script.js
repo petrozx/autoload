@@ -12,6 +12,17 @@ document.addEventListener('DOMContentLoaded', async()=>{
         return req.json()
     }
 
+    const circle = document.querySelector('#circle')
+
+    function onlineAndShow() {
+        const resp = await isOnline()
+        if (resp['message'] == true) {
+            circle.classList.remove('d-none')
+        } else {
+            circle.classList.add('d-none')
+        }
+    }
+
     async function logout() {
         const formData = new FormData()
         formData.append('method', 'logout')
@@ -28,8 +39,8 @@ document.addEventListener('DOMContentLoaded', async()=>{
     }
 
     if (window.location.href != 'https://petroz.ru/login/register') {
-        await isOnline()
-        setInterval(await isOnline, 60000)
+
+        setInterval(await onlineAndShow, 60000)
     }
 
     btnLogout?.addEventListener('click', async(e)=>{
