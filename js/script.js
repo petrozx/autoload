@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
     }
 
     if (window.location.href != 'https://petroz.ru/login/register') {
-        onlineAndShow()
+        await onlineAndShow()
         setInterval(await onlineAndShow, 60000)
     }
 
