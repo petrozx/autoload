@@ -60,7 +60,6 @@ Class Router
     private function getJS($class, $method)
     {
         $dir = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class.'_'.$method. '.js';
-        var_dump($dir);
         if (file_exists($dir)) {
             return '/js/' . $class.'_'.$method . '.js';
         }
