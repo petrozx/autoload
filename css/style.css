@@ -1,0 +1,70 @@
+.profile {
+    position: relative;
+}
+
+.profile__name {
+    z-index: 5;
+}
+
+.message {
+    position: absolute;
+    top: -10px;
+    right: 6rem;
+    display: none;
+}
+
+.message--new {
+    display: block;
+    animation: mes 1s ease;
+}
+
+.message__body {
+    position: absolute;
+    z-index: 3;
+}
+
+.message__intro {
+    position: absolute;
+} 
+
+.message__top {
+    position: absolute;
+    z-index: 1;
+}
+.message:hover .message__intro{
+    animation: top 0.3s ease-in 0.5s forwards;
+}
+
+.message:hover .message__top {
+    animation: open 0.4s ease-in 0s forwards;
+}
+
+@keyframes top {
+    from {
+        top:0;
+        z-index: 2;
+    }
+    to {
+        top:-10px;
+        z-index: 2;
+    }
+}
+
+@keyframes open {
+
+    to {
+        top: -15px;
+        transform: rotateX(-180deg);
+    }
+}
+
+@keyframes mes {
+    0% {
+        top: -100px;
+    }
+
+    100% {
+        top:0;
+    }
+}
+
