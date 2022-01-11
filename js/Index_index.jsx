@@ -1,6 +1,16 @@
 
 
+async function getAllUsers() {
+  const resp = await fetch('/api/login/userAuth', {
+    method: 'POST'
+  })
+  return resp.json()
+}
+
+
 function App() {
+  const res = React.useMemo(getAllUsers)
+  console.log(res);
   return(
     <h1>Привет, мир!</h1>
   )
