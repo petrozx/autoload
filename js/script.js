@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', async()=>{
         return req.json()
     }
 
-    const circle = document.querySelector('#circle')
+    const newMessage = document.querySelector('#new-message')
 
     async function onlineAndShow() {
         const resp = await isOnline()
         if (resp['message'] == true) {
-            circle.classList.remove('d-none')
+            newMessage.classList.remove('message--new')
         } else {
-            circle.classList.add('d-none')
+            newMessage.classList.add('message--new')
         }
     }
 

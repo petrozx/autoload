@@ -9,6 +9,7 @@
         <script src="https://unpkg.com/babel-standalone@6/babel.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" async></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="/css/style.css" rel="stylesheet">
         <? if ($css) : ?>
             <link rel="stylesheet" href="<?= $css ?>">
         <? endif; ?>
@@ -47,13 +48,12 @@
     </symbol>
     </svg>
         <div class="container-lg">
-            <div class="py-3 mb-3 border-bottom">
+            <div class="py-4 mb-3 border-bottom">
                 <div class="text-end">
                 <div class="dropdown">
-                    <div class="col-12 d-flex justify-content-end align-items-center">
+                    <div class="col-12 d-flex justify-content-end align-items-center profile__name">
                         <?=empty($_SESSION['auth'])?'<span class="fs-4">Гость</span>'
                         :'<a class="fs-4 me-4 btn btn-light btn-sm dropdown-toggle position-relative" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">'.$_SESSION['auth']['name'].
-                        '<span id="circle" class="d-none position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"><span class="visually-hidden">New alerts</span></span>'.
                         '</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="/profile">Профиль</a></li>
@@ -64,6 +64,22 @@
                     </div>
                 </div>
                 </div>
+                <a href="/chat" id="new-message" class="message">
+                    <svg class="message__top" width="40" height="17" viewBox="0 0 220 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M110.743 92.3574L5.40349 2H214.652L110.743 92.3574Z" fill="#0D6EFD" stroke="#FFFCFC" stroke-width="3"/>
+                        </svg>
+                    <svg class="message__body" width="38.91" height="25" viewBox="0 0 222 148" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.07468 6.31327L2 4.35427V8V144V146H4H218H220V144V8V4.33541L216.918 6.31796L111.507 74.1253L5.07468 6.31327Z" fill="#0D6EFD" stroke="white" stroke-width="3"/>
+                        <line y1="-2" x2="253.559" y2="-2" transform="matrix(0.843986 -0.536365 0.55448 0.832197 4 144)" stroke="white" stroke-width="3"/>
+                        <line y1="-2" x2="253.559" y2="-2" transform="matrix(0.843986 0.536365 -0.55448 0.832197 4 8)" stroke="white" stroke-width="3"/>
+                    </svg>
+                    <svg class="message__intro" width="38" height="21" viewBox="0 0 209 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="209" height="116" fill="white" stroke="black"/>
+                        <line x1="38" y1="33.5" x2="171" y2="33.5" stroke="black" stroke-width="4"/>
+                        <line x1="38" y1="54.5" x2="171" y2="54.5" stroke="black" stroke-width="4"/>
+                        <line x1="38" y1="74.5" x2="171" y2="74.5" stroke="black" stroke-width="4"/>
+                        </svg>
+                </a>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
