@@ -9,7 +9,7 @@ async function getAllUsers() {
 
 
 function App() {
-  const res = React.useMemo(getAllUsers,['success'])
+  const res = await React.useMemo(getAllUsers,['success'])
   console.log(res);
   return(
     <h1>Привет, мир!</h1>
