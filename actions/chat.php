@@ -63,7 +63,8 @@ function online() {
         $bd = new DB('users');
         $bd->isOnline($_SESSION['auth']['id']);
         $bd->close_connection();
-        die(json_encode(['success' => 1, 'message' => has_new()]));
+        $mes = has_new();
+        die(json_encode(['success' => 1, 'message' => $mes]));
     } else {
         die(json_encode(['success' => 0]));
     }
@@ -100,7 +101,7 @@ function mesRead() {
 
 function has_new() {
     $bd = new DB('users');
-    $res = $bd->has_newMessage($_POST['id']);
+    $res = $bd->has_newMessage($_SESSION['auth']['id']);
     $bd->close_connection();
     return $res;
 }
