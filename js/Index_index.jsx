@@ -1,16 +1,17 @@
 
-  async function getAllUsers() {
-    const resp = await fetch('/api/login/userAuth', {
-      method: 'POST'
-    })
-    return await resp.json()
-  }
 
 
 function App() {
-const fifa = React.useRef();
+const [fifa, setFifa] = React.useState();
   
-  React.useEffect(async()=>fifa = await getAllUsers())
+  React.useEffect(() => {
+    fetch('/api/login/userAuth', {
+      method: 'POST'
+    }).then(res => res.json())
+    .then(result => {
+      setFifa(result)
+    })
+  })
 
   console.log(fifa);
   return(
