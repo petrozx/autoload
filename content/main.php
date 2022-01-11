@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 </div>
-                <a href="/chat" id="new-message" class="message">
+                <a href="/chat" id="new-message" class="new-message">
                     <svg class="message__top" width="40" height="17" viewBox="0 0 220 95" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M110.743 92.3574L5.40349 2H214.652L110.743 92.3574Z" fill="#0D6EFD" stroke="#FFFCFC" stroke-width="3"/>
                         </svg>
