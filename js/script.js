@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async()=>{
 
     if (window.location.href != 'https://petroz.ru/login/register') {
         setTimeout(async () =>await onlineAndShow(),200)
-        setInterval(await onlineAndShow, 60000)
+        setInterval(await onlineAndShow, 30000)
     }
 
     btnLogout?.addEventListener('click', async(e)=>{
