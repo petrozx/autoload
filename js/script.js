@@ -9,18 +9,19 @@ document.addEventListener('DOMContentLoaded', async()=>{
         const req = await fetch('/api/chat/online', {
             method: 'POST'
         })
-        return req.json()
+        return req.text()
     }
 
     const circle = document.querySelector('#circle')
 
     async function onlineAndShow() {
         const resp = await isOnline()
-        if (resp['message'] == true) {
-            circle.classList.remove('d-none')
-        } else {
-            circle.classList.add('d-none')
-        }
+        console.log(resp);
+        // if (resp['message'] == true) {
+        //     circle.classList.remove('d-none')
+        // } else {
+        //     circle.classList.add('d-none')
+        // }
     }
 
     async function logout() {
