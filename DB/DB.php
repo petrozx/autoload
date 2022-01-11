@@ -157,8 +157,8 @@ class DB
         $query = self::$connect->query("SELECT * FROM `users` INNER JOIN chat ON what_a_chat=users.id OR chat.author=users.id WHERE chat.is_read=0 AND chat.what_a_chat=${$id}");
         $res = $query->fetch_assoc();
         if (empty($res))
-            return false;
+            return 'false';
         else
-            return true;
+            return 'true';
     }
 }
