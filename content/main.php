@@ -48,7 +48,7 @@
     </symbol>
     </svg>
         <div class="container-lg">
-            <div class="py-4 mb-3 border-bottom">
+            <div class="py-4 mb-3 border-bottom profile">
                 <div class="text-end">
                 <div class="dropdown">
                     <div class="col-12 d-flex justify-content-end align-items-center profile__name">
