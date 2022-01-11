@@ -63,6 +63,7 @@ function online() {
         $bd = new DB('users');
         $bd->isOnline($_SESSION['auth']['id']);
         $mes = $bd->has_newMessage($_SESSION['auth']['id']);
+        var_dump($mes);
         $bd->close_connection();
         die(json_encode(array('success' => 1, 'message' => $mes)));
     } else {
