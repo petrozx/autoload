@@ -8,6 +8,7 @@ Class Router
         global $content;
         global $css;
         global $js;
+        global $jsx;
         [$action, $class, $method, $body] = $this->parseURL($url);
         $class = $class?:'Index';
         $method = $method?:'index';
@@ -22,6 +23,7 @@ Class Router
             } else {
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
+                $jsx = $this->getJSX($class, $method);
                 if (class_exists($class)) {
                     $instance = new $class($body);
                 } else {
@@ -59,9 +61,16 @@ Class Router
     }
     private function getJS($class, $method)
     {
-        $dir = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class.'_'.$method. '.js';
-        if (file_exists($dir)) {
+        $dirJS = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class.'_'.$method. '.js';
+        if (file_exists($dirJS)) {
             return '/js/' . $class.'_'.$method . '.js';
+        }
+    }
+    private function getJSX($class, $method)
+    {
+        $dirJSX = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class.'_'.$method. '.js';
+        if (file_exists($dirJSX)) {
+            return '/js/' . $class.'_'.$method . '.jsx';
         }
     }
     private function getCss($file)

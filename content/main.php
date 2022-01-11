@@ -126,8 +126,10 @@
                 <script src="/js/script.js"></script>
                 <!-- <script type="text/babel" src="/js/react.js"></script> -->
                 <? if ($js) : ?>
-                <script type="text/babel" src="<?= $js ?>"></script>
-                <? endif; ?>
+                    <script src="<?= $js ?>"></script>
+                <? elseif ($jsx): ?>
+                    <script type="text/babel" src="<?= $jsx ?>"></script>
+                <? endif ?>
                 <div class="made">
                     <span class="text-muted">©Made by petroz</span>
                 </div>
