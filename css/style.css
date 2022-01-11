@@ -6,9 +6,9 @@
     z-index: 5;
 }
 
-.message {
+.new-message {
     position: absolute;
-    top: 15px;
+    top: 30px;
     right: 4rem;
     display: none;
 }
@@ -31,11 +31,11 @@
     position: absolute;
     z-index: 1;
 }
-.message:hover .message__intro{
+.new-message:hover .message__intro{
     animation: top 0.3s ease-in 0.5s forwards;
 }
 
-.message:hover .message__top {
+.new-message:hover .message__top {
     animation: open 0.4s ease-in 0s forwards;
 }
 
