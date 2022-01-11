@@ -68,7 +68,7 @@ Class Router
     }
     private function getJSX($class, $method)
     {
-        $dirJSX = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class.'_'.$method. '.js';
+        $dirJSX = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class.'_'.$method. '.jsx';
         if (file_exists($dirJSX)) {
             return '/js/' . $class.'_'.$method . '.jsx';
         }
