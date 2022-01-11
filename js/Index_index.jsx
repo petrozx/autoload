@@ -1,14 +1,14 @@
 
 
-async function getAllUsers() {
-  const resp = await fetch('/api/login/userAuth', {
-    method: 'POST'
-  })
-  return await resp.json()
-}
 
 
 function App() {
+  async function getAllUsers() {
+    const resp = await fetch('/api/login/userAuth', {
+      method: 'POST'
+    })
+    return await resp.json()
+  }
   const res = React.useMemo(async()=>await getAllUsers())
   console.log(res);
   return(
