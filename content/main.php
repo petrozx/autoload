@@ -114,9 +114,9 @@
                     </div>
                 </div>
             </nav>
-            <h1>Hi you are on my site</h1>
+            <h1></h1>
             <div class="container">
-                <div id="root">
+                <div id="main">
                     <?= $content ?>
                 </div>
             </div>
