@@ -9,7 +9,7 @@ const [fifa, setFifa] = React.useState([]);
       method: 'POST'
     }).then(res => res.json()).then(result => {setFifa(result)})
   },[])
-
+console.log(fifa);
   return(
     <h1>Привет, мир!</h1>
   )
