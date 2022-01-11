@@ -8,9 +8,9 @@
 
 
 function App() {
-const [fifa, setFifa] = React.useState();
+const fifa = React.useRef();
   
-  React.useEffect(async()=>setFifa(await getAllUsers()))
+  React.useEffect(async()=>fifa = await getAllUsers())
 
   console.log(fifa);
   return(
