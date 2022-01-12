@@ -8,9 +8,10 @@
 
 .new-message {
     position: absolute;
-    top: 30px;
+    top: 24px;
     right: 4rem;
     display: none;
+    transform: rotate(180deg);
 }
 
 .message--new {
@@ -64,7 +65,7 @@
     }
 
     100% {
-        top:0;
+        top: 24px;;
     }
 }
 
