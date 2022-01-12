@@ -9,7 +9,7 @@
 .new-message {
     position: absolute;
     top: 24px;
-    right: 4rem;
+    right: 2rem;
     display: none;
     transform: rotate(180deg);
 }
