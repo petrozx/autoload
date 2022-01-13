@@ -18,6 +18,6 @@
                 <use xlink:href="#chevron-right"></use>
             </svg></a>
     </div>
+    <?='ghbdt'?>
 </div>
-<?var_dump($arResult);?>
 <? endforeach?>
