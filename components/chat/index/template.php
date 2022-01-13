@@ -19,4 +19,5 @@
             </svg></a>
     </div>
 </div>
+<?var_dump($arResult);?>
 <? endforeach?>
