@@ -24,7 +24,7 @@ Class Router
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
-                $dir = scandir("/component/");
+                $dir = scandir(ROOT."/component/");
                 var_dump($dir);
                 if (class_exists($class)) {
                     $instance = new $class($body);
