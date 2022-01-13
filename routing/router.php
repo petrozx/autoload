@@ -24,20 +24,10 @@ Class Router
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
-                $componets = ROOT."/components/";
-                $dir = scandir($componets);
-                if (in_array($class, $dir)) {
-                    require_once($componets.$class.'/'.CLASS_COMPONENT);
+                $this->getModules($class);
+                $this->getComponents($class, $method);
                     $instance = new $class($class);
                     $content = call_user_func([$instance, $method], $body);
-                    if (in_array('template', $dir)) {
-                        require_once($componets.$class.'/template/'.TEMPLATE);
-                    } else {
-                        // throw new Exception();
-                    }
-                } else {
-                    throw new Exception();
-                }
             }
         } catch (Exception $e) {
             throw new Exception('Запрашиваемый ресурс отсутствует');
@@ -62,7 +52,7 @@ Class Router
     {
         $dir = $_SERVER['DOCUMENT_ROOT'] . "/actions/".$file.".php";
         if (file_exists($dir)) {
-            include_once($dir);
+            require_once($dir);
         }
     }
     private function getJS($class, $method)
@@ -84,6 +74,20 @@ Class Router
         $dir = $_SERVER['DOCUMENT_ROOT'] . '/css/'. $file . '.css';
         if (file_exists($dir)) {
             return '/css/' . $file . '.css';
+        }
+    }
+    private function getModules($class)
+    {
+        $modules = "{ROOT}/modules/{$class}";
+        if (file_exists($modules)) {
+            require_once($modules."/{CLASS_COMPONENT}");
+        }
+    }
+    private function getComponents($class, $method)
+    {
+        $component = "{ROOT}/components/{$class}/{$method}";
+        if (file_exists($component)) {
+            require_once($component."/template.php");
         }
     }
 }
