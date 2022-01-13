@@ -8,6 +8,7 @@ Class Router
         global $css;
         global $js;
         global $jsx;
+        global $arResult;
         [$action, $class, $method, $body] = $this->parseURL($url);
         $class = $class?:'index';
         $method = $method?:'index';

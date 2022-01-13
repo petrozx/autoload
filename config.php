@@ -9,3 +9,4 @@ define('TEMPLATE', 'template.php');
 global $content;
 global $css;
 global $js;
+global $arResult;
