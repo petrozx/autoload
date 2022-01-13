@@ -58,7 +58,7 @@ Class Chat
                 $countUnRead = count($unRead);?>
                 <div class="feature col chats-block">
                             <div class="feature-icon bg-primary bg-gradient position-relative">
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill '.$color.'"><?=
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill <?$color?>"><?=
                                 $countUnRead?>
                                 <span class="visually-hidden">unread messages</span>
                             </span>
