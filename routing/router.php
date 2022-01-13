@@ -9,7 +9,7 @@ Class Router
         global $js;
         global $jsx;
         [$action, $class, $method, $body] = $this->parseURL($url);
-        $class = $class?:'Index';
+        $class = $class?:'index';
         $method = $method?:'index';
         try {
             if ($action == 'api') {
