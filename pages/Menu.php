@@ -13,14 +13,10 @@ class Menu
         ';
     }
     public function index(){
-    ob_start();
     ?>
         <div>
             <h1>привет это буфер</h1>
         </div>
     <?
-    $out1 = ob_get_contents();
-    ob_end_clean();
-    return $out1;
     } 
 }
