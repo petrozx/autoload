@@ -73,7 +73,7 @@ Class Chat
             <?endif;
         endforeach;
         $newBD->close_connection();
-        return ob_get_contents();
+        return ob_get_clean();
     }
 }
 ?>
