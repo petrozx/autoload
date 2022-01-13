@@ -134,7 +134,6 @@
             <div class="container">
                 <div id="main">
                     <?= $content ?>
-                    <?var_dump($arResult) ?>
                 </div>
             </div>
         </div>

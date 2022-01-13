@@ -2,7 +2,7 @@
 <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
     <div class="feature col chats-block">
         <div class="feature-icon bg-primary bg-gradient position-relative">
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill <?= $color ?>">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill <?=$res['color'] ?>">
                 <?= $res['count_unread'] ?>
                 <span class="visually-hidden">unread messages</span>
             </span>
