@@ -24,14 +24,14 @@ Class Router
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
-                $dir = scandir(ROOT."/component/");
+                $componets = ROOT."/component/";
+                $dir = scandir($componets);
                 if (in_array($class, $dir)) {
-                    var_dump($dir);
-                    require_once(CLASS_COMPONENT);
+                    require_once($componets.CLASS_COMPONENT);
                     $instance = new $class($class);
                     $content = call_user_func([$instance, $method], $body);
                     if (in_array('template', $dir)) {
-                        require_once(TEMPLATE);
+                        require_once($componets.'template/'.TEMPLATE);
                     } else {
                         throw new Exception();
                     }
