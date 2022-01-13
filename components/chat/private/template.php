@@ -1,6 +1,6 @@
 <div class="connect alert alert-primary">
     <div class="d-flex align-items-center">
-        <span id="alert"><?var_dump($arResult)?></span>
+        <span id="alert"><?var_dump('hi'.$arResult)?></span>
         <div class="spinner-border text-primary ms-auto d-none" role="status" aria-hidden="true"></div>
     </div>
 </div>
