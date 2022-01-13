@@ -1,6 +1,6 @@
 <div class="connect alert alert-primary">
     <div class="d-flex align-items-center">
-        <span id="alert"><?=$name[0]['name']?></span>
+        <span id="alert"><?var_dump($arResult)?></span>
         <div class="spinner-border text-primary ms-auto d-none" role="status" aria-hidden="true"></div>
     </div>
 </div>
@@ -37,7 +37,6 @@
                 <rect class="st2" height="30" id="_x3C_Slice_x3E__100_" width="20" />
             </svg>
         </button>
-        <?var_dump($arResult);?>
     </div>
     <button id="send-message" class="btn mb-4 btn-lg btn-outline-primary">отправить</button>
 </form>
