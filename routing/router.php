@@ -20,11 +20,11 @@ Class Router
                     throw new Exception();
                 }
             } else if ($action == '_') {
+                $this->getModules($class);
+                $this->getComponents($class, $method);
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
-                $this->getModules($class);
-                $this->getComponents($class, $method);
                     $instance = new $class($class);
                     $content = call_user_func([$instance, $method], $body);
             } else {
@@ -79,14 +79,14 @@ Class Router
     }
     private function getModules($class)
     {
-        $modules = "{ROOT}/modules/{$class}";
+        $modules = ROOT."/modules/{$class}";
         if (file_exists($modules)) {
             require_once($modules."/{CLASS_COMPONENT}");
         }
     }
     private function getComponents($class, $method)
     {
-        $component = "{ROOT}/components/{$class}/{$method}";
+        $component = ROOT."/components/{$class}/{$method}";
         if (file_exists($component)) {
             require_once($component."/template.php");
         }
