@@ -92,7 +92,7 @@ Class Router
     {
         $component = ROOT."/components/{$class}/{$method}";
         if (file_exists($component)) {
-            include $component."/template.php";
+            require_once($component."/template.php");
         }
     }
 }
