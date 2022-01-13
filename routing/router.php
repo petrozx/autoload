@@ -24,7 +24,7 @@ Class Router
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
-                $componets = ROOT."/component/";
+                $componets = ROOT."/components/";
                 $dir = scandir($componets);
                 if (in_array($class, $dir)) {
                     require_once($componets.$class.'/'.CLASS_COMPONENT);
@@ -33,7 +33,7 @@ Class Router
                     if (in_array('template', $dir)) {
                         require_once($componets.$class.'/template/'.TEMPLATE);
                     } else {
-                        // throw new Exception();
+                        throw new Exception();
                     }
                 } else {
                     // throw new Exception();
