@@ -26,8 +26,8 @@ Class Router
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
                     $instance = new $class($class);
-                    $arResult = call_user_func([$instance, $method], $body);
                     ob_start();
+                    $arResult = call_user_func([$instance, $method], $body);
                     $this->getComponents($class, $method);
                     $content = ob_get_clean();
             } else {
