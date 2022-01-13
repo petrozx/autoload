@@ -26,17 +26,16 @@ Class Router
                 $jsx = $this->getJSX($class, $method);
                 $dir = scandir(ROOT."/component/");
                 if (in_array($class, $dir)) {
-                    echo 'true';
-                }
-                var_dump($dir);
-                if (class_exists($class)) {
-                    $instance = new $class($body);
+                    require_once(CLASS_COMPONENT);
+                    $instance = new $class($class);
+                    $content = call_user_func([$instance, $method], $body);
+                    if (in_array('template', $dir)) {
+                        require_once(TEMPLATE);
+                    } else {
+                        throw new Exception();
+                    }
                 } else {
                     throw new Exception();
-                }
-                if (method_exists($instance, $method)) {
-                    ob_start();
-                    $content = call_user_func([$instance, $method], $body);
                 }
             }
         } catch (Exception $e) {
