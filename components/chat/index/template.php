@@ -1,4 +1,6 @@
-<?foreach($arResult as $res):?>
+<?
+var_dump($arResult);
+foreach($arResult as $res):?>
 <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
     <div class="feature col chats-block">
         <div class="feature-icon bg-primary bg-gradient position-relative">
