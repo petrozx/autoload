@@ -7,6 +7,7 @@ Class Chat
             $bd = new DB('users');
             $name = $bd->getFilterRows('id='.$_GET['user']);
             $bd->close_connection();
+            return $name;
         }
     }
 
