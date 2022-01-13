@@ -6,5 +6,3 @@ define('DB_NAME', 'petroz');
 global $content;
 global $css;
 global $js;
-global $return;
-$return = ob_get_contents();

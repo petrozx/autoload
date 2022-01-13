@@ -18,6 +18,6 @@ class Menu
             <h1>привет это буфер</h1>
         </div>
     <?
-    return $return;
+    return ob_get_contents();
     }
 }
