@@ -32,7 +32,7 @@ Class Router
                 if (method_exists($instance, $method)) {
                     ob_start();
                     $content = call_user_func([$instance, $method], $body);
-                    var_dump($content);
+                    echo '<pre>'.print_r($content, true).'</pre>';
                     ob_end_clean();
                 }
             }
