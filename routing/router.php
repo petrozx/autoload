@@ -21,12 +21,12 @@ Class Router
                 }
             } else if ($action == '_') {
                 $this->getModules($class);
-                $this->getComponents($class, $method);
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
                     $instance = new $class($class);
-                    $content = call_user_func([$instance, $method], $body);
+                    call_user_func([$instance, $method], $body);
+                    $content = $this->getComponents($class, $method);
             } else {
                 throw new Exception();
             }
@@ -88,7 +88,7 @@ Class Router
     {
         $component = ROOT."/components/{$class}/{$method}";
         if (file_exists($component)) {
-            require_once($component."/template.php");
+            return file_get_contents($component."/template.php");
         }
     }
 }
