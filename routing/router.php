@@ -35,7 +35,7 @@ Class Router
                     $content = call_user_func([$instance, $method], $body);
                     printf("%s seconds to produce (%skb/sec)",
                     microtime(1)-$StartTime,
-                    Round((ob_get_length()/(microtime(1)-$StartTime))/1024));
+                    (ob_get_length()/(microtime(1)-$StartTime))/1024);
                     ob_end_clean();
                 }
             }
