@@ -26,7 +26,6 @@ Class Router
                 $jsx = $this->getJSX($class, $method);
                 $componets = ROOT."/component/";
                 $dir = scandir($componets);
-                var_dump($dir);
                 if (in_array($class, $dir)) {
                     require_once($componets.$class.'/'.CLASS_COMPONENT);
                     $instance = new $class($class);
@@ -34,10 +33,10 @@ Class Router
                     if (in_array('template', $dir)) {
                         require_once($componets.$class.'/template/'.TEMPLATE);
                     } else {
-                        throw new Exception();
+                        // throw new Exception();
                     }
                 } else {
-                    throw new Exception();
+                    // throw new Exception();
                 }
             }
         } catch (Exception $e) {
