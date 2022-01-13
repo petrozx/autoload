@@ -3,6 +3,9 @@
 class Login
 {
     public function register() {
+        $_SESSION['auth']['name'] = '123';
+        $_SESSION['auth']['id'] = '88';
+
         if (empty($_SESSION['auth'])) {
             return '
             <div class="text-center">
