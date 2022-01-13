@@ -133,6 +133,7 @@
             <h1></h1>
             <div class="container">
                 <div id="main">
+                <?echo '<pre>'.print_r($content, true).'</pre>';?>
                     <?= $content ?>
                 </div>
             </div>
