@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', async()=>{
     async function onlineAndShow() {
         const resp = await isOnline()
         if (resp['message'] == true) {
-            newMessage.classList.remove('message--new')
-        } else {
             newMessage.classList.add('message--new')
+        } else {
+            newMessage.classList.remove('message--new')
         }
     }
 

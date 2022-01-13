@@ -48,12 +48,12 @@
     </symbol>
     </svg>
         <div class="container-lg">
-            <div class="py-4 mb-3 border-bottom">
+            <div class="py-5 mb-3 border-bottom profile">
                 <div class="text-end">
                 <div class="dropdown">
                     <div class="col-12 d-flex justify-content-end align-items-center profile__name">
                         <?=empty($_SESSION['auth'])?'<span class="fs-4">Гость</span>'
-                        :'<a class="fs-4 me-4 btn btn-light btn-sm dropdown-toggle position-relative" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">'.$_SESSION['auth']['name'].
+                        :'<a class="fs-4 me-4 btn btn-light btn-sm dropdown-toggle position-relative profile__name" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">'.$_SESSION['auth']['name'].
                         '</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="/profile">Профиль</a></li>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 </div>
-                <a href="/chat" id="new-message" class="message">
+                <a href="/chat" id="new-message" class="new-message">
                     <svg class="message__top" width="40" height="17" viewBox="0 0 220 95" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M110.743 92.3574L5.40349 2H214.652L110.743 92.3574Z" fill="#0D6EFD" stroke="#FFFCFC" stroke-width="3"/>
                         </svg>
