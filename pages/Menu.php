@@ -13,11 +13,11 @@ class Menu
         ';
     }
     public function index() {
-    ?>
+    return '
         <div>
             <h1>привет это буфер</h1>
         </div>
-    <?
-    return ob_get_contents();
+   ';
+    
     }
 }
