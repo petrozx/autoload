@@ -26,8 +26,8 @@ Class Router
                 $jsx = $this->getJSX($class, $method);
                 $componets = ROOT."/component/";
                 $dir = scandir($componets);
+                var_dump($dir);
                 if (in_array($class, $dir)) {
-                    var_dump($dir);
                     require_once($componets.$class.'/'.CLASS_COMPONENT);
                     $instance = new $class($class);
                     $content = call_user_func([$instance, $method], $body);
