@@ -2,15 +2,15 @@
 
 class Menu 
 {
-    public function list() {
-        return '
-        <ul>
+    public function list() {?>
+    <ul>
             <li>Плов</li>
             <li>Борщ</li>
             <li>Щи</li>
             <li>Аджика</li>
         </ul>
-        ';
+        <?
+        return ob_get_contents();
     }
     public function index() {
     ?>
