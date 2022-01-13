@@ -11,7 +11,7 @@ Class Chat
         }
     }
 
-    private function index() {
+    public function index() {
         $res = '';
         $bd = new DB('users');
         $users = $bd->getRows();
