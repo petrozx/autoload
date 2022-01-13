@@ -13,14 +13,14 @@ class Menu
         ';
     }
     public function index(){
-        return Menu::content();
-    }
-
-    static function content() {
-        return '
-        <div class="fluger">
-            <h1>Привет это новый способ</h1>
+    ob_start();
+    ?>
+        <div>
+            <h1>привет это буфер</h1>
         </div>
-        ';
+    <?
+    $out1 = ob_get_contents();
+    ob_end_clean();
+    return $out1;
     }
 }
