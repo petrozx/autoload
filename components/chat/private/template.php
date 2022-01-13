@@ -1,6 +1,6 @@
 <div class="connect alert alert-primary">
     <div class="d-flex align-items-center">
-        <span id="alert">Чат с '.$name[0]['name'].'</span>
+        <span id="alert"><?=$name[0]['name']?></span>
         <div class="spinner-border text-primary ms-auto d-none" role="status" aria-hidden="true"></div>
     </div>
 </div>
@@ -9,7 +9,6 @@
     <div class="messages mb-2 form-control"></div>
     <div class="d-flex mb-2">
         <input type="text" name="message" class="message form-control form-control-lg" placeholder="введите сообщение">
-        <!-- <object class="mike btn btn-warning" type="image/svg+xml" data="https://petroz.ru/images/mike.svg"></object> -->
         <button type="button" class="btn ml-3 btn-lg btn-outline-primary ms-2 btn--mic mike">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="30px" style="enable-background:new 0 0 85 151;" version="1.1" viewBox="0 0 85 151" width="20px" xml:space="preserve">
                 <style type="text/css">
