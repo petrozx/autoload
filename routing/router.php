@@ -31,7 +31,7 @@ Class Router
                     $instance = new $class($class);
                     $content = call_user_func([$instance, $method], $body);
                     if (in_array('template', $dir)) {
-                        require_once($componets.'template/'.TEMPLATE);
+                        require_once($componets.$class.'/template/'.TEMPLATE);
                     } else {
                         throw new Exception();
                     }
