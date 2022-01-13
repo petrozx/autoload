@@ -81,7 +81,7 @@ Class Router
     {
         $modules = ROOT."/modules/{$class}";
         if (file_exists($modules)) {
-            require_once($modules."/{CLASS_COMPONENT}");
+            require_once($modules."/".CLASS_COMPONENT);
         }
     }
     private function getComponents($class, $method)
