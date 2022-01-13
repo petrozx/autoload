@@ -2,7 +2,6 @@
 
 Class Router
 {
-
     public function __construct($url)
     {
         global $content;
@@ -20,7 +19,7 @@ Class Router
                 } else {
                     throw new Exception();
                 }
-            } else {
+            } else if ($action == '_') {
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
@@ -28,6 +27,8 @@ Class Router
                 $this->getComponents($class, $method);
                     $instance = new $class($class);
                     $content = call_user_func([$instance, $method], $body);
+            } else {
+                throw new Exception();
             }
         } catch (Exception $e) {
             throw new Exception('Запрашиваемый ресурс отсутствует');
