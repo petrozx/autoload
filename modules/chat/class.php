@@ -24,7 +24,7 @@ Class Chat
                 $color = 'bg-secondary';
             }
             $unRead = $newBD->getFilterRows('is_read=0 AND what_a_chat='.$_SESSION['auth']['id'].' AND author='.$user['id']);
-            if ($user['id'] != $_SESSION['auth']['id']){
+            if ($user['id'] != $_SESSION['auth']['id']) {
                 $countUnRead = count($unRead);          
             }
 

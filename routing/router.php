@@ -30,6 +30,7 @@ Class Router
                     ob_start();
                     $this->getComponents($class, $method);
                     $content = ob_get_clean();
+                    var_dump($arResult);
             } else {
                 throw new Exception();
             }
