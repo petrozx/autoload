@@ -30,10 +30,7 @@ Class Router
                     throw new Exception();
                 }
                 if (method_exists($instance, $method)) {
-                    ob_start();
-                    call_user_func([$instance, $method], $body);
-                    $content = ob_get_contents();
-                    ob_end_clean();
+                    $content = call_user_func([$instance, $method], $body);
                 }
             }
         } catch (Exception $e) {
