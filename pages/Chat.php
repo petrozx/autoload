@@ -55,6 +55,7 @@ Class Chat
             }
             if ($user['id'] != $_SESSION['auth']['id']):
                 $unRead = $newBD->getFilterRows('is_read=0 AND what_a_chat='.$_SESSION['auth']['id'].' AND author='.$user['id']);
+                $newBD->close_connection();
                 $countUnRead = count($unRead);
                 $res .= '<div class="feature col chats-block">
                             <div class="feature-icon bg-primary bg-gradient position-relative">
@@ -72,7 +73,6 @@ Class Chat
                         </div>';
             endif;
         endforeach;
-        $newBD->close_connection();
         return $res;
     }
 }
