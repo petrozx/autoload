@@ -22,5 +22,5 @@ class Menu
     $out1 = ob_get_contents();
     ob_end_clean();
     return $out1;
-    }
+    } 
 }
