@@ -133,7 +133,6 @@
             <h1></h1>
             <div class="container">
                 <div id="main">
-                <?var_dump($content)?>
                     <?= $content ?>
                 </div>
             </div>
