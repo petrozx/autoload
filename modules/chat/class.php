@@ -17,18 +17,26 @@ Class Chat
         $users = $bd->getRows();
         $bd->close_connection();
         $newBD = new DB('chat');
-        foreach ($users as $user):
+        foreach ($users as $user){
             if($user['date_update'] + 10*60 > time()) {
                 $color = 'bg-danger';
             } else {
                 $color = 'bg-secondary';
             }
             $unRead = $newBD->getFilterRows('is_read=0 AND what_a_chat='.$_SESSION['auth']['id'].' AND author='.$user['id']);
-            if ($user['id'] != $_SESSION['auth']['id']):
+            if ($user['id'] != $_SESSION['auth']['id']){
                 $countUnRead = count($unRead);          
-            endif;
-        endforeach;
+            }
+
+            $chat_info[] = array(
+                'name' => $user['name'],
+                'id' => $user['id'],
+                'color' => $color,
+                'count_unread' => $countUnRead
+            );
+        }
         $newBD->close_connection();
+        return $chat_info;
     }
 }
 ?>
