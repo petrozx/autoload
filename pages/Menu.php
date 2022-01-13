@@ -18,6 +18,7 @@ class Menu
             <h1>привет это буфер</h1>
         </div>
     <?
+    ob_end_clean();
     return ob_get_contents();
     }
 }
