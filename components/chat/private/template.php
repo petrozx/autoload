@@ -40,3 +40,4 @@
     </div>
     <button id="send-message" class="btn mb-4 btn-lg btn-outline-primary">отправить</button>
 </form>
+<?var_dump($name);
