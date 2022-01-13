@@ -27,7 +27,7 @@ Class Router
                 $componets = ROOT."/component/";
                 $dir = scandir($componets);
                 if (in_array($class, $dir)) {
-                    require_once($componets.CLASS_COMPONENT);
+                    require_once($componets.$class.'/'.CLASS_COMPONENT);
                     $instance = new $class($class);
                     $content = call_user_func([$instance, $method], $body);
                     if (in_array('template', $dir)) {
