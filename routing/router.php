@@ -33,10 +33,10 @@ Class Router
                     if (in_array('template', $dir)) {
                         require_once($componets.$class.'/template/'.TEMPLATE);
                     } else {
-                        throw new Exception();
+                        // throw new Exception();
                     }
                 } else {
-                    // throw new Exception();
+                    throw new Exception();
                 }
             }
         } catch (Exception $e) {
