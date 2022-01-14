@@ -29,7 +29,7 @@ Class Router
                     if(is_callable([$instance, $method])) {
                         $arResult = call_user_func([$instance, $method], $body);
                         ob_start();
-                        $this->getComponents($class, $method);
+                        call_user_func_array([$instance,'getComponents'], [$class, $method]);
                         $content = ob_get_clean();
                     } else {
                         throw new Exception();
@@ -95,7 +95,7 @@ Class Router
     {
         $component = ROOT."/components/{$class}/{$method}";
         if (file_exists($component)) {
-            return require_once($component."/template.php");
+            require_once($component."/template.php");
         }
     }
 }
