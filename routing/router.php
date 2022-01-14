@@ -32,7 +32,7 @@ Class Router
                             throw new Exception();
                         }
                 break;
-                case "js":
+                case "components":
                     $js = $this->getJS($action ,$class, $method);
                 break;
                 case 'css':
