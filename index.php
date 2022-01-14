@@ -15,5 +15,4 @@ $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP
 if (empty($_SESSION['auth']) && $url !== 'https://'.$_SERVER['HTTP_HOST'].'/login/register') {
     header('Location: https://'.$_SERVER['HTTP_HOST'].'/login/register');
 }
-require($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
 ?>

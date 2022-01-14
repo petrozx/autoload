@@ -29,6 +29,7 @@ Class Router
                         ob_start();
                         call_user_func_array(['Router','getComponents'], [$class, $method, $arResult]);
                         $content = ob_get_clean();
+                        require($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
                     } else {
                         throw new Exception();
                     }
