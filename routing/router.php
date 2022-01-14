@@ -67,14 +67,14 @@ Class Router
     {
         $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
-            return $dirJS;
+            return "/components/{$class}/{$method}/js/script.js";
         }
     }
     private function getJSX($class, $method)
     {
-        $dirJSX = $_SERVER['DOCUMENT_ROOT'] . '/js/'. $class.'_'.$method. '.jsx';
+        $dirJSX = ROOT."/components/{$class}/{$method}/jsx/script.jsx";
         if (file_exists($dirJSX)) {
-            return '/js/' . $class.'_'.$method . '.jsx';
+            return "/components/{$class}/{$method}/jsx/script.jsx";
         }
     }
     private function getCss($file)
