@@ -10,18 +10,17 @@ Class Router
         $class = $class?:'index';
         $method = $method?:'index';
         try {
-            if ($action == 'api') {
+            switch ($action) {
+                case 'api':
                 $this->getFileWithFunc($class);
                 if (function_exists($method)){
                     call_user_func($method);
                 } else {
                     throw new Exception();
                 }
-            } else if ($action == '_') {
+                break;
+                case '_':
                 $this->getModules($class);
-                $js = $this->js_link($class, $method);
-                // $js = $this->getJS($class, $method);
-                $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
                 $instance = new $class($class);
                     if(is_callable([$instance, $method])) {
@@ -32,8 +31,15 @@ Class Router
                     } else {
                         throw new Exception();
                     }
-            } else {
+                break;
+                case "js":
+                    $js = $this->getJS($class, $method);
+                break;
+                case 'css':
+                    $css = $this->getCss($class);
+                default:
                 throw new Exception();
+                break;
             }
         } catch (Exception $e) {
             throw new Exception('Запрашиваемый ресурс отсутствует');
@@ -71,7 +77,7 @@ Class Router
     {
         $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
-            return file_get_contents($dirJS);
+            return $dirJS;
         }
     }
     private function getJSX($class, $method)
