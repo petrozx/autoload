@@ -29,7 +29,7 @@ Class Router
                     if(is_callable([$instance, $method])) {
                         $arResult = call_user_func([$instance, $method], $body);
                         ob_start();
-                        call_user_func_array([$instance,'getComponents'], [$class, $method]);
+                        call_user_func_array([$this,'getComponents'], [$class, $method]);
                         $content = ob_get_clean();
                     } else {
                         throw new Exception();
