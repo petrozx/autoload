@@ -9,33 +9,28 @@ Class Router
         [$action, $class, $method, $body] = $this->parseURL($url);
         $class = $class?:'index';
         $method = $method?:'index';
-        global $content;
-        global $css;
-        global $js;
-        global $jsx;
-        global $arResult;
         try {
             switch ($action) {
                 case 'api':
-                $this->getFileWithFunc($class);
-                if (function_exists($method)){
-                    call_user_func($method);
-                } else {
-                    throw new Exception();
-                }
-                break;
-                case '_':
-                $this->getModules($class);
-                $jsx = $this->getJSX($class, $method);
-                $instance = new $class($class);
-                    if(is_callable([$instance, $method])) {
-                        $arResult = call_user_func([$instance, $method], $body);
-                        ob_start();
-                        call_user_func_array(['Router','getComponents'], [$class, $method, $arResult]);
-                        $content = ob_get_clean();
+                    $this->getFileWithFunc($class);
+                    if (function_exists($method)){
+                        call_user_func($method);
                     } else {
                         throw new Exception();
                     }
+                break;
+                case '_':
+                    $this->getModules($class);
+                    $jsx = $this->getJSX($class, $method);
+                    $instance = new $class($class);
+                        if(is_callable([$instance, $method])) {
+                            $arResult = call_user_func([$instance, $method], $body);
+                            ob_start();
+                            call_user_func_array(['Router','getComponents'], [$class, $method, $arResult]);
+                            $content = ob_get_clean();
+                        } else {
+                            throw new Exception();
+                        }
                 break;
                 case "js":
                     $js = $this->getJS($class, $method);
@@ -43,7 +38,7 @@ Class Router
                 case 'css':
                     $css = $this->getCss($class);
                 default:
-                throw new Exception();
+                    throw new Exception();
                 break;
             }
         } catch (Exception $e) {
@@ -57,13 +52,13 @@ Class Router
         $arr = explode(" ", $string);
         switch ($arr[0]) {
             case "api":
-                break;
+            break;
             case "js":
-                break;
+            break;
             case "jsx";
-                break;
+            break;
             case "css";
-                break;
+            break;
             default:
             array_unshift($arr, "_");
             break;
@@ -82,7 +77,7 @@ Class Router
     {
         $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
-            return $dirJS;
+            return "/components/{$class}/{$method}/js/script.js";
         }
     }
     private function getJSX($class, $method)
