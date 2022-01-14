@@ -62,6 +62,8 @@ Class Router
                 break;
             case "js":
                 break;
+            case "css":
+                break;
             default:
                 array_unshift($arr, "_");
                 break;
