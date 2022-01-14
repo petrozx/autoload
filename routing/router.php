@@ -33,7 +33,7 @@ Class Router
                         }
                 break;
                 case "js":
-                    $js = $this->getJS($class, $method);
+                    $js = "/{$action}/{$class}/{$method}/js/script.js";
                     var_dump($js);
                 break;
                 case 'css':
