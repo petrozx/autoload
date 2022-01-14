@@ -33,7 +33,7 @@ Class Router
                         }
                 break;
                 case "js":
-                    $js = ROOT."/{$action}/{$class}/{$method}/js/script.js";
+                    $js = "/{$action}/{$class}/{$method}/js/script.js";
                     var_dump($js);
                 break;
                 case 'css':
