@@ -24,6 +24,9 @@ Class Router
                 case 'js':
                     $this->getJS($class, $method);
                     break;
+                case 'css':
+                    $this->getCSS($class);
+                    break;
                 case '_':
                     $this->getModules($class);
                     $css = $this->getCSS($class, $method);
@@ -85,12 +88,15 @@ Class Router
         echo "})()";
         exit(0);
     }
-    private function getCss($file)
+    private function getCss($class)
     {
-        $dir = ROOT . '/css/'. $file . '.css';
-        if (file_exists($dir)) {
-            return '/css/' . $file . '.css';
+        if(file_exists(ROOT."/css/style.css")) {
+            echo file_get_contents(ROOT."/css/style.css");
         }
+        if (file_exists(ROOT."/components/".$class."/css/style.css")){
+            echo file_get_contents(ROOT."/components/".$class."/css/style.css");
+        }
+        exit(0);
     }
     private function getModules($class)
     {
