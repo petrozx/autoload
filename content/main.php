@@ -139,7 +139,7 @@
         </div>
         <footer class="container-lg footer mt-auto mh-20">
             <div class="bg-light" style="min-height: 70px;">
-                <script src="/js/<?=$_SERVER['REQUEST_URI']?>script.js"></script>
+                <script src="/js/<?=$class?>script.js"></script>
                 <? if ($js) : ?>
                     <script src='<?=$js?>'></script>
                 <? endif;
