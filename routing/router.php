@@ -20,7 +20,7 @@ Class Router
                     }
                     break;
                 case 'js':
-                    file_get_contents("/js/script.js");
+                    file_get_contents(ROOT."/js/script.js");
                     die();
                     break;
                 case '_':
