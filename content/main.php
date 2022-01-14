@@ -142,7 +142,8 @@
                 <!-- <script src="/js/script.js"></script> -->
                 <? if ($js) : ?>
                     <script><?= $js ?></script>
-                <? elseif ($jsx) : ?>
+                <? endif;
+                if ($jsx) : ?>
                     <script type="text/babel"><?= $jsx ?></script>
                 <? endif ?>
                 <div class="made">
