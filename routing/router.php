@@ -20,7 +20,8 @@ Class Router
                     }
                     break;
                 case 'js':
-                    die(file_get_contents("/js/script.js"));
+                    file_get_contents("/js/script.js");
+                    die();
                     break;
                 case '_':
                     $this->getModules($class);
