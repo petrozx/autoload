@@ -23,7 +23,6 @@ Class Router
                     break;
                 case 'js':
                     $this->getJS($class, $method);
-                    die();
                     break;
                 case '_':
                     $this->getModules($class);
