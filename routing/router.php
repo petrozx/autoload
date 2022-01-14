@@ -9,6 +9,11 @@ Class Router
         [$action, $class, $method, $body] = $this->parseURL($url);
         $class = $class?:'index';
         $method = $method?:'index';
+        global $content;
+        global $css;
+        global $js;
+        global $jsx;
+        global $arResult;
         try {
             switch ($action) {
                 case 'api':
