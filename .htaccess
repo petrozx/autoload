@@ -4,7 +4,7 @@ Options +FollowSymlinks
 RewriteBase /
 DirectoryIndex index.php
 
-RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|webm|svg|wav|ogg|mp3|doc|xls|js|jsx|tif|tiff|docx|xlsx|ico)$|test\.php$
+RewriteCond %{REQUEST_URI} \.(css|jpg|gif|png|zip|rar|webm|svg|wav|ogg|mp3|doc|xls|jsx|tif|tiff|docx|xlsx|ico)$|test\.php$
 
 RewriteRule ^(.*)$ $1 [L,QSA]
 
