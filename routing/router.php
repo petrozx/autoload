@@ -54,13 +54,14 @@ Class Router
             case "api":
             break;
             case "js":
+                array_unshift($arr, 'components');
             break;
             case "jsx";
             break;
             case "css";
             break;
             default:
-            array_unshift($arr, "_");
+                array_unshift($arr, "_");
             break;
         }
         return $arr;
