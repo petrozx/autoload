@@ -60,7 +60,7 @@ Class Router
 
         switch (end($arr)) {
             case "script.js":
-                array_unshift($arr, "components");
+                $arr[0] = "components";
             break;
             default:
             break;
