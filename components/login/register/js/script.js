@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async()=>{
+
     const btnRegister = document.getElementById('reg');
     const btnLogin = document.getElementById('login');
     const form = document.getElementById('register');
@@ -74,6 +74,3 @@ document.addEventListener('DOMContentLoaded', async()=>{
         const response = await request.json()
         return response
     }
-
-
-})
