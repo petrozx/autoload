@@ -100,7 +100,7 @@ Class Router
     {
     $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if(file_exists($dirJS)) {
-            return sprintf("<script type=\"text/javascript\" src=\"%s\"></script>",$dirJS);
+            return sprintf("<script type=\"text/javascript\" src=\"%s\"></script>","/components/{$class}/{$method}/js/script.js");
         }
     }
 }
