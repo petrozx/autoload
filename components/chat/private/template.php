@@ -1,6 +1,6 @@
 <div class="connect alert alert-primary">
     <div class="d-flex align-items-center">
-        <span id="alert"><?=$name[0]['name']?></span>
+        <span id="alert"><?=$arResult[0]['name']?></span>
         <div class="spinner-border text-primary ms-auto d-none" role="status" aria-hidden="true"></div>
     </div>
 </div>
