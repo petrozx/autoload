@@ -47,6 +47,12 @@ Class Router
         switch ($arr[0]) {
             case "api":
                 break;
+            case "js":
+                break;
+            case "jsx";
+                break;
+            case "css";
+                break;
             default:
             array_unshift($arr, "_");
             break;
