@@ -1,4 +1,4 @@
-<?if(!empty($arResult)):?>
+<?if(empty($arResult)):?>
 <div class="text-center">
     <div class="form-signin">
         <div class="mb-3">
