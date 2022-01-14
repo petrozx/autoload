@@ -65,10 +65,16 @@ Class Router
     }
     private function getJS($class, $method)
     {
+        $opts = array(
+            'http'=>array(
+              'method'=>"GET",
+              'header'=>"Content-Type: text/javascript;charset=UTF-8: PASS" 
+            )
+        );
+        $context = stream_context_create($opts);
         $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
-            header('Content-Type: text/plain');
-            return "/{$class}/{$method}/js/script.js";
+            return fopen("/{$class}/{$method}/js/script.js", "r", false, $context);
         }
     }
     private function getJSX($class, $method)
