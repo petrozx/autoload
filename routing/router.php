@@ -74,7 +74,7 @@ Class Router
         $context = stream_context_create($opts);
         $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
-            return fopen("/{$class}/{$method}/js/script.js", "r", false, $context);
+            return fopen("/components/{$class}/{$method}/js/script.js", "r", false, $context);
         }
     }
     private function getJSX($class, $method)
