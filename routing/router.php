@@ -1,8 +1,9 @@
 <?
-require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
 
 Class Router
 {
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
+    
     public function __construct($url)
     {
         [$action, $class, $method, $body] = $this->parseURL($url);
