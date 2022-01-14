@@ -83,7 +83,7 @@ Class Router
             echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js");
         }
         echo "})()";
-        exit();
+        exit(0);
     }
     private function getCss($file)
     {
