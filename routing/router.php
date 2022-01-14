@@ -27,12 +27,16 @@ Class Router
                 case '_':
                     $this->getModules($class);
                     $css = $this->getCSS($class, $method);
-                    $instance = new $class($class);
-                        if(is_callable([$instance, $method])) {
-                            $arResult = call_user_func([$instance, $method], $body);
-                            ob_start();
-                            call_user_func_array(['Router','getComponents'], [$class, $method, $arResult]);
-                            $content = ob_get_clean();
+                    if (class_exists($class)) {
+                        $instance = new $class($class);
+                            if(is_callable([$instance, $method])) {
+                                $arResult = call_user_func([$instance, $method], $body);
+                                ob_start();
+                                call_user_func_array(['Router','getComponents'], [$class, $method, $arResult]);
+                                $content = ob_get_clean();
+                            } else {
+                                throw new Exception();
+                            }
                         } else {
                             throw new Exception();
                         }
