@@ -19,7 +19,8 @@ Class Router
                 }
             } else if ($action == '_') {
                 $this->getModules($class);
-                $js = $this->getJS($class, $method);
+                $js = $this->js_link($class, $method);
+                // $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
                 $instance = new $class($class);
@@ -93,6 +94,13 @@ Class Router
         $component = ROOT."/components/{$class}/{$method}";
         if (file_exists($component)) {
             require_once($component."/template.php");
+        }
+    }
+    private function js_link($class, $method)
+    {
+    $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
+        if(file_exists($dirJS)) {
+            return sprintf("<script type=\"text/javascript\" src=\"%s\"></script>",$dirJS);
         }
     }
 }
