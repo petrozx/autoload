@@ -26,7 +26,7 @@ Class Router
                 case '_':
                     $this->getModules($class);
                     $jsx = $this->getJSX($class, $method);
-                    $js = $this->getJS($class, $method);
+                    // $js = $this->getJS($class, $method);
                     $css = $this->getCSS($class, $method);
                     $instance = new $class($class);
                         if(is_callable([$instance, $method])) {
