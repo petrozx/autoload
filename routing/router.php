@@ -77,7 +77,7 @@ Class Router
     {
         $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
-            return "{$class}/{$method}/js/script.js";
+            return "/{$class}/{$method}/js/script.js";
         }
     }
     private function getJSX($class, $method)
@@ -106,14 +106,6 @@ Class Router
         $component = ROOT."/components/{$class}/{$method}";
         if (file_exists($component)) {
             require_once($component."/template.php");
-        }
-    }
-    private function js_link($class, $method)
-    {
-    $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
-    $js = "/chat/private/js/script.js";
-        if(file_exists($dirJS)) {
-            return '<script src="'.$js.'"></script>';
         }
     }
 }
