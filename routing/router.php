@@ -99,8 +99,9 @@ Class Router
     private function js_link($class, $method)
     {
     $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
+    $js = "/".$class."/".$method."/js/script.js";
         if(file_exists($dirJS)) {
-            return sprintf("<script type=\"text/javascript\" src=\"%s\"></script>",("/".$class."/".$method."/js/script.js"));
+            return sprintf("<script type=\"text/javascript\" src=\"%s\"></script>",$js);
         }
     }
 }
