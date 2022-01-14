@@ -32,11 +32,6 @@ Class Router
                             throw new Exception();
                         }
                 break;
-                case "components":
-                    $js = $this->getJS($action ,$class, $method);
-                break;
-                case 'css':
-                    $css = $this->getCss($class);
                 default:
                     throw new Exception();
                 break;
@@ -57,15 +52,6 @@ Class Router
                 array_unshift($arr, "_");
             break;
         }
-
-        switch (end($arr)) {
-            case "script.js":
-                $arr[0] = "components";
-            break;
-            default:
-            break;
-        }
-
         return $arr;
     }
 
@@ -76,11 +62,11 @@ Class Router
             require_once($dir);
         }
     }
-    private function getJS($action ,$class, $method)
+    private function getJS($class, $method)
     {
-        $dirJS = ROOT."/{$action}/{$class}/{$method}/js/script.js";
+        $dirJS = ROOT."/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
-            return "/{$action}/{$class}/{$method}/js/script.js";
+            return "/{$class}/{$method}/js/script.js";
         }
     }
     private function getJSX($class, $method)
