@@ -140,12 +140,6 @@
         <footer class="container-lg footer mt-auto mh-20">
             <div class="bg-light" style="min-height: 70px;">
                 <script src="/js/<?=$class?>/<?=$method?>/script.js"></script>
-                <? if ($js) : ?>
-                    <script src='<?=$js?>'></script>
-                <? endif;
-                if ($jsx) : ?>
-                    <script type="text/babel"><?= $jsx ?></script>
-                <? endif ?>
                 <div class="made">
                     <span class="text-muted">©Made by petroz</span>
                 </div>

@@ -22,16 +22,11 @@ Class Router
                     }
                     break;
                 case 'js':
-                    echo "(async()=>{";
-                    echo file_get_contents(ROOT."/js/script.js");
-                    echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js");
-                    echo "})()";
+                    $this->getJS($class, $method);
                     die();
                     break;
                 case '_':
                     $this->getModules($class);
-                    $jsx = $this->getJSX($class, $method);
-                    // $js = $this->getJS($class, $method);
                     $css = $this->getCSS($class, $method);
                     $instance = new $class($class);
                         if(is_callable([$instance, $method])) {
@@ -77,17 +72,10 @@ Class Router
     }
     private function getJS($class, $method)
     {
-        $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
-        if (file_exists($dirJS)) {
-            return "/components/{$class}/{$method}/js/script.js";
-        }
-    }
-    private function getJSX($class, $method)
-    {
-        $dirJSX = ROOT."/components/{$class}/{$method}/jsx/script.jsx";
-        if (file_exists($dirJSX)) {
-            return file_get_contents($dirJSX);
-        }
+        echo "(async()=>{";
+        echo file_get_contents(ROOT."/js/script.js");
+        echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js");
+        echo "})()";
     }
     private function getCss($file)
     {
