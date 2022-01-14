@@ -23,7 +23,6 @@ Class Router
                     break;
                 case 'js':
                     $this->getJS($class, $method);
-                    exit();
                     break;
                 case '_':
                     $this->getModules($class);
@@ -76,6 +75,7 @@ Class Router
         echo file_get_contents(ROOT."/js/script.js");
         echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js");
         echo "})()";
+        exit();
     }
     private function getCss($file)
     {
