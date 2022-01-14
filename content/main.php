@@ -56,7 +56,7 @@
                         :'<a class="fs-4 me-4 btn btn-light btn-sm dropdown-toggle position-relative profile__name" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">'.$_SESSION['auth']['name'].
                         '</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="/profile">Профиль</a></li>
+                        <li><a class="dropdown-item" href="/login/profile">Профиль</a></li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                         <li><a class="dropdown-item" id="logout" href="#">Выход</a></li>
                         </ul>';
