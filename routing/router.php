@@ -33,7 +33,7 @@ Class Router
                         }
                 break;
                 case "js":
-                    $GLOBALS['js'] = "/{$action}/{$class}/{$method}/js/script.js";
+                    $GLOBALS['js'] = "/js/script.js";
                     var_dump($js);
                 break;
                 case 'css':
