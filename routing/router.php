@@ -67,7 +67,7 @@ Class Router
     {
         $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
-            header('Content-Type: text/javascript;charset=UTF-8: PASS');
+            header('Content-Type: text/plain');
             return "/{$class}/{$method}/js/script.js";
         }
     }
