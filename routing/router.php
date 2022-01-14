@@ -23,7 +23,7 @@ Class Router
                     break;
                 case 'js':
                     echo file_get_contents(ROOT."/js/script.js");
-                    echo file_get_contents("/".$action."/".$class."/".$method."/js/script.js");
+                    echo file_get_contents("/components/".$class."/".$method."/js/script.js");
                     die();
                     break;
                 case '_':
@@ -58,7 +58,6 @@ Class Router
             case "api":
                 break;
             case "js":
-                array_unshift($arr, "components");
                 break;
             default:
                 array_unshift($arr, "_");
