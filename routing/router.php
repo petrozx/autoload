@@ -34,7 +34,6 @@ Class Router
                 break;
                 case "js":
                     $GLOBALS['js'] = "/js/script.js";
-                    var_dump($js);
                 break;
                 case 'css':
                     $css = $this->getCss($class);
