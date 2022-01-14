@@ -141,9 +141,9 @@
             <div class="bg-light" style="min-height: 70px;">
                 <!-- <script src="/js/script.js"></script> -->
                 <? if ($js) : ?>
-                    <script> <?= $js ?></script>
+                    <script><?= $js ?></script>
                 <? elseif ($jsx) : ?>
-                    <script type="text/babel" src="<?= $jsx ?>"></script>
+                    <script type="text/babel"><?= $jsx ?></script>
                 <? endif ?>
                 <div class="made">
                     <span class="text-muted">©Made by petroz</span>

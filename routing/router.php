@@ -74,7 +74,7 @@ Class Router
     {
         $dirJSX = ROOT."/components/{$class}/{$method}/jsx/script.jsx";
         if (file_exists($dirJSX)) {
-            return "/components/{$class}/{$method}/jsx/script.jsx";
+            return file_get_contents($dirJSX);;
         }
     }
     private function getCss($file)
