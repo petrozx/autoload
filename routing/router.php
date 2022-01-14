@@ -25,11 +25,11 @@ Class Router
                 $js = $this->getJS($class, $method);
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
-                    $instance = new $class($class);
+                $instance = new $class($class);
                     if(is_callable([$instance, $method])) {
                         $arResult = call_user_func([$instance, $method], $body);
                         ob_start();
-                        require($this->getComponents($class, $method));
+                        $this->getComponents($class, $method);
                         $content = ob_get_clean();
                     } else {
                         throw new Exception();
@@ -95,7 +95,7 @@ Class Router
     {
         $component = ROOT."/components/{$class}/{$method}";
         if (file_exists($component)) {
-            return $component."/template.php";
+            return require_once($component."/template.php");
         }
     }
 }
