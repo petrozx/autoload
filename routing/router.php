@@ -44,7 +44,7 @@ Class Router
         } catch (Exception $e) {
             throw new Exception('Запрашиваемый ресурс отсутствует');
         }
-    } 
+    }
 
     private function parseURL($url)
     {
@@ -75,7 +75,7 @@ Class Router
         echo file_get_contents(ROOT."/js/script.js");
         echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js");
         echo "})()";
-        exit(200);
+        exit();
     }
     private function getCss($file)
     {
