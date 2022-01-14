@@ -65,7 +65,7 @@ Class Router
     }
     private function getJS($class, $method)
     {
-        $dirJS = "{'ROOT'}/components/{$class}/{$method}/js/script.js";
+        $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
             return '/js/' . $class.'_'.$method . '.js';
         }
