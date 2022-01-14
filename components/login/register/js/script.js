@@ -2,7 +2,6 @@
     const btnRegister = document.getElementById('reg');
     const btnLogin = document.getElementById('login');
     const form = document.getElementById('register');
-    const btnLogout = document.getElementById('logout');
 
     btnLogout?.addEventListener('click', async(e)=>{
         const response = await logout()
