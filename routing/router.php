@@ -6,9 +6,9 @@ Class Router
     public function __construct($url)
     {
         require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
-        [$action, $class, $method, $body] = $this->parseURL($url);
         global $class;
         global $method;
+        [$action, $class, $method, $body] = $this->parseURL($url);
         $class = $class?:'index';
         $method = $method?:'index';
         try {
