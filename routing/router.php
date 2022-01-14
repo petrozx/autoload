@@ -7,6 +7,8 @@ Class Router
     {
         require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
         [$action, $class, $method, $body] = $this->parseURL($url);
+        global $class;
+        global $method;
         $class = $class?:'index';
         $method = $method?:'index';
         try {
@@ -21,7 +23,7 @@ Class Router
                     break;
                 case 'js':
                     echo file_get_contents(ROOT."/js/script.js");
-                    echo file_get_contents($_SERVER['REQUEST_URI']."/js/script.js");
+                    echo file_get_contents("/".$class."/".$method."/js/script.js");
                     die();
                     break;
                 case '_':
