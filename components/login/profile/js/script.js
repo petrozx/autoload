@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async()=>{
+// document.addEventListener('DOMContentLoaded', async()=>{
     const form = document.getElementById('profile')
     const btnS = document.getElementById('save')
     const btnC = document.getElementById('cancel')
@@ -27,4 +27,4 @@ document.addEventListener('DOMContentLoaded', async()=>{
     }
 
 
-})
+// })

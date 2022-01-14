@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async()=>{
+// document.addEventListener('DOMContentLoaded', async()=>{
     const btnLogout = document.getElementById('logout');
     document.querySelectorAll('.nav-link').forEach(function(link){
         if (link.href == window.location.href || window.location.href.includes('chat') && link.href.includes('chat'))
@@ -98,4 +98,4 @@ document.addEventListener('DOMContentLoaded', async()=>{
         })
         return await req.json()
     }
-})
+// })
