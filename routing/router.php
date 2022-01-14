@@ -29,7 +29,7 @@ Class Router
                     if(is_callable([$instance, $method])) {
                         $arResult = call_user_func([$instance, $method], $body);
                         ob_start();
-                        call_user_func_array(['Router','getComponents'], [$class, $method]);
+                        call_user_func_array(['Router','getComponents'], [$class, $method, $arResult]);
                         $content = ob_get_clean();
                     } else {
                         throw new Exception();
@@ -91,10 +91,11 @@ Class Router
             require_once($modules."/".CLASS_COMPONENT);
         }
     }
-    private function getComponents($class, $method)
+    private function getComponents($class, $method, $arResult)
     {
         $component = ROOT."/components/{$class}/{$method}";
         if (file_exists($component)) {
+            global $arResult;
             require_once($component."/template.php");
         }
     }
