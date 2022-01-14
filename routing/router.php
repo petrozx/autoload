@@ -29,7 +29,7 @@ Class Router
                     break;
                 case '_':
                     $this->getModules($class);
-                    $css = $this->getCSS($class, $method);
+                    // $css = $this->getCSS($class, $method);
                     if (class_exists($class)) {
                         $instance = new $class($class);
                             if(is_callable([$instance, $method])) {
