@@ -101,7 +101,7 @@ Class Router
     $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
     $js = "/chat/private/js/script.js";
         if(file_exists($dirJS)) {
-            return '<script src='.$js.'></script>';
+            return '<script src="'.$js.'"></script>';
         }
     }
 }
