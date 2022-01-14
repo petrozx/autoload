@@ -33,7 +33,7 @@ Class Router
                         }
                 break;
                 case "js":
-                    $GLOBALS['js'] = "/js/script.js";
+                    $js = $this->getJS($action ,$class, $method);
                 break;
                 case 'css':
                     $css = $this->getCss($class);
@@ -53,17 +53,19 @@ Class Router
         switch ($arr[0]) {
             case "api":
             break;
-            case "js":
-                array_unshift($arr, 'components');
-            break;
-            case "jsx";
-            break;
-            case "css";
-            break;
             default:
                 array_unshift($arr, "_");
             break;
         }
+
+        switch (end($arr)) {
+            case "script.js":
+                array_unshift($arr, "components");
+            break;
+            default:
+            break;
+        }
+
         return $arr;
     }
 
@@ -74,11 +76,11 @@ Class Router
             require_once($dir);
         }
     }
-    private function getJS($class, $method)
+    private function getJS($action ,$class, $method)
     {
-        $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
+        $dirJS = ROOT."/{$action}/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
-            return "/{$class}/{$method}/js/script.js";
+            return "/{$action}/{$class}/{$method}/js/script.js";
         }
     }
     private function getJSX($class, $method)
