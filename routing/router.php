@@ -20,7 +20,7 @@ Class Router
                     }
                     break;
                 case 'js':
-                    echo file_get_contents(ROOT."/js/script.js");
+                    echo file_get_contents(ROOT."/components/{$class}/{$method}/js/script.js");
                     die();
                     break;
                 case '_':
