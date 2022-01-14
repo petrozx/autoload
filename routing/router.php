@@ -22,10 +22,10 @@ Class Router
                     }
                     break;
                 case 'js':
-                    echo "document.addEventListener('DOMContentLoaded', async()=>{";
+                    echo "(async()=>{";
                     echo file_get_contents(ROOT."/js/script.js");
                     echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js");
-                    echo "})";
+                    echo "})()";
                     die();
                     break;
                 case '_':
