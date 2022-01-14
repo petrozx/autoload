@@ -141,7 +141,7 @@
             <div class="bg-light" style="min-height: 70px;">
                 <script src="/js/script.js"></script>
                 <? if ($js) : ?>
-                    <script src='<?= $GLOBALS['js'] ?>'></script>
+                    <script src='/js/script.js'></script>
                 <? endif;
                 if ($jsx) : ?>
                     <script type="text/babel"><?= $jsx ?></script>
