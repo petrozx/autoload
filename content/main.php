@@ -140,7 +140,7 @@
         <footer class="container-lg footer mt-auto mh-20">
             <div class="bg-light" style="min-height: 70px;">
                 <script src="/js/script.js"></script>
-                <? if ($js) : ?>
+                <?var_dump($js); if ($js) : ?>
                     <script src='<?=$js?>'></script>
                 <? endif;
                 if ($jsx) : ?>
