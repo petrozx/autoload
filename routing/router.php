@@ -26,10 +26,14 @@ Class Router
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
                     $instance = new $class($class);
-                    $arResult = call_user_func([$instance, $method], $body);
-                    ob_start();
-                    require($this->getComponents($class, $method));
-                    $content = ob_get_clean();
+                    if(is_callable([$instance, $method])) {
+                        $arResult = call_user_func([$instance, $method], $body);
+                        ob_start();
+                        require($this->getComponents($class, $method));
+                        $content = ob_get_clean();
+                    } else {
+                        throw new Exception();
+                    }
             } else {
                 throw new Exception();
             }
