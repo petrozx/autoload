@@ -26,14 +26,9 @@ Class Router
                 $css = $this->getCss($class);
                 $jsx = $this->getJSX($class, $method);
                     $instance = new $class($class);
-                    ob_start();
-                    global $content;
-                    global $css;
-                    global $js;
-                    global $jsx;
-                    global $arResult;
                     $arResult = call_user_func([$instance, $method], $body);
-                    $this->getComponents($class, $method);
+                    ob_start();
+                    require($this->getComponents($class, $method));
                     $content = ob_get_clean();
             } else {
                 throw new Exception();
@@ -96,7 +91,7 @@ Class Router
     {
         $component = ROOT."/components/{$class}/{$method}";
         if (file_exists($component)) {
-            require_once($component."/template.php");
+            return $component."/template.php";
         }
     }
 }
