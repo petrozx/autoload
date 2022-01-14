@@ -65,6 +65,7 @@ Class Router
     }
     private function getJS($class, $method)
     {
+        header('Content-Type: text/javascript;charset=UTF-8: PASS');
         $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
             return "/{$class}/{$method}/js/script.js";
