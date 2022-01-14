@@ -22,6 +22,8 @@ Class Router
                 case '_':
                     $this->getModules($class);
                     $jsx = $this->getJSX($class, $method);
+                    $js = $this->getJS($class, $method);
+                    $css = $this->getCSS($class, $method);
                     $instance = new $class($class);
                         if(is_callable([$instance, $method])) {
                             $arResult = call_user_func([$instance, $method], $body);
@@ -64,9 +66,9 @@ Class Router
     }
     private function getJS($class, $method)
     {
-        $dirJS = ROOT."/{$class}/{$method}/js/script.js";
+        $dirJS = ROOT."/components/{$class}/{$method}/js/script.js";
         if (file_exists($dirJS)) {
-            return "/{$class}/{$method}/js/script.js";
+            return "/components/{$class}/{$method}/js/script.js";
         }
     }
     private function getJSX($class, $method)
@@ -78,7 +80,7 @@ Class Router
     }
     private function getCss($file)
     {
-        $dir = $_SERVER['DOCUMENT_ROOT'] . '/css/'. $file . '.css';
+        $dir = ROOT . '/css/'. $file . '.css';
         if (file_exists($dir)) {
             return '/css/' . $file . '.css';
         }
