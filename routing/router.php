@@ -21,8 +21,7 @@ Class Router
                     break;
                 case 'js':
                     echo file_get_contents(ROOT."/js/script.js");
-                    echo $class;
-                    echo $method;
+                    echo file_get_contents(ROOT.$_SERVER['REQUEST_URI']."/js/script.js");
                     die();
                     break;
                 case '_':
