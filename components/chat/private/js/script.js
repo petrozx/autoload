@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async()=>{
+
     const form = document.getElementById('chat')
     const button = document.getElementById('send-message')
     const messages = document.querySelector('.messages')
@@ -229,4 +229,3 @@ document.addEventListener("DOMContentLoaded", async()=>{
             el.classList.toggle('open')
         })
     })
-})
