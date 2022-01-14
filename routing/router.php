@@ -18,7 +18,10 @@ Class Router
                     } else {
                         throw new Exception();
                     }
-                break;
+                    break;
+                case 'js':
+                    die("/js/script.js");
+                    break;
                 case '_':
                     $this->getModules($class);
                     $jsx = $this->getJSX($class, $method);
@@ -33,10 +36,10 @@ Class Router
                         } else {
                             throw new Exception();
                         }
-                break;
+                    break;
                 default:
                     throw new Exception();
-                break;
+                    break;
             }
         } catch (Exception $e) {
             throw new Exception('Запрашиваемый ресурс отсутствует');
@@ -49,10 +52,12 @@ Class Router
         $arr = explode(" ", $string);
         switch ($arr[0]) {
             case "api":
-            break;
+                break;
+            case "js":
+                break;
             default:
                 array_unshift($arr, "_");
-            break;
+                break;
         }
         return $arr;
     }
