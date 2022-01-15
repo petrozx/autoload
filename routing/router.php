@@ -88,14 +88,16 @@ Class Router
         );
         $context = stream_context_create($opts);
         // header("application/javascript");
-        echo "(async()=>{";
+        $fp = "(async()=>{";
         if(file_exists(ROOT."/js/script.js")) {
-            echo file_get_contents(ROOT."/js/script.js",'r',false, $context);
+            $fp .= fopen(ROOT."/js/script.js",'r',false, $context);
         }
         if (file_exists(ROOT."/components/".$class."/".$method."/js/script.js")){
-            echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js",'r',false, $context);
+            $fp .= fopen(ROOT."/components/".$class."/".$method."/js/script.js",'r',false, $context);
         }
-        echo "})()";
+        $fp = "})()";
+        fpassthru($fp);
+        fclose($fp);
         exit(0);
     }
     private function getCss($class)
@@ -109,11 +111,13 @@ Class Router
         $context = stream_context_create($opts);
         // header("Content-type: text/css");
         if(file_exists(ROOT."/css/style.css")) {
-            echo file_get_contents(ROOT."/css/style.css",'r',false, $context);
+            $fp = fopen(ROOT."/css/style.css",'r',false, $context);
         }
         if (file_exists(ROOT."/components/".$class."/css/style.css")){
-            echo file_get_contents(ROOT."/components/".$class."/css/style.css",'r',false, $context);
+            $fp .= fopen(ROOT."/components/".$class."/css/style.css",'r',false, $context);
         }
+        fpassthru($fp);
+        fclose($fp);
         exit(0);
     }
     private function getModules($class)
