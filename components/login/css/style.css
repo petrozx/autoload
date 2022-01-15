@@ -1,4 +1,4 @@
-/*! CSS Used from: https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css */
+
 *,::after,::before{box-sizing:border-box;}
 body{margin:0;font-family:var(--bs-font-sans-serif);font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;}
 hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25;}
@@ -140,7 +140,7 @@ button{text-transform:none;}
 @media (min-width:1200px){
 .fs-4{font-size:1.5rem!important;}
 }
-/*! CSS Used from: https://petroz.ru/css/index */
+
 .profile{position:relative;}
 .profile__name{z-index:5;}
 .new-message{position:absolute;top:24px;right:2rem;display:none;transform:rotate(180deg);}
