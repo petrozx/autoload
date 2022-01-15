@@ -80,26 +80,12 @@ Class Router
     }
     private function getJS($class, $method)
     {
-        header("Content-type: application/javascript");
-        echo "(async()=>{";
-        if(file_exists(ROOT."/js/script.js")) {
-            echo file_get_contents(ROOT."/js/script.js");
-        }
-        if (file_exists(ROOT."/components/".$class."/".$method."/js/script.js")){
-            echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js");
-        }
-        echo "})()";
+        require_once('/assembers/js.php');
         exit(0);
     }
     private function getCss($class)
     {
-        header("Content-type: text/css");
-        if(file_exists(ROOT."/css/style.css")) {
-            echo file_get_contents(ROOT."/css/style.css");
-        }
-        if (file_exists(ROOT."/components/".$class."/css/style.css")){
-            echo file_get_contents(ROOT."/components/".$class."/css/style.css");
-        }
+        require_once('/assembers/css.php');
         exit(0);
     }
     private function getModules($class)
