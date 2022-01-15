@@ -80,25 +80,39 @@ Class Router
     }
     private function getJS($class, $method)
     {
-        header("application/javascript");
+        $opts = array(
+            'http'=>array(
+                'method'=>"GET",
+                'header'=> array("Content-type: application/javascript")
+            )
+        );
+        $context = stream_context_create($opts);
+        // header("application/javascript");
         echo "(async()=>{";
         if(file_exists(ROOT."/js/script.js")) {
-            echo file_get_contents(ROOT."/js/script.js");
+            echo file_get_contents(ROOT."/js/script.js",'r',false, $context);
         }
         if (file_exists(ROOT."/components/".$class."/".$method."/js/script.js")){
-            echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js");
+            echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js",'r',false, $context);
         }
         echo "})()";
         exit(0);
     }
     private function getCss($class)
     {
-        header("Content-type: text/css");
+        $opts = array(
+            'http'=>array(
+                'method'=>"GET",
+                'header'=> array("Content-type: text/css")
+            )
+        );
+        $context = stream_context_create($opts);
+        // header("Content-type: text/css");
         if(file_exists(ROOT."/css/style.css")) {
-            echo file_get_contents(ROOT."/css/style.css");
+            echo file_get_contents(ROOT."/css/style.css",'r',false, $context);
         }
         if (file_exists(ROOT."/components/".$class."/css/style.css")){
-            echo file_get_contents(ROOT."/components/".$class."/css/style.css");
+            echo file_get_contents(ROOT."/components/".$class."/css/style.css",'r',false, $context);
         }
         exit(0);
     }
