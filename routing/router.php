@@ -80,44 +80,26 @@ Class Router
     }
     private function getJS($class, $method)
     {
-        $opts = array(
-            'http'=>array(
-                'method'=>"GET",
-                'header'=> array("Content-type: application/javascript")
-            )
-        );
-        $context = stream_context_create($opts);
-        // header("application/javascript");
-        $fp = "(async()=>{";
+        header("Content-type: application/javascript");
+        echo "(async()=>{";
         if(file_exists(ROOT."/js/script.js")) {
-            $fp .= fopen(ROOT."/js/script.js",'r',false, $context);
+            echo file_get_contents(ROOT."/js/script.js");
         }
         if (file_exists(ROOT."/components/".$class."/".$method."/js/script.js")){
-            $fp .= fopen(ROOT."/components/".$class."/".$method."/js/script.js",'r',false, $context);
+            echo file_get_contents(ROOT."/components/".$class."/".$method."/js/script.js");
         }
-        $fp = "})()";
-        fpassthru($fp);
-        fclose($fp);
+        echo "})()";
         exit(0);
     }
     private function getCss($class)
     {
-        $opts = array(
-            'http'=>array(
-                'method'=>"GET",
-                'header'=> array("Content-type: text/css")
-            )
-        );
-        $context = stream_context_create($opts);
-        // header("Content-type: text/css");
+        header("Content-type: text/css");
         if(file_exists(ROOT."/css/style.css")) {
-            $fp = fopen(ROOT."/css/style.css",'r',false, $context);
+            echo file_get_contents(ROOT."/css/style.css");
         }
         if (file_exists(ROOT."/components/".$class."/css/style.css")){
-            $fp .= fopen(ROOT."/components/".$class."/css/style.css",'r',false, $context);
+            echo file_get_contents(ROOT."/components/".$class."/css/style.css");
         }
-        fpassthru($fp);
-        fclose($fp);
         exit(0);
     }
     private function getModules($class)
