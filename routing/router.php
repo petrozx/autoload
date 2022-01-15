@@ -96,9 +96,9 @@ Class Router
     }
     private function getComponents($class, $method, $arResult)
     {
-        $component = ROOT."/components/{$class}/{$method}";
+        $component = ROOT."/components/{$class}/{$method}/template.php";
         if (file_exists($component)) {
-            require_once($component."/template.php");
+            require_once($component);
         }
     }
 }
