@@ -80,12 +80,12 @@ Class Router
     }
     private function getJS($class, $method)
     {
-        require_once('/assembers/js.php');
+        require_once(ROOT.'/assembers/js.php');
         exit(0);
     }
     private function getCss($class)
     {
-        require_once('/assembers/css.php');
+        require_once(ROOT.'/assembers/css.php');
         exit(0);
     }
     private function getModules($class)
