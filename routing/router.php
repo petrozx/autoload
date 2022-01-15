@@ -29,7 +29,6 @@ Class Router
                     break;
                 case '_':
                     $this->getModules($class);
-                    // $css = $this->getCSS($class, $method);
                     if (class_exists($class)) {
                         $instance = new $class($class);
                             if(is_callable([$instance, $method])) {
@@ -90,9 +89,9 @@ Class Router
     }
     private function getModules($class)
     {
-        $modules = ROOT."/modules/{$class}";
+        $modules = ROOT."/components/{$class}/".CLASS_COMPONENT;
         if (file_exists($modules)) {
-            require_once($modules."/".CLASS_COMPONENT);
+            require_once($modules);
         }
     }
     private function getComponents($class, $method, $arResult)
