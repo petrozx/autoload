@@ -22,7 +22,7 @@ Class Chat
                 $color = 'bg-danger';
             } else {
                 $color = 'bg-secondary';
-                $last = date('m-d h:i:s',$user['date_update']);
+                $last = date('h:i:s d m Y',$user['date_update']);
             }
             $unRead = $newBD->getFilterRows('is_read=0 AND what_a_chat='.$_SESSION['auth']['id'].' AND author='.$user['id']);
             $countUnRead = count($unRead);
