@@ -15,6 +15,7 @@
                     </a>
                 </div>
                 <h3><?=$res['name'] ?></h3>
+                <p><?=$res['last'] ?></p>
                 <a class="icon-link" href="/chat/private/?user=<?=$res['id'] ?>">Написать
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#chevron-right"></use>
