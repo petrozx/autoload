@@ -12,11 +12,10 @@ Class Chat
     }
 
     public function index() {
-        $res = '';
-        $bd = new DB('users');
+        $bd = new DB();
+        $bd->setTable('users');
         $users = $bd->getRows();
-        $bd->close_connection();
-        $newBD = new DB('chat');
+        $bd->setTable('chat');
         foreach ($users as $user){
             if($user['date_update'] + 10*60 > time()) {
                 $color = 'bg-danger';
@@ -24,7 +23,7 @@ Class Chat
                 $color = 'bg-secondary';
                 $last = date('h:i:s d-m-Y',$user['date_update']);
             }
-            $unRead = $newBD->getFilterRows('is_read=0 AND what_a_chat='.$_SESSION['auth']['id'].' AND author='.$user['id']);
+            $unRead = $bd->getFilterRows('is_read=0 AND what_a_chat='.$_SESSION['auth']['id'].' AND author='.$user['id']);
             $countUnRead = count($unRead);
             $chat_info[] = array(
                 'name' => $user['name'],
@@ -34,7 +33,7 @@ Class Chat
                 'last' => $last
             );
         }
-        $newBD->close_connection();
+        $bd->close_connection();
         return $chat_info;
     }
 }

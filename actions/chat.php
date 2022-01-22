@@ -5,7 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 function getMessage() {
     if ($_POST['method'] == 'getAll'){
         $tebleChat = 'chats'.$_POST['chat'];
-        $bd = new DB($tebleChat);
+        $bd = new DB();
+        $bd->setTable($tebleChat);
         $is_exist = $bd->checkTable($tebleChat);
         if ($is_exist == 'OK') {
             $res = $bd->getRows();
@@ -20,7 +21,8 @@ function getMessage() {
 
 function sendMessage() {
     if ($_POST['method'] == 'send'){
-        $bd = new DB('chat');
+        $bd = new DB();
+        $bd->setTable('chat');
         $res = $bd->saveRows([ time() ,$_POST['message'], $_SESSION['auth']['id'], $_POST['what_a_chat'], 'text', 0]);
         $bd->close_connection();
         die(json_encode(['error' => 0, 'success' => 1], true));
@@ -29,7 +31,8 @@ function sendMessage() {
 
 function update() {
     if ($_POST['method'] == 'update'){
-        $bd = new DB('chat');
+        $bd = new DB();
+        $bd->setTable('chat');
         $res = $bd->getFilterRows(
             'date_create>'.$_POST['date_create'].
             ' AND author=' . $_SESSION['auth']['id'].
@@ -44,7 +47,8 @@ function update() {
 }
 
 function users() {
-    $bd = new DB('users');
+    $bd = new DB();
+    $bd->setTable('users');
     $res = $bd->getRows();
     $bd->close_connection();
     foreach($res as $user) {
@@ -60,7 +64,8 @@ function users() {
 
 function online() {
     if (!empty($_SESSION['auth'])) {
-        $bd = new DB('users');
+        $bd = new DB();
+        $bd->setTable('users');
         $bd->isOnline($_SESSION['auth']['id']);
         $mes = $bd->has_newMessage($_SESSION['auth']['id']);
         $bd->close_connection();
@@ -78,7 +83,8 @@ function save() {
     exec("ffmpeg -i '{$_FILES['voice']['tmp_name']}' -crf 23 '{$uploadDir}{$mp3name}'", $output,$result_code);
     if (!$result_code) {
         $response = ['result'=>'OK'];
-        $bd = new DB('chat');
+        $bd = new DB();
+        $bd->setTable('chat');
         $res = $bd->saveRows([ time() ,'/upload/'. $mp3name, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'audio', 0 ]);
         $bd->close_connection();
     } else {
@@ -89,7 +95,8 @@ function save() {
 
 function mesRead() {
     $data = json_decode(file_get_contents('php://input'), true);
-    $bd = new DB('chat');
+    $bd = new DB();
+    $bd->setTable('chat');
     foreach($data as $mes) {
         if ($_SESSION['auth']['id'] != $mes['author']) {
             $bd->updateRaw($mes['id'], array('is_read' => 1) );
@@ -106,7 +113,8 @@ function saveFile() {
     $res = move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
     if ($res) {
         $response = ['result'=>'OK'];
-        $bd = new DB('chat');
+        $bd = new DB();
+        $bd->setTable('chat');
         $res = $bd->saveRows([ time() , '/upload/'. $nameFile, $_SESSION['auth']['id'], $_POST['what_a_chat'], 'file', 0 ]);
         $bd->close_connection();
     } else {

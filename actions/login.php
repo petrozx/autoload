@@ -3,7 +3,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 function login(){
     if ($_POST['method'] === 'login')
     {
-        $db = new DB('users');
+        $db = new DB();
+        $db->setTable('users');
         $users = $db->getRows();
         $db->close_connection();
         if (is_array($users)){
@@ -24,7 +25,8 @@ function login(){
 function register(){
     if ($_POST['method'] === 'register')
     {
-        $db = new DB('users');
+        $db = new DB();
+        $db->setTable('users');
         $users = $db->getRows();
         foreach($users as $user){
             if (in_array($_POST['email'], $user)) {
@@ -56,7 +58,8 @@ function userAuth() {
 }
 
 function userUpdate() {
-    $bd = new DB('users');
+    $bd = new DB();
+    $bd->setTable('users');
     foreach($_POST as $key=>$field) {
         if (!empty($field)) {
             if ($key == 'password'){

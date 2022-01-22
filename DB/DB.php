@@ -5,9 +5,9 @@
 class DB
 {
     public static $connect;
-    public static $table;
+    private static $table;
 
-    public function __construct($table='') {
+    public function __construct() {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $connect = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if ($connect->connect_errno) {
@@ -15,6 +15,9 @@ class DB
         }
         $connect->set_charset('utf8mb4');
         self::$connect = $connect;
+    }
+
+    public function setTable($table) {
         self::$table = $table;
     }
 
