@@ -4,7 +4,8 @@ Class Chat
 
     public function private($name) {
         if ($_GET['user'] != 'undefined') {
-            $bd = new DB('users');
+            $bd = new DB();
+            $bd->setTable('users');
             $name = $bd->getFilterRows('id='.$_GET['user']);
             $bd->close_connection();
         }
