@@ -17,6 +17,9 @@ class DB
         self::$connect = $connect;
     }
 
+    /**
+     * Метод задает название таблицы
+     */
     public function setTable($table) {
         self::$table = $table;
     }
