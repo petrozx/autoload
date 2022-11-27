@@ -7,7 +7,8 @@ class DB
     public static $connect;
     private static $table;
 
-    public function __construct() {
+    public function __construct()
+    {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $connect = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if ($connect->connect_errno) {
@@ -20,11 +21,13 @@ class DB
     /**
      * Метод задает название таблицы
      */
-    public function setTable($table) {
+    public function setTable($table)
+    {
         self::$table = $table;
     }
 
-    public function getRows() {
+    public function getRows(): array
+    {
         $query = self::$connect->query("SELECT * FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
             $arr[] = $row;
@@ -32,7 +35,8 @@ class DB
         return $arr?:[];
     }
 
-    public function getFilterRows($filter) {
+    public function getFilterRows($filter): array
+    {
         $query = self::$connect->query("SELECT * FROM ".self::$table." WHERE ". $filter);
         while ($row = $query->fetch_assoc()) {
             $arr[] = $row;
@@ -40,7 +44,8 @@ class DB
         return $arr?:[];
     }
 
-    private function getColumns() {
+    private function getColumns(): array
+    {
         $names = [];
         $query = self::$connect->query("SHOW COLUMNS FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
@@ -49,7 +54,8 @@ class DB
         return $names;
     }
 
-    public function saveRows($arr) {
+    public function saveRows($arr)
+    {
         $names = $this->getColumns();
         $deleteID = array_search('id', $names);
         unset($names[$deleteID]);
@@ -74,21 +80,25 @@ class DB
         return $result;
     }
 
-    public function isOnline($user) {
+    public function isOnline($user)
+    {
         return self::$connect->query("UPDATE `users` SET `date_update` = ".time()." WHERE `users`.`id` = ".$user);
     }
 
-    public function createTable($columns) {
+    public function createTable($columns)
+    {
         $prepareNames = array_map(function($e){ return $e." TEXT"; }, $columns);
         $prepareNames = implode(",", $prepareNames);
         $query = self::$connect->query("CREATE TABLE IF NOT EXISTS ". self::$table ." (id INTEGER AUTO_INCREMENT PRIMARY KEY, ". $prepareNames .")");
     }
 
-    public function deleteTable($name) {
+    public function deleteTable($name)
+    {
         return self::$connect->query("DROP TABLE ".$name);
     }
 
-    public function deleteRaw($id) {
+    public function deleteRaw($id)
+    {
         return self::$connect->query("DELETE FROM ".self::$table." WHERE `users`.`id` = ".$id);
     }
 
@@ -122,17 +132,20 @@ class DB
         }
     }
 
-    public function checkTable($name) {
+    public function checkTable($name)
+    {
         $query = self::$connect->query("CHECK TABLE petroz.".$name);
         $row = $query->fetch_assoc();
         return $row['Msg_text'];
     }
 
-    public function close_connection() {
+    public function close_connection()
+    {
         self::$connect->close();
     }
 
-    public function chatsWithMe($id){
+    public function chatsWithMe($id)
+    {
         $query = self::$connect->query("SELECT users.id, users.name FROM `users` INNER JOIN chat ON
         what_a_chat=users.id OR chat.author=users.id WHERE what_a_chat={$id} AND users.id!={$id} OR chat.author={$id} AND users.id!={$id}");
         while ($row = $query->fetch_assoc()) {
@@ -146,7 +159,8 @@ class DB
             return $result;
     }
 
-    private function array_unique_key($array, $key) {
+    private function array_unique_key($array, $key): array
+    {
         $tmp = $key_array = array();
         $i = 0;
         foreach($array as $val) {
@@ -159,7 +173,8 @@ class DB
         return $tmp;
     }
 
-    public function has_newMessage($id) {
+    public function has_newMessage($id): bool
+    {
         $query = self::$connect->query("SELECT * FROM `users` INNER JOIN chat ON what_a_chat=users.id OR chat.author=users.id WHERE chat.is_read=0 AND chat.what_a_chat=".$id);
         $res = $query->fetch_assoc();
         if (empty($res))
