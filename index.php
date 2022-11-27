@@ -32,6 +32,7 @@ $opt = [
 ];
 try {
     $pdo = new PDO($dsn, DB_USER, DB_PASS, $opt);
+    var_dump($pdo);
 }
 catch (PDOException $e) {
         die('Подключение не удалось: ' . $e->getMessage());
