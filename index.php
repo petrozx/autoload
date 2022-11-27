@@ -17,14 +17,14 @@
 //}
 //require_once($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
-$host = '127.0.0.1';
-$db   = 'test';
-$user = 'root';
-$pass = '';
+const DB_HOST = "localhost";
+const DB_USER = "j88864691";
+const DB_PASS = "198719pv";
+const DB_NAME = "j88864691";
+const CLASS_COMPONENT = "class.php";
 $charset = 'utf8';
 
-$dsn = "mysql:host=${DB_HOST};dbname=${DB_NAME};charset=$charset";
+$dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=$charset";
 $opt = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
