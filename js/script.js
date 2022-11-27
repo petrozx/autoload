@@ -1,7 +1,7 @@
 
     const btnLogout = document.getElementById('logout');
     document.querySelectorAll('.nav-link').forEach(function(link){
-        if (link.href == window.location.href || window.location.href.includes('chat') && link.href.includes('chat'))
+        if (link.href === window.location.href || window.location.href.includes('chat') && link.href.includes('chat'))
             link.classList.add('active')
     })
 
@@ -16,7 +16,7 @@
 
     async function onlineAndShow() {
         const resp = await isOnline()
-        if (resp['message'] == true) {
+        if (resp['message'] === true) {
             newMessage.classList.add('message--new')
         } else {
             newMessage.classList.remove('message--new')
@@ -38,7 +38,7 @@
         return response
     }
 
-    if (window.location.href != '/login/register') {
+    if (window.location.href !== '/login/register') {
         setTimeout(async () =>{await onlineAndShow()},500)
         setInterval(onlineAndShow, 30000)
     }
@@ -68,7 +68,7 @@
                 usersSearch.add(user)
             }
         })
-        if (event.target.value == "" || usersSearch.size == 0) {
+        if (event.target.value === "" || usersSearch.size === 0) {
             searchBox.classList.remove('show')
         }
         usersSearch.forEach(name=>creareSearch(name, searchBox))
