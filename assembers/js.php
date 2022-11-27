@@ -1,6 +1,5 @@
 <?
-global $class;
-global $method;
+var_dump($class);
 header("Content-type: application/javascript");
         echo "(async()=>{";
         if(file_exists(ROOT."/js/script.js")) {
