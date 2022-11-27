@@ -21,7 +21,7 @@ Class Router
                     if (function_exists($method)){
                         call_user_func($method);
                     } else {
-//                        throw new Exception();
+                        throw new Exception();
                     }
                     break;
                 case 'js':
@@ -40,18 +40,17 @@ Class Router
                                 call_user_func_array(['Router','getComponents'], [$class, $method, $arResult]);
                                 $content = ob_get_clean();
                             } else {
-//                                throw new Exception();
+                                throw new Exception();
                             }
                         } else {
-//                            throw new Exception();
+                            throw new Exception();
                         }
                     break;
                 default:
-//                    throw new Exception();
+                    throw new Exception();
             }
         } catch (Exception $e) {
-//            throw new Exception('Запрашиваемый ресурс отсутствует');
-            $e->getMessage();
+            throw new Exception('Запрашиваемый ресурс отсутствует');
         }
     }
 
