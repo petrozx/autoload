@@ -19,7 +19,7 @@
 
 const DB_HOST = "localhost";
 const DB_USER = "j88864691";
-const DB_PASS = "198719pv";
+const DB_PASS = "198719pvPV";
 const DB_NAME = "j88864691";
 const CLASS_COMPONENT = "class.php";
 $charset = 'utf8';
