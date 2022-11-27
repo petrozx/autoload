@@ -41,6 +41,7 @@ class DB
     }
 
     private function getColumns() {
+        $names = [];
         $query = self::$connect->query("SHOW COLUMNS FROM ".self::$table);
         while ($row = $query->fetch_assoc()) {
             $names[] = $row['Field'];
@@ -74,8 +75,7 @@ class DB
     }
 
     public function isOnline($user) {
-        $query = self::$connect->query("UPDATE `users` SET `date_update` = ".time()." WHERE `users`.`id` = ".$user);
-        return $query;
+        return self::$connect->query("UPDATE `users` SET `date_update` = ".time()." WHERE `users`.`id` = ".$user);
     }
 
     public function createTable($columns) {
@@ -85,15 +85,16 @@ class DB
     }
 
     public function deleteTable($name) {
-        $query = self::$connect->query("DROP TABLE ".$name);
-        return $query;
+        return self::$connect->query("DROP TABLE ".$name);
     }
 
     public function deleteRaw($id) {
-        $query = self::$connect->query("DELETE FROM ".self::$table." WHERE `users`.`id` = ".$id);
-        return $query;
+        return self::$connect->query("DELETE FROM ".self::$table." WHERE `users`.`id` = ".$id);
     }
 
+    /**
+     * @throws Exception
+     */
     public function updateRaw($id, $fields) {
         try {
             $code = '';
@@ -113,8 +114,7 @@ class DB
             $stmt = self::$connect->prepare("UPDATE ".self::$table." SET {$prepareFieldsKeys} WHERE id=".$id);
             $prepareFields = array_values($fields);
             $stmt->bind_param($code, ...$prepareFields);
-            $result = self::$connect->insert_id;
-            return $result;
+            return self::$connect->insert_id;
         } catch(Exception $e) {
             throw new Exception('Ошибка обновления');
         } finally {
