@@ -13,6 +13,7 @@ try {
 }
 
 $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+var_dump($url);
 if (empty($_SESSION['auth']) && $url !== 'https://'.$_SERVER['HTTP_HOST'].'/login/register') {
     header('Location: https://'.$_SERVER['HTTP_HOST'].'/login/register');
 }
