@@ -50,7 +50,8 @@ Class Router
                     throw new Exception();
             }
         } catch (Exception $e) {
-            throw new Exception('Запрашиваемый ресурс отсутствует');
+//            throw new Exception('Запрашиваемый ресурс отсутствует');
+            $e->getMessage();
         }
     }
 
