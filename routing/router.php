@@ -31,9 +31,9 @@ Class Router
                     $this->getCSS($class);
                     break;
                 case '_':
-                    var_dump('hi');
                     $this->getModules($class);
                     if (class_exists($class)) {
+                        var_dump('hi');
                         $instance = new $class($class);
                             if(is_callable([$instance, $method])) {
                                 $arResult = call_user_func([$instance, $method], $body);
