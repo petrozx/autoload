@@ -31,4 +31,4 @@ $opt = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 $pdo = new PDO($dsn, DB_USER, DB_PASS, $opt);
-var_dump($pdo);
+var_dump("hi");
