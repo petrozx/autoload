@@ -1,5 +1,5 @@
 <?
-//if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
+if ($_SERVER['REQUEST_METHOD'] == 'GET') die();
 function login(){
     if ($_POST['method'] === 'login')
     {
@@ -7,7 +7,7 @@ function login(){
         $db->setTable('users');
         $users = $db->getRows();
         $db->close_connection();
-        if (is_array($users)){
+        if (count($users) > 0){
             foreach ($users as $user) {
                 if ($_POST['email'] === $user['email']){
                     $verify = password_verify($_POST['password'],$user['password']);
