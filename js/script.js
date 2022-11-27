@@ -38,7 +38,7 @@
         return response
     }
 
-    if (window.location.href != 'https://petroz.ru/login/register') {
+    if (window.location.href != '/login/register') {
         setTimeout(async () =>{await onlineAndShow()},500)
         setInterval(onlineAndShow, 30000)
     }
