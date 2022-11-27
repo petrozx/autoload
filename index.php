@@ -17,7 +17,7 @@
 //}
 //require_once($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
 
-const DB_HOST = "mysql.j88864691.myjino.ru";
+const DB_HOST = "localhost";
 const DB_USER = "j88864691";
 const DB_PASS = "198719pv";
 const DB_NAME = "j88864691";
