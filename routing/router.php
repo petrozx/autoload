@@ -20,6 +20,7 @@ Class Router
                     $this->getFileWithFunc($class);
                     if (function_exists($method)){
                         call_user_func($method);
+                        var_dump('hi');
                     } else {
                         throw new Exception();
                     }
