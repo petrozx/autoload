@@ -49,6 +49,6 @@ catch (PDOException $e) {
     }
 
     $pdo->beginTransaction();
-    $sth = $pdo->query("select * from user");
+    $sth = $pdo->query("select * from user where id = 2");
     $user = $sth->fetch();
     $user->getDateCreate();
