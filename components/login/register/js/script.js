@@ -14,7 +14,7 @@
         e.preventDefault()
         const response = await register(form)
         if(response.success){
-            document.location.href = 'https://petroz.ru/'
+            document.location.href = '/'
         }
     })
 
@@ -22,7 +22,7 @@
         e.preventDefault()
         const response = await login(form)
         if(response.success){
-            document.location.href = 'https://petroz.ru/'
+            document.location.href = '/'
         } else {
             form.reset()
             document.querySelector('h1').innerText = 'Данные введены не верно'
