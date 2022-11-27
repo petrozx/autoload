@@ -15,6 +15,4 @@ try {
 } catch (Exception $e) {
     $content = $e->getMessage();
 }
-
-
 require_once($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
