@@ -30,6 +30,11 @@ class User
     private $login;
     private $date_create;
 
+    public function __construct($login)
+    {
+        $this->login = $login;
+    }
+
     public function getDateCreate() {
         echo $this->date_create;
     }
@@ -48,8 +53,10 @@ catch (PDOException $e) {
         die('Подключение не удалось: ' . $e->getMessage());
     }
 
+    $user1 = new User("Petr");
+
     $pdo->beginTransaction();
-    $sth = $pdo->query("select * from user where id = 2");
+    $sth = $pdo->query("insert into user");
     $sth->setFetchMode(PDO::FETCH_CLASS, 'User');
     $user = $sth->fetch();
     $user->getDateCreate();
