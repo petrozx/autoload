@@ -3,6 +3,9 @@
 Class Router
 {
 
+    /**
+     * @throws Exception
+     */
     public function __construct($url)
     {
         require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
@@ -57,11 +60,9 @@ Class Router
         $string = trim(str_replace('/', " ", $url));
         $arr = explode(" ", $string);
         switch ($arr[0]) {
-            case "api":
-                break;
             case "js":
-                break;
             case "css":
+            case "api":
                 break;
             default:
                 array_unshift($arr, "_");
@@ -102,4 +103,3 @@ Class Router
         }
     }
 }
-?>

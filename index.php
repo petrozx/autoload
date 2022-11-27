@@ -16,4 +16,3 @@ if (empty($_SESSION['auth']) && $url !== 'https://'.$_SERVER['HTTP_HOST'].'/logi
     header('Location: https://'.$_SERVER['HTTP_HOST'].'/login/register');
 }
 require_once($_SERVER['DOCUMENT_ROOT'] . '/content/main.php');
-?>
