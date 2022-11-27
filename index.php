@@ -38,7 +38,7 @@ class User
 $dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=$charset";
 $opt = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_CLASS,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::ATTR_DEFAULT_FETCH_MODE,
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 try {
@@ -50,5 +50,6 @@ catch (PDOException $e) {
 
     $pdo->beginTransaction();
     $sth = $pdo->query("select * from user where id = 2");
+    $sth->setFetchMode(PDO::FETCH_CLASS, 'User');
     $user = $sth->fetch();
     $user->getDateCreate();
