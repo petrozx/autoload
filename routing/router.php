@@ -48,7 +48,6 @@ Class Router
                     break;
                 default:
                     throw new Exception();
-                    break;
             }
         } catch (Exception $e) {
             throw new Exception('Запрашиваемый ресурс отсутствует');
