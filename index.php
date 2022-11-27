@@ -3,6 +3,7 @@ header("Cache-control: public");
 header("Expires: " . gmdate("D, d M Y H:i:s", time() + 60*60*24) . " GMT");
 session_start();
 require_once($_SERVER['DOCUMENT_ROOT'] . '/routing/router.php');
+var_dump($_SERVER['REQUEST_URI']);
 try {
     new Router(
         $_SERVER['REQUEST_URI']
