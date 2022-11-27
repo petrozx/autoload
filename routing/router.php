@@ -20,7 +20,6 @@ Class Router
                     $this->getFileWithFunc($class);
                     if (function_exists($method)){
                         call_user_func($method);
-                        var_dump('hi');
                     } else {
                         throw new Exception();
                     }
@@ -32,6 +31,7 @@ Class Router
                     $this->getCSS($class);
                     break;
                 case '_':
+                    var_dump('hi');
                     $this->getModules($class);
                     if (class_exists($class)) {
                         $instance = new $class($class);
