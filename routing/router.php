@@ -38,6 +38,7 @@ Class Router
                                 $arResult = call_user_func([$instance, $method], $body);
                                 ob_start();
                                 call_user_func_array(['Router','getComponents'], [$class, $method, $arResult]);
+                                var_dump("hi");
                                 $content = ob_get_clean();
                             } else {
                                 throw new Exception();
