@@ -24,6 +24,17 @@ const DB_NAME = "j88864691";
 const CLASS_COMPONENT = "class.php";
 $charset = 'utf8';
 
+class User
+{
+    private $id;
+    private $login;
+    private $date_create;
+
+    public function getDateCreate() {
+        echo $this->date_create;
+    }
+}
+
 $dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=$charset";
 $opt = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -32,8 +43,12 @@ $opt = [
 ];
 try {
     $pdo = new PDO($dsn, DB_USER, DB_PASS, $opt);
-    var_dump($pdo);
 }
 catch (PDOException $e) {
         die('Подключение не удалось: ' . $e->getMessage());
     }
+
+    $pdo->beginTransaction();
+    $sth = $pdo->query("select * from user");
+    $user = $sth->fetch();
+    $user->getDateCreate();
