@@ -12,7 +12,7 @@ class DB
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $connect = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if ($connect->connect_errno) {
-            throw new RuntimeException('ошибка соединения с БД: ' . $connect->connect_error);
+            throw new RuntimeException('Ошибка соединения с БД: ' . $connect->connect_error);
         }
         $connect->set_charset('utf8mb4');
         self::$connect = $connect;
