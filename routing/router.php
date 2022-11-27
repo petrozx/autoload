@@ -11,6 +11,7 @@ Class Router
         require_once($_SERVER['DOCUMENT_ROOT'] . '/config.php');
         global $class;
         global $method;
+        global $content;
         [$action, $class, $method, $body] = $this->parseURL($url);
         $class = $class?:'index';
         $method = $method?:'index';
@@ -38,7 +39,7 @@ Class Router
                                 $arResult = call_user_func([$instance, $method], $body);
                                 ob_start();
                                 call_user_func_array(['Router','getComponents'], [$class, $method, $arResult]);
-                                $GLOBALS['content'] = ob_get_clean();
+                                $content = ob_get_clean();
                             } else {
                                 throw new Exception();
                             }
