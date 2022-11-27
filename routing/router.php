@@ -40,7 +40,7 @@ Class Router
                                 call_user_func_array(['Router','getComponents'], [$class, $method, $arResult]);
                                 var_dump("hi");
                                 $content = ob_get_clean();
-                                exit(0);
+                                var_dump($content);
                             } else {
                                 throw new Exception();
                             }
